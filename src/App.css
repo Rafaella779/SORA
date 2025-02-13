@@ -29,8 +29,8 @@ h1 {
   width: 600px !important;
 }
 .b-form{
-  border: 3px solid black;
-  border-radius: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 .h-1{
   height: 600px;
@@ -82,4 +82,22 @@ h1 {
  color: red !important;
  outline-color: black !important;
  border-color: black !important;
+}
+.min-h-300{
+  min-height: 300px;
+}
+.height-300{
+  height: 300px !important;
+}
+.max-h-300{
+  max-height: 300px !important;
+}
+
+
+.border-3px {
+  border: 3px solid black;
+}
+
+.aboutUsPic {
+  max-width: 200px;
 }
