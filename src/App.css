@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+* {
+  padding: 5px;
+  margin: 5px;
+  box-sizing: border-box;
+}
+
+.cinzel-decorative {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 50px !important;
+}
+
+.c-red {
+  color: deepskyblue;
+}
+
+.f-80 {
+  font-size: 80px !important;
+}
+.maxw-100{
+  max-width: 100px !important;
+}
+.w-600{
+  width: 600px !important;
+}
+.b-form{
+  border: 3px solid black;
+  border-radius: 10px;
+}
+.h-1{
+  height: 600px;
+}
+.h-2{
+  height: 100px;
+}
+.bg-1{
+  background-color: #82CAFF;
+}
+.bg-2{
+  background-color: #D9D9D9;
+}
+.bg-3{
+  background-color: #CCDBE9;
+}
+.bg-4{
+  background-color: #27AAE1;
+}
+.bg-5{
+  background-color: #004AAD;
+}
+.bg-6{
+  background-color: #2CBEC4;
+}
+.bg-7{
+  background-color: #48CAE4;
+}
+.color-1{
+  color: #FFFFFF !important;
+}
+.color-2{
+  color: #D9D9D9 !important;
+}
+.color-3{
+  color: #darkred;
+}
+
+.color-n{
+  color: None !important;
+}
+
+.bg-n{
+  background-color: none !important
+}
+
+.transparent-btn{
+ background-color: white !important;
+ color: red !important;
+ outline-color: black !important;
+ border-color: black !important;
+}

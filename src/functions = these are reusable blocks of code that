@@ -1,0 +1,6 @@
+functions = these are reusable blocks of code that takes in input and may or may not return an output
+
+void add(int a, int b) {
+	double x = a + b;
+	return;
+}
