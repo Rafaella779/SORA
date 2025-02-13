@@ -83,9 +83,30 @@ h1 {
  outline-color: black !important;
  border-color: black !important;
 }
+
+.min-h-300{
+  min-height: 300px;
+}
+.height-300{
+  height: 300px !important;
+}
+.max-h-300{
+  max-height: 300px !important;
+}
+
+
+.border-3px {
+  border: 3px solid black;
+}
+
+.aboutUsPic {
+  max-width: 200px;
+}
+
 .min-height-50{
-  min-height: 50;
+  min-height: 50px;
 }
 .height-500{
-  height: 500;
+  height: 500px;
 }
+

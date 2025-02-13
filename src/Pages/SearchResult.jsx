@@ -11,6 +11,7 @@ export default function SearchResult() {
             Views: "35,000",
          }
      ]
+      
 
       let tableData = studentData.map(x => {
       	return(
