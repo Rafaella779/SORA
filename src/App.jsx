@@ -11,6 +11,7 @@ import  UserDashboard from './Pages/UserDashboard.jsx';
 import  RegisterT from './Pages/RegisterT.jsx'
 import  RegisterS from './Pages/Registers.jsx' 
 import  AboutUs from './Pages/AboutUs.jsx' 
+import  Upload from './Pages/Upload.jsx'
 import Swal from 'sweetalert2'; 
 import {Routes, Route} from 'react-router'
 
@@ -27,6 +28,7 @@ function App() {
         <Route path="RegisterS" element={<RegisterS/>} />
         <Route path="UserDashboard" element={<UserDashboard/>} />
          <Route path="RegisterT" element={<RegisterT/>} />
+           <Route path="Upload" element={<Upload/>} />
       </Route>
     </Routes>
     </>

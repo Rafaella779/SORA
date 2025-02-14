@@ -15,16 +15,17 @@ export default function Register() {
 		setFormReturn(<RegisterStudent />)
 	}
 
-	return(<div className="d-flex flex-column p-5">
+	return(
+		<div>
 		{
 			(formReturn == null) ?
-				<>
+				<div>
 					<h1>Register Page</h1>
-					<div className="d-flex gap-1">
+					<div>
 						<Button onClick={handleTeacher}>Teacher</Button>
 						<Button onClick={handleStudent}>Student</Button>
 					</div>
-				</>
+				</div>
 				: <></>
 			}
 			<div className="w-25 mt-5">
@@ -155,7 +156,10 @@ function RegisterStudent() {
 		<>
 			<h1>Register Student</h1>
 			<Form>
-				{(page == 1 ? p1() : (page == 2) ? p2() : p3())}
+
+				<div>
+						{(page == 1 ? p1() : (page == 2) ? p2() : p3())}
+				</div>
 				<div className="d-flex gap-1 mt-3">
 					{(page == 1) ? <></> : <Button onClick={handlePrev}>Previous</Button>}
 					{(page == 3) ? <></> : <Button onClick={handleNext}>Next</Button>}
@@ -180,10 +184,13 @@ function RegisterTeacher() {
 	const [SchoolID, setSchoolID] = useState("")
 	const [ID, setID] = useState("")
 	const [isresearchTeacher, setisresearchTeacher] = useState("")
-	const [isChecker, setisChecker] = useState("")
+	//const [isChecker, setisChecker] = useState("")
+	const [numberofResearch, setnumberofResearch] = useState("")
+	const [category, setcategory] = useState("")
+	const [educationalDegree, seteducationalDegree] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/user/createUser`, {
+		fetch(`https://sora-q8wl.onrender.com/teacher/createTeacher`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
@@ -196,7 +203,10 @@ function RegisterTeacher() {
 				schoolID: SchoolID,
 				ID: ID,
 				isresearchTeacher: isresearchTeacher,
-				isChecker: isChecker,
+				//isChecker: isChecker,
+				numberofResearch: numberofResearch,
+				category: category,
+				educationalDegree: educationalDegree,
 			})
 		}).then(result => result.json()).then(result => {
 			if(result.error){
@@ -231,14 +241,16 @@ function RegisterTeacher() {
 	}
 
 	function p1()  {
-		return (<Form.Group>
+		return (
+				<Form.Group>
 				<Form.Label>Username</Form.Label>
 				<Form.Control onChange={(e) => {setUsername(e.target.value); console.log(username)}} value={username}/>
 				<Form.Label>Email address</Form.Label>
 				<Form.Control type="email" onChange={e => setEmail(e.target.value)} value={email}/>
 				<Form.Label>Password </Form.Label>
 				<Form.Control type="password" onChange={e => setPassword(e.target.value)} value={password}/>
-		</Form.Group>)
+		</Form.Group>
+		)
 	} 
 
 	function p2() {
@@ -256,7 +268,7 @@ function RegisterTeacher() {
 
 	function p3() { 
 		return (
-			<Form.Group>
+			<Form.Group className="justify-content-center">
 			<Form.Label>School Name</Form.Label>
 				<Form.Control onChange={e => setSchoolName(e.target.value)} value={SchoolName}/>
 				<Form.Label> ID </Form.Label>
@@ -265,8 +277,11 @@ function RegisterTeacher() {
 				<Form.Control  onChange={e => setSchoolID(e.target.value)} value={SchoolID}/>
 				<Form.Label>Are you A Research Teacher</Form.Label>
 				<Form.Control  onChange={e => setisresearchTeacher(e.target.value)} value={isresearchTeacher}/>
-				<Form.Label> Can You Check Reaserch Paper</Form.Label>
-				<Form.Control  onChange={e => setisChecker(e.target.value)} value={isChecker}/>
+				<Form.Label>Educational Degree</Form.Label>
+				<Form.Control  onChange={e => seteducationalDegree(e.target.value)} value={educationalDegree}/>
+				<Form.Label>Educational Degree</Form.Label>
+				<Form.Control  onChange={e => setnumberofResearch(e.target.value)} value={numberofResearch}/>
+			
 			</Form.Group>
 		)
 	}

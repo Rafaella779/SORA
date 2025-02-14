@@ -83,3 +83,12 @@ h1 {
  outline-color: black !important;
  border-color: black !important;
 }
+
+.container{
+  display: flex;
+  flex-direction: row;
+  max-height: wrap;
+  align-content: flex-start;
+  justify-content: space-evenly;
+  padding: 2px;
+}
