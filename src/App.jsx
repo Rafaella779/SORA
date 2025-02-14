@@ -27,6 +27,10 @@ function App() {
         <Route path="RegisterS" element={<RegisterS/>} />
         <Route path="UserDashboard" element={<UserDashboard/>} />
         <Route path="RegisterT" element={<RegisterT/>} />
+<<<<<<< HEAD
+=======
+        <Route path="AboutUs" element={<AboutUs/>} />
+>>>>>>> 5d24bd0172703e86085321d456ebb7be192c79df
       </Route>
     </Routes>
     </>
