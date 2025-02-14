@@ -1,13 +1,20 @@
+import {useState, useEffect} from 'react';
 import React from "react";
 import {Form, Container, Nav, Navbar, NavDropdown, Button,} from 'react-bootstrap'
+
 export default function UserDashboard() {
 
-	return ( 
+
+	return(
+
 		<div>
-			<div className="b-form bg-4" expand="lg">
-				<Navbar className="b-form bg-3">
+
+		<div className="cinzel-decorative d-flex align-item-begin">
+			    	<h1>SORA</h1>
+			    </div>
+			<div expand="lg" >
+				<Navbar className="border-3px">
 			      <Container fluid>
-			        <Navbar.Brand href="#">SORA</Navbar.Brand>
 			        <Navbar.Toggle aria-controls="navbarScroll" />
 			        <Navbar.Collapse id="navbarScroll">
 			          <Nav
@@ -36,35 +43,38 @@ export default function UserDashboard() {
 				            <Button variant="primary">Search</Button>
           			</Form>
 			    </Navbar>
-			</div>
-				<div className="col-1 b-form bg-4 w-500 b-form">
-					<Nav className="b-form bg-3">
-						<Nav.Link href="#action1">UserName</Nav.Link>
+			</div> 
+
+				 <div className="container border-3px"></div>
+				<div className="col-1">
+
+					<Nav className="border-3px">
+						<Nav.Link href="#action1">User</Nav.Link>
 						<Nav.Link href="#action2">SchoolName</Nav.Link>
-						<Nav.Link href="#action3">SchoolID</Nav.Link>
-						<Nav.Link href="#action4">LRN</Nav.Link>
+						<Nav.Link href="#action3">School ID</Nav.Link>
+						<Nav.Link href="#action4">ID</Nav.Link>
 						<Nav.Link href="#action5">Birthdate</Nav.Link>
-						<Nav.Link href="#action6">Email</Nav.Link>
-						<Nav.Link href="#action7">Notification</Nav.Link>
-						<Nav.Link href="#action8">Works</Nav.Link>
+						<Nav.Link href="#action6">LRN</Nav.Link>
+						<Nav.Link href="#action7">Email</Nav.Link>
+						<Nav.Link href="#action8">Papers</Nav.Link>
 						<h3>__________</h3>
-						<Nav.Link href="action9">About us</Nav.Link>
+						<Nav.Link href="#action9">About us</Nav.Link>
+						<Nav.Link href="#action10">Contact us</Nav.Link>
 					</Nav>
+				</div>
+				<div>
+					<h3  className="d-flex justify-content-center align-items-center">Welcome User</h3>
+					<p className="d-flex justify-content-center align-items-center">SORA</p>
+				</div>
 
-				<div class="row">
-					<div class="col-6 d-flex justify-content-center align-items-center">
+				<div className="d-flex">
+					<div className="border-3px col">
+						<Form className="w-500"></Form>
 					</div>
-					<div className="col-5 row w-500 b-form" expand="lg">
-					<h2 className="d-flex justify-content-center align-items-center">New Here?</h2>
-					<h6 className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</h6>
 				</div>
-			</div>
 
-				</div>
-				
 		</div>
-				
-
 	)
-
 }
+
+	

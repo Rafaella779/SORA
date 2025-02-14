@@ -109,4 +109,11 @@ h1 {
 .height-500{
   height: 500px;
 }
-
+.container{
+  display: flex;
+  flew-direction: row;
+  max-height: wrap;
+  align-content: flew-start;
+  justify-content: space-evenly;
+  padding: 2px;
+}
