@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import { Button, Form, Container, Nav, Navbar, NavDropdown, Card } from 'react-bootstrap'
+import { Button, Form, Card } from 'react-bootstrap'
 import Swal from 'sweetalert2'
 export default function ContactUs() {
 
@@ -50,35 +50,6 @@ export default function ContactUs() {
 	return ( 
 		<div>
 			<div>
-				<Navbar className="border-2px">
-			      <Container fluid>
-			        <Navbar.Brand href="#" className="cinzel-decorative">SORA</Navbar.Brand>
-			        <Navbar.Toggle aria-controls="navbarScroll" />
-			        <Navbar.Collapse id="navbarScroll">
-			          <Nav
-			            className="me-auto my-2 my-lg-0"
-			            navbarScroll
-			          >
-			            <Nav.Link href="#action1">Account</Nav.Link>
-			            <Nav.Link href="#action2">Home</Nav.Link>
-			            <Nav.Link href="#action3">Features</Nav.Link>
-			            <Nav.Link href="#action4">Help & Support</Nav.Link>
-			            <Nav.Link href="#action5">Setting</Nav.Link>
-			          </Nav>
-				          <Form className="d-flex gap-3">
-				          <Nav.Link href="#action6">LogIn</Nav.Link>
-				          <Nav.Link href="#action7">SignIn</Nav.Link>
-			            <Form.Control
-			              type="search"
-			              placeholder="Search"
-			              className="me-2"
-			              aria-label="Search"
-			            />
-			            <Button>Search</Button>
-			          </Form>
-			        </Navbar.Collapse>
-			      </Container>
-			    </Navbar>
 				<div>
 					<h3 className="d-flex justify-content-center align-items-center">Contact us</h3>
 					<p className="d-flex justify-content-center align-items-center">SORA is ready to provide the rigth solution according to your needs.</p>
@@ -86,24 +57,15 @@ export default function ContactUs() {
 			</div>
 			<div>
 				<div className="d-flex">
-					<div className="border-2px col">
+					<div className="border-2px col p-4">
 						<h4>Get In Touch</h4>
 						<p>Get in touch and let us know how we can help.</p>
-						<div className="d-flex gap-5">
-							<div>
-								<StudentCard picLink="https://www.svgrepo.com/show/472750/phone.svg" name="Phone" item="09273411314"/>
-							</div>
-							<div>
-								<StudentCard picLink="https://tse4.mm.bing.net/th?id=OIP.SV72EbhM23iKCGSWnYEwRAHaHa&pid=Api&P=0&h=220" name="Email" item="gillyjeand@gmail.com"/>
-							</div>
-						</div>
-						<div className="d-flex gap-5">
-							<div>
-								<StudentCard picLink="https://up.yimg.com/ib/th?id=OIP.bFRSXMeNFRTpPBei_ifTFQHaHa&pid=Api&rs=1&c=1&qlt=95&w=124&h=124" name="Location" item="Brgy. Cogon Juban Sor."/>
-							</div>
-							<div>
-								<StudentCard picLink="https://tse2.mm.bing.net/th?id=OIP.z249RPSD-cfVfuC2OOLSOgHaHa&pid=Api&P=0&h=220" name="Facebook" item="Rafaella Sabenorio"/>
-							</div>
+						<div className="d-flex  flex-wrap">
+								<StudentCard picLink="https://www.svgrepo.com/show/472750/phone.svg" name="Phone" item="09634112627"/>
+								<StudentCard picLink="https://tse4.mm.bing.net/th?id=OIP.SV72EbhM23iKCGSWnYEwRAHaHa&pid=Api&P=0&h=220" name="Email" item="leishagrutas@gmail.com"/>
+								<StudentCard picLink="https://up.yimg.com/ib/th?id=OIP.bFRSXMeNFRTpPBei_ifTFQHaHa&pid=Api&rs=1&c=1&qlt=95&w=124&h=124" name="Location" item="Brgy. Cogon Juban Sorsogon"/>
+								<StudentCard picLink="https://tse2.mm.bing.net/th?id=OIP.z249RPSD-cfVfuC2OOLSOgHaHa&pid=Api&P=0&h=220" name="Facebook" item="Leisha Gruta1"/>
+							
 						</div>
 					</div>
 					<div className="border-2px d-flex">
@@ -132,14 +94,16 @@ export default function ContactUs() {
 }
 
 function StudentCard({picLink, name, item}){
-	return(<>
-		<div className="p-2 d-flex align-items-center aboutUsCard h-auto ">
+	return(
+		<div className="p-2 d-flex align-items-center  col ">
 			<div className="d-flex">
 				<img src={picLink} alt="" className="aboutUsPic" />
 			</div>
-			<h6 className="p-2 d-flex text-center">{name}</h6>
-			<h6 className="p-2 d-flex text-center">{item}</h6>
+			<div>
+				<h6 className="m-0 p-1 d-flex text-center">{name}</h6>
+				<h6 className="m-0 p-1 d-flex text-center">{item}</h6>
+			</div>
 		</div>
 
-	</>)
+	)
 }

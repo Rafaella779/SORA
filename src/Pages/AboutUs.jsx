@@ -1,42 +1,13 @@
 import React from "react";
-import {Form, Container, Nav, Navbar, NavDropdown, Button, Card} from 'react-bootstrap'
+import { Button, Card} from 'react-bootstrap'
 export default function AboutUs() {
 
 	return ( 
 		<div>
 			<div>
-				<Navbar className="border-2px">
-			      <Container fluid>
-			        <Navbar.Brand href="#" className="cinzel-decorative">SORA</Navbar.Brand>
-			        <Navbar.Toggle aria-controls="navbarScroll" />
-			        <Navbar.Collapse id="navbarScroll">
-			          <Nav
-			            className="me-auto my-2 my-lg-0"
-			            navbarScroll
-			          >
-			            <Nav.Link href="#action1">Account</Nav.Link>
-			            <Nav.Link href="#action2">Home</Nav.Link>
-			            <Nav.Link href="#action3">Features</Nav.Link>
-			            <Nav.Link href="#action4">Help & Support</Nav.Link>
-			            <Nav.Link href="#action5">Setting</Nav.Link>
-			          </Nav>
-				          <Form className="d-flex gap-3">
-				          <Nav.Link href="#action6">LogIn</Nav.Link>
-				          <Nav.Link href="#action7">SignIn</Nav.Link>
-			            <Form.Control
-			              type="search"
-			              placeholder="Search"
-			              className="me-2"
-			              aria-label="Search"
-			            />
-			            <Button>Search</Button>
-			          </Form>
-			        </Navbar.Collapse>
-			      </Container>
-			    </Navbar>
-			<div>
-				<h3 className="d-flex justify-content-center align-items-center">About us</h3>
-			</div>
+				<div>
+					<h3 className="d-flex justify-content-center align-items-center">About us</h3>
+				</div>
 			</div>
 			<div>
 				<div className="d-flex justify-content-center align-items-center">

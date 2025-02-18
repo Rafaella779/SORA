@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import { Button, Form, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Button, Form, Container} from 'react-bootstrap'
 import Swal from 'sweetalert2'
 export default function Login() {
 
@@ -48,35 +48,6 @@ export default function Login() {
 
 	return(
 		<div>
-			<Navbar className="border-2px">
-			    <Container fluid>
-			        <Navbar.Brand href="#" className="cinzel-decorative">SORA</Navbar.Brand>
-			        <Navbar.Toggle aria-controls="navbarScroll" />
-			        <Navbar.Collapse id="navbarScroll">
-			          <Nav
-				            className="me-auto my-2 my-lg-0"
-				            navbarScroll
-				          >
-				            <Nav.Link href="#action1">Account</Nav.Link>
-				            <Nav.Link href="#action2">Home</Nav.Link>
-				            <Nav.Link href="#action3">Features</Nav.Link>
-				            <Nav.Link href="#action4">Help & Support</Nav.Link>
-				            <Nav.Link href="#action5">Setting</Nav.Link>
-			          </Nav>
-				      	<Form className="d-flex gap-3">
-						    <Nav.Link href="#action6">LogIn</Nav.Link>
-						    <Nav.Link href="#action7">SignIn</Nav.Link>
-					        <Form.Control
-					            type="search"
-					            placeholder="Search"
-					            className="me-2"
-					            aria-label="Search"
-					        />
-					        <Button>Search</Button>
-			          	</Form>
-			        </Navbar.Collapse>
-			    </Container>
-			</Navbar>
 			<div class="row">
 				<div class="col-6 d-flex justify-content-center align-items-center">
 					<div>
