@@ -3,20 +3,19 @@ import { Form, Button, Table,} from 'react-bootstrap';
 import Swal from 'sweetalert2'
 export default function IndividualSearchResult() {
 
-      const [email, setEmail] = useState("")
-      const [Name, setName] = useState("")
-      const [phone, setPhone] = useState("")
-      const [Message, setMessage] = useState("")
+      const [author, setAuthor] = useState("")
+      const [title, setTitle] = useState("")
+      const [date, setDate] = useState("")
+      const [abstract, setAbstract] = useState("")
+      const [contact, setContact] = useState("")
+      const [educationalLevel, setEducationalLevel] = useState("")
 
       const handleSubmit = () => {
             fetch(`https://sora-q8wl.onrender.com/user/createUser`, {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({
-                        e: email,
                         n: Name,
-                        ph: phone,
-                        m: Message,
                         
                   })
             }).then(result => result.json()).then(result => {
@@ -37,10 +36,13 @@ export default function IndividualSearchResult() {
                         }).then(result => {
                               let l = localStorage;
                               console.log(res);
-                              l.setItem('t', res.t);
-                              l.setItem('u', res.t);
-                              l.setItem('a', res.t);
-                              l.setItem('n', res.t);
+                              setAuthor(res.name);
+                              setTitle(res.title);
+                              setDate(res.setDate);
+                              setAbstract(res.abstract);
+                              setContact(res.contact);
+                              setEducationalLevel(res.educationalLevel);
+
                         })
 
                   }
@@ -62,6 +64,17 @@ export default function IndividualSearchResult() {
                                     </Form.Group>
                               </Form>
                          </div>
+                  </div>
+                  <div className="border-2px col p-4">
+                        <div className="border-2px col p-4">
+                              title and author and date
+                        </div>
+                        <div className="border-2px col p-4">
+                             Abstract 
+                        </div>
+                        <div className="border-2px col p-4">
+                              contact and educational level  
+                        </div>
                   </div>
             </div>
       )

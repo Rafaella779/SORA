@@ -32,14 +32,8 @@ export default function Login() {
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
-					l.setItem('t', res.t);
-					l.setItem('u', res.t);
-					l.setItem('a', res.t);
-					l.setItem('n', res.t);
-					l.setItem('i', res.t);
-					l.setItem('x', res.t);
-					l.setItem('b', res.t);
-					l.setItem('s', res.t);
+					setUsername(res.username);
+                    setPassword(res.password);
 				})
 
 			}

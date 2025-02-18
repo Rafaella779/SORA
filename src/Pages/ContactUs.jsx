@@ -37,10 +37,11 @@ export default function ContactUs() {
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
-					l.setItem('t', res.t);
-					l.setItem('u', res.t);
-					l.setItem('a', res.t);
-					l.setItem('n', res.t);
+                    setEmail(res.email);
+                    setName(res.Name);
+                    setPhone(res.phone);
+                    setMessage(res.Message);
+
 				})
 
 			}

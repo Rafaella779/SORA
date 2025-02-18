@@ -16,7 +16,7 @@ export default function MyNavbar(){
 				    	<Nav.Link href="#action4">Library</Nav.Link>
 				    	<Nav.Link href="#action5">History</Nav.Link>
 				    	<Nav.Link href="About us">
-				    	About us
+				    		About us
 				    	</Nav.Link>
 				    	</Nav>
 				    </Navbar.Collapse>

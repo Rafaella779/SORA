@@ -3,7 +3,10 @@ import { Form, Button, Table,} from 'react-bootstrap';
 import Swal from 'sweetalert2'
 export default function SearchResult() {
 
-      const [author, setMessage] = useState("")
+      const [author, setAuthor] = useState("")
+      const [title, setTitle] = useState("")
+      const [abstract, setAbstract] = useState("")
+      const [views, setViews] = useState("")
 
       const handleSubmit = () => {
             fetch(`https://sora-q8wl.onrender.com/user/createUser`, {
@@ -13,9 +16,9 @@ export default function SearchResult() {
                         e: email,
                         
                   })
-            }).then(result => result.json()).then(result => {
+            }).then(result => result.json()).then(res => {
                   if(result.error){
-                        console.log(result)
+                        console.log(res)
                         Swal.fire({
                               icon: "error",
                               title: "invalid Credentials",
@@ -31,10 +34,10 @@ export default function SearchResult() {
                         }).then(result => {
                               let l = localStorage;
                               console.log(res);
-                              l.setItem('t', res.t);
-                              l.setItem('u', res.t);
-                              l.setItem('a', res.t);
-                              l.setItem('n', res.t);
+                              setAuthor(res.name);
+                              setTitle(res.title);
+                              setAbstract(res.abstract);
+                              setViews(res.views);
                         })
 
                   }
