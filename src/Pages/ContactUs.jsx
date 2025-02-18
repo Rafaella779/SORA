@@ -138,7 +138,7 @@ function StudentCard({picLink, name, item}){
 				<img src={picLink} alt="" className="aboutUsPic" />
 			</div>
 			<h6 className="p-2 d-flex text-center">{name}</h6>
-			<h6 className="p-2 flex-column">{item}</h6>
+			<h6 className="p-2 d-flex text-center">{item}</h6>
 		</div>
 
 	</>)
