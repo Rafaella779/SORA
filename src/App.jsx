@@ -12,6 +12,7 @@ import  RegisterT from './Pages/RegisterT.jsx'
 import  RegisterS from './Pages/Registers.jsx' 
 import  ContactUs from './Pages/ContactUs.jsx' 
 import  AboutUs from './Pages/AboutUs.jsx' 
+import  IndividualSearchResult from './Pages/IndividualSearchResult.jsx' 
 import Swal from 'sweetalert2'; 
 import {Routes, Route} from 'react-router'
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="ContactUs" element={<ContactUs/>} />
         <Route path="HomePage" element={<HomePage/>} />
         <Route path="SearchResult" element={<SearchResult/>} />
+        <Route path="IndividualSearchResult" element={<IndividualSearchResult/>} />
       </Route>
     </Routes>
     </>
