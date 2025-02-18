@@ -1,19 +1,16 @@
-import {useState, useEffect} from 'react';
 import React from "react";
-import {Form, Container, Nav, Navbar, NavDropdown, Button,} from 'react-bootstrap'
+import {Form, Container, Nav, Navbar, NavDropdown, Button} from 'react-bootstrap'
+import {useState, useEffect} from 'react';
 
 export default function UserDashboard() {
-	
 
-	return(
-
-		<div>
-
-		<div className="border-3px">
-			<Navbar>
+	function p1()  {
+		
+		<div className="height-500">
+				<Navbar className="height-500 b-form">
 			      <Container fluid>
-			        <Navbar.Toggle aria-controls="navbarScroll" />
 			        <Navbar.Brand href="#" className="cinzel-decorative">SORA</Navbar.Brand>
+			        <Navbar.Toggle aria-controls="navbarScroll" />
 			        <Navbar.Collapse id="navbarScroll">
 			          <Nav
 			            className="me-auto my-2 my-lg-0"
@@ -28,52 +25,94 @@ export default function UserDashboard() {
 				          <Form className="d-flex gap-3">
 				          <Nav.Link href="#action6">LogIn</Nav.Link>
 				          <Nav.Link href="#action7">SignIn</Nav.Link>
+			            <Form.Control
+			              type="search"
+			              placeholder="Search"
+			              className="me-2"
+			              aria-label="Search"
+			            />
+			            <Button>Search</Button>
 			          </Form>
 			        </Navbar.Collapse>
 			      </Container>
-			      	<Form className="d-flex">
-				            <Form.Control
-				              type="search"
-				              placeholder="Search"
-				              className="me-2"
-				              aria-label="Search"
-				            />
-				            <Button variant="primary">Search</Button>
-          			</Form>
 			    </Navbar>
-			</div> 
-				<div className="d-flex">
-					<div className="border-3px col">
-						<h1>Hello Admin!</h1>
-							<div className="d-flex gap-5">
-								<Nav>
-									<Nav.Link href="#action1">User</Nav.Link>
-									<Nav.Link href="#action2">SchoolName</Nav.Link>
-									<Nav.Link href="#action3">School ID</Nav.Link>
-									<Nav.Link href="#action4">ID</Nav.Link>
-									<Nav.Link href="#action5">Birthdate</Nav.Link>
-									<Nav.Link href="#action6">LRN</Nav.Link>
-									<Nav.Link href="#action7">Email</Nav.Link>
-									<Nav.Link href="#action8">Papers</Nav.Link>
-									<h3>__________</h3>
-									<Nav.Link href="#action9">About us</Nav.Link>
-									<Nav.Link href="#action10">Contact us</Nav.Link>
-								</Nav>
-							</div>
-							<div className="border-3px d-flex">
-								<div>
-									<Form className="w-600">
-										<h1>Hatdog</h1>
-										<p>
-											jafuhdyksgfukydsvgb8sirtguv
-										</p>
-									</Form>
-									
-								</div>
-							</div>
-					</div>
+			<div>
+				<h3 className="d-flex justify-content-center align-items-center">About us</h3>
 			</div>
-	)
-}
+			</div>
+		return (<Form.Group>
+				<Form.Label>Username</Form.Label>
+				<Form.Control onChange={(e) => {setUsername(e.target.value); console.log(username)}} value={username}/>
+				<Form.Label>Email address</Form.Label>
+				<Form.Control type="email" onChange={e => setEmail(e.target.value)} value={email}/>
+				<Form.Label>Password </Form.Label>
+				<Form.Control type="password" onChange={e => setPassword(e.target.value)} value={password}/>
+		</Form.Group>)
+	} 
+
+	function p2() {
+		return (<Form.Group>
+				<Form.Label>First Name </Form.Label>
+				<Form.Control  onChange={e => setfname(e.target.value)} value={fname}/>
+				<Form.Label>Last Name </Form.Label>
+				<Form.Control  onChange={e => setlname(e.target.value)} value={lname}/>
+				<Form.Label>BirthDate</Form.Label>
+				<Form.Control  onChange={e => setbirthdate(e.target.value)} value={birthdate}/>
+			</Form.Group>)
+	} 
 
 	
+
+	function p3() { 
+		return (
+			<Form.Group>
+			<Form.Label>School Name</Form.Label>
+				<Form.Control onChange={e => setSchoolName(e.target.value)} value={SchoolName}/>
+				<Form.Label>Lrn</Form.Label>
+				<Form.Control  onChange={e => setlrn(e.target.value)} value={lrn}/>
+				<Form.Label>ID</Form.Label>
+				<Form.Control  onChange={e => setID(e.target.value)} value={ID}/>
+				<Form.Label>School ID</Form.Label>
+				<Form.Control  onChange={e => setSchoolID(e.target.value)} value={SchoolID}/>
+			</Form.Group>
+		)
+	}
+}
+function DashboardStudent(){
+		<div className="d-flex">
+			<div className="d-flex border-3px">
+						<div className="col">
+							<h4>Hello Admin!</h4>	
+							<div className="d-flex">
+								<div>
+									<Nav.Link href="#action1">Account</Nav.Link>
+								</div>				
+						</div>
+						<div className="d-flex ">
+							<div>
+								<Nav.Link href="#action1">Email</Nav.Link>
+							</div>
+						</div>
+						<div className="d-flex ">
+							<div>
+								<Nav.Link href="#action1">Bookmarked</Nav.Link>
+							</div>
+						</div>
+						<div className="d-flex ">
+							<div>
+								<Nav.Link href="#action1">Library</Nav.Link>
+							</div>
+						</div>
+						<div className="d-flex">
+							<div>
+								<Nav.Link href="#action1">Settings</Nav.Link>
+							</div>
+						</div>
+				    </div>
+				</div>
+				<div className="d-flex border-3px w-600 align-text-center gap-5">
+					<div className="d-flex align-text-center">Hello World!</div>				
+				</div>
+			</div>
+
+		}
