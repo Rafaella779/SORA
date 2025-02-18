@@ -12,6 +12,8 @@ import  RegisterT from './Pages/RegisterT.jsx'
 import  RegisterS from './Pages/Registers.jsx' 
 import  AboutUs from './Pages/AboutUs.jsx' 
 import  Upload from './Pages/Upload.jsx'
+import  Navbar from './Components/MyNavbar.jsx';
+import  StudentLog from './Pages/StudentLogin' ; 
 import Swal from 'sweetalert2'; 
 import {Routes, Route} from 'react-router'
 
@@ -21,14 +23,16 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/" >
+      <Route path="/" element={<Navbar />} >
         <Route index element={<HomePage />} />
         <Route path="login" element={<LogIn/>} />
         <Route path="register" element={<Register/>} />
         <Route path="RegisterS" element={<RegisterS/>} />
         <Route path="UserDashboard" element={<UserDashboard/>} />
-         <Route path="RegisterT" element={<RegisterT/>} />
-           <Route path="Upload" element={<Upload/>} />
+        <Route path="RegisterT" element={<RegisterT/>} />
+        <Route path="Upload" element={<Upload/>} />
+        <Route path="StudentLog" element={<StudentLog/>} />
+
       </Route>
     </Routes>
     </>

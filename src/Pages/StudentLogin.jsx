@@ -1,13 +1,13 @@
 import React, {useState, useEffect, useContext } from 'react'
 import { Button, Form, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import Swal from 'sweetalert2'
-export default function Login() {
+export default function StudentLogin() {
 
 	const [email, setemail] = useState("")
 	const [password, setpassword] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/login/teacher`, {
+		fetch(`https://sora-q8wl.onrender.com/login/student`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
@@ -42,9 +42,7 @@ export default function Login() {
 					l.setItem('x', res.sn);
 					l.setItem('b', res.si);
 					l.setItem('s', res.d);
-					l.setItem('o', res.ed);
-					l.setItem('p', res.nu);
-					l.setItem('u', res.te);
+					l.setItem('o', res.l);
 					l.setItem('m', res.bi);
 					l.setItem('v', res.s);
 				})

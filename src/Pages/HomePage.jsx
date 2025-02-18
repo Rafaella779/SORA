@@ -1,30 +1,11 @@
 import React from "react";
-import {Form, ButtonGroup, Dropdown, DropdownButton, SplitButton, Button, Table, Container, Nav, Navbar,} from 'react-bootstrap'
+import {Form, ButtonGroup, Dropdown, DropdownButton, SplitButton, Button, Table, Container} from 'react-bootstrap'
 
 export default function HomePage() {
 	let tableData;
 	return ( 
 		<div>
-		<div>
-			<Navbar expand="lg">
-				<Container fluid>
-					<Navbar.Brand href="#">SORA</Navbar.Brand>
-					<Navbar.Toggle aria-controls="navbarScroll" />
-					<Navbar.Collapse id="navbarScroll">
-					<Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
-				    	<Nav.Link href="#action1">Account</Nav.Link>
-				    	<Nav.Link href="#action2">Mail</Nav.Link>
-				    	<Nav.Link href="#action3">Bookmarked</Nav.Link>
-				    	<Nav.Link href="#action4">Library</Nav.Link>
-				    	<Nav.Link href="#action5">History</Nav.Link>
-				    	<Nav.Link href="About us">
-				    	About us
-				    	</Nav.Link>
-				    	</Nav>
-				    </Navbar.Collapse>
-				</Container>
-			</Navbar>
-		</div>
+	
 			<div>
 				 <div className="cinzel-decorative d-flex text-center justify-content-center">
 				 	<h1>SORA</h1>
