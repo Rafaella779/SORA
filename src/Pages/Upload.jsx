@@ -9,15 +9,12 @@ export default function Upload() {
 		const [authors, setauthors] = useState("")
 		const [id, setid] = useState("")
 		const [keywords, setkeywords] = useState("")
+		const [keywordArray, setkeywordArray] = useState([])
 		const [abstract, setabstract] = useState("")
 		const [category, setcategory] = useState("")
 		const [link, setlink] = useState("")
 		const [isApprovedBySchool, setisApprovedBySchool] = useState("")
-		const [whoPaneled1, setwhoPaneled1] = useState("")
-		const [whoPaneled2, setwhoPaneled2] = useState("")
-		const [whoPaneled3, setwhoPaneled3] = useState("")
-		const [whoPaneled4, setwhoPaneled4] = useState("")
-		const [whoPaneled5, setwhoPaneled5] = useState("")
+		const [whoPaneled, setwhoPaneled] = useState("")
 		const [title, settitle] = useState("")
 
 
@@ -26,14 +23,14 @@ export default function Upload() {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
-				authors: authors,
+				authors: authors.split("; "),
 				id: id,
-				keywords: keywords,
+				keywords: keywords.split("; "),
 				abstract: abstract,
 				category: category,
 				link: link,
 				isApprovedBySchool: isApprovedBySchool,
-				whoPaneled: [whoPaneled1, whoPaneled2, whoPaneled3, whoPaneled4, whoPaneled5],
+				whoPaneled: whoPaneled.split("; "),
 				title: title,
 				
 			})
@@ -70,22 +67,45 @@ export default function Upload() {
 		})
 	}
 
+	let addKeyword = () => {
+		keywordArray.push(keywords);
+		setkeywords("");
+	}
 function p1(){ 
 	return(
-	<Form.Group>
-		<Form.Label> Title of the Research </Form.Label>
-		<Form.Control  onChange={e => settitle(e.target.value)} value={title}/>
-		<Form.Label>Authors Of The Research </Form.Label>
-		<Form.Control  onChange={e => setauthors(e.target.value)} value={authors}/>
-		<Form.Label>keywords Of The Research</Form.Label>
-		<Form.Control  onChange={e => setkeywords(e.target.value)} value={keywords}/>
-		<Form.Label> ID </Form.Label>
-		<Form.Control  onChange={e => setid(e.target.value)} value={id}/>
-		<Form.Label>Category</Form.Label>
-		<Form.Control  onChange={e => setcategory(e.target.value)} value={category}/>
-		<Form.Label> Link of the Research </Form.Label>
-		<Form.Control  onChange={e => setlink(e.target.value)} value={link}/>	
-	</Form.Group>
+	<div className="d-flex w-100">
+		<Form.Group className="col-4">
+			<Form.Label> Title of the Research </Form.Label>
+			<Form.Control  onChange={e => settitle(e.target.value)} value={title}/>
+			<Form.Label>Authors Of The Research </Form.Label>
+			<Form.Control  onChange={e => setauthors(e.target.value)} value={authors}/>
+			<Form.Label> ID </Form.Label>
+			<Form.Control  onChange={e => setid(e.target.value)} value={id}/>
+			<Button>Add</Button>
+			<br />
+			<Form.Label>keywords Of The Research</Form.Label>
+			<Form.Control  onChange={e => setkeywords(e.target.value)} value={keywords}/>
+			<Button onClick={addKeyword}>Add</Button>
+			<br />
+			<Form.Label>Category of The Research</Form.Label>
+			<Form.Control  onChange={e => setcategory(e.target.value)} value={category}/>
+			<Form.Label> Link of the Research </Form.Label>
+			<Form.Control  onChange={e => setlink(e.target.value)} value={link}/>	
+		</Form.Group>
+		<div className="col-4">
+			<h1>keywords</h1>
+			{keywordArray.map((x, i) => {
+				console.log(x)
+				console.log(i)
+				return <div className="d-flex">
+					<p>{x}</p>
+					<Button onClick={() => {
+						keywordArray.splice(i, i + 1)
+					}}> - </Button>
+				</div>
+			})}
+		</div>
+	</div>
 		)
 	}
 
@@ -98,16 +118,8 @@ function p2(){
 		<Form.Control  onChange={e => setabstract(e.target.value)} value={abstract}/>
 		<Form.Label> Is Your Research Approved by the School </Form.Label>
 		<Form.Control  onChange={e => setisApprovedBySchool(e.target.value)} value={isApprovedBySchool}/>
-		<Form.Label> Panelist 1	 </Form.Label>
+		<Form.Label> Panelist of your Reseach	 </Form.Label>
 		<Form.Control  onChange={e => setwhoPaneled1(e.target.value)} value={whoPaneled1}/>
-		<Form.Label> Panelist 2  </Form.Label>
-		<Form.Control  onChange={e => setwhoPaneled2(e.target.value)} value={whoPaneled2}/>
-		<Form.Label> Panelist 3	 </Form.Label>
-		<Form.Control  onChange={e => setwhoPaneled3(e.target.value)} value={whoPaneled3}/>
-		<Form.Label> Panelist 4	 </Form.Label>
-		<Form.Control  onChange={e => setwhoPaneled4(e.target.value)} value={whoPaneled4}/>
-		<Form.Label> Panelist 5	 </Form.Label>
-		<Form.Control  onChange={e => setwhoPaneled5(e.target.value)} value={whoPaneled5}/>
 	</Form.Group>
 		)
 	}
@@ -126,6 +138,10 @@ const [render, setRender] = useState(p1);
 
 		}
 
+		const handleadd =() => {
+			c
+		}
+
 
 
 
@@ -133,15 +149,23 @@ const [render, setRender] = useState(p1);
 useEffect(() => {}, [])
 return(
 		<>
+		<div>
 			<h1>Submit Your Reseach</h1>
-			<Form className="w-25">
+			<Form className="w-100">
 				{(page == 1 ? p1() : p2())}
 				<div className="d-flex gap-1 mt-3">
 					{(page == 1) ? <></> : <Button onClick={handlePrev}>Previous</Button>}
 					{(page == 2) ? <></> : <Button onClick={handleNext}>Next</Button>}
 					{(page == 2) ? <Button onClick={handleSubmit}>Submit</Button>  : <></> }
 				</div>
+
+
+				<div>
+					
+				</div>
 			</Form>
+		</div>
+			
 		</>
 	)
 }

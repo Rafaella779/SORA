@@ -5,7 +5,7 @@ export default function UserDashboard() {
 	return ( 
 		<div>
 
-			<div className="bg-7 b-form">
+			<div className="border-3px">
 				<Navbar>
 			      <Container fluid>
 			        <Navbar.Brand href="#">SORA</Navbar.Brand>
@@ -20,10 +20,11 @@ export default function UserDashboard() {
 			            <Nav.Link href="#action3">Features</Nav.Link>
 			            <Nav.Link href="#action4">Help & Support</Nav.Link>
 			            <Nav.Link href="#action5">Setting</Nav.Link>
+			            <Nav.Link href="#action6">About Us</Nav.Link>
+			            <Nav.Link href="#action7">Contact Us</Nav.Link>
 			          </Nav>
 				          <Form className="d-flex gap-3">
-				          <Nav.Link href="#action6">LogIn</Nav.Link>
-				          <Nav.Link href="#action7">SignIn</Nav.Link>
+				          <Nav.Link href="#action8">LogOut</Nav.Link>
 			            <Form.Control
 			              type="search"
 			              placeholder="Search"
@@ -35,15 +36,57 @@ export default function UserDashboard() {
 			        </Navbar.Collapse>
 			      </Container>
 			    </Navbar>
-			</div>
-				<div className="col-2 h-2 b-form bg-7">
-						<h2 className="d-flex justify-content-center align-items-center">Profile</h2>
-				</div>
-				<div className="col-2 h-1 b-form bg-7">
-						<h2 className="d-flex justify-content-center align-items-center">Others</h2>
-				</div>
 		</div>
-
+		<div className="d-flex">
+			<div className="d-flex border-3px">
+						<div className="col">
+							<h4>Hello Admin!</h4>	
+							<div className="d-flex">
+								<div>
+									<Nav.Link href="#action1">UserName</Nav.Link>
+								</div>				
+						</div>
+						<div className="d-flex ">
+							<div>
+								<Nav.Link href="#action1">SchoolName</Nav.Link>
+							</div>
+						</div>
+						<div className="d-flex ">
+							<div>
+								<Nav.Link href="#action1">Schoo lID</Nav.Link>
+							</div>
+						</div>
+						<div className="d-flex ">
+							<div>
+								<Nav.Link href="#action1">ID</Nav.Link>
+							</div>
+						</div>
+						<div className="d-flex">
+							<div>
+								<Nav.Link href="#action1">LRN</Nav.Link>
+							</div>
+						</div>
+						<div className="d-flex ">
+							<div>
+								<Nav.Link href="#action1">BirthDate</Nav.Link>
+							</div>
+						</div>
+						<div className="d-flex ">
+							<div>
+								<Nav.Link href="#action1">Email</Nav.Link>
+							</div>
+						</div>
+				    </div>
+				</div>
+				<div className="d-flex align-item-end b-form gap-5">
+					<div>
+						<Form className="w-600">
+							<h1>Hello World!!</h1>
+						</Form>
+					</div>				
+				</div>
+			</div>
+		</div>
 	)
 
 }

@@ -32,6 +32,10 @@ h1 {
   border: 3px solid black;
   border-radius: 10px;
 }
+.border-3px{
+  border: 3px solid black;
+  border-radius: 5px;
+}
 .h-1{
   height: 600px;
 }
