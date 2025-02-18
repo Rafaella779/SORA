@@ -47,26 +47,41 @@ export default function Login() {
 	}
 
 	return(
-		<>
-			<Navbar expand="lg" className="b-form" >
-				<Container>
-					<Navbar.Brand>SORA</Navbar.Brand>
-					<Navbar.Toggle aria-controls="basic-navbar-nav" />
-					<Navbar.Collapse id="basic-navbar-nav">
-						<Nav className="me-auto">
-							<Nav.Link href="https://ww.Facebook.com" >HOME</Nav.Link>
-							<Nav.Link href="https://scholar.google.com/" >Search</Nav.Link>
-							<Nav.Link href="https://www.jstor.org/" >About</Nav.Link>
-							<Nav.Link href="https://eric.ed.gov/" >Contact</Nav.Link>
-						</Nav>
-					</Navbar.Collapse>
-				</Container>
+		<div>
+			<Navbar className="border-2px">
+			    <Container fluid>
+			        <Navbar.Brand href="#" className="cinzel-decorative">SORA</Navbar.Brand>
+			        <Navbar.Toggle aria-controls="navbarScroll" />
+			        <Navbar.Collapse id="navbarScroll">
+			          <Nav
+				            className="me-auto my-2 my-lg-0"
+				            navbarScroll
+				          >
+				            <Nav.Link href="#action1">Account</Nav.Link>
+				            <Nav.Link href="#action2">Home</Nav.Link>
+				            <Nav.Link href="#action3">Features</Nav.Link>
+				            <Nav.Link href="#action4">Help & Support</Nav.Link>
+				            <Nav.Link href="#action5">Setting</Nav.Link>
+			          </Nav>
+				      	<Form className="d-flex gap-3">
+						    <Nav.Link href="#action6">LogIn</Nav.Link>
+						    <Nav.Link href="#action7">SignIn</Nav.Link>
+					        <Form.Control
+					            type="search"
+					            placeholder="Search"
+					            className="me-2"
+					            aria-label="Search"
+					        />
+					        <Button>Search</Button>
+			          	</Form>
+			        </Navbar.Collapse>
+			    </Container>
 			</Navbar>
 			<div class="row">
 				<div class="col-6 d-flex justify-content-center align-items-center">
 					<div>
-						<h2 className="color-5">Sign In to SORA</h2>
-						<Form className="col-5 row w-600 b-form">
+						<h5 className="color-5">Log In to SORA</h5>
+						<Form className="col-5 row w-600 border-2px">
 							<Form.Group className="mb-3" controller="formBasicEmail">
 								<Form.Label>Email address</Form.Label>
 								<Form.Control type="email" placeholder="Enter email" onChange={e => setUsername(e.target.value)} value={username} />
@@ -84,11 +99,11 @@ export default function Login() {
 						</Form>
 					</div>
 				</div>
-				<div className="col-5 row w-500 b-form" expand="lg">
-					<h2 className="d-flex justify-content-center align-items-center">New Here?</h2>
-					<h6 className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</h6>
+				<div className="col-5 row w-500 border-2px" expand="lg">
+					<h5 className="d-flex justify-content-center align-items-center">New Here?</h5>
+					<p className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</p>
 				</div>
 			</div>
-		</>
+		</div>
 		)
 }

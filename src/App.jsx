@@ -10,6 +10,7 @@ import  SearchResult from './Pages/SearchResult.jsx';
 import  UserDashboard from './Pages/UserDashboard.jsx';
 import  RegisterT from './Pages/RegisterT.jsx'
 import  RegisterS from './Pages/Registers.jsx' 
+import  ContactUs from './Pages/ContactUs.jsx' 
 import  AboutUs from './Pages/AboutUs.jsx' 
 import Swal from 'sweetalert2'; 
 import {Routes, Route} from 'react-router'
@@ -28,6 +29,9 @@ function App() {
         <Route path="UserDashboard" element={<UserDashboard/>} />
         <Route path="RegisterT" element={<RegisterT/>} />
         <Route path="AboutUs" element={<AboutUs/>} />
+        <Route path="ContactUs" element={<ContactUs/>} />
+        <Route path="HomePage" element={<HomePage/>} />
+        <Route path="SearchResult" element={<SearchResult/>} />
       </Route>
     </Routes>
     </>
