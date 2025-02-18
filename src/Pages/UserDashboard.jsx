@@ -78,12 +78,8 @@ export default function UserDashboard() {
 						</div>
 				    </div>
 				</div>
-				<div className="d-flex align-item-end b-form gap-5">
-					<div>
-						<Form className="w-600">
-							<h1>Hello World!!</h1>
-						</Form>
-					</div>				
+				<div className="d-flex border-2 align-text-center gap-5">
+					<div className="d-flex align-text-center">Hello World!</div>				
 				</div>
 			</div>
 		</div>

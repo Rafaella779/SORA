@@ -7,7 +7,9 @@ export default function Upload() {
 	
 		const [page, setPage] = useState(1);
 		const [authors, setauthors] = useState("")
+		const [authorsArray, setauthorsArray] = useState([])
 		const [id, setid] = useState("")
+		const [idArray, setidArray] = useState([])
 		const [keywords, setkeywords] = useState("")
 		const [keywordArray, setkeywordArray] = useState([])
 		const [abstract, setabstract] = useState("")
@@ -15,6 +17,7 @@ export default function Upload() {
 		const [link, setlink] = useState("")
 		const [isApprovedBySchool, setisApprovedBySchool] = useState("")
 		const [whoPaneled, setwhoPaneled] = useState("")
+		const [whoPaneledArray, setwhoPaneledArray] = useState([])
 		const [title, settitle] = useState("")
 
 
@@ -23,14 +26,14 @@ export default function Upload() {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
-				authors: authors.split("; "),
-				id: id,
-				keywords: keywords.split("; "),
+				name: authors.split("; "),
+				id: id.split("; "),
+				words: keywords.split("; "),
 				abstract: abstract,
 				category: category,
 				link: link,
 				isApprovedBySchool: isApprovedBySchool,
-				whoPaneled: whoPaneled.split("; "),
+				name: whoPaneled.split("; "),
 				title: title,
 				
 			})
@@ -71,6 +74,21 @@ export default function Upload() {
 		keywordArray.push(keywords);
 		setkeywords("");
 	}
+	let addAuthors = () => {
+		authorsArray.push(authors);
+		setauthors("");
+	}
+
+	let addid = () => {
+		idArray.push(id);
+		setid("");
+	}
+
+	let addwhopaneled = () => {
+		whoPaneledArray.push(id);
+		setwhoPaneled("");
+	}
+
 function p1(){ 
 	return(
 	<div className="d-flex w-100">
@@ -79,9 +97,11 @@ function p1(){
 			<Form.Control  onChange={e => settitle(e.target.value)} value={title}/>
 			<Form.Label>Authors Of The Research </Form.Label>
 			<Form.Control  onChange={e => setauthors(e.target.value)} value={authors}/>
+			<Button onClick={addAuthors}>Add</Button>
+			<br />
 			<Form.Label> ID </Form.Label>
 			<Form.Control  onChange={e => setid(e.target.value)} value={id}/>
-			<Button>Add</Button>
+			<Button onClick={addid}>Add</Button>
 			<br />
 			<Form.Label>keywords Of The Research</Form.Label>
 			<Form.Control  onChange={e => setkeywords(e.target.value)} value={keywords}/>
@@ -92,7 +112,38 @@ function p1(){
 			<Form.Label> Link of the Research </Form.Label>
 			<Form.Control  onChange={e => setlink(e.target.value)} value={link}/>	
 		</Form.Group>
-		<div className="col-4">
+
+		<div className="col-2">
+		
+			
+		<h1>Authors</h1>
+			{authorsArray.map((j, k) => {
+				console.log(j)
+				console.log(k)
+				return <div className="d-flex">
+					<p>{j}</p>
+					<Button onClick={() => {
+						authorsArray.splice(k, k + 1)
+					}}> - </Button>
+				</div>
+			})}
+		</div>
+
+		<div className="col-2">
+			<h1>ID</h1>
+			{idArray.map((p, o) => {
+				console.log(p)
+				console.log(o)
+				return <div className="d-flex">
+					<p>{p}</p>
+					<Button onClick={() => {
+						idArray.splice(o, o + 1)
+					}}> - </Button>
+				</div>
+			})}
+		</div>
+
+		<div className="col-2">
 			<h1>keywords</h1>
 			{keywordArray.map((x, i) => {
 				console.log(x)
@@ -113,14 +164,35 @@ function p1(){
 
 function p2(){ 
 	return(
+	<div className="d-flex w-100">
 	<Form.Group>
 		<Form.Label> Abstract of the Research </Form.Label>
 		<Form.Control  onChange={e => setabstract(e.target.value)} value={abstract}/>
 		<Form.Label> Is Your Research Approved by the School </Form.Label>
 		<Form.Control  onChange={e => setisApprovedBySchool(e.target.value)} value={isApprovedBySchool}/>
 		<Form.Label> Panelist of your Reseach	 </Form.Label>
-		<Form.Control  onChange={e => setwhoPaneled1(e.target.value)} value={whoPaneled1}/>
+		<Form.Control  onChange={e => setwhoPaneled(e.target.value)} value={whoPaneled}/>
+		<Button onClick={addwhopaneled}>Add</Button>
+		<br />
 	</Form.Group>
+
+	<div className="col-4">
+			<h1>Panelist</h1>
+			{whoPaneledArray.map((p, o) => {
+				console.log(p)
+				console.log(o)
+				return <div className="d-flex">
+					<p>{p}</p>
+					<Button onClick={() => {
+						whoPaneledsArray.splice(o, o + 1)
+					}}> - </Button>
+				</div>
+			})}
+		</div>
+
+
+
+	</div>
 		)
 	}
 
@@ -136,10 +208,6 @@ const [render, setRender] = useState(p1);
 			setPage(page + 1);
 			console.log("handlen")
 
-		}
-
-		const handleadd =() => {
-			c
 		}
 
 
