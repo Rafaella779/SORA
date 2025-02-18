@@ -98,6 +98,8 @@ h1 {
   object-fit: cover !important;
 }
 
+  
+
 .aboutUsCard{
   max-width: 200px;
   height: 100% !important;
@@ -120,4 +122,5 @@ h1 {
   background-position: 5px 5px;
   background-repeat: no-repeat;
   padding-left: 5px;
+
 }

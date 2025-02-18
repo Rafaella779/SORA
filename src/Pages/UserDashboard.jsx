@@ -1,14 +1,19 @@
+import {useState, useEffect} from 'react';
 import React from "react";
 import {Form, Container, Nav, Navbar, NavDropdown, Button,} from 'react-bootstrap'
-export default function UserDashboard() {
 
-	return ( 
+export default function UserDashboard() {
+	
+
+	return(
+
 		<div>
-			<div className="b-form bg-4" expand="lg">
-				<Navbar className="b-form bg-3">
+
+		<div className="border-3px">
+			<Navbar>
 			      <Container fluid>
-			        <Navbar.Brand href="#">SORA</Navbar.Brand>
 			        <Navbar.Toggle aria-controls="navbarScroll" />
+			        <Navbar.Brand href="#" className="cinzel-decorative">SORA</Navbar.Brand>
 			        <Navbar.Collapse id="navbarScroll">
 			          <Nav
 			            className="me-auto my-2 my-lg-0"
@@ -36,35 +41,39 @@ export default function UserDashboard() {
 				            <Button variant="primary">Search</Button>
           			</Form>
 			    </Navbar>
-			</div>
-				<div className="col-1 b-form bg-4 w-500 b-form">
-					<Nav className="b-form bg-3">
-						<Nav.Link href="#action1">UserName</Nav.Link>
-						<Nav.Link href="#action2">SchoolName</Nav.Link>
-						<Nav.Link href="#action3">SchoolID</Nav.Link>
-						<Nav.Link href="#action4">LRN</Nav.Link>
-						<Nav.Link href="#action5">Birthdate</Nav.Link>
-						<Nav.Link href="#action6">Email</Nav.Link>
-						<Nav.Link href="#action7">Notification</Nav.Link>
-						<Nav.Link href="#action8">Works</Nav.Link>
-						<h3>__________</h3>
-						<Nav.Link href="action9">About us</Nav.Link>
-					</Nav>
-
-				<div class="row">
-					<div class="col-6 d-flex justify-content-center align-items-center">
+			</div> 
+				<div className="d-flex">
+					<div className="border-3px col">
+						<h1>Hello Admin!</h1>
+							<div className="d-flex gap-5">
+								<Nav>
+									<Nav.Link href="#action1">User</Nav.Link>
+									<Nav.Link href="#action2">SchoolName</Nav.Link>
+									<Nav.Link href="#action3">School ID</Nav.Link>
+									<Nav.Link href="#action4">ID</Nav.Link>
+									<Nav.Link href="#action5">Birthdate</Nav.Link>
+									<Nav.Link href="#action6">LRN</Nav.Link>
+									<Nav.Link href="#action7">Email</Nav.Link>
+									<Nav.Link href="#action8">Papers</Nav.Link>
+									<h3>__________</h3>
+									<Nav.Link href="#action9">About us</Nav.Link>
+									<Nav.Link href="#action10">Contact us</Nav.Link>
+								</Nav>
+							</div>
+							<div className="border-3px d-flex">
+								<div>
+									<Form className="w-600">
+										<h1>Hatdog</h1>
+										<p>
+											jafuhdyksgfukydsvgb8sirtguv
+										</p>
+									</Form>
+									
+								</div>
+							</div>
 					</div>
-					<div className="col-5 row w-500 b-form" expand="lg">
-					<h2 className="d-flex justify-content-center align-items-center">New Here?</h2>
-					<h6 className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</h6>
-				</div>
 			</div>
-
-				</div>
-				
-		</div>
-				
-
 	)
-
 }
+
+	
