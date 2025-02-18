@@ -13,6 +13,8 @@ import  RegisterS from './Pages/Registers.jsx'
 import  AboutUs from './Pages/AboutUs.jsx' 
 import Swal from 'sweetalert2'; 
 import {Routes, Route} from 'react-router'
+import  Navbar from './Components/MyNavbar.jsx'
+import  Sidebar from './Components/Sidebar.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,14 +22,18 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/" >
+      <Route path="/" element={<Navbar />}>
         <Route index element={<HomePage />} />
         <Route path="login" element={<LogIn/>} />
         <Route path="register" element={<Register/>} />
         <Route path="RegisterS" element={<RegisterS/>} />
-        <Route path="UserDashboard" element={<UserDashboard/>} />
+        <Route path="UserDashboard" element={<Sidebar/>} >
+        <Route path="Test" />
+        </Route>
         <Route path="RegisterT" element={<RegisterT/>} />
         <Route path="AboutUs" element={<AboutUs/>} />
+        <Route path="MyNavbar" element={<Navbar/>} />
+        <Route path="Sidebar" element={<Sidebar/>} />
       </Route>
     </Routes>
     </>

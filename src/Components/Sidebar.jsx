@@ -1,10 +1,7 @@
-import React from "react";
-import {Form, Container, Nav, Navbar, NavDropdown, Button} from 'react-bootstrap'
-export default function UserDashboard() {
+import {Outlet} from 'react-router'
 
-	return ( 
-		<div>
-			
+export default function Sidebar(){
+	return(
 		<div className="d-flex">
 			<div className="d-flex border-3px col-1 bg-2">
 						<div className="col">
@@ -39,10 +36,10 @@ export default function UserDashboard() {
 				</div>
 				<div className="d-flex border-3px w-100 align-text-center gap-5 bg-2">
 					<div>
+
 					</div>				
 				</div>
 			</div>
-		</div>
-	)
 
+	)
 }

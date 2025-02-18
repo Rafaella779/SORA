@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import { Button, Form, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Button, Form,} from 'react-bootstrap'
 import Swal from 'sweetalert2'
 export default function Login() {
 
@@ -48,20 +48,6 @@ export default function Login() {
 
 	return(
 		<>
-			<Navbar expand="lg" className="b-form" >
-				<Container>
-					<Navbar.Brand>SORA</Navbar.Brand>
-					<Navbar.Toggle aria-controls="basic-navbar-nav" />
-					<Navbar.Collapse id="basic-navbar-nav">
-						<Nav className="me-auto">
-							<Nav.Link href="https://ww.Facebook.com" >HOME</Nav.Link>
-							<Nav.Link href="https://scholar.google.com/" >Search</Nav.Link>
-							<Nav.Link href="https://www.jstor.org/" >About</Nav.Link>
-							<Nav.Link href="https://eric.ed.gov/" >Contact</Nav.Link>
-						</Nav>
-					</Navbar.Collapse>
-				</Container>
-			</Navbar>
 			<div class="row">
 				<div class="col-6 d-flex justify-content-center align-items-center">
 					<div>
