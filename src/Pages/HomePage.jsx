@@ -8,7 +8,7 @@ export default function HomePage() {
 		<div>
 			<Navbar expand="lg">
 				<Container fluid>
-					<Navbar.Brand href="#">SORA</Navbar.Brand>
+					<Navbar.Brand href="#" className="cinzel-decorative">SORA</Navbar.Brand>
 					<Navbar.Toggle aria-controls="navbarScroll" />
 					<Navbar.Collapse id="navbarScroll">
 					<Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100px' }} navbarScroll>
@@ -33,7 +33,7 @@ export default function HomePage() {
 	             <div className="w-75 h-2">
 	            	 <Form>
 	             		<Form.Group class="d-flex gap-4">
-	             			<Form.Control  type="Name or Author" placeholder="Enter Name or author" />
+	             			<Form.Control  type="Name or Author" placeholder="Search" />
 	             			<Button>Search</Button>
 	             		</Form.Group>
 	             	</Form>
