@@ -15,19 +15,24 @@ export default function HomePage() {
       const handleSubmit = () => {
             fetch(`https://sora-q8wl.onrender.com/research/getAll`, {
                   method: "POST",
-                  headers: {"Content-Type": "application/json"} 
+                  headers: {"Content-Type": "application/json"},
+                  body: JSON.stringify({
+                       toFind: {
+                       	title: new RegExp(`.*${submit}*.`, 'i')
+                       }
+                  }) 
             }).then(result => result.json()).then(res => {
                 
                 console.log(res)
                 setTableData(res.map(x => {
-                        return(
-                              <tr>
-                                    <td>{x.authors}</td>
-                                    <td>{x.title}</td>
-                                    <td>{x.abstract}</td>
-                                    <td>{x.view}</td>
-                              </tr>
-                        )
+                    return(
+                          <tr>
+                                <td>ETSET</td>
+                                <td>{x.title}</td>
+                                <td>{x.abstract}</td>
+                                <td>{x.view}</td>
+                          </tr>
+                    )
                   })
                 )  
             })
