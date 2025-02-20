@@ -66,12 +66,12 @@ export default function HomePage() {
 	             
 	             <div className="w-75 h-2">
 	            	 <Form>
-	             		<Form.Group class="d-flex gap-4">
+	             		<Form.Group className="d-flex gap-4">
 	             			<Form.Control  type="Name or Author" placeholder="Search" />
 	             		</Form.Group>
 	             	</Form>
 	           	 </div>
-	            <div class="w-100 h-2">
+	            <div className="w-100 h-2">
 	             	<Table striped bordered hover>
 	             		<thead>
 	             			<tr>
