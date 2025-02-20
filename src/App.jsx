@@ -34,6 +34,8 @@ function App() {
         <Route path="AboutUs" element={<AboutUs/>} />
         <Route path="MyNavbar" element={<Navbar/>} />
         <Route path="Sidebar" element={<Sidebar/>} />
+        S<Route path="SearchResult" element={<SearchResult/>} />
+         <Route path="HomePage" element={<HomePage/>} />
       </Route>
     </Routes>
     </>

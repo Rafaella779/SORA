@@ -1,46 +1,13 @@
 import React from "react";
+import {useState, useEffect} from 'react';
 import {Form, Container, Nav, Navbar, NavDropdown, Button} from 'react-bootstrap'
+
 export default function UserDashboard() {
 
 	return ( 
-		<div>
-			
-		<div className="d-flex">
-			<div className="d-flex border-3px col-1 bg-2">
-						<div className="col">
-							<h4>Hello Admin!</h4>	
-							<div className="d-flex">
-								<div>
-									<Nav.Link href="#action1">Account</Nav.Link>
-								</div>				
-						</div>
-						<div className="d-flex ">
-							<div>
-								<Nav.Link href="#action1">Email</Nav.Link>
-							</div>
-						</div>
-						<div className="d-flex ">
-							<div>
-								<Nav.Link href="#action1">Bookmarked</Nav.Link>
-							</div>
-						</div>
-						<div className="d-flex ">
-							<div>
-								<Nav.Link href="#action1">Library</Nav.Link>
-							</div>
-						</div>
-						<div className="d-flex">
-							<div>
-								<Nav.Link href="#action1">Settings</Nav.Link>
-							</div>
-						</div>
+		<div className="d-flex bg-3 border-3px"> 
+			<div>
 
-				    </div>
-				</div>
-				<div className="d-flex border-3px w-100 align-text-center gap-5 bg-2">
-					<div>
-					</div>				
-				</div>
 			</div>
 		</div>
 	)

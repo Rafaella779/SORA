@@ -1,9 +1,10 @@
+import {Form, Container, Button, Nav} from 'react-bootstrap'
 import {Outlet} from 'react-router'
 
 export default function Sidebar(){
 	return(
 		<div className="d-flex">
-			<div className="d-flex border-3px col-1 bg-2">
+			<div className="d-flex border-3px col-1">
 						<div className="col">
 							<h4>Hello Admin!</h4>	
 							<div className="d-flex">
@@ -34,11 +35,12 @@ export default function Sidebar(){
 
 				    </div>
 				</div>
-				<div className="d-flex border-3px w-100 align-text-center gap-5 bg-2">
+				<div className="d-flex border-3px w-100 align-text-center gap-5">
 					<div>
 
 					</div>				
 				</div>
+				<Outlet />
 			</div>
 
 	)

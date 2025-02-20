@@ -4,7 +4,7 @@ import {Outlet} from 'react-router';
 export default function MyNavbar(){
 	return(
 		<div>
-				<Navbar>
+				<Navbar className="border-3px">
 			      <Container fluid>
 			        <Navbar.Brand href="#">SORA</Navbar.Brand>
 			        <Navbar.Toggle aria-controls="navbarScroll" />
@@ -20,7 +20,7 @@ export default function MyNavbar(){
 			            <Nav.Link href="#action7">Contact Us</Nav.Link>
 			          </Nav>
 				          <Form className="d-flex gap-3">
-				          <Nav.Link href="#action8">LogOut</Nav.Link>
+				          <Nav.Link href="#action8">LogIn</Nav.Link>
 			            <Form.Control
 			              type="search"
 			              placeholder="Search"
@@ -32,6 +32,7 @@ export default function MyNavbar(){
 			        </Navbar.Collapse>
 			      </Container>
 			    </Navbar>
+			    <Outlet />
 		</div>
 	)
 }
