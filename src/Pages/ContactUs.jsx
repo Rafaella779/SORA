@@ -20,31 +20,6 @@ export default function ContactUs() {
 				
 			})
 		}).then(result => result.json()).then(result => {
-			if(result.error){
-				console.log(result)
-				Swal.fire({
-					icon: "error",
-					title: "invalid Credentials",
-					text: `${res.error} check your details and try again`
-				})
-			}
-			else {
-				Swal.fire({
-					icon: "success",
-					title: "Register Success!",
-					timer: 1500,
-					showConfirmButton: false
-				}).then(result => {
-					let l = localStorage;
-					console.log(res);
-                    setEmail(res.email);
-                    setName(res.Name);
-                    setPhone(res.phone);
-                    setMessage(res.Message);
-
-				})
-
-			}
 		})
 	}
 
@@ -65,7 +40,7 @@ export default function ContactUs() {
 								<StudentCard picLink="https://www.svgrepo.com/show/472750/phone.svg" name="Phone" item="09634112627"/>
 								<StudentCard picLink="https://tse4.mm.bing.net/th?id=OIP.SV72EbhM23iKCGSWnYEwRAHaHa&pid=Api&P=0&h=220" name="Email" item="leishagrutas@gmail.com"/>
 								<StudentCard picLink="https://up.yimg.com/ib/th?id=OIP.bFRSXMeNFRTpPBei_ifTFQHaHa&pid=Api&rs=1&c=1&qlt=95&w=124&h=124" name="Location" item="Brgy. Cogon Juban Sorsogon"/>
-								<StudentCard picLink="https://tse2.mm.bing.net/th?id=OIP.z249RPSD-cfVfuC2OOLSOgHaHa&pid=Api&P=0&h=220" name="Facebook" item="Leisha Gruta1"/>
+								<StudentCard picLink="https://tse2.mm.bing.net/th?id=OIP.z249RPSD-cfVfuC2OOLSOgHaHa&pid=Api&P=0&h=220" name="Facebook" item="Leisha Grutas"/>
 							
 						</div>
 					</div>

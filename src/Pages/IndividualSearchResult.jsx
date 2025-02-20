@@ -16,36 +16,14 @@ export default function IndividualSearchResult() {
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({
                         n: Name,
+                        t: Title,
+                        d: Date,
+                        a: Abstract,
+                        c: Contact,
+                        e: EducationalLevel,
                         
                   })
             }).then(result => result.json()).then(result => {
-                  if(result.error){
-                        console.log(result)
-                        Swal.fire({
-                              icon: "error",
-                              title: "invalid Credentials",
-                              text: `${res.error} check your details and try again`
-                        })
-                  }
-                  else {
-                        Swal.fire({
-                              icon: "success",
-                              title: "Register Success!",
-                              timer: 1500,
-                              showConfirmButton: false
-                        }).then(result => {
-                              let l = localStorage;
-                              console.log(res);
-                              setAuthor(res.name);
-                              setTitle(res.title);
-                              setDate(res.setDate);
-                              setAbstract(res.abstract);
-                              setContact(res.contact);
-                              setEducationalLevel(res.educationalLevel);
-
-                        })
-
-                  }
             })
       }
 
@@ -74,6 +52,27 @@ export default function IndividualSearchResult() {
                         </div>
                         <div className="border-2px col p-4">
                               contact and educational level  
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="col-6 d-flex justify-content-center align-items-center">
+                              <div>
+                                     <h5 className="color-5">Log In to SORA</h5>
+                                          <Form className="col-5 row w-600 border-2px">
+                                                <Form.Group className="mb-3" controller="formBasicEmail">
+                                                      <Form.Label>Email address</Form.Label>
+                                                      <Form.Control type="email" placeholder="Enter email" onChange={e => setUsername(e.target.value)} value={username} />
+                                                </Form.Group>
+                                                <Form.Group className="mb-3" controller="formBasicPassword">
+                                                      <Form.Label>Password</Form.Label>
+                                                      <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} value={password}/>
+                                                      <Button variant="ForgotPassword">Forgot password?</Button>
+                                                </Form.Group>
+                                                      <div className="d-flex justify-content-center align-items-center">
+                                                            <Button onClick={handleSubmit}>Submit</Button>
+                                                      </div>
+                                          </Form>
+                              </div>
                         </div>
                   </div>
             </div>

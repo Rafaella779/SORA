@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useContext } from 'react'
 import { Button, Form, Container} from 'react-bootstrap'
 import Swal from 'sweetalert2'
-export default function Login() {
+export default function LogIn() {
 
-	const [username, setUsername] = useState("")
+	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 
 	const handleSubmit = () => {
@@ -11,8 +11,8 @@ export default function Login() {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
-				e: username,
-				p: password
+				e: email,
+				p: password,
 			})
 		}).then(result => result.json()).then(result => {
 			if(result.error){
@@ -32,7 +32,7 @@ export default function Login() {
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
-					setUsername(res.username);
+					setEmail(res.email);
                     setPassword(res.password);
 				})
 
@@ -49,7 +49,7 @@ export default function Login() {
 						<Form className="col-5 row w-600 border-2px">
 							<Form.Group className="mb-3" controller="formBasicEmail">
 								<Form.Label>Email address</Form.Label>
-								<Form.Control type="email" placeholder="Enter email" onChange={e => setUsername(e.target.value)} value={username} />
+								<Form.Control type="email" placeholder="Enter email" onChange={e => setEmail(e.target.value)} value={email} />
 							</Form.Group>
 
 							<Form.Group className="mb-3" controller="formBasicPassword">
@@ -70,5 +70,5 @@ export default function Login() {
 				</div>
 			</div>
 		</div>
-		)
+	)
 }

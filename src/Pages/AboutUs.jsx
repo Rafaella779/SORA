@@ -24,7 +24,7 @@ export default function AboutUs() {
 			<div>
 				<div>
 					<h4 className="d-flex justify-content-center align-items-center">Our Story</h4>
-					<p className="d-flex justify-content-center align-items-center">once upon a time</p>
+					<p className="d-flex justify-content-center align-items-center">once upon a time there were 5 students struggling to pass the</p>
 				</div>
 			</div>
 		</div>
