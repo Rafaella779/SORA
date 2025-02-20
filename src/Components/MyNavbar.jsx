@@ -1,5 +1,6 @@
 import {Nav, Navbar, Container, Button, Form} from 'react-bootstrap';
 import {Outlet} from 'react-router';
+
 export default function MyNavbar(){
 	return(
 		<div>

@@ -7,19 +7,20 @@ export default function LogIn() {
 	const [password, setPassword] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/login/student`, {
+		fetch(`https://sora-q8wl.onrender.com/login/teacher`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
 				e: email,
 				p: password,
 			})
-		}).then(result => result.json()).then(result => {
-			if(result.error){
+		}).then(result => result.json()).then(res => {
+			console.log(res);
+			if(res.error){
 				console.log(result)
 				Swal.fire({
 					icon: "error",
-					title: "invalid Credentials",
+					title: "Invalid Password",
 					text: '${res.error} check your details and try again'
 				})
 			}
@@ -33,7 +34,7 @@ export default function LogIn() {
 					let l = localStorage;
 					console.log(res);
 					setEmail(res.email);
-                    setPassword(res.password);
+          setPassword(res.password);
 				})
 
 			}
@@ -51,11 +52,9 @@ export default function LogIn() {
 								<Form.Label>Email address</Form.Label>
 								<Form.Control type="email" placeholder="Enter email" onChange={e => setEmail(e.target.value)} value={email} />
 							</Form.Group>
-
-							<Form.Group className="mb-3" controller="formBasicPassword">
+							<Form.Group className="mb-3">
 								<Form.Label>Password</Form.Label>
-								<Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} value={password}/>
-								<Button variant="ForgotPassword">Forgot password?</Button>
+								<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
 							</Form.Group>
 
 								<div className="d-flex justify-content-center align-items-center">

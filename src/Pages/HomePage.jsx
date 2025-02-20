@@ -68,11 +68,9 @@ export default function HomePage() {
 	            	 <Form>
 	             		<Form.Group class="d-flex gap-4">
 	             			<Form.Control  type="Name or Author" placeholder="Search" />
-	             			<Button onClick={handleSubmit}>Search</Button>
 	             		</Form.Group>
 	             	</Form>
 	           	 </div>
-
 	            <div class="w-100 h-2">
 	             	<Table striped bordered hover>
 	             		<thead>
