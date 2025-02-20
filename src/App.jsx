@@ -3,13 +3,11 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import  Register from './Pages/Register.jsx';
 import  LogIn from './Pages/LogIn.jsx';
 import  HomePage from './Pages/HomePage.jsx';
 import  SearchResult from './Pages/SearchResult.jsx';
 import  UserDashboard from './Pages/UserDashboard.jsx';
-import  RegisterT from './Pages/RegisterT.jsx'
-import  RegisterS from './Pages/Registers.jsx' 
+import  RegisterT from './Pages/RegisterT.jsx' 
 import  ContactUs from './Pages/ContactUs.jsx' 
 import  AboutUs from './Pages/AboutUs.jsx' 
 import  Upload from './Pages/Upload.jsx'
@@ -29,9 +27,8 @@ function App() {
     <Routes>
       <Route path="/" element={<Navbar />} >
         <Route index element={<HomePage />} />
-        <Route path="register" element={<Register/>} />
         <Route path="Homepage" element={<HomePage/>} />
-        <Route path="RegisterS" element={<RegisterS/>} />
+        <Route path="IndividualSearchResult" element={<IndividualSearchResult/>} />
         <Route path="RegisterT" element={<RegisterT/>} />
         <Route path="Upload" element={<Upload/>} />
         <Route path="StudentLog" element={<StudentLog/>} />
