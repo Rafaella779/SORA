@@ -1,12 +1,64 @@
-import React from "react";
-import {Form, ButtonGroup,SplitButton, Button, Table,} from 'react-bootstrap'
+
+import React, {useState, useEffect, useContext } from 'react'
+import {Form, ButtonGroup, SplitButton, Button, Table, Container } from 'react-bootstrap'
+import Swal from 'sweetalert2'
 
 export default function HomePage() {
-	let tableData;
+
+	  const [authors, setAuthors] = useState("")
+      const [title, setTitle] = useState("")
+      const [abstract, setAbstract] = useState("")
+      const [view, setView] = useState("")
+
+      const handleSubmit = () => {
+            fetch(`https://sora-q8wl.onrender.com/research/getAll`, {
+                  method: "GET",
+                  headers: {"Content-Type": "application/json"},
+                  /*body: JSON.stringify({
+                        e: email,
+                        t: Title,
+                        a: Abstract,
+                        v: Views, 
+                  }) */
+            }).then(result => result.json()).then(res => {
+                  res.map(x => {
+                        return(
+                              <tr>
+                                    <td>{x.authosr}</td>
+                                    <td>{x.title}</td>
+                                    <td>{x.abstract}</td>
+                                    <td>{x.view}</td>
+                              </tr>
+                        )
+                  })
+                  
+            })
+      }
+
+
+      let studentData = [
+ 	  {	
+      	authors: "Nancy",
+      	title: "Robotics",
+      	abstract: "delulu",
+        view: "35,000",
+      }
+     ]
+      
+
+      let tableData = studentData.map(x => {
+      	return(
+      		<tr>
+      			<td>{x.authors}</td>
+                <td>{x.title}</td>
+                <td>{x.abstract}</td>
+                <td>{x.view}</td>
+      		</tr>
+      	)
+      })
+
 	return ( 
 		<div>
-		<div>
-		</div>
 			<div>
 				 <div className="cinzel-decorative d-flex text-center justify-content-center">
 				 	<h1>SORA</h1>
@@ -15,8 +67,8 @@ export default function HomePage() {
 	             <div className="w-75 h-2">
 	            	 <Form>
 	             		<Form.Group class="d-flex gap-4">
-	             			<Form.Control  type="Name or Author" placeholder="Enter Name or author" />
-	             			<Button>Search</Button>
+	             			<Form.Control  type="Name or Author" placeholder="Search" />
+	             			<Button onClick={handleSubmit}>Search</Button>
 	             		</Form.Group>
 	             	</Form>
 	           	 </div>

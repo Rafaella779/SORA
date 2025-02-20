@@ -84,36 +84,42 @@ h1 {
  border-color: black !important;
 }
 
-.min-h-300{
-  min-height: 300px;
-}
-.height-300{
-  height: 300px !important;
-}
-.max-h-300{
-  max-height: 300px !important;
-}
 
 
-.border-3px {
-  border: 3px solid black;
+.border-2px {
+  border: 2px solid black;
 }
 
 .aboutUsPic {
-  max-width: 200px;
+  max-width: 70px !important;
+  max-height: 70px !important;
+  height: 70px !important ;
+  width: 70px !important;
+  object-fit: cover !important;
 }
 
-.min-height-50{
-  min-height: 50px;
+  
+
+.aboutUsCard{
+  height: 100% !important;
+  max-height: 100% !important;
+  min-height: 100% !important;
 }
-.height-500{
-  height: 500px;
-}
-.container{
+.container {
   display: flex;
-  flew-direction: row;
-  max-height: wrap;
-  align-content: flew-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 100px;
+  max-height: 290px;
+  align-content: flex-start;
   justify-content: space-evenly;
   padding: 2px;
+}
+.search{
+  background-image: url('https://up.yimg.com/ib/th?id=OIP.iZ-XYghaSLSyR__ndYN8WQAAAA&pid=Api&rs=1&c=1&qlt=95&w=119&h=118');
+  background-color: white;
+  background-position: 5px 5px;
+  background-repeat: no-repeat;
+  padding-left: 5px;
+
 }

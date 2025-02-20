@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useContext } from 'react'
 import { Button, Form, Container} from 'react-bootstrap'
 import Swal from 'sweetalert2'
-export default function Login() {
+export default function LogIn() {
 
-	const [username, setUsername] = useState("")
+	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
 
 	const handleSubmit = () => {
@@ -11,8 +11,8 @@ export default function Login() {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
-				e: username,
-				p: password
+				e: email,
+				p: password,
 			})
 		}).then(result => result.json()).then(result => {
 			if(result.error){
@@ -32,14 +32,8 @@ export default function Login() {
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
-					l.setItem('t', res.t);
-					l.setItem('u', res.t);
-					l.setItem('a', res.t);
-					l.setItem('n', res.t);
-					l.setItem('i', res.t);
-					l.setItem('x', res.t);
-					l.setItem('b', res.t);
-					l.setItem('s', res.t);
+					setEmail(res.email);
+                    setPassword(res.password);
 				})
 
 			}
@@ -47,15 +41,15 @@ export default function Login() {
 	}
 
 	return(
-		<>
+    <div>
 			<div class="row">
 				<div class="col-6 d-flex justify-content-center align-items-center">
 					<div>
-						<h2 className="color-5">Sign In to SORA</h2>
-						<Form className="col-5 row w-600 b-form">
+						<h5 className="color-5">Log In to SORA</h5>
+						<Form className="col-5 row w-600 border-2px">
 							<Form.Group className="mb-3" controller="formBasicEmail">
 								<Form.Label>Email address</Form.Label>
-								<Form.Control type="email" placeholder="Enter email" onChange={e => setUsername(e.target.value)} value={username} />
+								<Form.Control type="email" placeholder="Enter email" onChange={e => setEmail(e.target.value)} value={email} />
 							</Form.Group>
 
 							<Form.Group className="mb-3" controller="formBasicPassword">
@@ -70,11 +64,11 @@ export default function Login() {
 						</Form>
 					</div>
 				</div>
-				<div className="col-5 row w-500 b-form" expand="lg">
-					<h2 className="d-flex justify-content-center align-items-center">New Here?</h2>
-					<h6 className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</h6>
+				<div className="col-5 row w-500 border-2px" expand="lg">
+					<h5 className="d-flex justify-content-center align-items-center">New Here?</h5>
+					<p className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</p>
 				</div>
 			</div>
-		</>
-		)
+		</div>
+	)
 }
