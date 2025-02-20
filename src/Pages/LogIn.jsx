@@ -1,10 +1,10 @@
 import React, {useState, useEffect, useContext } from 'react'
-import { Button, Form, Container } from 'react-bootstrap'
+import { Button, Form, Container} from 'react-bootstrap'
 import Swal from 'sweetalert2'
 export default function LogIn() {
 
-	const [email, setemail] = useState("")
-	const [password, setpassword] = useState("")
+	const [email, setEmail] = useState("")
+	const [password, setPassword] = useState("")
 
 	const handleSubmit = () => {
 		fetch(`https://sora-q8wl.onrender.com/login/teacher`, {
@@ -12,7 +12,7 @@ export default function LogIn() {
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
 				e: email,
-				p: password
+				p: password,
 			})
 		}).then(result => result.json()).then(res => {
 			console.log(res);
@@ -33,6 +33,8 @@ export default function LogIn() {
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
+					setEmail(res.email);
+          setPassword(res.password);
 				})
 
 			}
@@ -40,14 +42,15 @@ export default function LogIn() {
 	}
 
 	return(
-			<div className="row">
-				<div className="col-6 d-flex justify-content-center align-items-center">
+    <div>
+			<div class="row">
+				<div class="col-6 d-flex justify-content-center align-items-center">
 					<div>
-						<h5 className="color-5">Sign In to SORA</h5>
+						<h5 className="color-5">Log In to SORA</h5>
 						<Form className="col-5 row w-600 border-2px">
 							<Form.Group className="mb-3" controller="formBasicEmail">
 								<Form.Label>Email address</Form.Label>
-								<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
+								<Form.Control type="email" placeholder="Enter email" onChange={e => setEmail(e.target.value)} value={email} />
 							</Form.Group>
 							<Form.Group className="mb-3">
 								<Form.Label>Password</Form.Label>
@@ -59,11 +62,12 @@ export default function LogIn() {
 								</div>
 						</Form>
 					</div>
-					<div className="col-5 row w-500 border-2px" expand="lg">
-						<h5 className="d-flex justify-content-center align-items-center">New Here?</h5>
-						<p className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</p>
-					</div>
+				</div>
+				<div className="col-5 row w-500 border-2px" expand="lg">
+					<h5 className="d-flex justify-content-center align-items-center">New Here?</h5>
+					<p className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</p>
 				</div>
 			</div>
-		)
+		</div>
+	)
 }

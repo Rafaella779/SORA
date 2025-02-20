@@ -13,11 +13,13 @@ import  RegisterS from './Pages/Registers.jsx'
 import  ContactUs from './Pages/ContactUs.jsx' 
 import  AboutUs from './Pages/AboutUs.jsx' 
 import  Upload from './Pages/Upload.jsx'
-import  Navbar from './Components/MyNavbar.jsx';
 import  StudentLog from './Pages/StudentLogin'; 
 import  Approve from './Pages/ApproveSystem.jsx'
+import  IndividualSearchResult from './Pages/IndividualSearchResult.jsx' 
 import Swal from 'sweetalert2'; 
 import {Routes, Route} from 'react-router'
+import  Navbar from './Components/MyNavbar.jsx'
+import  Sidebar from './Components/Sidebar.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,20 +27,22 @@ function App() {
   return (
     <>
     <Routes>
-      <Route path="/"  >
+      <Route path="/" element={<Navbar />} >
         <Route index element={<HomePage />} />
-        <Route path="LogIn" element={<LogIn/>} />
         <Route path="register" element={<Register/>} />
         <Route path="RegisterS" element={<RegisterS/>} />
-        <Route path="UserDashboard" element={<UserDashboard/>} />
         <Route path="RegisterT" element={<RegisterT/>} />
         <Route path="Upload" element={<Upload/>} />
         <Route path="StudentLog" element={<StudentLog/>} />
         <Route path="AboutUs" element={<AboutUs/>} />
         <Route path="ContactUs" element={<ContactUs/>} />
-        <Route path="HomePage" element={<HomePage/>} />
         <Route path="SearchResult" element={<SearchResult/>} />
-         <Route path="Approve" element={<Approve/>} />
+        <Route path="Approve" element={<Approve/>} />
+        <Route path="logIn" element={<LogIn/>} />
+        <Route path="UserDashboard" element={<Sidebar/>} >
+          <Route path="Test" />
+        </Route>
+        <Route path="IndividualSearchResult" element={<IndividualSearchResult/>} />
       </Route>
     </Routes>
     </>
