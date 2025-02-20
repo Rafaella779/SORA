@@ -15,7 +15,8 @@ import  AboutUs from './Pages/AboutUs.jsx'
 import  IndividualSearchResult from './Pages/IndividualSearchResult.jsx' 
 import Swal from 'sweetalert2'; 
 import {Routes, Route} from 'react-router'
-import Navbar from './Components/MyNavbar.jsx'
+import  Navbar from './Components/MyNavbar.jsx'
+import  Sidebar from './Components/Sidebar.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -28,14 +29,17 @@ function App() {
         <Route path="logIn" element={<LogIn/>} />
         <Route path="register" element={<Register/>} />
         <Route path="RegisterS" element={<RegisterS/>} />
-        <Route path="UserDashboard" element={<UserDashboard/>} >
-          <Route path="test" />
+        <Route path="UserDashboard" element={<Sidebar/>} >
+          <Route path="Test" />
         </Route>
+        <Route path="RegisterT" element={<RegisterT/>} />
+        <Route path="MyNavbar" element={<Navbar/>} />
+        <Route path="Sidebar" element={<Sidebar/>} />
+        <Route path="SearchResult" element={<SearchResult/>} />
         <Route path="RegisterT" element={<RegisterT/>} />
         <Route path="AboutUs" element={<AboutUs/>} />
         <Route path="ContactUs" element={<ContactUs/>} />
         <Route path="HomePage" element={<HomePage/>} />
-        <Route path="SearchResult" element={<SearchResult/>} />
         <Route path="IndividualSearchResult" element={<IndividualSearchResult/>} />
       </Route>
     </Routes>

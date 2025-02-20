@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import {Form, Dropdown, DropdownButton, SplitButton, Button} from 'react-bootstrap';
+import {Form, SplitButton, Button} from 'react-bootstrap';
 
 export default function RegisterT() {
 	const [SchoolName, setSchoolName] = useState("")

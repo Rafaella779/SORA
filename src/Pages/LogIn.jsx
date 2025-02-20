@@ -41,7 +41,7 @@ export default function LogIn() {
 	}
 
 	return(
-		<div>
+    <div>
 			<div class="row">
 				<div class="col-6 d-flex justify-content-center align-items-center">
 					<div>
