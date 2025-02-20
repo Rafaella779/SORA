@@ -30,6 +30,7 @@ function App() {
       <Route path="/" element={<Navbar />} >
         <Route index element={<HomePage />} />
         <Route path="register" element={<Register/>} />
+        <Route path="Homepage" element={<HomePage/>} />
         <Route path="RegisterS" element={<RegisterS/>} />
         <Route path="RegisterT" element={<RegisterT/>} />
         <Route path="Upload" element={<Upload/>} />
