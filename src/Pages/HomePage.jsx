@@ -5,7 +5,6 @@ export default function HomePage() {
 	let tableData;
 	return ( 
 		<div>
-	
 			<div>
 				 <div className="cinzel-decorative d-flex text-center justify-content-center">
 				 	<h1>SORA</h1>
@@ -14,7 +13,7 @@ export default function HomePage() {
 	             <div className="w-75 h-2">
 	            	 <Form>
 	             		<Form.Group class="d-flex gap-4">
-	             			<Form.Control  type="Name or Author" placeholder="Enter Name or author" />
+	             			<Form.Control  type="Name or Author" placeholder="Search" />
 	             			<Button>Search</Button>
 	             		</Form.Group>
 	             	</Form>

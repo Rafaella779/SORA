@@ -188,6 +188,9 @@ function RegisterTeacher() {
 	const [numberofResearch, setnumberofResearch] = useState("")
 	const [category, setcategory] = useState("")
 	const [educationalDegree, seteducationalDegree] = useState("")
+	const [listofResearch, setlistofResearch] = useState("")
+	const [listofResearchArray, setlistofResearchArray] = useState([])
+
 
 	const handleSubmit = () => {
 		fetch(`https://sora-q8wl.onrender.com/teacher/createTeacher`, {
@@ -207,6 +210,8 @@ function RegisterTeacher() {
 				numberofResearch: numberofResearch,
 				category: category,
 				educationalDegree: educationalDegree,
+				listapprovedResearch: listofResearch.split("; ")
+
 			})
 		}).then(result => result.json()).then(result => {
 			if(result.error){
@@ -240,6 +245,11 @@ function RegisterTeacher() {
 		})
 	}
 
+	let addResearch = () => {
+		listofResearchArray.push(listofResearch);
+		setlistofResearch("");
+	}
+
 	function p1()  {
 		return (
 				<Form.Group>
@@ -268,6 +278,7 @@ function RegisterTeacher() {
 
 	function p3() { 
 		return (
+			<div className="d-flex w-100">
 			<Form.Group className="justify-content-center">
 			<Form.Label>School Name</Form.Label>
 				<Form.Control onChange={e => setSchoolName(e.target.value)} value={SchoolName}/>
@@ -279,10 +290,34 @@ function RegisterTeacher() {
 				<Form.Control  onChange={e => setisresearchTeacher(e.target.value)} value={isresearchTeacher}/>
 				<Form.Label>Educational Degree</Form.Label>
 				<Form.Control  onChange={e => seteducationalDegree(e.target.value)} value={educationalDegree}/>
-				<Form.Label>Educational Degree</Form.Label>
+				<Form.Label>Number of Research</Form.Label>
 				<Form.Control  onChange={e => setnumberofResearch(e.target.value)} value={numberofResearch}/>
-			
+				<Form.Label>List Of your Reseach</Form.Label>
+				<Form.Control  onChange={e => setlistofResearch(e.target.value)} value={listofResearch}/>
+				<Button onClick={addResearch}>Add</Button>
+				<br />
 			</Form.Group>
+
+			<div className="col-2">
+		
+			
+		<h1>Research</h1>
+			{listofResearchArray.map((j, k) => {
+				console.log(j)
+				console.log(k)
+				return <div className="d-flex">
+					<p>{j}</p>
+					<Button onClick={() => {
+						listofResearchArray.splice(k, k + 1)
+					}}> - </Button>
+				</div>
+			})}
+		</div>
+
+
+
+
+			</div>
 		)
 	}
 

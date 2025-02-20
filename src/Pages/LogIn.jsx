@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useContext } from 'react'
-import { Button, Form, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Button, Form, Container } from 'react-bootstrap'
 import Swal from 'sweetalert2'
-export default function Login() {
+export default function LogIn() {
 
 	const [email, setemail] = useState("")
 	const [password, setpassword] = useState("")
@@ -33,20 +33,6 @@ export default function Login() {
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
-					l.setItem('t', res.t);
-					l.setItem('t', res.n);
-					l.setItem('u', res.i);
-					l.setItem('a', res.b);
-					l.setItem('n', res.e);
-					l.setItem('i', res.c);
-					l.setItem('x', res.sn);
-					l.setItem('b', res.si);
-					l.setItem('s', res.d);
-					l.setItem('o', res.ed);
-					l.setItem('p', res.nu);
-					l.setItem('u', res.te);
-					l.setItem('m', res.bi);
-					l.setItem('v', res.s);
 				})
 
 			}
@@ -54,17 +40,15 @@ export default function Login() {
 	}
 
 	return(
-		<>
 			<div className="row">
 				<div className="col-6 d-flex justify-content-center align-items-center">
 					<div>
-						<h2 className="color-5">Sign In to SORA</h2>
-						<Form className="col-5 row w-600 b-form">
-							<Form.Group className="mb-3">
+						<h5 className="color-5">Sign In to SORA</h5>
+						<Form className="col-5 row w-600 border-2px">
+							<Form.Group className="mb-3" controller="formBasicEmail">
 								<Form.Label>Email address</Form.Label>
 								<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
 							</Form.Group>
-
 							<Form.Group className="mb-3">
 								<Form.Label>Password</Form.Label>
 								<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
@@ -75,12 +59,11 @@ export default function Login() {
 								</div>
 						</Form>
 					</div>
-				</div>
-				<div className="col-5 row w-500 b-form" expand="lg">
-					<h2 className="d-flex justify-content-center align-items-center">New Here?</h2>
-					<h6 className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</h6>
+					<div className="col-5 row w-500 border-2px" expand="lg">
+						<h5 className="d-flex justify-content-center align-items-center">New Here?</h5>
+						<p className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</p>
+					</div>
 				</div>
 			</div>
-		</>
 		)
 }
