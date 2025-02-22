@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import { Button, Form, Card } from 'react-bootstrap'
+import { Button, Form, Container, Nav, Navbar, NavDropdown, Card } from 'react-bootstrap'
 import Swal from 'sweetalert2'
 export default function ContactUs() {
 
@@ -20,6 +20,30 @@ export default function ContactUs() {
 				
 			})
 		}).then(result => result.json()).then(result => {
+			if(result.error){
+				console.log(result)
+				Swal.fire({
+					icon: "error",
+					title: "invalid Credentials",
+					text: `${res.error} check your details and try again`
+				})
+			}
+			else {
+				Swal.fire({
+					icon: "success",
+					title: "Register Success!",
+					timer: 1500,
+					showConfirmButton: false
+				}).then(result => {
+					let l = localStorage;
+					console.log(res);
+					l.setItem('t', res.t);
+					l.setItem('u', res.t);
+					l.setItem('a', res.t);
+					l.setItem('n', res.t);
+				})
+
+			}
 		})
 	}
 
@@ -33,14 +57,24 @@ export default function ContactUs() {
 			</div>
 			<div>
 				<div className="d-flex">
-					<div className="border-2px col p-4">
+					<div className="border-2px col">
 						<h4>Get In Touch</h4>
 						<p>Get in touch and let us know how we can help.</p>
-						<div className="d-flex  flex-wrap">
-								<StudentCard picLink="https://www.svgrepo.com/show/472750/phone.svg" name="Phone" item="09634112627"/>
-								<StudentCard picLink="https://tse4.mm.bing.net/th?id=OIP.SV72EbhM23iKCGSWnYEwRAHaHa&pid=Api&P=0&h=220" name="Email" item="leishagrutas@gmail.com"/>
-								<StudentCard picLink="https://up.yimg.com/ib/th?id=OIP.bFRSXMeNFRTpPBei_ifTFQHaHa&pid=Api&rs=1&c=1&qlt=95&w=124&h=124" name="Location" item="Brgy. Cogon Juban Sorsogon"/>
-								<StudentCard picLink="https://tse2.mm.bing.net/th?id=OIP.z249RPSD-cfVfuC2OOLSOgHaHa&pid=Api&P=0&h=220" name="Facebook" item="Leisha Grutas"/>
+						<div className="d-flex gap-5">
+							<div>
+								<StudentCard picLink="https://www.svgrepo.com/show/472750/phone.svg" name="Phone" item="09273411314"/>
+							</div>
+							<div>
+								<StudentCard picLink="https://tse4.mm.bing.net/th?id=OIP.SV72EbhM23iKCGSWnYEwRAHaHa&pid=Api&P=0&h=220" name="Email" item="gillyjeand@gmail.com"/>
+							</div>
+						</div>
+						<div className="d-flex gap-5">
+							<div>
+								<StudentCard picLink="https://up.yimg.com/ib/th?id=OIP.bFRSXMeNFRTpPBei_ifTFQHaHa&pid=Api&rs=1&c=1&qlt=95&w=124&h=124" name="Location" item="Brgy. Cogon Juban Sor."/>
+							</div>
+							<div>
+								<StudentCard picLink="https://tse2.mm.bing.net/th?id=OIP.z249RPSD-cfVfuC2OOLSOgHaHa&pid=Api&P=0&h=220" name="Facebook" item="Rafaella Sabenorio"/>
+							</div>
 						</div>
 					</div>
 					<div className="border-2px d-flex">
@@ -69,16 +103,14 @@ export default function ContactUs() {
 }
 
 function StudentCard({picLink, name, item}){
-	return(
-		<div className="p-2 d-flex align-items-center  col ">
+	return(<>
+		<div className="p-2 d-flex align-items-center aboutUsCard h-auto ">
 			<div className="d-flex">
 				<img src={picLink} alt="" className="aboutUsPic" />
 			</div>
-			<div>
-				<h6 className="m-0 p-1 d-flex text-center">{name}</h6>
-				<h6 className="m-0 p-1 d-flex text-center">{item}</h6>
-			</div>
+			<h6 className="p-2 d-flex text-center">{name}</h6>
+			<h6 className="p-2 d-flex text-center">{item}</h6>
 		</div>
 
-	)
+	</>)
 }
