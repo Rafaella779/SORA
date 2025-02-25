@@ -3,12 +3,6 @@ import { Button, Form, Container, Nav, Navbar, NavDropdown, Card } from 'react-b
 import Swal from 'sweetalert2'
 
 export default function UserDashboard() {
-	return(
-		<div>UserDashboard</div>
-		)
-	}
-function DashboardStudent(){
-	const [page, setPage] = useState(1);
 	const [username, setUsername] = useState("")
 	const [password, setPassword] = useState("")
 	const [email, setEmail] = useState("")
@@ -40,14 +34,18 @@ function DashboardStudent(){
 	}
 	return(
 		<div>
-			<div>
 				<div className="d-flex w-100 h-3">
 					<div className="border-2px d-flex">
 					<div>
 						<div>
 							<StudentCard picLink="https://www.svgrepo.com/show/343494/profile-user-account.svg" />
+
 						</div>
 						<div>
+							<h6>UserName</h6>
+							<h6>Name</h6>
+							<h6>Email</h6>
+							<h6>Password</h6>
 							<h6>School Name</h6>
 							<h6>School ID</h6>
 							<h6>ID</h6>
@@ -60,7 +58,7 @@ function DashboardStudent(){
 				<div className="d-flex border-2px">
 						<div>
 							<Form className="w-100" >
-								<Form.Group className="mb-3" controller="formBasicName">
+								<Form.Group className="mb-3" controller="formBasicUserName">
 									<Form.Label>Username</Form.Label>
 									<Form.Control value={username}/>	
 								</Form.Group>							
@@ -80,21 +78,21 @@ function DashboardStudent(){
 						</div>
 					</div>
 					<div className="d-flex align-items-begin">
-					<div>
-						<h5>Upload Work</h5>
-						<Nav.Link href="Upload">Upload</Nav.Link>
-					</div>
 					<div className="maxw-100 justify-content-center">
 						<h5>Approve Work</h5>
 						<Nav.Link href="ApproveSystem">Approve</Nav.Link>
 					</div>
+					<div>
+						<h5>Upload Work</h5>
+						<Nav.Link href="Upload">Upload</Nav.Link>
+					</div>
 				</div>
 			</div>
-		</div>
 	</div>
 
 	)
 }
+
 function DashboardTeacher(){
 	const [username, setUsername] = useState("")
 	const [password, setPassword] = useState("")
