@@ -1,6 +1,7 @@
 
 import React, {useState, useEffect, useContext } from 'react'
 import {Form, ButtonGroup, SplitButton, Button, Table, Container } from 'react-bootstrap'
+import {useNavigate} from 'react-router'
 import Swal from 'sweetalert2'
 
 export default function HomePage() {
@@ -11,23 +12,25 @@ export default function HomePage() {
       const [view, setView] = useState("")
       const [tableData, setTableData] = useState([]) 
       const [submit, setSubmit] = useState("") 
-
+      let n = useNavigate()
       const handleSubmit = () => {
             fetch(`https://sora-q8wl.onrender.com/research/getAll`, {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
-                  body: JSON.stringify({
+                  /*body: JSON.stringify({
                        toFind: {
-                       	title: new RegExp(`.*${submit}*.`, 'i')
+                       	title: submit
                        }
-                  }) 
+                  }) */
             }).then(result => result.json()).then(res => {
                 
                 console.log(res)
                 setTableData(res.map(x => {
                     return(
-                          <tr>
-                                <td>ETSET</td>
+                          <tr onClick={() => n(`/IndividualSearchResult/${x._id}`)}>
+                                <td>{x.authors.map(y => {
+                                	return <p>{y.name}</p>
+                                })}</td>
                                 <td>{x.title}</td>
                                 <td>{x.abstract}</td>
                                 <td>{x.view}</td>

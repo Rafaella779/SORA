@@ -28,7 +28,7 @@ function App() {
       <Route path="/" element={<Navbar />} >
         <Route index element={<HomePage />} />
         <Route path="Homepage" element={<HomePage/>} />
-        <Route path="IndividualSearchResult" element={<IndividualSearchResult/>} />
+        <Route path="IndividualSearchResult/:id" element={<IndividualSearchResult/>} />
         <Route path="RegisterT" element={<RegisterT/>} />
         <Route path="Upload" element={<Upload/>} />
         <Route path="StudentLog" element={<StudentLog/>} />
