@@ -12,12 +12,12 @@ export default function AboutUs() {
 		<div>
 			<div>
 				<div>
-					<h3 className="d-flex justify-content-center align-items-center">About us</h3>
+					<h3 className="d-flex justify-content-center align-items-center pt-serif-bold ">About us</h3>
 				</div>
 			</div>
 			<div>
 				<div className="d-flex justify-content-center align-items-center">
-					<h5>Members</h5>
+					<h5 className="pt-serif-bold ">Members</h5>
 				</div>
 				<div className=" d-flex justify-content-center ">
 					<StudentCard picLink={lisya} name="Leisha Mariel Grutas"/>
@@ -29,8 +29,8 @@ export default function AboutUs() {
 			</div>
 			<div>
 				<div>
-					<h4 className="d-flex justify-content-center align-items-center">Our Story</h4>
-					<p className="d-flex justify-content-center align-items-center">once upon a time there were 5 students struggling to pass the</p>
+					<h4 className="d-flex justify-content-center align-items-center pt-serif-bold">Our Story</h4>
+					<p className="d-flex justify-content-center align-items-center">Once upon a time in a school named Juban National High School, there were 5 students namely Leisha, Rean, Gilly, Jobert, and Rafaella. One day they happen to face a problem in a subject called Research. They needed a research topic, each member gave problems that should have a solution. One problem stood out the most, it is a problem that they also tackled in research, a problem that most researchers encounter, finding local Review of Related Literature. Upon agreeing on choosing that problem they came up with a solution with the help of their research teacher, the solution is a website, where local researches within Sorsogon can be found. They named this website SORA (Students Online Research Archive)</p>
 				</div>
 			</div>
 		</div>
@@ -41,7 +41,7 @@ export default function AboutUs() {
 
 function StudentCard({picLink, name}){
 	return(<>
-		<div className="border-2px p-2 d-flex align-items-center aboutUsCard flex-column h-auto ">
+		<div className="b-1px p-2 d-flex align-items-center aboutUsCard flex-column h-auto ">
 			<div className="d-flex">
 				<img src={picLink} alt="" className="aboutUsPic" />
 			</div>

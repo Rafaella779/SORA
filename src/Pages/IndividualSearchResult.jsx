@@ -4,12 +4,25 @@ import {useParams} from 'react-router'
 import Swal from 'sweetalert2'
 export default function IndividualSearchResult() {
 
-      const [author, setAuthor] = useState("")
+      const [authors, setAuthors] = useState("")
       const [title, setTitle] = useState("")
-      const [date, setDate] = useState("")
+      const [ApprovalRequestDate, setApprovalRequestDate] = useState("")
       const [abstract, setAbstract] = useState("")
-      const [contact, setContact] = useState("")
-      const [educationalLevel, setEducationalLevel] = useState("")
+      const [approvalsCount, setApprovalsCount] = useState("")
+      const [category, setCategory] = useState("")
+      const [cite, setCite] = useState("") 
+      const [createdAt, setCreatedAt] = useState("") 
+      const [dateModified, setDateModified] = useState("") 
+      const [isApprovedBySchool, setIsApprovedBySchool] = useState("") 
+      const [isPublished, setIsPublished] = useState("") 
+      const [link, setLink] = useState("") 
+      const [ratings, setRatings] = useState("") 
+      const [rejectionCount, setRejectionCount] = useState("") 
+      const [researchStatus, setResearchStatus] = useState("") 
+      const [updatedAt, setUpdatedAt] = useState("") 
+      const [views, setViews] = useState("") 
+      const [v, setV] = useState("") 
+      const [id, setId] = useState("") 
       const [submit, setSubmit] = useState("") 
       const [info, setInfo] = useState("") 
       let params = useParams()
@@ -26,6 +39,24 @@ export default function IndividualSearchResult() {
             }).then(result => result.json()).then(res => {
                   console.log(res)
                   setInfo(res[0])
+                  setAuthors(res[0])
+                  setTitle(res[0])
+                  setApprovalRequestDate(res[0])
+                  setAbstract(res[0])
+                  setApprovalsCount(res[0])
+                  setCategory(res[0])
+                  setCite(res[0])
+                  setCreatedAt(res[0])
+                  setDateModified(res[0])
+                  setIsApprovedBySchool(res[0])
+                  setIsPublished(res[0])
+                  setLink(res[0])
+                  setRatings(res[0])
+                  setRejectionCount(res[0])
+                  setUpdatedAt(res[0])
+                  setViews(res[0])
+                  setV(res[0])
+                  setId(res[0])
             })
       }, [])
 
@@ -51,61 +82,63 @@ export default function IndividualSearchResult() {
                   </div>
                   <div className="border-2px col p-4">
                         <div className="b-1px col p-4">
-                              Title: {info.title}
+                              Title: {title}
                         </div>
                         <div className="b-1px col p-4">
-                              Author: {info.authors.map(x => {return <p>{x.name}</p>})}
+                              Author: {Authors.map(x => {return <p>{x.name}</p>
+                                                })
+                                       }
                         </div>
                         <div className="b-1px col p-4">
-                             Abstract: {info.abstract }
+                             Abstract: {abstract }
                         </div>
                         <div className="b-1px col p-4">
-                              Approval Request Date: {info.approvalrequestDate}
+                              Approval Request Date: {approvalrequestDate}
                         </div>
                         <div className="b-1px col p-4">
-                              Approvals Count: {info.approvalsCount}
+                              Approvals Count: {approvalsCount}
                         </div>
                         <div className="b-1px col p-4">
-                              Category: {info.category}
+                              Category: {category}
                         </div>
                         <div className="b-1px col p-4">
-                              Cite: {info.cite}
+                              Cite: {cite}
                         </div>
                         <div className="b-1px col p-4">
-                              Created At: {info.createdAt}
+                              Created At: {createdAt}
                         </div>
                         <div className="b-1px col p-4">
-                              Date Modified: {info.dateModified}
+                              Date Modified: {dateModified}
                         </div>
                         <div className="b-1px col p-4">
-                              Is Approved By School: {info.isApprovedBySchool}
+                              Is Approved By School: {isApprovedBySchool}
                         </div>
                         <div className="b-1px col p-4">
-                              is Published: {info.isPublished}
+                              is Published: {isPublished}
                         </div>
                         <div className="b-1px col p-4">
-                              Link: {info.link}
+                              Link: {link}
                         </div>
                         <div className="b-1px col p-4">
-                              Ratings: {info.ratings}
+                              Ratings: {ratings}
                         </div>
                         <div className="b-1px col p-4">
-                              Rejection Count: {info.rejectionCount}
+                              Rejection Count: {rejectionCount}
                         </div>
                         <div className="b-1px col p-4">
-                              Research Status: {info.researchStatus}
+                              Research Status: {researchStatus}
                         </div>
                         <div className="b-1px col p-4">
-                              Updated At: {info.updatedAt}
+                              Updated At: {updatedAt}
                         </div>
                         <div className="b-1px col p-4">
-                              Views: {info.view}
+                              Views: {view}
                         </div>
                         <div className="b-1px col p-4">
-                              V: {info.__v}
+                              V: {v}
                         </div>
                         <div className="b-1px col p-4">
-                              Id: {info._id}
+                              Id: {id}
                         </div>
                   </div>
             </div>
