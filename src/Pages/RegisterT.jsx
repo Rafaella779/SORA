@@ -19,7 +19,7 @@ export default function Register() {
 		<div>
 		{
 			(formReturn == null) ?
-				<div className>
+				<div>
 					<h1>Register Page</h1>
 					<div>
 						<Button onClick={handleTeacher}>Teacher</Button>
@@ -184,7 +184,7 @@ function RegisterTeacher() {
 	const [SchoolID, setSchoolID] = useState("")
 	const [ID, setID] = useState("")
 	const [isresearchTeacher, setisresearchTeacher] = useState("")
-	//const [isChecker, setisChecker] = useState("")
+	const [isChecker, setisChecker] = useState("")
 	const [numberofResearch, setnumberofResearch] = useState("")
 	const [category, setcategory] = useState("")
 	const [educationalDegree, seteducationalDegree] = useState("")

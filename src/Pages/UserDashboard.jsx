@@ -30,6 +30,35 @@ export default function UserDashboard() {
 				ID: ID,
 				
 			})
+		}).then(result => result.json()).then(result => {
+			if(result.error){
+				console.log(result)
+				Swal.fire({
+					icon: "error",
+					title: "invalid Credentials",
+					text: '${res.error} check your details and try again'
+				})
+			}
+			else {
+				Swal.fire({
+					icon: "success",
+					title: "Register Success!",
+					timer: 1500,
+					showConfirmButton: false
+				}).then(result => {
+					let l = localStorage;
+					console.log(res);
+					l.setItem('t', res.t);
+					l.setItem('u', res.t);
+					l.setItem('a', res.t);
+					l.setItem('n', res.t);
+					l.setItem('i', res.t);
+					l.setItem('x', res.t);
+					l.setItem('b', res.t);
+					l.setItem('s', res.t);
+				})
+
+			}
 		})
 	}
 	return(
@@ -38,15 +67,13 @@ export default function UserDashboard() {
 					<div className="border-2px d-flex">
 					<div>
 						<div>
-							<StudentCard picLink="https://www.svgrepo.com/show/343494/profile-user-account.svg" />
+							<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
 
 						</div>
 						<div>
-							<h6>UserName</h6>
-							<h6>Name</h6>
-							<h6>Email</h6>
-							<h6>Password</h6>
 							<h6>School Name</h6>
+
+							<h6>Name</h6>
 							<h6>School ID</h6>
 							<h6>ID</h6>
 							<h6>LRN</h6>
@@ -55,7 +82,7 @@ export default function UserDashboard() {
 						</div>
 					</div>
 				</div>
-				<div className="d-flex border-2px">
+				<div className="d-flex">
 						<div>
 							<Form className="w-100" >
 								<Form.Group className="mb-3" controller="formBasicUserName">
@@ -79,13 +106,12 @@ export default function UserDashboard() {
 					</div>
 					<div className="d-flex align-items-begin">
 					<div className="maxw-100 justify-content-center">
-						<h5>Approve Work</h5>
-						<Nav.Link href="ApproveSystem">Approve</Nav.Link>
+						<Nav.Link href="ApproveSystem">Approve Your Work</Nav.Link>
 					</div>
 					<div>
-						<h5>Upload Work</h5>
-						<Nav.Link href="Upload">Upload</Nav.Link>
+						<Nav.Link href="Upload">Upload Your Work</Nav.Link>
 					</div>
+					<div>list of your work</div>
 				</div>
 			</div>
 	</div>
@@ -115,9 +141,40 @@ function DashboardTeacher(){
 				lastName: lname,
 				birthdate: new Date(birthdate),
 				schoolName: SchoolName,
+				LRN: lrn,
 				schoolID: SchoolID,
 				ID: ID,
+				
 			})
+		}).then(result => result.json()).then(result => {
+			if(result.error){
+				console.log(result)
+				Swal.fire({
+					icon: "error",
+					title: "invalid Credentials",
+					text: '${res.error} check your details and try again'
+				})
+			}
+			else {
+				Swal.fire({
+					icon: "success",
+					title: "Register Success!",
+					timer: 1500,
+					showConfirmButton: false
+				}).then(result => {
+					let l = localStorage;
+					console.log(res);
+					l.setItem('t', res.t);
+					l.setItem('u', res.t);
+					l.setItem('a', res.t);
+					l.setItem('n', res.t);
+					l.setItem('i', res.t);
+					l.setItem('x', res.t);
+					l.setItem('b', res.t);
+					l.setItem('s', res.t);
+				})
+
+			}
 		})
 	}
 	return(
@@ -127,13 +184,14 @@ function DashboardTeacher(){
 					<div className="border-2px d-flex">
 					<div>
 						<div>
-							<StudentCard picLink="https://www.svgrepo.com/show/343494/profile-user-account.svg" />
+							<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
 						</div>
 						<div>
 							<h6>School Name</h6>
-							<h6>School ID</h6>
+
+							<h6>Name</h6>
 							<h6>ID</h6>
-							<h6>LRN</h6>
+							<h6>School ID</h6>
 							<h6>Birthdate</h6>
 
 						</div>
