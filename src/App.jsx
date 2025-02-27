@@ -39,8 +39,9 @@ function App() {
         <Route path="SearchResult" element={<SearchResult/>} />
         <Route path="UserDashboard" element={<UserDashboard/>} />
         <Route path="logIn" element={<LogIn/>} />
-        <Route path="IndividualSearchResult" element={<IndividualSearchResult/>} />
         <Route path="Approve" element={<ApproveSystem/>} />
+        <Route path="IndividualSearchResult" element={<IndividualSearchResult/>} />
+        
       </Route>
     </Routes>
     </>
@@ -48,3 +49,6 @@ function App() {
 }
 
 export default App
+
+
+
