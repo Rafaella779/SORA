@@ -30,7 +30,7 @@ export default function AboutUs() {
 			<div>
 				<div>
 					<h4 className="d-flex justify-content-center align-items-center pt-serif-bold">Our Story</h4>
-					<p className="d-flex justify-content-center align-items-center">Once upon a time in a school named Juban National High School, there were 5 students namely Leisha, Rean, Gilly, Jobert, and Rafaella. One day they happen to face a problem in a subject called Research. They needed a research topic, each member gave problems that should have a solution. One problem stood out the most, it is a problem that they also tackled in research, a problem that most researchers encounter, finding local Review of Related Literature. Upon agreeing on choosing that problem they came up with a solution with the help of their research teacher, the solution is a website, where local researches within Sorsogon can be found. They named this website SORA (Students Online Research Archive)</p>
+					<p class="light p-0  m-0"><strong>Once upon a time in a school named Juban National High School, there were 5 students namely Leisha, Rean, Gilly, Jobert, and Rafaella. One day they happen to face a problem in a subject called Research. They needed a research topic, each member gave problems that should have a solution. One problem stood out the most, it is a problem that they also tackled in research, a problem that most researchers encounter, finding local Review of Related Literature. Upon agreeing on choosing that problem they came up with a solution with the help of their research teacher, the solution is a website, where local researches within Sorsogon can be found. They named this website SORA (Students Online Research Archive).</strong></p>
 				</div>
 			</div>
 		</div>
