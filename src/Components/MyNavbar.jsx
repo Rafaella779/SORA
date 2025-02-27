@@ -4,7 +4,7 @@ import {Outlet} from 'react-router';
 export default function MyNavbar(){
 	return(
 		<div>
-				<Navbar className="border-3px">
+				<Navbar className="border-3px ">
 			      <Container fluid>
 			        <Navbar.Brand href="#">SORA</Navbar.Brand>
 			        <Navbar.Toggle aria-controls="navbarScroll" />
