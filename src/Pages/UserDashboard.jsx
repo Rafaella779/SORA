@@ -30,35 +30,6 @@ export default function UserDashboard() {
 				ID: ID,
 				
 			})
-		}).then(result => result.json()).then(result => {
-			if(result.error){
-				console.log(result)
-				Swal.fire({
-					icon: "error",
-					title: "invalid Credentials",
-					text: '${res.error} check your details and try again'
-				})
-			}
-			else {
-				Swal.fire({
-					icon: "success",
-					title: "Register Success!",
-					timer: 1500,
-					showConfirmButton: false
-				}).then(result => {
-					let l = localStorage;
-					console.log(res);
-					l.setItem('t', res.t);
-					l.setItem('u', res.t);
-					l.setItem('a', res.t);
-					l.setItem('n', res.t);
-					l.setItem('i', res.t);
-					l.setItem('x', res.t);
-					l.setItem('b', res.t);
-					l.setItem('s', res.t);
-				})
-
-			}
 		})
 	}
 	return(
@@ -71,22 +42,9 @@ export default function UserDashboard() {
 
 						</div>
 						<div>
-							<h6>School Name</h6>
-
-							<h6>Name</h6>
-							<h6>School ID</h6>
-							<h6>ID</h6>
-							<h6>LRN</h6>
-							<h6>Birthdate</h6>
-
-						</div>
-					</div>
-				</div>
-				<div className="d-flex">
-						<div>
 							<Form className="w-100" >
 								<Form.Group className="mb-3" controller="formBasicUserName">
-									<Form.Label>Username</Form.Label>
+									{localStorage.getItem('n')}
 									<Form.Control value={username}/>	
 								</Form.Group>							
 								<Form.Group className="mb-3" controller="formBasicName">
@@ -102,7 +60,11 @@ export default function UserDashboard() {
 									<Form.Control value={password}/>	
 								</Form.Group>
 					    	</Form>
+
 						</div>
+					</div>
+				</div>
+				<div className="d-flex">
 					</div>
 					<div className="d-flex align-items-begin">
 					<div className="maxw-100 justify-content-center">
@@ -111,7 +73,6 @@ export default function UserDashboard() {
 					<div>
 						<Nav.Link href="Upload">Upload Your Work</Nav.Link>
 					</div>
-					<div>list of your work</div>
 				</div>
 			</div>
 	</div>
@@ -141,40 +102,10 @@ function DashboardTeacher(){
 				lastName: lname,
 				birthdate: new Date(birthdate),
 				schoolName: SchoolName,
-				LRN: lrn,
 				schoolID: SchoolID,
 				ID: ID,
 				
 			})
-		}).then(result => result.json()).then(result => {
-			if(result.error){
-				console.log(result)
-				Swal.fire({
-					icon: "error",
-					title: "invalid Credentials",
-					text: '${res.error} check your details and try again'
-				})
-			}
-			else {
-				Swal.fire({
-					icon: "success",
-					title: "Register Success!",
-					timer: 1500,
-					showConfirmButton: false
-				}).then(result => {
-					let l = localStorage;
-					console.log(res);
-					l.setItem('t', res.t);
-					l.setItem('u', res.t);
-					l.setItem('a', res.t);
-					l.setItem('n', res.t);
-					l.setItem('i', res.t);
-					l.setItem('x', res.t);
-					l.setItem('b', res.t);
-					l.setItem('s', res.t);
-				})
-
-			}
 		})
 	}
 	return(
@@ -188,7 +119,6 @@ function DashboardTeacher(){
 						</div>
 						<div>
 							<h6>School Name</h6>
-
 							<h6>Name</h6>
 							<h6>ID</h6>
 							<h6>School ID</h6>
