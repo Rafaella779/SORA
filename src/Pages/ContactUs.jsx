@@ -27,23 +27,24 @@ export default function ContactUs() {
 		<div>
 			<div>
 				<div>
-					<h3 className="d-flex justify-content-center align-items-center">Contact us</h3>
+					<h3 className="d-flex justify-content-center align-items-center pt-serif-bold ">Contact us</h3>
 					<p className="d-flex justify-content-center align-items-center">SORA is ready to provide the rigth solution according to your needs.</p>
 				</div>
 			</div>
 			<div>
 				<div className="d-flex">
-					<div className="border-2px col p-4">
-						<h4>Get In Touch</h4>
+					<div className="b-1px col p-4">
+						<h4 className="pt-serif-bold ">Get In Touch</h4>
 						<p>Get in touch and let us know how we can help.</p>
 						<div className="d-flex  flex-wrap">
 								<StudentCard picLink="https://www.svgrepo.com/show/472750/phone.svg" name="Phone" item="09634112627"/>
 								<StudentCard picLink="https://tse4.mm.bing.net/th?id=OIP.SV72EbhM23iKCGSWnYEwRAHaHa&pid=Api&P=0&h=220" name="Email" item="leishagrutas@gmail.com"/>
 								<StudentCard picLink="https://up.yimg.com/ib/th?id=OIP.bFRSXMeNFRTpPBei_ifTFQHaHa&pid=Api&rs=1&c=1&qlt=95&w=124&h=124" name="Location" item="Brgy. Cogon Juban Sorsogon"/>
 								<StudentCard picLink="https://tse2.mm.bing.net/th?id=OIP.z249RPSD-cfVfuC2OOLSOgHaHa&pid=Api&P=0&h=220" name="Facebook" item="Leisha Grutas"/>
+							
 						</div>
 					</div>
-					<div className="border-2px d-flex">
+					<div className="b-1px d-flex">
 						<div>
 							<Form className="w-600" >							
 								<Form.Group className="mb-3" controller="formBasicEmail">
@@ -70,7 +71,7 @@ export default function ContactUs() {
 
 function StudentCard({picLink, name, item}){
 	return(
-		<div className="p-2 d-flex align-items-center  col ">
+		<div className="p-2 d-flex align-items-center col ">
 			<div className="d-flex">
 				<img src={picLink} alt="" className="aboutUsPic" />
 			</div>

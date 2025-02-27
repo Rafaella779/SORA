@@ -1,30 +1,67 @@
 import React, {useState, useEffect, useContext } from 'react'
 import { Form, Button, Table,} from 'react-bootstrap';
+import {useParams} from 'react-router'
 import Swal from 'sweetalert2'
 export default function IndividualSearchResult() {
 
-      const [author, setAuthor] = useState("")
+      const [authors, setAuthors] = useState("")
       const [title, setTitle] = useState("")
-      const [date, setDate] = useState("")
+      const [ApprovalRequestDate, setApprovalRequestDate] = useState("")
       const [abstract, setAbstract] = useState("")
-      const [contact, setContact] = useState("")
-      const [educationalLevel, setEducationalLevel] = useState("")
+      const [approvalsCount, setApprovalsCount] = useState("")
+      const [category, setCategory] = useState("")
+      const [cite, setCite] = useState("") 
+      const [createdAt, setCreatedAt] = useState("") 
+      const [dateModified, setDateModified] = useState("") 
+      const [isApprovedBySchool, setIsApprovedBySchool] = useState("") 
+      const [isPublished, setIsPublished] = useState("") 
+      const [link, setLink] = useState("") 
+      const [ratings, setRatings] = useState("") 
+      const [rejectionCount, setRejectionCount] = useState("") 
+      const [researchStatus, setResearchStatus] = useState("") 
+      const [updatedAt, setUpdatedAt] = useState("") 
+      const [views, setViews] = useState("") 
+      const [v, setV] = useState("") 
+      const [id, setId] = useState("") 
+      const [submit, setSubmit] = useState("") 
+      const [info, setInfo] = useState("") 
+      let params = useParams()
 
-      const handleSubmit = () => {
-            fetch(`https://sora-q8wl.onrender.com/user/createUser`, {
+      useEffect(() => {
+            fetch(`https://sora-q8wl.onrender.com/research/getAll`, {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({
-                        n: Name,
-                        t: Title,
-                        d: Date,
-                        a: Abstract,
-                        c: Contact,
-                        e: EducationalLevel,
-                        
+                       toFind: {
+                        _id: params.id
+                       }
                   })
-            }).then(result => result.json()).then(result => {
+            }).then(result => result.json()).then(res => {
+                  console.log(res)
+                  setInfo(res[0])
+                  setAuthors(res[0])
+                  setTitle(res[0])
+                  setApprovalRequestDate(res[0])
+                  setAbstract(res[0])
+                  setApprovalsCount(res[0])
+                  setCategory(res[0])
+                  setCite(res[0])
+                  setCreatedAt(res[0])
+                  setDateModified(res[0])
+                  setIsApprovedBySchool(res[0])
+                  setIsPublished(res[0])
+                  setLink(res[0])
+                  setRatings(res[0])
+                  setRejectionCount(res[0])
+                  setUpdatedAt(res[0])
+                  setViews(res[0])
+                  setV(res[0])
+                  setId(res[0])
             })
+      }, [])
+
+      const handleSubmit = () => {
+            
       }
 
       return ( 
@@ -36,43 +73,72 @@ export default function IndividualSearchResult() {
                    
                           <div className="w-75 h-2">
                                <Form>
-                                    <Form.Group class="d-flex gap-4">
-                                          <Form.Control  type="Name or Author" placeholder="Enter Name or author" />
+                                    <Form.Group className="d-flex gap-4">
+                                          <Form.Control  type="Name or Author" placeholder="Enter Name or author" onChange={e => setSubmit(e.target.value)} value={submit}/>
                                           <Button onClick={handleSubmit}>Search</Button>
                                     </Form.Group>
                               </Form>
                          </div>
                   </div>
                   <div className="border-2px col p-4">
-                        <div className="border-2px col p-4">
-                              title and author and date
+                        <div className="b-1px col p-4">
+                              Title: {title}
                         </div>
-                        <div className="border-2px col p-4">
-                             Abstract 
+                        <div className="b-1px col p-4">
+                              Author: {Authors.map(x => {return <p>{x.name}</p>
+                                                })
+                                       }
                         </div>
-                        <div className="border-2px col p-4">
-                              contact and educational level  
+                        <div className="b-1px col p-4">
+                             Abstract: {abstract }
                         </div>
-                  </div>
-                  <div class="row">
-                        <div class="col-6 d-flex justify-content-center align-items-center">
-                              <div>
-                                     <h5 className="color-5">Log In to SORA</h5>
-                                          <Form className="col-5 row w-600 border-2px">
-                                                <Form.Group className="mb-3" controller="formBasicEmail">
-                                                      <Form.Label>Email address</Form.Label>
-                                                      <Form.Control type="email" placeholder="Enter email" onChange={e => setUsername(e.target.value)} value={username} />
-                                                </Form.Group>
-                                                <Form.Group className="mb-3" controller="formBasicPassword">
-                                                      <Form.Label>Password</Form.Label>
-                                                      <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} value={password}/>
-                                                      <Button variant="ForgotPassword">Forgot password?</Button>
-                                                </Form.Group>
-                                                      <div className="d-flex justify-content-center align-items-center">
-                                                            <Button onClick={handleSubmit}>Submit</Button>
-                                                      </div>
-                                          </Form>
-                              </div>
+                        <div className="b-1px col p-4">
+                              Approval Request Date: {approvalrequestDate}
+                        </div>
+                        <div className="b-1px col p-4">
+                              Approvals Count: {approvalsCount}
+                        </div>
+                        <div className="b-1px col p-4">
+                              Category: {category}
+                        </div>
+                        <div className="b-1px col p-4">
+                              Cite: {cite}
+                        </div>
+                        <div className="b-1px col p-4">
+                              Created At: {createdAt}
+                        </div>
+                        <div className="b-1px col p-4">
+                              Date Modified: {dateModified}
+                        </div>
+                        <div className="b-1px col p-4">
+                              Is Approved By School: {isApprovedBySchool}
+                        </div>
+                        <div className="b-1px col p-4">
+                              is Published: {isPublished}
+                        </div>
+                        <div className="b-1px col p-4">
+                              Link: {link}
+                        </div>
+                        <div className="b-1px col p-4">
+                              Ratings: {ratings}
+                        </div>
+                        <div className="b-1px col p-4">
+                              Rejection Count: {rejectionCount}
+                        </div>
+                        <div className="b-1px col p-4">
+                              Research Status: {researchStatus}
+                        </div>
+                        <div className="b-1px col p-4">
+                              Updated At: {updatedAt}
+                        </div>
+                        <div className="b-1px col p-4">
+                              Views: {view}
+                        </div>
+                        <div className="b-1px col p-4">
+                              V: {v}
+                        </div>
+                        <div className="b-1px col p-4">
+                              Id: {id}
                         </div>
                   </div>
             </div>
