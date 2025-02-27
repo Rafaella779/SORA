@@ -97,9 +97,7 @@ function RegisterStudent() {
 	}
 
 	function p1()  {
-		return (
-
-			<Form.Group>
+		return (<Form.Group>
 				<Form.Label>Username</Form.Label>
 				<Form.Control onChange={(e) => {setUsername(e.target.value); console.log(username)}} value={username}/>
 				<Form.Label>Email address</Form.Label>
@@ -208,7 +206,7 @@ function RegisterTeacher() {
 				schoolID: SchoolID,
 				ID: ID,
 				isresearchTeacher: isresearchTeacher,
-				//isChecker: isChecker,
+				isChecker: isChecker,
 				numberofResearch: numberofResearch,
 				category: category,
 				educationalDegree: educationalDegree,
