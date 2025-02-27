@@ -186,7 +186,7 @@ function RegisterTeacher() {
 	const [SchoolID, setSchoolID] = useState("")
 	const [ID, setID] = useState("")
 	const [isresearchTeacher, setisresearchTeacher] = useState("")
-	//const [isChecker, setisChecker] = useState("")
+	const [isChecker, setisChecker] = useState("")
 	const [numberofResearch, setnumberofResearch] = useState("")
 	const [category, setcategory] = useState("")
 	const [educationalDegree, seteducationalDegree] = useState("")
@@ -294,7 +294,7 @@ function RegisterTeacher() {
 				<Form.Control  onChange={e => seteducationalDegree(e.target.value)} value={educationalDegree}/>
 				<Form.Label>Number of Research</Form.Label>
 				<Form.Control  onChange={e => setnumberofResearch(e.target.value)} value={numberofResearch}/>
-				<Form.Label>List Of your Reseach</Form.Label>
+				<Form.Label>List Of your Research</Form.Label>
 				<Form.Control  onChange={e => setlistofResearch(e.target.value)} value={listofResearch}/>
 				<Button onClick={addResearch}>Add</Button>
 				<br />
