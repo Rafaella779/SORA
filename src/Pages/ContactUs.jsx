@@ -47,6 +47,7 @@ export default function ContactUs() {
 		})
 	}
 
+
 	return ( 
 		<div>
 			<div>
@@ -76,6 +77,7 @@ export default function ContactUs() {
 							<div>
 								<StudentCard picLink="https://tse2.mm.bing.net/th?id=OIP.z249RPSD-cfVfuC2OOLSOgHaHa&pid=Api&P=0&h=220" name="Facebook" item="Rafaella Sabenorio"/>
 							</div>
+						</div>
 					<div className="b-1px col p-4">
 						<h4 className="pt-serif-bold ">Get In Touch</h4>
 						<p class="light p-0  m-0"><strong>Get in touch and let us know how we can help.</strong></p>
@@ -84,8 +86,6 @@ export default function ContactUs() {
 								<StudentCard picLink="https://tse4.mm.bing.net/th?id=OIP.SV72EbhM23iKCGSWnYEwRAHaHa&pid=Api&P=0&h=220" name="Email" item="leishagrutas@gmail.com"/>
 								<StudentCard picLink="https://up.yimg.com/ib/th?id=OIP.bFRSXMeNFRTpPBei_ifTFQHaHa&pid=Api&rs=1&c=1&qlt=95&w=124&h=124" name="Location" item="Brgy. Cogon Juban Sorsogon"/>
 								<StudentCard picLink="https://tse2.mm.bing.net/th?id=OIP.z249RPSD-cfVfuC2OOLSOgHaHa&pid=Api&P=0&h=220" name="Facebook" item="Leisha Grutas"/>
-							
-
 						</div>
 					</div>
 					<div className="b-1px d-flex">
@@ -110,20 +110,22 @@ export default function ContactUs() {
 				</div>
 			</div>
 		</div>
+		</div>
 	)
 }
 
+
 function StudentCard({picLink, name, item}){
-
 	return(
-		<div className="p-2 d-flex align-items-center col ">
-
+		<div className="p-2 d-flex align-items-center col">
 			<div className="d-flex">
-				<img src={picLink} alt="" className="aboutUsPic" />
+				<img src={picLink} alt="" className="aboutUsPic"/>
 			</div>
-			<h6 className="p-2 d-flex text-center">{name}</h6>
-			<h6 className="p-2 d-flex text-center">{item}</h6>
+			<div>
+				<h6 className="p-2 d-flex text-center">{name}</h6>
+				<h6 className="p-2 d-flex text-center">{item}</h6>
+			</div>	
 		</div>
-
-	</>)
+	)
 }
+	
