@@ -75,6 +75,112 @@ export default function DashboardTeacher() {
 			}
 		})
 	}
+	let addResearch = () => {
+		if (Research != ""){
+			listofResearchArray.push(listofResearch);
+			setlistofResearch("");
+		}
+	}
+
+	function p1()  {
+		return (
+				<Form.Group>
+				<Form.Label>Username</Form.Label>
+				<Form.Control onChange={(e) => {setUsername(e.target.value); console.log(username)}} value={username}/>
+				<Form.Label>Email address</Form.Label>
+				<Form.Control type="email" onChange={e => setEmail(e.target.value)} value={email}/>
+				<Form.Label>Password </Form.Label>
+				<Form.Control type="password" onChange={e => setPassword(e.target.value)} value={password}/>
+		</Form.Group>
+		)
+	} 
+
+	function p2() {
+		return (<Form.Group>
+				<Form.Label>First Name </Form.Label>
+				<Form.Control  onChange={e => setfname(e.target.value)} value={fname}/>
+				<Form.Label>Last Name </Form.Label>
+				<Form.Control  onChange={e => setlname(e.target.value)} value={lname}/>
+				<Form.Label>BirthDate</Form.Label>
+				<Form.Control  onChange={e => setbirthdate(e.target.value)} value={birthdate}/>
+			</Form.Group>)
+	} 
+
+	
+
+	function p3() { 
+		return (
+			<div className="d-flex w-100">
+			<Form.Group className="justify-content-center">
+			<Form.Label>School Name</Form.Label>
+				<Form.Control onChange={e => setSchoolName(e.target.value)} value={SchoolName}/>
+				<Form.Label> ID </Form.Label>
+				<Form.Control  onChange={e => setID(e.target.value)} value={ID}/>
+				<Form.Label>School ID</Form.Label>
+				<Form.Control  onChange={e => setSchoolID(e.target.value)} value={SchoolID}/>
+				<Form.Label>Are you A Research Teacher</Form.Label>
+				<Form.Control  onChange={e => setisresearchTeacher(e.target.value)} value={isresearchTeacher}/>
+				<Form.Label>Educational Degree</Form.Label>
+				<Form.Control  onChange={e => seteducationalDegree(e.target.value)} value={educationalDegree}/>
+				<Form.Label>Number of Research</Form.Label>
+				<Form.Control  onChange={e => setnumberofResearch(e.target.value)} value={numberofResearch}/>
+				<Form.Label>List Of your Research</Form.Label>
+				<Form.Control  onChange={e => setlistofResearch(e.target.value)} value={listofResearch}/>
+				<Button onClick={addResearch}>Add</Button>
+				<br />
+			</Form.Group>
+
+			<div className="col-4">
+		
+			
+		<h1>Research</h1>
+			{listofResearchArray.map((j, k) => {
+				console.log(j)
+				console.log(k)
+				return <div className="d-flex">
+					<p>{j}</p>
+					<Button onClick={() => {
+						listofResearchArray.splice(k, 1)
+						setCount(Count + 1);
+					}}> - </Button>
+				</div>
+			})}
+		</div>
+
+
+
+
+			</div>
+		)
+	}
+
+	
+		const [render, setRender] = useState(p1);
+
+		const handlePrev = () => {
+				setPage(page - 1);
+				console.log("handlep")
+		}
+
+		const handleNext = () => {
+			setPage(page + 1);
+			console.log("handlen")
+
+		}
+		useEffect(() => {}, [])
+	return(
+		<>
+			<h1>Register Teacher</h1>
+			<Form>
+				{(page == 1 ? p1() : (page == 2) ? p2() : p3())}
+				<div className="d-flex gap-1 mt-3">
+					{(page == 1) ? <></> : <Button onClick={handlePrev}>Previous</Button>}
+					{(page == 3) ? <></> : <Button onClick={handleNext}>Next</Button>}
+					{(page == 3) ? <Button onClick={handleSubmit}>Submit</Button>  : <></> }
+				</div>
+			</Form>
+		</>
+	)
 
 	let n = useNavigate()
 	return(
