@@ -4,6 +4,78 @@ import { useNavigate } from 'react-router'
 import Swal from 'sweetalert2'
 
 export default function DashboardTeacher() {
+	const [page, setPage] = useState(1);
+	const [username, setUsername] = useState("")
+	const [password, setPassword] = useState("")
+	const [email, setEmail] = useState("")
+	const [fname, setfname] = useState("")
+	const [lname, setlname] = useState("")
+	const [birthdate, setbirthdate] = useState("")
+	const [SchoolName, setSchoolName] = useState("")
+	const [SchoolID, setSchoolID] = useState("")
+	const [ID, setID] = useState("")
+	const [isresearchTeacher, setisresearchTeacher] = useState("")
+	const [isChecker, setisChecker] = useState("")
+	const [numberofResearch, setnumberofResearch] = useState("")
+	const [category, setcategory] = useState("")
+	const [educationalDegree, seteducationalDegree] = useState("")
+	const [listofResearch, setlistofResearch] = useState("")
+	const [listofResearchArray, setlistofResearchArray] = useState([])
+	const [Count, setCount]= useState("")
+
+	const handleSubmit = () => {
+		fetch(`https://sora-q8wl.onrender.com/user/createUser`, {
+			method: "POST",
+			headers: {"Content-Type": "application/json"},
+			body: JSON.stringify({
+				email: email,
+				password: password,
+				firstName: fname,
+				lastName: lname,
+				birthdate: new Date(birthdate),
+				schoolName: SchoolName,
+				schoolID: SchoolID,
+				ID: ID,
+				isresearchTeacher: isresearchTeacher,
+				isChecker: isChecker,
+				numberofResearch: numberofResearch,
+				category: category,
+				educationalDegree: educationalDegree,
+				listapprovedResearch: listofResearch.split("; ")
+				
+			})
+		}).then(result => result.json()).then(result => {
+			if(result.error){
+				console.log(result)
+				Swal.fire({
+					icon: "error",
+					title: "invalid Credentials",
+					text: '${res.error} check your details and try again'
+				})
+			}
+			else {
+				Swal.fire({
+					icon: "success",
+					title: "Register Success!",
+					timer: 1500,
+					showConfirmButton: false
+				}).then(result => {
+					let l = localStorage;
+					console.log(res);
+					l.setItem('t', res.t);
+					l.setItem('u', res.t);
+					l.setItem('a', res.t);
+					l.setItem('n', res.t);
+					l.setItem('i', res.t);
+					l.setItem('x', res.t);
+					l.setItem('b', res.t);
+					l.setItem('s', res.t);
+				})
+
+			}
+		})
+	}
+
 	let n = useNavigate()
 	return(
 		<div>
@@ -25,9 +97,12 @@ export default function DashboardTeacher() {
 						</div>
 					</div>
 				</div>
-				<div>
+				<div className="d-flex">
 					<p className="m-1 p-1"> <strong>List of works:</strong> {localStorage.getItem('')}</p>
+					<Nav.Link onClick={() => n('/Upload')} >Upload Work</Nav.Link>
+					<Nav.Link onClick={() => n('/ApproveSystem')} >Approve Work</Nav.Link>
 				</div>
+
 			</div>
 		</div>
 

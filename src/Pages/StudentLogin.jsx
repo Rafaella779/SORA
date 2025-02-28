@@ -60,7 +60,6 @@ export default function StudentLogin() {
 				<div className="col-6 d-flex justify-content-center align-items-center">
 					<div>
 						<h5 className="color-5 pt-serif-bold">Log In to SORA</h5>
-						{localStorage.getItem('s')}
 						<Form className="col-5 row w-600 b-1px">
 							<Form.Group className="mb-3">
 								<Form.Label>Email address</Form.Label>
