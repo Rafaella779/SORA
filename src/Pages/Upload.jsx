@@ -43,28 +43,20 @@ export default function Upload() {
 				console.log(result)
 				Swal.fire({
 					icon: "error",
-					title: "invalid Credentials",
-					text: '${res.error} check your details and try again'
+					title: "Missing Or Invalid  Words Pleasen Checks",
+					text: 'check your details and try again'
 				})
 			}
 			else {
 				Swal.fire({
 					icon: "success",
-					title: "Register Success!",
+					title: "Submission Success!",
 					timer: 1500,
 					showConfirmButton: false
 				})
 				.then(result => {
 					let l = localStorage;
 					console.log(res);
-					l.setItem('t', res.t);
-					l.setItem('u', res.t);
-					l.setItem('a', res.t);
-					l.setItem('n', res.t);
-					l.setItem('i', res.t);
-					l.setItem('x', res.t);
-					l.setItem('b', res.t);
-					l.setItem('s', res.t);
 				})
 
 			}

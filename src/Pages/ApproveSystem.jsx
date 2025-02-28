@@ -22,7 +22,7 @@ export default function ApproveSystem() {
 
 	const handleSubmit = () => {
 		fetch(`https://sora-q8wl.onrender.com/approveResearch/:researchID`, {
-			method: "POST",
+			method: "GET",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
 				approvalCount: approvalCount,
@@ -43,36 +43,26 @@ export default function ApproveSystem() {
 		}).then(result => result.json()).then(result => {
 			if(result.error){
 				console.log(result)
-				Swal.fire({
-					icon: "error",
-					title: "invalid Credentials",
-					text: '${res.error} check your details and try again'
-				})
+				
 			}
 			else {
-				Swal.fire({
-					icon: "success",
-					title: "Register Success!",
-					timer: 1500,
-					showConfirmButton: false
-				}).then(result => {
-					let l = localStorage;
-					console.log(res);
-					
-				})
+				
 
 			}
 		})
 	  }
+	}
 
 
-
+ function p1(){
 	  return(
-			<div>
+		<div className="col-4">
 		<Form.Label> is research Aprroved</Form.Label>
 		<Form.Control  onChange={e => setisresearchApproved(e.target.value)} value={isresearchApproved}/>
 		<Button onClick={handleSubmit}>Submit</Button> 
 		</div>
+
+
 
 	)
 	}

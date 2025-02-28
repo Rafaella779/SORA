@@ -21,8 +21,9 @@ export default function Register() {
 			(formReturn == null) ?
 				<div>
 					<h1>Register Page</h1>
-					<div className="d-flex">
+					<div className="d-flex gap-1">
 						<Button onClick={handleTeacher}>Teacher</Button>
+
 						<Button onClick={handleStudent}>Student</Button>
 					</div>
 				</div>
