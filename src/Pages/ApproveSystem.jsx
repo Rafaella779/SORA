@@ -1,71 +1,20 @@
-import {useState, useEffect} from 'react';
-import {Button, Form} from 'react-bootstrap';
+import React, {useState, useEffect, useContext } from 'react'
+import {Form, ButtonGroup, SplitButton, Button, Table, Container } from 'react-bootstrap'
+import {useNavigate} from 'react-router'
 import Swal from 'sweetalert2'
 
 export default function ApproveSystem() {
 
-	
-	const [approvalCount, setapprovalCount] = useState("")
-	const [rejectionCommnets, setrejectionCommnets] = useState("")
-	const [approvalrequestdate, setapprovalrequestdate] = useState("")
-	const [rejectioncount, setrejectioncount] = useState("")
-	const [whoPaneled, setwhoPaneled] = useState("")
-	const [Datepublish, setDatepublish] = useState("")
-	const [cite, setcite] = useState("")
-	const [view, setview] = useState("")
-	const [isresearchApproved, setisresearchApproved] = useState("")
-	const [dateModified, setdateModified] = useState("")
-	const [isAvailableForApproval, setisAvailableForApproval] = useState("")
-	const [approvalHistory, setapprovalHistory] = useState("")
-	const [ratings, setratings] = useState("")
-
-
-	const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/approveResearch/:researchID`, {
-			method: "GET",
-			headers: {"Content-Type": "application/json"},
-			body: JSON.stringify({
-				approvalCount: approvalCount,
-				rejectionCommnets: rejectionCommnets,
-				approvalrequestdate: approvalrequestdate,
-				rejectioncount: rejectioncount,
-				whoPaneled: whoPaneled,
-				Datepublish: new Date(Datepublish),
-				cite: cite,
-				view: view,
-				isresearchApproved: isresearchApproved,
-				approvalHistory: approvalHistory,
-				dateModified: dateModified,
-				isAvailableForApproval: isAvailableForApproval,
-				ratings: ratings,
-
-			})
-		}).then(result => result.json()).then(result => {
-			if(result.error){
-				console.log(result)
-				
-			}
-			else {
-				
-
-			}
-		})
-	  }
-	}
-
-
- function p1(){
-	  return(
-		<div className="col-4">
-		<Form.Label> is research Aprroved</Form.Label>
-		<Form.Control  onChange={e => setisresearchApproved(e.target.value)} value={isresearchApproved}/>
-		<Button onClick={handleSubmit}>Submit</Button> 
+	return ( 
+		<div>
+			<h3>HI</h3>
 		</div>
-
-
-
 	)
-	}
+
+}
+
+
+
 
 		
 

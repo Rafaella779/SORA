@@ -16,20 +16,19 @@ export default function Register() {
 	}
 
 	return(
-		<div>
+		<div className="d-flex justify-content-center align-items-center pt-serif-bold ">
 		{
 			(formReturn == null) ?
 				<div>
-					<h1>Register Page</h1>
+					<h2 className="pt-serif-bold ">Register Page</h2>
 					<div className="d-flex gap-1">
 						<Button onClick={handleTeacher}>Teacher</Button>
-
 						<Button onClick={handleStudent}>Student</Button>
 					</div>
 				</div>
 				: <></>
 			}
-			<div className="w-25 mt-5">
+			<div className="w-40 mt-5 bg-2 h-100 b-1px bg-4">
 				{formReturn}
 			</div>
 		</div>)
@@ -155,7 +154,7 @@ function RegisterStudent() {
 	useEffect(() => {}, [])
 	return(
 		<>
-			<h1>Register Student</h1>
+			<h2 className="pt-serif-bold ">Register Student</h2>
 			<Form>
 
 				<div>
@@ -300,23 +299,21 @@ function RegisterTeacher() {
 				<Button onClick={addResearch}>Add</Button>
 				<br />
 			</Form.Group>
-
-			<div className="col-4">
+			<div className="d-flex">
 		
-			
-		<h1>Research</h1>
-			{listofResearchArray.map((j, k) => {
-				console.log(j)
-				console.log(k)
-				return <div className="d-flex">
-					<p>{j}</p>
-					<Button onClick={() => {
-						listofResearchArray.splice(k, 1)
-						setCount(Count + 1);
-					}}> - </Button>
-				</div>
-			})}
-		</div>
+				<h3 className="pt-serif-bold">Research</h3>
+					{listofResearchArray.map((j, k) => {
+						console.log(j)
+						console.log(k)
+						return <div className="d-flex">
+							<p>{j}</p>
+							<Button onClick={() => {
+								listofResearchArray.splice(k, 1)
+								setCount(Count + 1);
+							}}> - </Button>
+						</div>
+					})}
+			</div>
 
 
 
@@ -344,7 +341,7 @@ function RegisterTeacher() {
 	useEffect(() => {}, [])
 	return(
 		<>
-			<h1>Register Teacher</h1>
+			<h2 className="pt-serif-bold ">Register Teacher</h2>
 			<Form>
 				{(page == 1 ? p1() : (page == 2) ? p2() : p3())}
 				<div className="d-flex gap-1 mt-3">

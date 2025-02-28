@@ -40,16 +40,6 @@ export default function HomePage() {
                 )  
             })
       }
-
-
-      let studentData = [
- 	  {	
-      	authors: "Nancy",
-      	title: "Robotics",
-      	abstract: "delulu",
-        view: "35,000",
-      }
-     ]
       
 
 	return ( 
