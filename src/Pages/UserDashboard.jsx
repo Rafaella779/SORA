@@ -12,13 +12,13 @@ export default function DashboardTeacher() {
 							<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
 						</div>
 						<div>
-							<p className="m-1 p-1"> <strong>Email</strong> {localStorage.getItem('n')}</p>
-							<p className="m-1 p-1"> <strong>Name</strong> {localStorage.getItem('t')}</p>
-							<p className="m-1 p-1"> <strong>Birthdate</strong> {new Date(localStorage.getItem('m')).toDateString()}</p>
-							<p className="m-1 p-1"> <strong>LRN</strong> {localStorage.getItem('o')}</p>
-							<p className="m-1 p-1"> <strong>SchoolID</strong> {localStorage.getItem('b')}</p>	
-							<p className="m-1 p-1"> <strong>ID</strong> {localStorage.getItem('s')}	</p>
-							<p className="m-1 p-1"> <strong>SchoolName</strong> {localStorage.getItem('x')}</p>
+							<p className="m-1 p-1"> <strong>Email:</strong> {localStorage.getItem('n')}</p>
+							<p className="m-1 p-1"> <strong>Name:</strong> {localStorage.getItem('t')}</p>
+							<p className="m-1 p-1"> <strong>Birthdate:</strong> {new Date(localStorage.getItem('m')).toDateString()}</p>
+							<p className="m-1 p-1"> <strong>LRN:</strong> {localStorage.getItem('o')}</p>
+							<p className="m-1 p-1"> <strong>SchoolID:</strong> {localStorage.getItem('b')}</p>	
+							<p className="m-1 p-1"> <strong>ID:</strong> {localStorage.getItem('s')}	</p>
+							<p className="m-1 p-1"> <strong>SchoolName:</strong> {localStorage.getItem('x')}</p>
 						</div>
 					</div>
 				</div>
