@@ -7,40 +7,22 @@ import  LogIn from './Pages/LogIn.jsx';
 import  HomePage from './Pages/HomePage.jsx';
 import  SearchResult from './Pages/SearchResult.jsx';
 import IndividualSearchResult from './Pages/IndividualSearchResult.jsx'
+import  DashboardTeacher from './Pages/DashboardTeacher.jsx';
 import  UserDashboard from './Pages/UserDashboard.jsx';
 import  RegisterT from './Pages/RegisterT.jsx' 
 import  Register from './Pages/Register.jsx' 
 import  ContactUs from './Pages/ContactUs.jsx' 
 import  AboutUs from './Pages/AboutUs.jsx' 
-
 import  Upload from './Pages/Upload.jsx'
- 
 import  ApproveSystem from './Pages/ApproveSystem.jsx'
- 
 import Swal from 'sweetalert2'; 
 import {Routes, Route} from 'react-router'
 import  Navbar from './Components/MyNavbar.jsx'
-
-
-
-
-import  Register from './Pages/Register.jsx'
 import  StudentLogin from './Pages/StudentLogin.jsx'
-
-
-
-
 import  Setting from './Pages/Setting.jsx'
 
 
-
-
-
-
-
 function App() {
-
-
   return (
     <>
     <Routes>
@@ -49,28 +31,18 @@ function App() {
         <Route path="IndividualSearchResult/:id" element={<IndividualSearchResult/>} />
         <Route path="login" element={<LogIn/>} />
         <Route path="register" element={<Register/>} />
-        <Route path="Homepage" element={<HomePage/>} />
         <Route path="UserDashboard" element={<UserDashboard/>} />
         <Route path="RegisterT" element={<RegisterT/>} />
         <Route path="AboutUs" element={<AboutUs/>} />
         <Route path="MyNavbar" element={<Navbar/>} />
         <Route path="SearchResult" element={<SearchResult/>} />
-
-
-
         <Route path="Approve" element={<ApproveSystem/>} />
-       
-        
-
         <Route path="HomePage" element={<HomePage/>} />
-        <Route path="DashboardTeacher" element={<DashboardTeacher/>} />
         <Route path="Upload" element={<Upload/>} />
         <Route path="StudentLogin" element={<StudentLogin/>} />
-
         <Route path="ContactUs" element={<ContactUs/>} />  
         <Route path="Setting" element={<Setting/>} />  
-
-
+        <Route path="DashboardTeacher" element={<DashboardTeacher/>} />  
       </Route>
     </Routes>
     </>

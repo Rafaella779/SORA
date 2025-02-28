@@ -46,8 +46,7 @@ export default function ContactUs() {
 			}
 		})
 	}
-
-	return ( 
+	return (
 		<div>
 			<div>
 				<div>
@@ -57,6 +56,7 @@ export default function ContactUs() {
 			</div>
 			<div>
 				<div className="d-flex">
+				</div>
 
 					<div className="border-2px col">
 						<h4>Get In Touch</h4>
@@ -84,8 +84,6 @@ export default function ContactUs() {
 								<StudentCard picLink="https://tse4.mm.bing.net/th?id=OIP.SV72EbhM23iKCGSWnYEwRAHaHa&pid=Api&P=0&h=220" name="Email" item="leishagrutas@gmail.com"/>
 								<StudentCard picLink="https://up.yimg.com/ib/th?id=OIP.bFRSXMeNFRTpPBei_ifTFQHaHa&pid=Api&rs=1&c=1&qlt=95&w=124&h=124" name="Location" item="Brgy. Cogon Juban Sorsogon"/>
 								<StudentCard picLink="https://tse2.mm.bing.net/th?id=OIP.z249RPSD-cfVfuC2OOLSOgHaHa&pid=Api&P=0&h=220" name="Facebook" item="Leisha Grutas"/>
-							
-
 						</div>
 					</div>
 					<div className="b-1px d-flex">
@@ -110,14 +108,13 @@ export default function ContactUs() {
 				</div>
 			</div>
 		</div>
-	)
+	</div>
+		)
 }
 
-function StudentCard({picLink, name, item}){
-
-	return(
-		<div className="p-2 d-flex align-items-center col ">
-
+function StudentCard({picLink, name}){
+	return(<>
+		<div className="p-2 d-flex align-items-center aboutUsCard h-auto ">
 			<div className="d-flex">
 				<img src={picLink} alt="" className="aboutUsPic" />
 			</div>
