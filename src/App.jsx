@@ -17,6 +17,7 @@ import  Upload from './Pages/Upload.jsx'
 import  Register from './Pages/Register.jsx'
 import  StudentLogin from './Pages/StudentLogin.jsx'
 import  IndividualSearchResult from './Pages/IndividualSearchResult.jsx'
+import  DashboardTeacher from './Pages/DashboardTeacher.jsx'
 
 
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="MyNavbar" element={<Navbar/>} />
         <Route path="SearchResult" element={<SearchResult/>} />
         <Route path="HomePage" element={<HomePage/>} />
+        <Route path="DashboardTeacher" element={<DashboardTeacher/>} />
         <Route path="Upload" element={<Upload/>} />
         <Route path="ContactUs" element={<ContactUs/>} />
         <Route path="StudentLogin" element={<StudentLogin/>} />
