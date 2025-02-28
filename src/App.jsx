@@ -16,6 +16,7 @@ import Swal from 'sweetalert2';
 import {Routes, Route} from 'react-router'
 import  Navbar from './Components/MyNavbar.jsx'
 import  Upload from './Pages/Upload.jsx'
+import  Setting from './Pages/Setting.jsx'
 
 
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="HomePage" element={<HomePage/>} />
         <Route path="Upload" element={<Upload/>} />
         <Route path="ContactUs" element={<ContactUs/>} />  
+        <Route path="Setting" element={<Setting/>} />  
       </Route>
     </Routes>
     </>
