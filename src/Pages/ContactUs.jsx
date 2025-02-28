@@ -57,35 +57,18 @@ export default function ContactUs() {
 			</div>
 			<div>
 				<div className="d-flex">
-
-					<div className="border-2px col">
-						<h4>Get In Touch</h4>
-						<p>Get in touch and let us know how we can help.</p>
-						<div className="d-flex gap-5">
-							<div>
-								<StudentCard picLink="https://www.svgrepo.com/show/472750/phone.svg" name="Phone" item="09273411314"/>
+					<div className="b-1px col">
+						<h4 className="color-5 pt-serif-bold m-3">Get In Touch</h4>
+						<p className="color-5 m-3">Get in touch and let us know how we can help.</p>
+						<div className="d-flex flex-wrap p-6 m-3">
+							<div className="d-flex">
+								<StudentCard picLink="https://www.svgrepo.com/show/472750/phone.svg" name="Phone" item="09273411314"/>			
+								<StudentCard picLink="https://tse4.mm.bing.net/th?id=OIP.SV72EbhM23iKCGSWnYEwRAHaHa&pid=Api&P=0&h=220" name="Email" item="gillyjeand@gmail.com"/>							
 							</div>
-							<div>
-								<StudentCard picLink="https://tse4.mm.bing.net/th?id=OIP.SV72EbhM23iKCGSWnYEwRAHaHa&pid=Api&P=0&h=220" name="Email" item="gillyjeand@gmail.com"/>
-							</div>
-						</div>
-						<div className="d-flex gap-5">
-							<div>
+							<div className="d-flex">
 								<StudentCard picLink="https://up.yimg.com/ib/th?id=OIP.bFRSXMeNFRTpPBei_ifTFQHaHa&pid=Api&rs=1&c=1&qlt=95&w=124&h=124" name="Location" item="Brgy. Cogon Juban Sor."/>
-							</div>
-							<div>
 								<StudentCard picLink="https://tse2.mm.bing.net/th?id=OIP.z249RPSD-cfVfuC2OOLSOgHaHa&pid=Api&P=0&h=220" name="Facebook" item="Rafaella Sabenorio"/>
 							</div>
-					<div className="b-1px col p-4">
-						<h4 className="pt-serif-bold ">Get In Touch</h4>
-						<p class="light p-0  m-0"><strong>Get in touch and let us know how we can help.</strong></p>
-						<div className="d-flex  flex-wrap">
-								<StudentCard picLink="https://www.svgrepo.com/show/472750/phone.svg" name="Phone" item="09634112627"/>
-								<StudentCard picLink="https://tse4.mm.bing.net/th?id=OIP.SV72EbhM23iKCGSWnYEwRAHaHa&pid=Api&P=0&h=220" name="Email" item="leishagrutas@gmail.com"/>
-								<StudentCard picLink="https://up.yimg.com/ib/th?id=OIP.bFRSXMeNFRTpPBei_ifTFQHaHa&pid=Api&rs=1&c=1&qlt=95&w=124&h=124" name="Location" item="Brgy. Cogon Juban Sorsogon"/>
-								<StudentCard picLink="https://tse2.mm.bing.net/th?id=OIP.z249RPSD-cfVfuC2OOLSOgHaHa&pid=Api&P=0&h=220" name="Facebook" item="Leisha Grutas"/>
-							
-
 						</div>
 					</div>
 					<div className="b-1px d-flex">
@@ -113,17 +96,18 @@ export default function ContactUs() {
 	)
 }
 
+
 function StudentCard({picLink, name, item}){
-
 	return(
-		<div className="p-2 d-flex align-items-center col ">
-
+		<div className="p-0 m-0 d-flex align-items-center col-6">
 			<div className="d-flex">
-				<img src={picLink} alt="" className="aboutUsPic" />
+				<img src={picLink} alt="" className="aboutUsPic"/>
 			</div>
-			<h6 className="p-2 d-flex text-center">{name}</h6>
-			<h6 className="p-2 d-flex text-center">{item}</h6>
+			<div>
+				<h6 className="p-1">{name}</h6>
+				<h6 className="p-1">{item}</h6>
+			</div>	
 		</div>
-
-	</>)
+	)
 }
+	

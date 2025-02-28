@@ -1,23 +1,23 @@
 import React, {useState, useEffect, useContext } from 'react'
-import { Button, Form, Container} from 'react-bootstrap'
+import { Button, Form, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import Swal from 'sweetalert2'
-export default function LogIn() {
+export default function StudentLogin() {
 
-	const [email, setEmail] = useState("")
-	const [password, setPassword] = useState("")
+	const [email, setemail] = useState("")
+	const [password, setpassword] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/login/teacher`, {
+		fetch(`https://sora-q8wl.onrender.com/login/student`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
 				e: email,
-				p: password,
+				p: password
 			})
 		}).then(result => result.json()).then(res => {
 			console.log(res);
 			if(res.error){
-				console.log(result)
+				console.log(res)
 				Swal.fire({
 					icon: "error",
 					title: "Invalid Password",
@@ -33,8 +33,20 @@ export default function LogIn() {
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
-					setEmail(res.email);
-          setPassword(res.password);
+					l.setItem('t', res.t);
+					l.setItem('t', res.n);
+					l.setItem('u', res.i);
+					l.setItem('a', res.b);
+					l.setItem('n', res.e);
+					l.setItem('i', res.c);
+					l.setItem('x', res.sn);
+					l.setItem('b', res.si);
+					l.setItem('s', res.d);
+					l.setItem('o', res.l);
+					l.setItem('p', res.bi);
+					l.setItem('u', res.te);
+					l.setItem('m', res.bi);
+					l.setItem('v', res.s);
 				})
 
 			}
@@ -47,16 +59,16 @@ export default function LogIn() {
 				<div className="col-6 d-flex justify-content-center align-items-center">
 					<div>
 						<h5 className="color-5 pt-serif-bold">Log In to SORA</h5>
+						{localStorage.getItem('s')}
 						<Form className="col-5 row w-600 b-1px">
-							<Form.Group className="mb-3" controller="formBasicEmail">
+							<Form.Group className="mb-3">
 								<Form.Label>Email address</Form.Label>
-								<Form.Control type="email" placeholder="Enter email" onChange={e => setEmail(e.target.value)} value={email} />
+								<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
 							</Form.Group>
 							<Form.Group className="mb-3">
 								<Form.Label>Password</Form.Label>
 								<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
 							</Form.Group>
-
 								<div className="d-flex justify-content-center align-items-center">
 									<Button onClick={handleSubmit}>Submit</Button>
 								</div>
