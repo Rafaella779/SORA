@@ -19,6 +19,7 @@ export default function Upload() {
 		const [whoPaneled, setwhoPaneled] = useState("")
 		const [whoPaneledArray, setwhoPaneledArray] = useState([])
 		const [title, settitle] = useState("")
+		const [count, setCount] = useState(0)
 
 
 			const handleSubmit = () => {
@@ -71,28 +72,39 @@ export default function Upload() {
 	}
 
 	let addKeyword = () => {
-		keywordArray.push(keywords);
-		setkeywords("");
+		if(keywords != ""){
+			keywordArray.push(keywords);
+			setkeywords("");
+		}
 	}
+
 	let addAuthors = () => {
+		if (authors != ""){
 		authorsArray.push(authors);
 		setauthors("");
 	}
+	}
 
 	let addid = () => {
-		idArray.push(id);
-		setid("");
+		if(id != ""){
+			idArray.push(id);
+			setid("");
+		}
 	}
 
 	let addwhopaneled = () => {
-		whoPaneledArray.push(id);
-		setwhoPaneled("");
+		if(whoPaneled != "") {
+			whoPaneledArray.push(whoPaneled);
+			setwhoPaneled("");
+		}
 	}
 
 function p1(){ 
 	return(
-	<div className="d-flex w-100">
+	<div className="d-flex w-100 ">
+		
 		<Form.Group className="col-4">
+			<h1>Submit Your Research</h1>
 			<Form.Label> Title of the Research </Form.Label>
 			<Form.Control  onChange={e => settitle(e.target.value)} value={title}/>
 			<Form.Label>Authors Of The Research </Form.Label>
@@ -103,17 +115,17 @@ function p1(){
 			<Form.Control  onChange={e => setid(e.target.value)} value={id}/>
 			<Button onClick={addid}>Add</Button>
 			<br />
-			<Form.Label>keywords Of The Research</Form.Label>
+			<Form.Label>Keywords of the Research</Form.Label>
 			<Form.Control  onChange={e => setkeywords(e.target.value)} value={keywords}/>
 			<Button onClick={addKeyword}>Add</Button>
 			<br />
-			<Form.Label>Category of The Research</Form.Label>
+			<Form.Label>Category of the Research</Form.Label>
 			<Form.Control  onChange={e => setcategory(e.target.value)} value={category}/>
 			<Form.Label> Link of the Research </Form.Label>
 			<Form.Control  onChange={e => setlink(e.target.value)} value={link}/>	
 		</Form.Group>
 
-		<div className="col-2">
+		<div className=" col-3">
 		
 			
 		<h1>Authors</h1>
@@ -123,13 +135,14 @@ function p1(){
 				return <div className="d-flex">
 					<p>{j}</p>
 					<Button onClick={() => {
-						authorsArray.splice(k, k + 1)
+						authorsArray.splice(k, 1)
+						setCount(count + 1);
 					}}> - </Button>
 				</div>
 			})}
 		</div>
 
-		<div className="col-2">
+		<div className="col-3">
 			<h1>ID</h1>
 			{idArray.map((p, o) => {
 				console.log(p)
@@ -137,21 +150,23 @@ function p1(){
 				return <div className="d-flex">
 					<p>{p}</p>
 					<Button onClick={() => {
-						idArray.splice(o, o + 1)
+						idArray.splice(o, 1)
+						setCount(count + 1);
 					}}> - </Button>
 				</div>
 			})}
 		</div>
 
-		<div className="col-2">
-			<h1>keywords</h1>
+		<div className="col">
+			<h1>Keywords</h1>
 			{keywordArray.map((x, i) => {
 				console.log(x)
 				console.log(i)
 				return <div className="d-flex">
 					<p>{x}</p>
 					<Button onClick={() => {
-						keywordArray.splice(i, i + 1)
+						keywordArray.splice(i,1)
+						setCount(count + 1);
 					}}> - </Button>
 				</div>
 			})}
@@ -176,7 +191,7 @@ function p2(){
 		<br />
 	</Form.Group>
 
-	<div className="col-4">
+	<div className="col-4 ">
 			<h1>Panelist</h1>
 			{whoPaneledArray.map((p, o) => {
 				console.log(p)
@@ -184,7 +199,8 @@ function p2(){
 				return <div className="d-flex">
 					<p>{p}</p>
 					<Button onClick={() => {
-						whoPaneledsArray.splice(o, o + 1)
+						whoPaneledsArray.splice(o, 1)
+						setCount(count + 1);
 					}}> - </Button>
 				</div>
 			})}
@@ -214,22 +230,21 @@ const [render, setRender] = useState(p1);
 
 
 
+
 useEffect(() => {}, [])
 return(
 		<>
 		<div>
-			<h1>Submit Your Reseach</h1>
+			
+
+				
+			
 			<Form className="w-100">
 				{(page == 1 ? p1() : p2())}
 				<div className="d-flex gap-1 mt-3">
 					{(page == 1) ? <></> : <Button onClick={handlePrev}>Previous</Button>}
 					{(page == 2) ? <></> : <Button onClick={handleNext}>Next</Button>}
 					{(page == 2) ? <Button onClick={handleSubmit}>Submit</Button>  : <></> }
-				</div>
-
-
-				<div>
-					
 				</div>
 			</Form>
 		</div>

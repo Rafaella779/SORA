@@ -21,7 +21,7 @@ export default function Register() {
 			(formReturn == null) ?
 				<div>
 					<h1>Register Page</h1>
-					<div>
+					<div className="d-flex">
 						<Button onClick={handleTeacher}>Teacher</Button>
 						<Button onClick={handleStudent}>Student</Button>
 					</div>
@@ -190,7 +190,7 @@ function RegisterTeacher() {
 	const [educationalDegree, seteducationalDegree] = useState("")
 	const [listofResearch, setlistofResearch] = useState("")
 	const [listofResearchArray, setlistofResearchArray] = useState([])
-
+	const [Count, setCount]= useState("")
 
 	const handleSubmit = () => {
 		fetch(`https://sora-q8wl.onrender.com/teacher/createTeacher`, {
@@ -246,8 +246,10 @@ function RegisterTeacher() {
 	}
 
 	let addResearch = () => {
-		listofResearchArray.push(listofResearch);
-		setlistofResearch("");
+		if (Research != ""){
+			listofResearchArray.push(listofResearch);
+			setlistofResearch("");
+		}
 	}
 
 	function p1()  {
@@ -298,7 +300,7 @@ function RegisterTeacher() {
 				<br />
 			</Form.Group>
 
-			<div className="col-2">
+			<div className="col-4">
 		
 			
 		<h1>Research</h1>
@@ -308,7 +310,8 @@ function RegisterTeacher() {
 				return <div className="d-flex">
 					<p>{j}</p>
 					<Button onClick={() => {
-						listofResearchArray.splice(k, k + 1)
+						listofResearchArray.splice(k, 1)
+						setCount(Count + 1);
 					}}> - </Button>
 				</div>
 			})}
