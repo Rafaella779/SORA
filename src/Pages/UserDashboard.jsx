@@ -5,27 +5,28 @@ import Swal from 'sweetalert2'
 export default function UserDashboard() {
 	return(
 		<div>
-				<div className="d-flex w-600 h-3">
-					<div className="b-form d-flex">
+			<div className="d-flex w-600 h-3">	
+				<div className="b-form d-flex">
 					<div>
-						<div>
+						<div className="d-flex justify-content-center">
 							<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
-
 						</div>
-						<div >
-								<p className="m-0 p-0"> <strong>Email</strong> {localStorage.getItem('n')}	</p>
-								<p className="m-0 p-0"> <strong>Name</strong> {localStorage.getItem('t')}	</p>
-								<p className="m-0 p-0"> <strong>Birthdate</strong> {new Date(localStorage.getItem('m')).toDateString()}</p>
-								<p className="m-0 p-0"> <strong>LRN</strong> {localStorage.getItem('o')}</p>
-								<p className="m-0 p-0"> <strong>SchoolID</strong> {localStorage.getItem('b')}</p>	
-								<p className="m-0 p-0"> <strong>ID</strong> {localStorage.getItem('s')}	</p>
-								<p className="m-0 p-0"> <strong>SchoolName</strong> {localStorage.getItem('x')}</p>	
+						<div>
+							<p className="m-1 p-1"> <strong>Email:</strong> {localStorage.getItem('n')}</p>
+							<p className="m-1 p-1"> <strong>Name:</strong> {localStorage.getItem('t')}</p>
+							<p className="m-1 p-1"> <strong>Birthdate:</strong> {new Date(localStorage.getItem('m')).toDateString()}</p>
+							<p className="m-1 p-1"> <strong>LRN:</strong> {localStorage.getItem('o')}</p>
+							<p className="m-1 p-1"> <strong>SchoolID:</strong> {localStorage.getItem('b')}</p>	
+							<p className="m-1 p-1"> <strong>ID:</strong> {localStorage.getItem('s')}	</p>
+							<p className="m-1 p-1"> <strong>SchoolName:</strong> {localStorage.getItem('x')}</p>
+
 						</div>
 					</div>
 				</div>
 			</div>
-
-	</div>
+		<div>
+	</div> 
+</div>
 
 	)
 }

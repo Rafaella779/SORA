@@ -46,8 +46,7 @@ export default function ContactUs() {
 			}
 		})
 	}
-
-	return ( 
+	return (
 		<div>
 			<div>
 				<div>
@@ -64,11 +63,14 @@ export default function ContactUs() {
 							<div className="d-flex">
 								<StudentCard picLink="https://www.svgrepo.com/show/472750/phone.svg" name="Phone" item="09273411314"/>			
 								<StudentCard picLink="https://tse4.mm.bing.net/th?id=OIP.SV72EbhM23iKCGSWnYEwRAHaHa&pid=Api&P=0&h=220" name="Email" item="gillyjeand@gmail.com"/>							
+
 							</div>
 							<div className="d-flex">
 								<StudentCard picLink="https://up.yimg.com/ib/th?id=OIP.bFRSXMeNFRTpPBei_ifTFQHaHa&pid=Api&rs=1&c=1&qlt=95&w=124&h=124" name="Location" item="Brgy. Cogon Juban Sor."/>
 								<StudentCard picLink="https://tse2.mm.bing.net/th?id=OIP.z249RPSD-cfVfuC2OOLSOgHaHa&pid=Api&P=0&h=220" name="Facebook" item="Rafaella Sabenorio"/>
 							</div>
+
+
 						</div>
 					</div>
 					<div className="b-1px d-flex">
@@ -93,13 +95,15 @@ export default function ContactUs() {
 				</div>
 			</div>
 		</div>
-	)
+		)
 }
+
 
 
 function StudentCard({picLink, name, item}){
 	return(
 		<div className="p-0 m-0 d-flex align-items-center col-6">
+
 			<div className="d-flex">
 				<img src={picLink} alt="" className="aboutUsPic"/>
 			</div>

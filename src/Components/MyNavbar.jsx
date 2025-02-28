@@ -1,8 +1,5 @@
-
 import {Nav, Navbar, Container, Button, Form, NavDropdown} from 'react-bootstrap';
-
 import { Outlet, useNavigate} from 'react-router'
-
 
 export default function MyNavbar(){
 	let n = useNavigate()
@@ -20,6 +17,21 @@ export default function MyNavbar(){
 					    	<Nav.Link  onClick={() => n('/AboutUs')} >About Us</Nav.Link>
 					    	<Nav.Link  onClick={() => n('/ContactUs')} >Contact Us</Nav.Link>
 					    	<Nav.Link  onClick={() => n('/UserDashboard')} >Dashboard</Nav.Link>
+
+
+
+					    	
+
+					    	
+					    	<Nav.Link  onClick={() => n('/DashboardTeacher')} >DashTeacher</Nav.Link>
+			
+
+
+
+
+
+
+
 					    </div>
 					    <div className="d-flex">
 					    	<Nav.Link  onClick={() => n('/StudentLogin')} >Student</Nav.Link>
