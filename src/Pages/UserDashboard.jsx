@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext } from 'react'
 import { Button, Form, Container, Nav, Navbar, NavDropdown, Card } from 'react-bootstrap'
 import Swal from 'sweetalert2'
 
-export default function DashboardTeacher() {
+export default function UserDashboard() {
 	return(
 		<div>
 			<div className="d-flex w-600 h-3">	
@@ -19,6 +19,7 @@ export default function DashboardTeacher() {
 							<p className="m-1 p-1"> <strong>SchoolID:</strong> {localStorage.getItem('b')}</p>	
 							<p className="m-1 p-1"> <strong>ID:</strong> {localStorage.getItem('s')}	</p>
 							<p className="m-1 p-1"> <strong>SchoolName:</strong> {localStorage.getItem('x')}</p>
+
 						</div>
 					</div>
 				</div>

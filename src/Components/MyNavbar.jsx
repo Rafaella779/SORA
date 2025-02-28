@@ -18,11 +18,14 @@ export default function MyNavbar(){
 					    	<Nav.Link  onClick={() => n('/ContactUs')} >Contact Us</Nav.Link>
 					    	<Nav.Link  onClick={() => n('/UserDashboard')} >Dashboard</Nav.Link>
 
+
+
 					    	
 
 					    	
 					    	<Nav.Link  onClick={() => n('/DashboardTeacher')} >DashTeacher</Nav.Link>
-					    	<Nav.Link onClick={() => n('/Setting')} >Setting</Nav.Link>
+			
+
 
 
 
