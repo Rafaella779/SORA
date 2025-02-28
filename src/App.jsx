@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import  LogIn from './Pages/LogIn.jsx';
+import  TeacherLogin from './Pages/TeacherLogin.jsx';
 import  HomePage from './Pages/HomePage.jsx';
 import  SearchResult from './Pages/SearchResult.jsx';
 import  UserDashboard from './Pages/UserDashboard.jsx';
@@ -35,7 +35,7 @@ function App() {
       <Route path="/" element={<Navbar />}>
         <Route index element={<HomePage />} />
         <Route path="IndividualSearchResult/:id" element={<IndividualSearchResult/>} />
-        <Route path="login" element={<LogIn/>} />
+        <Route path="TeacherLogin" element={<TeacherLogin/>} />
         <Route path="register" element={<Register/>} />
         <Route path="Homepage" element={<HomePage/>} />
         <Route path="UserDashboard" element={<UserDashboard/>} />
