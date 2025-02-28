@@ -44,9 +44,9 @@ export default function LogIn() {
 	return(
     <div>
 			<div class="row">
-				<div class="col-6 d-flex justify-content-center align-items-center">
+				<div className="col-6 d-flex justify-content-center align-items-center">
 					<div>
-						<h5 className="color-5">Log In to SORA</h5>
+						<h5 className="color-5 pt-serif-bold">Log In to SORA</h5>
 						<Form className="col-5 row w-600 b-1px">
 							<Form.Group className="mb-3" controller="formBasicEmail">
 								<Form.Label>Email address</Form.Label>
@@ -64,8 +64,8 @@ export default function LogIn() {
 					</div>
 				</div>
 				<div className="col-5 row w-500 b-1px" expand="lg">
-					<h5 className="d-flex justify-content-center align-items-center">New Here?</h5>
-					<p className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</p>
+					<h5 className="d-flex justify-content-center align-items-center pt-serif-bold">New Here?</h5>
+					<p class="light p-0  m-0"><strong className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</strong></p>
 				</div>
 			</div>
 		</div>
