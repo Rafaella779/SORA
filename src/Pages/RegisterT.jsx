@@ -206,7 +206,7 @@ function RegisterTeacher() {
 				schoolID: SchoolID,
 				ID: ID,
 				isresearchTeacher: isresearchTeacher,
-				//isChecker: isChecker,
+				isChecker: isChecker,
 				numberofResearch: numberofResearch,
 				category: category,
 				educationalDegree: educationalDegree,
