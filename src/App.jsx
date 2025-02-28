@@ -19,7 +19,6 @@ import Swal from 'sweetalert2';
 import {Routes, Route} from 'react-router'
 import  Navbar from './Components/MyNavbar.jsx'
 import  StudentLogin from './Pages/StudentLogin.jsx'
-import  Setting from './Pages/Setting.jsx'
 
 
 
@@ -48,7 +47,6 @@ function App() {
         <Route path="Upload" element={<Upload/>} />
         <Route path="StudentLogin" element={<StudentLogin/>} />
         <Route path="ContactUs" element={<ContactUs/>} />  
-        <Route path="Setting" element={<Setting/>} />  
       </Route>
     </Routes>
     </>
