@@ -17,7 +17,7 @@ export default function StudentLogin() {
 		}).then(result => result.json()).then(res => {
 			console.log(res);
 			if(res.error){
-				console.log(result)
+				console.log(res)
 				Swal.fire({
 					icon: "error",
 					title: "Invalid Password",
@@ -43,6 +43,8 @@ export default function StudentLogin() {
 					l.setItem('b', res.si);
 					l.setItem('s', res.d);
 					l.setItem('o', res.l);
+					l.setItem('p', res.bi);
+					l.setItem('u', res.te);
 					l.setItem('m', res.bi);
 					l.setItem('v', res.s);
 				})
@@ -56,7 +58,9 @@ export default function StudentLogin() {
 			<div className="row">
 				<div className="col-6 d-flex justify-content-center align-items-center">
 					<div>
+
 						<h2 className="color-5">Sign In to SORA</h2>
+						{localStorage.getItem('s')}
 						<Form className="col-5 row w-600 b-form">
 							<Form.Group className="mb-3">
 								<Form.Label>Email address</Form.Label>
