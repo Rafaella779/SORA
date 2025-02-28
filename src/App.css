@@ -120,3 +120,9 @@ h1 {
   font-weight: 700;
   font-style: normal;
 }
+p.thick {
+  font-weight: bold;
+}
+p.light {
+  font-weight: lighter;
+}

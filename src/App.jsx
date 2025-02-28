@@ -6,27 +6,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import  LogIn from './Pages/LogIn.jsx';
 import  HomePage from './Pages/HomePage.jsx';
 import  SearchResult from './Pages/SearchResult.jsx';
+import IndividualSearchResult from './Pages/IndividualSearchResult.jsx'
 import  UserDashboard from './Pages/UserDashboard.jsx';
-
 import  RegisterT from './Pages/RegisterT.jsx' 
+import  Register from './Pages/Register.jsx' 
 import  ContactUs from './Pages/ContactUs.jsx' 
 import  AboutUs from './Pages/AboutUs.jsx' 
 import Swal from 'sweetalert2'; 
 import {Routes, Route} from 'react-router'
 import  Navbar from './Components/MyNavbar.jsx'
 import  Upload from './Pages/Upload.jsx'
-import  ContactUs from './Pages/ContactUs.jsx'
+import  Setting from './Pages/Setting.jsx'
+
 
 
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
     <Routes>
       <Route path="/" element={<Navbar />}>
-        <Route index element={<HomePage />} 
+        <Route index element={<HomePage />} />
         <Route path="IndividualSearchResult/:id" element={<IndividualSearchResult/>} />
         <Route path="login" element={<LogIn/>} />
         <Route path="register" element={<Register/>} />
@@ -38,8 +40,8 @@ function App() {
         <Route path="SearchResult" element={<SearchResult/>} />
         <Route path="HomePage" element={<HomePage/>} />
         <Route path="Upload" element={<Upload/>} />
-        <Route path="ContactUs" element={<ContactUs/>} />
-        
+        <Route path="ContactUs" element={<ContactUs/>} />  
+        <Route path="Setting" element={<Setting/>} />  
       </Route>
     </Routes>
     </>

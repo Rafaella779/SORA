@@ -6,7 +6,7 @@ import rafaella from "../assets/rafaella.jpeg"
 import React from "react";
 import { Button, Card} from 'react-bootstrap'
 
-export default function AboutUs() {
+export default function Setting() {
 
 	return ( 
 		<div>

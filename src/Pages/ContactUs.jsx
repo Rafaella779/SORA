@@ -35,7 +35,7 @@ export default function ContactUs() {
 				<div className="d-flex">
 					<div className="b-1px col p-4">
 						<h4 className="pt-serif-bold ">Get In Touch</h4>
-						<p>Get in touch and let us know how we can help.</p>
+						<p class="light p-0  m-0"><strong>Get in touch and let us know how we can help.</strong></p>
 						<div className="d-flex  flex-wrap">
 								<StudentCard picLink="https://www.svgrepo.com/show/472750/phone.svg" name="Phone" item="09634112627"/>
 								<StudentCard picLink="https://tse4.mm.bing.net/th?id=OIP.SV72EbhM23iKCGSWnYEwRAHaHa&pid=Api&P=0&h=220" name="Email" item="leishagrutas@gmail.com"/>
