@@ -1,22 +1,20 @@
-import React, {useState, useEffect, useContext} from 'react'
-import { Button, Form, Container, Nav, Navbar, NavDropdown, Card, Modal, SplitButton, ButtonGroup, Table } from 'react-bootstrap'
-import { useNavigate, Outlet } from 'react-router'
+import React, {useState, useEffect, useContext } from 'react'
+import { Button, Form, Container, Nav, Navbar, NavDropdown, Card, Modal } from 'react-bootstrap'
+import { useNavigate } from 'react-router'
 import Swal from 'sweetalert2'
 
-export default function DashboardTeacher() {
+export default function UserDashboardT() {
 	const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
-	let n = useNavigate()
+  	const handleClose = () => setShow(false);
+  	const handleShow = () => setShow(true);
 
-
+  	let n = useNavigate()
 	return(
-		<div className="d-flex">
+		<div>
 			<ModalChange show={show} setShow={setShow}/>
-
-			<div className="d-flex w-600 h-3 col-8">	
-				<div className="border-2px d-flex bg-3">
+			<div className="d-flex w-600 h-3 col-10">
+				<div className="border-2px d-flex">
 					<div>
 						<div className="d-flex justify-content-center">
 							<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
@@ -25,26 +23,20 @@ export default function DashboardTeacher() {
 							<p className="m-1 p-1"> <strong>Email:</strong> {localStorage.getItem('n')}</p>
 							<p className="m-1 p-1"> <strong>Name:</strong> {localStorage.getItem('t')}</p>
 							<p className="m-1 p-1"> <strong>Birthdate:</strong> {new Date(localStorage.getItem('m')).toDateString()}</p>
+							<p className="m-1 p-1"> <strong>LRN:</strong> {localStorage.getItem('o')}</p>
 							<p className="m-1 p-1"> <strong>SchoolID:</strong> {localStorage.getItem('b')}</p>	
 							<p className="m-1 p-1"> <strong>ID:</strong> {localStorage.getItem('s')}	</p>
 							<p className="m-1 p-1"> <strong>SchoolName:</strong> {localStorage.getItem('x')}</p>
-							<p className="m-1 p-1"> <strong>Educational Degree:</strong> {localStorage.getItem('')}</p>
-							<p className="m-1 p-1"> <strong>No. of research:</strong> {localStorage.getItem('')}</p>
-							<p className="m-1 p-1"> <strong>List of works:</strong> {localStorage.getItem('')}</p>
 						</div>
 					</div>
 				</div>
-
-				<div className="d-flex col-4">
-					<Nav.Link onClick={() => n('/Upload')} >Upload Work</Nav.Link>
-				</div>
-
+				<div className=" col-2 d-flex justify-content-center">
+				<Nav.Link  onClick={() => n('/Upload')} >Upload Work</Nav.Link>
 			</div>
-			<div className="d-flex">
-				 <Button variant="secondary" onClick={handleShow}>Change</Button>
 			</div>
-			<Outlet/>
-
+			<div>
+				<Button variant="secondary" onClick={handleShow}>Change</Button>
+			</div>
 		</div>
 
 	)
@@ -64,10 +56,10 @@ function ModalChange({show, setShow}){
 	<>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton className="border-2px bg-3">
-          <Modal.Title>Account Information</Modal.Title>
+        <Modal.Header closeButton>
+          <Modal.Title>Account Info</Modal.Title>
         </Modal.Header>
-        <div className="border-2px bg-3">
+        <div className="border-2px">
         	<Form.Group>
         	<Form.Label>Username</Form.Label>
 			<Form.Control onChange={(e) => {setUsername(e.target.value); console.log(username)}} value={username}/>
