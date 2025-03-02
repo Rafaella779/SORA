@@ -9,8 +9,7 @@ export default function DashboardTeacher() {
 		<div className="d-flex ">
 			<div className="d-flex">
 				
-					
-				<div className="b-1px d-flex flex-column mw-300">
+				<div className="b-1px d-flex flex-column mw-300 p-3">
 					<div className="d-flex justify-content-center">
 						<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
 					</div>
@@ -37,7 +36,7 @@ function StudentCard({picLink, name}){
 	return(<>
 		<div className="p-0 m-0 d-flex align-items-center aboutUsCard ">
 			<div className="d-flex p-0 m-0">
-				<img src={picLink} alt="" className="aboutUsPic m-0" />
+				<img src={picLink} alt="" className="dashboardPic m-0" />
 			</div>
 			<h6 className="p-2 d-flex text-center">{name}</h6>
 		</div>

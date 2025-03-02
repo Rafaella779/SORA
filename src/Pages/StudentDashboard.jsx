@@ -123,12 +123,12 @@ export default function StudentDashboard() {
 	useEffect(() => {}, [])
 	return(
 		<div className="d-flex mw-1200">
-			<div className="d-flex flex-column mw-400 h-3">	
-				<div className="b-form d-flex flex-column mw-400">
+			<div className="d-flex flex-column mw-300 ">	
+				<div className="b-form d-flex flex-column mw-300 p-3	">
 					<div className="d-flex justify-content-center">
 						<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
 					</div>
-					<div className="d-flex flex-column flex-wrap mw-600">
+					<div className="d-flex flex-column flex-wrap mw-600 p-2">
 						<p className="m-0 p-1 text-break"><strong>Email:</strong> {localStorage.getItem('n')}</p>
 						<p className="m-0 p-1 text-break"><strong>Name:</strong> {localStorage.getItem('t')}</p>
 						<p className="m-0 p-1 text-break"><strong>Birthdate:</strong> {new Date(localStorage.getItem('m')).toDateString()}</p>
@@ -150,9 +150,9 @@ export default function StudentDashboard() {
 function StudentCard({picLink, name}){
 	return(<>
 		<div className="p-2 d-flex align-items-center aboutUsCard h-auto ">
-			<div className="d-flex">
-				<img src={picLink} alt="" className="aboutUsPic" />
-			</div>
+			
+				<img src={picLink} alt="" className="dashboardPic" />
+			
 			<h6 className="p-2 d-flex text-center">{name}</h6>
 		</div>
 

@@ -128,7 +128,17 @@ p.light {
   font-weight: lighter;
 }
 
+.contactUsPic {
+  aspect-ratio: 1/1 !important;
+  max-width: 80px;
+  max-height: 80px;
+}
 
+.dashboardPic {
+  aspect-ratio: 1/1 !important;
+  max-width: 80px;
+  max-height: 80px;
+}
 /* Miguel Css */
 
 

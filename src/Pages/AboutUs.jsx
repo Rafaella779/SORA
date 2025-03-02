@@ -40,8 +40,8 @@ export default function AboutUs() {
 
 
 function StudentCard({picLink, name}){
-	return(<>
-		<div className="b-1px m-0 p-0 d-flex align-items-center aboutUsCard flex-column h-auto col-6 col-md-4 col-lg-2">
+	return(<div className="p-1 m-0 col-6 col-md-4 col-lg-2">
+		<div className="b-1px m-0 p-0 d-flex align-items-center aboutUsCard flex-column h-auto ">
 			<div className="d-flex">
 				<img src={picLink} alt="" className="aboutUsPic w-100 " />
 			</div>
@@ -51,5 +51,5 @@ function StudentCard({picLink, name}){
 			</div>
 		</div>
 
-	</>)
+	</div>)
 }
