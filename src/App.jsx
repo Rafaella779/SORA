@@ -41,7 +41,6 @@ function App() {
         <Route path="logIn" element={<LogIn/>} />
         <Route path="Approve" element={<ApproveSystem/>} />
         <Route path="IndividualSearchResult" element={<IndividualSearchResult/>} />
-        
       </Route>
     </Routes>
     </>

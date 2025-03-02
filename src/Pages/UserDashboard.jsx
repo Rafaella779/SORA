@@ -1,19 +1,52 @@
-import React, {useState, useEffect, useContext } from 'react'
-import { Button, Form, Container, Nav, Navbar, NavDropdown, Card } from 'react-bootstrap'
+import React, {useState, useEffect, useContext,useShow, useNavigate } from 'react'
+import { Button, Form, Container, Nav, Navbar, NavDropdown, Card, Modal } from 'react-bootstrap'
 import Swal from 'sweetalert2'
 
 export default function UserDashboard() {
-	const [page, setPage] = useState(1);
-	const [username, setUsername] = useState("")
-	const [password, setPassword] = useState("")
+	const [show, setShow] = useState(false);
+
+  	const handleClose = () => setShow(false);
+  	const handleShow = () => setShow(true);
+
+  	let n={useNavigate}
+	return(
+	<div className="d-flex">
+	<ModalChange show={show} setShow={setShow} />
+			<div className="d-flex border-2px col-3">
+				<StudentCard picLink="https://www.svgrepo.com/show/343494/profile-user-account.svg" />
+				<div>
+				<div className="d-flex justify-content-end">
+					<Nav.Link href="Upload">Publish Your Work</Nav.Link>
+					</div>
+						<p> Email: {localStorage.getItem('s')}</p>
+						<p> Lrn: {localStorage.getItem('o')	}</p>
+						<p> Birthdate: {localStorage.getItem('p')}</p>
+						<p> School ID: {localStorage.getItem('b')}</p>
+						<p> School Name: {localStorage.getItem('x')}</p>
+						<p> ID: {localStorage.getItem('s')}</p>
+						<p> Name: {localStorage.getItem('t')}</p>
+					<div>
+						<Button onClick={handleShow} variant="secondary">Change</Button>
+					</div>
+			</div>		
+			</div>
+			<div className="border-2px col-9">
+				<p>HILLO WERLD!!!</p>
+			</div>
+	</div>
+
+	)
+}
+function ModalChange({show, setShow}){
+	const handleClose = () => setShow(false);
+  	const handleShow = () => setShow(true);
+
+  	const [username, setUsername] = useState("")
 	const [email, setEmail] = useState("")
-	const [fname, setfname] = useState("")
-	const [lname, setlname] = useState("")
-	const [birthdate, setbirthdate] = useState("")
-	const [SchoolName, setSchoolName] = useState("")
 	const [lrn, setlrn] = useState("")
 	const [SchoolID, setSchoolID] = useState("")
 	const [ID, setID] = useState("")
+	const [SchoolName, setSchoolName] = useState("")
 
 	const handleSubmit = () => {
 		fetch(`https://sora-q8wl.onrender.com/user/createUser`, {
@@ -21,7 +54,6 @@ export default function UserDashboard() {
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
 				email: email,
-				password: password,
 				firstName: fname,
 				lastName: lname,
 				birthdate: new Date(birthdate),
@@ -37,7 +69,7 @@ export default function UserDashboard() {
 				Swal.fire({
 					icon: "error",
 					title: "invalid Credentials",
-					text: `${res.error} check your details and try again`
+					text: '${res.error} check your details and try again'
 				})
 			}
 			else {
@@ -53,91 +85,47 @@ export default function UserDashboard() {
 					l.setItem('u', res.t);
 					l.setItem('a', res.t);
 					l.setItem('n', res.t);
+					l.setItem('i', res.t);
+					l.setItem('x', res.t);
+					l.setItem('b', res.t);
+					l.setItem('s', res.t);
 				})
 
 			}
 		})
 	}
 
-	return(
-		<div>
-			<div>
-				<div className="d-flex maxw-100 h-3">
-					<div className="border-2px d-flex">
-					<div>
-						<div>
-							<StudentCard picLink="https://www.svgrepo.com/show/343494/profile-user-account.svg" />
-						</div>
-						<div>
-							<h6>Username</h6>
-						</div>
-						<div>
-							<h6>Name</h6>
-						</div>
-						<div>
-							<h6>Email</h6>
-						</div>
-						<div>
-							<h6>Password</h6>
-						</div>
-						<div>
-							<h6>____________________</h6>
-						</div>
-						<div>
-							<h6>School Name</h6>
-						</div>
-						<div>
-							<h6>School ID</h6>
-						</div>
-						<div>
-							<h6>ID</h6>
-						</div>
-						<div>
-							<h6>LRN</h6>
-						</div>
-						<div>
-							<h6>Birthdate</h6>
-						</div>
-					</div>
-				</div>
-				<div className="d-flex">
-						<div>
-							<Form className="w-600" >							
-								<Form.Group className="mb-3" controller="formBasicUserName">
-									<Form.Label>Username</Form.Label>
-									<Form.Control value={username}/>	
-								</Form.Group>
-								<Form.Group className="mb-3" controller="formBasicName">
-									<Form.Label>Name</Form.Label>
-									<Form.Control value={name}/>	
-								</Form.Group>
-								<Form.Group className="mb-3" controller="formBasicEmail">
-									<Form.Label>Email</Form.Label>
-									<Form.Control value={email}/>	
-								</Form.Group>
-								<Form.Group className="mb-3" controller="formBasicPassword	">
-									<Form.Label>Paaword</Form.Label>
-									<Form.Control value={password}/>
-									<h4>________________________________________________________</h4>	
-								</Form.Group>
-					    	</Form>
-						</div>
-					</div>
-					<div className="d-flex text-center">
-					<div>
-						<h4>Upload Work</h4>
-						<Nav.Link href="Upload">Upload</Nav.Link>
-					</div>
-					<div className="maxw-100 justify-content-center">
-						<h4>Approve Work</h4>
-						<Nav.Link href="ApproveSystem">Approve</Nav.Link>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	)
+	 return (
+    <>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header className="border-2px" closeButton>
+          <Modal.Title>Account Information</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className="bg-1 border-2px">
+				<Form.Label>Username</Form.Label>
+				<Form.Control onChange={(e) => {setUsername(e.target.value); console.log(username)}} value={username}/>
+				<Form.Label>Email address</Form.Label>
+				<Form.Control type="email" onChange={e => setEmail(e.target.value)} value={email}/>
+				<Form.Label>LRN</Form.Label>
+				<Form.Control  onChange={e => setlrn(e.target.value)} value={lrn}/>
+				<Form.Label>ID</Form.Label>
+				<Form.Control  onChange={e => setID(e.target.value)} value={ID}/>
+				<Form.Label>School ID</Form.Label>
+				<Form.Control  onChange={e => setSchoolID(e.target.value)} value={SchoolID}/>
+				<Form.Label>School Name</Form.Label>
+				<Form.Control onChange={e => setSchoolName(e.target.value)} value={SchoolName}/>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </>
+  );
 }
 
 
