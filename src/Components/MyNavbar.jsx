@@ -4,8 +4,8 @@ import { Outlet, useNavigate} from 'react-router'
 export default function MyNavbar(){
 	let n = useNavigate()
 	return(
-		<div>
-			<Navbar>
+		<>
+			<Navbar expand="lg">
 				<Container fluid>
 					<Navbar.Brand href="#" className="cinzel-decorative">SORA</Navbar.Brand>
 					<Navbar.Toggle aria-controls="navbarScroll" />
@@ -18,12 +18,14 @@ export default function MyNavbar(){
 					    	<Nav.Link  onClick={() => n('/ContactUs')} >Contact Us</Nav.Link>
 					    	<Nav.Link  onClick={() => n('/UserDashboard')} >Dashboard</Nav.Link>
 					    	<Nav.Link  onClick={() => n('/StudentLogin')} >Student</Nav.Link>
-					    	<Nav.Link  onClick={() => n('/DashboardTeacher')} >DashTeacher</Nav.Link>
 					    	<Nav.Link onClick={() => n('/Setting')} >Setting</Nav.Link>
+					    	<Nav.Link  onClick={() => n('/StudentDashboard')} >DashStudent</Nav.Link>
+					    	<Nav.Link  onClick={() => n('/Teacher')} >DashTeacher</Nav.Link>n
 					    </div>
 					    <div className="d-flex">
 					    	<Nav.Link onClick={() => n('/logIn')} >Log In</Nav.Link>
 					    	<Nav.Link onClick={() => n('/RegisterT')} >Register</Nav.Link>
+					    	<Nav.Link onClick={() => n('/ApproveSystem')} >ApproveSystem</Nav.Link>
 					    </div>
 					</div>
 				    </Nav>
@@ -31,6 +33,8 @@ export default function MyNavbar(){
 				</Container>
 			</Navbar>
 			<Outlet />
-		</div>
+
+		</>
+
 	)
 }

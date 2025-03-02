@@ -1,17 +1,18 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { Button, Form, Container, Nav, Navbar, NavDropdown, Card, Modal, SplitButton } from 'react-bootstrap'
-import { useNavigate } from 'react-router'
+import { Button, Form, Container, Nav, Navbar, NavDropdown, Card, Modal, SplitButton, ButtonGroup, Table } from 'react-bootstrap'
+import { useNavigate, Outlet } from 'react-router'
 import Swal from 'sweetalert2'
 
 export default function DashboardTeacher() {
 	const [show, setShow] = useState(false);
-
-  	const handleClose = () => setShow(false);
-  	const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
 	let n = useNavigate()
+
+
 	return(
-		<div>
+		<div className="d-flex">
 			<ModalChange show={show} setShow={setShow}/>
 
 			<div className="d-flex w-600 h-3 col-8">	
@@ -33,6 +34,7 @@ export default function DashboardTeacher() {
 						</div>
 					</div>
 				</div>
+
 				<div className="d-flex col-4">
 					<Nav.Link onClick={() => n('/Upload')} >Upload Work</Nav.Link>
 				</div>
@@ -41,6 +43,8 @@ export default function DashboardTeacher() {
 			<div className="d-flex">
 				 <Button variant="secondary" onClick={handleShow}>Change</Button>
 			</div>
+			<Outlet/>
+
 		</div>
 
 	)
