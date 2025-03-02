@@ -12,38 +12,28 @@ export default function DashboardTeacher() {
 
 
 	return(
-		<div className="d-flex">
-			<ModalChange show={show} setShow={setShow}/>
 
-			<div className="d-flex w-600 h-3 col-8">	
-				<div className="border-2px d-flex bg-3">
-					<div>
-						<div className="d-flex justify-content-center">
-							<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
-						</div>
-						<div>
-							<p className="m-1 p-1"> <strong>Email:</strong> {localStorage.getItem('n')}</p>
-							<p className="m-1 p-1"> <strong>Name:</strong> {localStorage.getItem('t')}</p>
-							<p className="m-1 p-1"> <strong>Birthdate:</strong> {new Date(localStorage.getItem('m')).toDateString()}</p>
-							<p className="m-1 p-1"> <strong>SchoolID:</strong> {localStorage.getItem('b')}</p>	
-							<p className="m-1 p-1"> <strong>ID:</strong> {localStorage.getItem('s')}	</p>
-							<p className="m-1 p-1"> <strong>SchoolName:</strong> {localStorage.getItem('x')}</p>
-							<p className="m-1 p-1"> <strong>Educational Degree:</strong> {localStorage.getItem('')}</p>
-							<p className="m-1 p-1"> <strong>No. of research:</strong> {localStorage.getItem('')}</p>
-							<p className="m-1 p-1"> <strong>List of works:</strong> {localStorage.getItem('')}</p>
-						</div>
+		<div className="d-flex ">
+			<div className="d-flex">
+				
+				<div className="b-1px d-flex flex-column mw-300 p-3">
+					<div className="d-flex justify-content-center">
+						<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
+					</div>
+					<div className="d-flex flex-column p-3">
+						<p className="mb-1 p-0 text-break"> <strong>Email:</strong> {localStorage.getItem('n')}</p>
+						<p className="mb-1 p-0 text-break"> <strong>Name:</strong> {localStorage.getItem('t')}</p>
+						<p className="mb-1 p-0 text-break"> <strong>Birthdate:</strong> {new Date(localStorage.getItem('m')).toDateString()}</p>
+						<p className="mb-1 p-0 text-break"> <strong>SchoolID:</strong> {localStorage.getItem('b')}</p>	
+						<p className="mb-1 p-0 text-break"> <strong>ID:</strong> {localStorage.getItem('s')}	</p>
+						<p className="mb-1 p-0 text-break"> <strong>SchoolName:</strong> {localStorage.getItem('x')}</p>
+						<p className="mb-1 p-0 text-break"> <strong>Educational Degree:</strong> {localStorage.getItem('')}</p>
+						<p className="mb-1 p-0 text-break"> <strong>No. of research:</strong> {localStorage.getItem('')}</p>
 					</div>
 				</div>
 
-				<div className="d-flex col-4">
-					<Nav.Link onClick={() => n('/Upload')} >Upload Work</Nav.Link>
-				</div>
-
+				<Outlet/>
 			</div>
-			<div className="d-flex">
-				 <Button variant="secondary" onClick={handleShow}>Change</Button>
-			</div>
-			<Outlet/>
 
 		</div>
 
@@ -96,9 +86,9 @@ function ModalChange({show, setShow}){
 
 function StudentCard({picLink, name}){
 	return(<>
-		<div className="p-2 d-flex align-items-center aboutUsCard h-auto ">
-			<div className="d-flex">
-				<img src={picLink} alt="" className="aboutUsPic" />
+		<div className="p-0 m-0 d-flex align-items-center aboutUsCard ">
+			<div className="d-flex p-0 m-0">
+				<img src={picLink} alt="" className="dashboardPic m-0" />
 			</div>
 			<h6 className="p-2 d-flex text-center">{name}</h6>
 		</div>
