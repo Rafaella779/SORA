@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 
 export default function HomePage() {
 
-	  const [authors, setAuthors] = useState("")
+      const [authors, setAuthors] = useState("")
       const [title, setTitle] = useState("")
       const [abstract, setAbstract] = useState("")
       const [view, setView] = useState("")
@@ -44,7 +44,7 @@ export default function HomePage() {
       
 
 	return ( 
-		<div>
+		<div className="p-5">
 			<div>
 				 <div className="cinzel-decorative d-flex text-center justify-content-center">
 				 	<h1>SORA</h1>

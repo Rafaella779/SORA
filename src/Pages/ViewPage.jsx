@@ -11,24 +11,24 @@ export default function ViewPage() {
 	        <div className="b-1px m-1 p-1">
 	        	<h5 className="pt-serif-bold">Pending</h5>
 				<Pending title="what?" author="enrico" abstract="the blablabla" />
-				<Button onClick={() => n('ApproveSystem')}>View</Button>
+				
 				<Pending title="what?" author="enrico" abstract="the blablabla" />
-				<Button onClick={() => n('ApproveSystem')}>View</Button>
+				
 				<Pending title="what?" author="enrico" abstract="the blablabla" />
-				<Button onClick={() => n('ApproveSystem')}>View</Button>
+			
 				<Pending title="what?" author="enrico" abstract="the blablabla" />
-				<Button onClick={() => n('ApproveSystem')}>View</Button>
+				
 		    </div>
 		    <div className="b-1px m-1 p-1">
 		    	<h5 className="pt-serif-bold">Approved</h5>
 				<Approved title="huh?" author="leisha" abstract="omkey" />
-				<Button onClick={() => n('ApproveSystem')}>View</Button>
+			
 				<Approved title="huh?" author="leisha" abstract="omkey" />
-				<Button onClick={() => n('ApproveSystem')}>View</Button>
+			
 				<Approved title="huh?" author="leisha" abstract="omkey" />
-				<Button onClick={() => n('ApproveSystem')}>View</Button>
+	
 				<Approved title="huh?" author="leisha" abstract="omkey" />
-				<Button onClick={() => n('ApproveSystem')}>View</Button>
+			
 		    </div> 
 		</div>
 		)
@@ -49,7 +49,7 @@ function Pending({author, abstract, title, pending}){
 			
 function Approved({author, abstract, title}){
 	return(
-		<div>
+		<div className="b-1px">
 			<div className="m-1 p-1 d-flex flex-column">
 				<p className="m-0 p-0"><strong>Title:</strong> {title}</p>
 				<p className="m-0 p-0"><strong>Author:</strong> {author}</p>

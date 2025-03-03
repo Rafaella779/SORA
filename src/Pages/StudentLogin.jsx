@@ -64,7 +64,7 @@ export default function StudentLogin() {
 					<div className="col-7 d-flex justify-content-center align-items-center col-12 col-lg-7">
 						<div className="d-flex flex-column w-100">
 							
-							<Form className="d-flex  justify-content-center flex-column p-4 w-100 b-1px"
+							<Form className="d-flex  justify-content-center flex-column p-4 w-100 b-1px">
 								<Form.Group className="mb-3">
 									<Form.Label>Email address</Form.Label>
 									<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
@@ -85,6 +85,7 @@ export default function StudentLogin() {
 
 					</div>
 				</div>
-	
+			</div>
+		</div>
 		)
 }
