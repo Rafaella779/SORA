@@ -1,39 +1,66 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { Button, Form, Nav, Navbar, NavDropdown, Card, ButtonGroup, SplitButton, Table, Container } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 import { useNavigate, Outlet } from 'react-router'
 import Swal from 'sweetalert2'
 
 export default function ViewPage() {
-	let n = useNavigate()
+      let n = useNavigate()
+
+	return ( 
+		<div className="d-flex">
+	        <div className="b-1px m-1 p-1">
+	        	<h5 className="pt-serif-bold">Pending</h5>
+				<Pending title="what?" author="enrico" abstract="the blablabla" />
+				<Button onClick={() => n('ApproveSystem')}>View</Button>
+				<Pending title="what?" author="enrico" abstract="the blablabla" />
+				<Button onClick={() => n('ApproveSystem')}>View</Button>
+				<Pending title="what?" author="enrico" abstract="the blablabla" />
+				<Button onClick={() => n('ApproveSystem')}>View</Button>
+				<Pending title="what?" author="enrico" abstract="the blablabla" />
+				<Button onClick={() => n('ApproveSystem')}>View</Button>
+		    </div>
+		    <div className="b-1px m-1 p-1">
+		    	<h5 className="pt-serif-bold">Approved</h5>
+				<Approved title="huh?" author="leisha" abstract="omkey" />
+				<Button onClick={() => n('ApproveSystem')}>View</Button>
+				<Approved title="huh?" author="leisha" abstract="omkey" />
+				<Button onClick={() => n('ApproveSystem')}>View</Button>
+				<Approved title="huh?" author="leisha" abstract="omkey" />
+				<Button onClick={() => n('ApproveSystem')}>View</Button>
+				<Approved title="huh?" author="leisha" abstract="omkey" />
+				<Button onClick={() => n('ApproveSystem')}>View</Button>
+		    </div> 
+		</div>
+		)
+}
+
+function Pending({author, abstract, title, pending}){
+
 	return(
 		<div>
-			<div>
-				<div>        
-		         	<div className="w-100 p-1 b-1px">
-		         		<div className="w-100">
-			         		<p className="m-0 p-0"> <strong>Title:</strong>The innovation of Miguel</p>
-			         		<p className="m-0 p-0"> <strong>Author:</strong>Miguel Silv</p>
-			         		<p className="m-0 p-0"> <strong>Abstract:</strong>dhsgwyfgb nsejrtygbh nqvfeag</p>
-			         	</div>
-			         	<div className="d-flex justify-content-end">
-	             			<Button onClick={() => n('ApproveSystem')}>View</Button>
-	             		</div>
-		            </div>
-				</div>
+			<div className="m-1 p-1 d-flex flex-column">
+				<p className="m-0 p-0"><strong>Title:</strong> {title}</p>
+				<p className="m-0 p-0"><strong>Author:</strong> {author}</p>
+				<p className="m-0 p-0"><strong>Abstract:</strong> {abstract}</p>
 			</div>
 		</div>
-
+	)
+}
+			
+function Approved({author, abstract, title}){
+	return(
+		<div>
+			<div className="m-1 p-1 d-flex flex-column">
+				<p className="m-0 p-0"><strong>Title:</strong> {title}</p>
+				<p className="m-0 p-0"><strong>Author:</strong> {author}</p>
+				<p className="m-0 p-0"><strong>Abstract:</strong> {abstract}</p>
+			</div>
+		</div>
 	)
 }
 
-function StudentCard({picLink, name}){
-	return(<>
-		<div className="p-2 d-flex align-items-center aboutUsCard h-auto ">
-			<div className="d-flex">
-				<img src={picLink} alt="" className="aboutUsPic" />
-			</div>
-			<h6 className="p-2 d-flex text-center">{name}</h6>
-		</div>
 
-	</>)
-}
+			
+		
+			         	
+		     

@@ -40,11 +40,12 @@ export default function HomePage() {
                 )  
             })
       }
+
       
 
 	return ( 
-		<div className="d-flex justify-content-center">
-			<div className="mw-1200 w-100">
+		<div>
+			<div>
 				 <div className="cinzel-decorative d-flex text-center justify-content-center">
 				 	<h1>SORA</h1>
 				 </div>
