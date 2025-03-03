@@ -33,7 +33,6 @@ export default function StudentLogin() {
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
-					l.setItem('t', res.t);
 					l.setItem('t', res.n);
 					l.setItem('u', res.i);
 					l.setItem('a', res.b);
@@ -42,8 +41,8 @@ export default function StudentLogin() {
 					l.setItem('x', res.sn);
 					l.setItem('b', res.si);
 					l.setItem('s', res.d);
-					l.setItem('o', res.l);
-					l.setItem('p', res.bi);
+					l.setItem('o', res.ed);
+					l.setItem('p', res.nu);
 					l.setItem('u', res.te);
 					l.setItem('m', res.bi);
 					l.setItem('v', res.s);
@@ -55,8 +54,8 @@ export default function StudentLogin() {
 
 	return(
     <div>
-			<div class="row">
-				<div className="col-6 d-flex justify-content-center align-items-center">
+			<div>
+				<div className="d-flex justify-content-center align-items-center">
 					<div>
 						<h5 className="color-5 pt-serif-bold">Log In to SORA</h5>
 						<Form className="col-5 row w-600 b-1px">
@@ -73,10 +72,6 @@ export default function StudentLogin() {
 								</div>
 						</Form>
 					</div>
-				</div>
-				<div className="col-5 row w-500 b-1px" expand="lg">
-					<h5 className="d-flex justify-content-center align-items-center pt-serif-bold">New Here?</h5>
-					<p class="light p-0  m-0"><strong className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</strong></p>
 				</div>
 			</div>
 		</div>
