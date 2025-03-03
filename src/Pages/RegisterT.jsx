@@ -28,7 +28,7 @@ export default function Register() {
 				</div>
 				: <></>
 			}
-			<div className="w-40 mt-5 bg-2 h-100 b-1px bg-4 p-3">
+			<div className="w-40 mt-5 bg-2 h-100 b-1px bg-4">
 				{formReturn}
 			</div>
 		</div>)
@@ -300,7 +300,6 @@ function RegisterTeacher() {
 				<br />
 			</Form.Group>
 			<div className="d-flex">
-		
 				<h3 className="pt-serif-bold">Research</h3>
 					{listofResearchArray.map((j, k) => {
 						console.log(j)
