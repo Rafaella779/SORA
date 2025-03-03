@@ -33,7 +33,6 @@ export default function TeacherLogin() {
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
-					l.setItem('t', res.t);
 					l.setItem('t', res.n);
 					l.setItem('u', res.i);
 					l.setItem('a', res.b);
@@ -42,8 +41,8 @@ export default function TeacherLogin() {
 					l.setItem('x', res.sn);
 					l.setItem('b', res.si);
 					l.setItem('s', res.d);
-					l.setItem('o', res.l);
-					l.setItem('p', res.bi);
+					l.setItem('o', res.ed);
+					l.setItem('p', res.nu);
 					l.setItem('u', res.te);
 					l.setItem('m', res.bi);
 					l.setItem('v', res.s);
@@ -55,6 +54,7 @@ export default function TeacherLogin() {
 	}
 
 	return(
+
 		<div className="d-flex justify-content-center">
 			<div className="d-flex flex-column mw-1200 w-100 gap-2">
 				<h2 className="color-5 pt-serif-bold">SORA Teacher Login</h2>
@@ -73,6 +73,7 @@ export default function TeacherLogin() {
 									<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
 								</Form.Group>
 								<div className="d-flex justify-content-end align-items-center">
+
 									<Button onClick={handleSubmit}>Submit</Button>
 								</div>
 							</Form>

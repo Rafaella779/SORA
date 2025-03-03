@@ -1,6 +1,8 @@
 import React, {useState, useEffect, useContext } from 'react'
 import { Button, Form, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import Swal from 'sweetalert2'
+
+
 export default function StudentLogin() {
 
 	const [email, setemail] = useState("")
@@ -33,7 +35,6 @@ export default function StudentLogin() {
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
-					l.setItem('t', res.t);
 					l.setItem('t', res.n);
 					l.setItem('u', res.i);
 					l.setItem('a', res.b);
@@ -44,8 +45,6 @@ export default function StudentLogin() {
 					l.setItem('s', res.d);
 					l.setItem('o', res.l);
 					l.setItem('p', res.bi);
-					l.setItem('u', res.te);
-					l.setItem('m', res.bi);
 					l.setItem('v', res.s);
 				})
 				
@@ -54,16 +53,14 @@ export default function StudentLogin() {
 		})
 	}
 
+
 	return(
-		<div className="d-flex justify-content-center">
-			<div className="d-flex flex-column mw-1200 w-100 gap-2">
-				<h2 className="color-5 pt-serif-bold">SORA Student Login</h2>
-				<div className="d-flex">
-					
-					<div className="col-7 d-flex justify-content-center align-items-center">
-						<div className="d-flex flex-column w-100">
-							
-							<Form className="d-flex  justify-content-center flex-column p-4 w-100 b-1px">
+	<div> 
+		<div>
+			<div className="d-flex justify-content-center align-items-center">
+				<div>
+				<h5 className="color-5 pt-serif-bold">SORA Student Login</h5>
+							<Form className="col-5 row w-600 b-1px">
 								<Form.Group className="mb-3">
 									<Form.Label>Email address</Form.Label>
 									<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
@@ -77,13 +74,9 @@ export default function StudentLogin() {
 								</div>
 							</Form>
 						</div>
-					</div>
-					<div className="col-5 d-flex flex-column align-items-center justify-content-center b-1px">
-						<h5 className="d-flex justify-content-center align-items-center pt-serif-bold m-0">New Here?</h5>
-						<p class="light p-0  m-0"><strong className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</strong></p>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+	
 		)
 }
