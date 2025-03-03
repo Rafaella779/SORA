@@ -16,21 +16,23 @@ export default function Register() {
 	}
 
 	return(
-		<div className="d-flex justify-content-center align-items-center pt-serif-bold ">
+		<div className="d-flex justify-content-center align-items-center pt-serif-bold p-5">
 		{
 			(formReturn == null) ?
-				<div>
+				<div className="p-5 border-2px">
 					<h2 className="pt-serif-bold ">Register Page</h2>
-					<div className="d-flex gap-1">
+					<h3 className="d-flex justify-content-center">Are you a</h3>
+					<div className="d-flex gap-1 flex-column">
 						<Button onClick={handleTeacher}>Teacher</Button>
 						<Button onClick={handleStudent}>Student</Button>
 					</div>
 				</div>
-				: <></>
+				: 
+				<div className="w-40 mt-5 bg-2 h-100 b-1px bg-4 p-3">
+					{formReturn}
+				</div>
 			}
-			<div className="w-40 mt-5 bg-2 h-100 b-1px bg-4 p-3">
-				{formReturn}
-			</div>
+			
 		</div>)
 	}
 
@@ -288,35 +290,12 @@ function RegisterTeacher() {
 				<Form.Control  onChange={e => setID(e.target.value)} value={ID}/>
 				<Form.Label>School ID</Form.Label>
 				<Form.Control  onChange={e => setSchoolID(e.target.value)} value={SchoolID}/>
-				<Form.Label>Are you A Research Teacher</Form.Label>
-				<Form.Control  onChange={e => setisresearchTeacher(e.target.value)} value={isresearchTeacher}/>
 				<Form.Label>Educational Degree</Form.Label>
 				<Form.Control  onChange={e => seteducationalDegree(e.target.value)} value={educationalDegree}/>
-				<Form.Label>Number of Research</Form.Label>
-				<Form.Control  onChange={e => setnumberofResearch(e.target.value)} value={numberofResearch}/>
-				<Form.Label>List Of your Research</Form.Label>
-				<Form.Control  onChange={e => setlistofResearch(e.target.value)} value={listofResearch}/>
-				<Button onClick={addResearch}>Add</Button>
+				<Form.Label>Are you A Research Teacher</Form.Label>
+				<Form.Control  onChange={e => setisresearchTeacher(e.target.value)} value={isresearchTeacher}/>
 				<br />
 			</Form.Group>
-			<div className="d-flex">
-		
-				<h3 className="pt-serif-bold">Research</h3>
-					{listofResearchArray.map((j, k) => {
-						console.log(j)
-						console.log(k)
-						return <div className="d-flex">
-							<p>{j}</p>
-							<Button onClick={() => {
-								listofResearchArray.splice(k, 1)
-								setCount(Count + 1);
-							}}> - </Button>
-						</div>
-					})}
-			</div>
-
-
-
 
 			</div>
 		)
@@ -341,10 +320,10 @@ function RegisterTeacher() {
 	useEffect(() => {}, [])
 	return(
 		<>
-			<h2 className="pt-serif-bold ">Register Teacher</h2>
+			<h2 className="pt-serif-bold">Register Teacher</h2>
 			<Form>
 				{(page == 1 ? p1() : (page == 2) ? p2() : p3())}
-				<div className="d-flex gap-1 mt-3">
+				<div className="d-flex gap-1 mt-3 justify-content-end">
 					{(page == 1) ? <></> : <Button onClick={handlePrev}>Previous</Button>}
 					{(page == 3) ? <></> : <Button onClick={handleNext}>Next</Button>}
 					{(page == 3) ? <Button onClick={handleSubmit}>Submit</Button>  : <></> }

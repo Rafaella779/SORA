@@ -55,12 +55,12 @@ export default function StudentLogin() {
 	}
 
 	return(
-		<div className="d-flex justify-content-center">
+		<div className="d-flex justify-content-center mt-2">
 			<div className="d-flex flex-column mw-1200 w-100 gap-2">
-				<h2 className="color-5 pt-serif-bold">SORA Student Login</h2>
-				<div className="d-flex">
+				<h2 className="color-5 pt-serif-bold mt-2 p-2">SORA Student Login</h2>
+				<div className="d-flex flex-column flex-lg-row">
 					
-					<div className="col-7 d-flex justify-content-center align-items-center">
+					<div className="col-7 d-flex justify-content-center align-items-center col-12 col-lg-7">
 						<div className="d-flex flex-column w-100">
 							
 							<Form className="d-flex  justify-content-center flex-column p-4 w-100 b-1px">
@@ -78,8 +78,8 @@ export default function StudentLogin() {
 							</Form>
 						</div>
 					</div>
-					<div className="col-5 d-flex flex-column align-items-center justify-content-center b-1px">
-						<h5 className="d-flex justify-content-center align-items-center pt-serif-bold m-0">New Here?</h5>
+					<div className="col-5 d-flex flex-column align-items-center justify-content-center b-1px col-12 col-lg-5">
+						<h5 className="d-flex justify-content-center align-items-center pt-serif-bold p-2">New Here?</h5>
 						<p class="light p-0  m-0"><strong className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</strong></p>
 					</div>
 				</div>
