@@ -31,7 +31,7 @@ export default function UserDashboardT() {
 					</div>
 				</div>
 				<div className=" col-2 d-flex justify-content-center">
-				<Nav.Link  onClick={() => n('/Upload')} >Upload Work</Nav.Link>
+				<Nav.Link  onClick={() => n('/Upload')} ><strong>Upload Your Work</strong></Nav.Link>
 			</div>
 			</div>
 			<div>

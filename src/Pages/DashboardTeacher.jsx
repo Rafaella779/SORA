@@ -4,9 +4,11 @@ import { useNavigate, Outlet } from 'react-router'
 import Swal from 'sweetalert2'
 
 export default function DashboardTeacher() {
-	const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+
 
 	let n = useNavigate()
 
