@@ -32,6 +32,7 @@ export default function Register() {
 					{formReturn}
 				</div>
 			}
+
 			
 		</div>)
 	}

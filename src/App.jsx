@@ -21,7 +21,7 @@ import  Navbar from './Components/MyNavbar.jsx'
 import  StudentLogin from './Pages/StudentLogin.jsx'
 import  Error from './Pages/Error.jsx'
 import  ViewPage from './Pages/ViewPage.jsx'
-
+import  LoginBoth from './Pages/LoginBoth.jsx'
 
 function App() {
   return (
@@ -35,6 +35,7 @@ function App() {
         <Route path="StudentDashboard" element={<StudentDashboard/>} />
         <Route path="RegisterT" element={<RegisterT/>} />
         <Route path="AboutUs" element={<AboutUs/>} />
+        <Route path="LogBoth" element={<LoginBoth/>} />
         <Route path="MyNavbar" element={<Navbar/>} />
         <Route path="SearchResult" element={<SearchResult/>} />
         <Route path="HomePage" element={<HomePage/>} />
