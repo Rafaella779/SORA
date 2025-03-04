@@ -82,7 +82,7 @@ function TeacherLogin() {
 					l.setItem('u', res.te);
 					l.setItem('m', res.bi);
 					l.setItem('v', res.s);
-					n('DashboardTeacher')
+					n('/teacher')
 				})
 
 			}
@@ -159,7 +159,7 @@ function StudentLogin() {
 					l.setItem('o', res.l);
 					l.setItem('p', res.bi);
 					l.setItem('v', res.s);
-					n('StudentDashboard')
+					n('/StudentDashboard')
 				})
 				
 

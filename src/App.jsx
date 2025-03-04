@@ -22,6 +22,7 @@ import  StudentLogin from './Pages/StudentLogin.jsx'
 import  Error from './Pages/Error.jsx'
 import  ViewPage from './Pages/ViewPage.jsx'
 import  LoginBoth from './Pages/LoginBoth.jsx'
+import  Rejection from './Pages/Rejection.jsx'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route index element={<HomePage />} />
         <Route path="IndividualSearchResult/:id" element={<IndividualSearchResult/>} />
         <Route path="TeacherLogin" element={<TeacherLogin/>} />
+        <Route path="Rejection" element={<Rejection/>} />
         <Route path="register" element={<Register/>} />
         <Route path="StudentDashboard" element={<StudentDashboard/>} />
         <Route path="RegisterT" element={<RegisterT/>} />
