@@ -44,7 +44,7 @@ function App() {
         <Route path="Upload" element={<Upload/>} />
         <Route path="StudentLogin" element={<StudentLogin/>} />
         <Route path="ContactUs" element={<ContactUs/>} />
-        <Route path="teacher" element={<DashboardTeacher/>}>
+        <Route path="teacher" element={<DashboardTeacher/>}> 
           <Route index element={<ViewPage/>} />                                                                                             >
           <Route path="ApproveSystem" element={<ApproveSystem/>} />
         </Route>
