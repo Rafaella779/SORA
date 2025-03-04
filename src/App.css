@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 * {
-  padding: 1px;
-  margin: 1px;
+  padding: 0px;
+  margin: 0px;
   box-sizing: border-box;
 }
 
@@ -49,7 +49,7 @@ h1 {
   background-color: #CCDBE9;
 }
 .bg-4{
-  background-color: #d3ddf6;
+  background-color: #CCDBE9;
 }
 .bg-5{
   background-color: #004AAD;
@@ -60,6 +60,7 @@ h1 {
 .bg-7{
   background-color: #48CAE4;
 }
+
 .color-1{
   color: #FFFFFF !important;
 }
