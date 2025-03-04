@@ -1,9 +1,7 @@
 import React, {useState, useEffect, useContext } from 'react'
 import { Button, Form, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
 import Swal from 'sweetalert2'
-
-
-export default function StudentLogin() {
+export default function TeacherLogin() {
 
 	const [email, setemail] = useState("")
 	const [password, setpassword] = useState("")
@@ -43,8 +41,10 @@ export default function StudentLogin() {
 					l.setItem('x', res.sn);
 					l.setItem('b', res.si);
 					l.setItem('s', res.d);
-					l.setItem('o', res.l);
-					l.setItem('p', res.bi);
+					l.setItem('o', res.ed);
+					l.setItem('p', res.nu);
+					l.setItem('u', res.te);
+					l.setItem('m', res.bi);
 					l.setItem('v', res.s);
 				})
 				
@@ -53,15 +53,14 @@ export default function StudentLogin() {
 		})
 	}
 
-
 	return(
 
-		<div className="d-flex justify-content-center mt-2">
+		<div className="d-flex justify-content-center">
 			<div className="d-flex flex-column mw-1200 w-100 gap-2">
-				<h2 className="color-5 pt-serif-bold mt-2 p-2">SORA Student Login</h2>
-				<div className="d-flex flex-column flex-lg-row">
+				<h2 className="color-5 pt-serif-bold">SORA Teacher Login</h2>
+				<div className="d-flex">
 					
-					<div className="col-7 d-flex justify-content-center align-items-center col-12 col-lg-7">
+					<div className="col-7 d-flex justify-content-center align-items-center">
 						<div className="d-flex flex-column w-100">
 							
 							<Form className="d-flex  justify-content-center flex-column p-4 w-100 b-1px">
@@ -74,15 +73,15 @@ export default function StudentLogin() {
 									<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
 								</Form.Group>
 								<div className="d-flex justify-content-end align-items-center">
+
 									<Button onClick={handleSubmit}>Submit</Button>
 								</div>
 							</Form>
 						</div>
 					</div>
-					<div className="col-5 d-flex flex-column align-items-center justify-content-center b-1px col-12 col-lg-5">
-						<h5 className="d-flex justify-content-center align-items-center pt-serif-bold p-2">New Here?</h5>
+					<div className="col-5 d-flex flex-column align-items-center justify-content-center b-1px">
+						<h5 className="d-flex justify-content-center align-items-center pt-serif-bold m-0">New Here?</h5>
 						<p class="light p-0  m-0"><strong className="d-flex justify-content-center align-items-center">Sign up and discover a great amount of new opportunities</strong></p>
-
 					</div>
 				</div>
 			</div>

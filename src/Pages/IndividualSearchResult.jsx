@@ -1,79 +1,88 @@
 import React, {useState, useEffect, useContext } from 'react'
 import { Form, Button, Table,} from 'react-bootstrap';
+import {useParams} from 'react-router'
 import Swal from 'sweetalert2'
 export default function IndividualSearchResult() {
 
-      const [author, setAuthor] = useState("")
+      const [Authors, setAuthors] = useState([])
       const [title, setTitle] = useState("")
-      const [date, setDate] = useState("")
+      const [approvalrequestDate, setApprovalRequestDate] = useState("")
       const [abstract, setAbstract] = useState("")
-      const [contact, setContact] = useState("")
-      const [educationalLevel, setEducationalLevel] = useState("")
+      const [approvalsCount, setApprovalsCount] = useState("")
+      const [category, setCategory] = useState("")
+      const [cite, setCite] = useState("") 
+      const [createdAt, setCreatedAt] = useState("") 
+      const [dateModified, setDateModified] = useState("") 
+      const [isApprovedBySchool, setIsApprovedBySchool] = useState("") 
+      const [isPublished, setIsPublished] = useState("") 
+      const [link, setLink] = useState("") 
+      const [ratings, setRatings] = useState("") 
+      const [rejectionCount, setRejectionCount] = useState("") 
+      const [researchStatus, setResearchStatus] = useState("") 
+      const [updatedAt, setUpdatedAt] = useState("") 
+      const [view, setView] = useState("") 
+      const [id, setId] = useState("") 
+      const [submit, setSubmit] = useState("") 
+      const [info, setInfo] = useState("") 
+      let params = useParams()
 
-      const handleSubmit = () => {
-            fetch(`https://sora-q8wl.onrender.com/user/createUser`, {
+      useEffect(() => {
+            fetch(`https://sora-q8wl.onrender.com/research/getAll`, {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({
-                        n: Name,
-                        t: Title,
-                        d: Date,
-                        a: Abstract,
-                        c: Contact,
-                        e: EducationalLevel,
-                        
+                       toFind: {
+                        _id: params.id
+                       }
                   })
-            }).then(result => result.json()).then(result => {
+            }).then(result => result.json()).then(res => {
+                  console.log(res)
+                  setInfo(res[0])
+                  setAuthors(res[0].authors)
+                  setTitle(res[0].title)
+                  setApprovalRequestDate(res[0].approvalrequestDate)
+                  setAbstract(res[0].abstract)
+                  setApprovalsCount(res[0].approvalsCount) 
+                  setCite(res[0].cite)
+                  setCreatedAt(res[0].createdAt)
+                  setDateModified(res[0].dateModified)
+                  setIsApprovedBySchool(res[0].isApprovedBySchool)
+                  setIsPublished(res[0].isPublished)
+                  setLink(res[0].link)
+                  setRatings(res[0].ratings)
+                  setRejectionCount(res[0].rejectionCount)
+                  setUpdatedAt(res[0].updatedAt)
+                  setView(res[0].view)
+                  setId(res[0]._id)
             })
+      }, [])
+
+      const handleSubmit = () => {
+            
       }
 
-      return ( 
-            <div class="fullPage p-5">
-                  <div>
-                         <div className="cinzel-decorative d-flex text-center justify-content-center">
-                              <h1>SORA</h1>
-                         </div>
-                   
-                          <div className="w-75 h-2">
-                               <Form>
-                                    <Form.Group class="d-flex gap-4">
-                                          <Form.Control  type="Name or Author" placeholder="Enter Name or author" />
-                                          <Button onClick={handleSubmit}>Search</Button>
-                                    </Form.Group>
-                              </Form>
-                         </div>
-                  </div>
-                  <div className="border-2px col p-4">
-                        <div className="border-2px col p-4">
-                              title and author and date
-                        </div>
-                        <div className="border-2px col p-4">
-                             Abstract 
-                        </div>
-                        <div className="border-2px col p-4">
-                              contact and educational level  
-                        </div>
-                  </div>
-                  <div class="row">
-                        <div class="col-6 d-flex justify-content-center align-items-center">
-                              <div>
-                                     <h5 className="color-5">Log In to SORA</h5>
-                                          <Form className="col-5 row w-600 border-2px">
-                                                <Form.Group className="mb-3" controller="formBasicEmail">
-                                                      <Form.Label>Email address</Form.Label>
-                                                      <Form.Control type="email" placeholder="Enter email" onChange={e => setUsername(e.target.value)} value={username} />
-                                                </Form.Group>
-                                                <Form.Group className="mb-3" controller="formBasicPassword">
-                                                      <Form.Label>Password</Form.Label>
-                                                      <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} value={password}/>
-                                                      <Button variant="ForgotPassword">Forgot password?</Button>
-                                                </Form.Group>
-                                                      <div className="d-flex justify-content-center align-items-center">
-                                                            <Button onClick={handleSubmit}>Submit</Button>
-                                                      </div>
-                                          </Form>
-                              </div>
-                        </div>
+      return (
+            <div className="justify-content-center d-flex">
+                  <div className="b-1px col p-4 mw-1000">
+                        <h1 class="light p-0  m-0"><strong></strong> {title}</h1>
+                        <h6 class="light p-0  m-0"><strong>Author: </strong>{Authors.map(x => {return <>{x.name};</>})}</h6>
+                        <hr />
+
+                        <p class="light p-0  m-0"><strong>Abstract:</strong> {abstract }</p>
+                        <p class="light p-0  m-0"><strong>Approval Request Date:</strong> {approvalrequestDate}</p>
+                        <p class="light p-0  m-0"><strong>Approvals Count:</strong> {approvalsCount}</p>
+                        <p class="light p-0  m-0"><strong>Cite:</strong> {cite}</p>
+                        <p class="light p-0  m-0"><strong>Created At:</strong> {createdAt}</p>
+                        <p class="light p-0  m-0"><strong>Date Modified:</strong> {dateModified}</p>
+                        <p class="light p-0  m-0"><strong>Is Approved By School:</strong> {isApprovedBySchool}</p>
+                        <p class="light p-0  m-0"><strong>Is Published:</strong> {isPublished}</p>
+                        <p class="light p-0  m-0"><strong>Link:</strong> <a href={link}>{link}</a></p>
+                        <p class="light p-0  m-0"><strong>Ratings:</strong> {ratings}</p>
+                        <p class="light p-0  m-0"><strong>Rejection Count:</strong> {rejectionCount}</p>
+                        <p class="light p-0  m-0"><strong>Research Status:</strong> {researchStatus}</p>
+                        <p class="light p-0  m-0"><strong>Updated At:</strong> {updatedAt}</p>
+                        <p class="light p-0  m-0"><strong>Views:</strong> {view}</p>
+                        <p class="light p-0  m-0"><strong>Id:</strong> {id}</p>                                      
                   </div>
             </div>
       )

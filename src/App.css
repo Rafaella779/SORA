@@ -1,8 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 * {
-  padding: 1px;
-  margin: 1px;
+  padding: 0px;
+  margin: 0px;
   box-sizing: border-box;
+}
+
+:root {
+   --bg-1: #82CAFF;
+   --bg-2: #D9D9D9;
+   --bg-3: #CCDBE9;
+   --bg-4: #004AAD;
+   --bg-5: #2CBEC4;
+   --bg-6: #48CAE4;
+
 }
 
 .cinzel-decorative {
@@ -48,7 +59,7 @@ h1 {
   background-color: #CCDBE9;
 }
 .bg-4{
-  background-color: #27AAE1;
+  background-color: #CCDBE9;
 }
 .bg-5{
   background-color: #004AAD;
@@ -59,6 +70,7 @@ h1 {
 .bg-7{
   background-color: #48CAE4;
 }
+
 .color-1{
   color: #FFFFFF !important;
 }
@@ -86,15 +98,18 @@ h1 {
 .border-2px {
   border: 2px solid black;
 }
-
+.b-1px {
+  border: 1px solid black;
+}
 .aboutUsPic {
-  max-width: 70px !important;
-  max-height: 70px !important;
-  height: 70px !important ;
-  width: 70px !important;
   object-fit: cover !important;
+  aspect-ratio: 1/1;
 }
 
+.btn-primary {
+  background-color: mediumpurple !important;
+  border: 0px solid transparent !important;
+}
   
 
 .aboutUsCard{
@@ -112,10 +127,246 @@ h1 {
   justify-content: space-evenly;
   padding: 2px;
 }
-.search{
-  background-image: url('https://up.yimg.com/ib/th?id=OIP.iZ-XYghaSLSyR__ndYN8WQAAAA&pid=Api&rs=1&c=1&qlt=95&w=119&h=118');
-  background-color: white;
-  background-position: 5px 5px;
-  background-repeat: no-repeat;
-  padding-left: 5px;
+.pt-serif-bold {
+  font-family: "PT Serif", serif;
+  font-weight: 700;
+  font-style: normal;
 }
+p.thick {
+  font-weight: bold;
+}
+p.light {
+  font-weight: lighter;
+}
+
+.contactUsPic {
+  aspect-ratio: 1/1 !important;
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.dashboardPic {
+  aspect-ratio: 1/1 !important;
+  max-width: 80px;
+  max-height: 80px;
+}
+/* Miguel Css */
+
+
+.mw-200{
+  max-width: 200px !important;
+}
+
+.mw-300{
+  max-width: 300px !important;
+}
+
+.mw-400{
+  max-width: 400px !important;
+}
+
+.mw-500{
+  max-width: 500px !important;
+}
+
+.mw-600{
+  max-width: 600px !important;
+}
+
+.mw-700{
+  max-width: 700px !important;
+}
+
+.mw-800{
+  max-width: 800px !important;
+}
+
+.mw-900{
+  max-width: 900px !important;
+}
+
+.mw-1000{
+  max-width: 1000px !important;
+}
+
+.mw-1100{
+  max-width: 1100px !important;
+}
+
+.mw-1200{
+  max-width: 1200px !important;
+}
+
+.mw-1300{
+  max-width: 1300px !important;
+}
+
+.mw-1400{
+  max-width: 1400px !important;
+}
+
+
+.mnw-200{
+  min-width: 200px !important;
+}
+
+.mnw-250{
+  min-width: 250px !important;
+}
+
+.mnw-300{
+  min-width: 300px !important;
+}
+
+.mnw-400{
+  min-width: 400px !important;
+}
+
+.mnw-500{
+  min-width: 500px !important;
+}
+
+.mnw-600{
+  min-width: 600px !important;
+}
+
+.mnw-700{
+  min-width: 700px !important;
+}
+
+.mnw-800{
+  min-width: 800px !important;
+}
+
+.mnw-900{
+  min-width: 900px !important;
+}
+
+.mnw-1000{
+  min-width: 1000px !important;
+}
+
+.mnw-1100{
+  min-width: 1100px !important;
+}
+
+.mnw-1200{
+  min-width: 1200px !important;
+}
+
+.mnw-1300{
+  min-width: 1300px !important;
+}
+
+.mnw-1400{
+  min-width: 1400px !important;
+}
+
+
+.mh-200{
+  max-height: 200px !important;
+}
+
+.mh-300{
+  max-height: 300px !important;
+}
+
+.mh-400{
+  max-height: 400px !important;
+}
+
+.mh-500{
+  max-height: 500px !important;
+}
+
+.mh-600{
+  max-height: 600px !important;
+}
+
+.mh-700{
+  max-height: 700px !important;
+}
+
+.mnh-200{
+  min-height: 200px !important;
+}
+
+.mnh-300{
+  min-height: 300px !important;
+}
+
+.mnh-400{
+  min-height: 400px !important;
+}
+
+.mnh-500{
+  min-height: 500px !important;
+}
+
+.mnh-600{
+  min-height: 600px !important;
+}
+
+.mnh-700{
+  min-height: 700px !important;
+}
+
+
+
+.w-200{
+  width: 200px !important;
+}
+
+.w-300{
+  width: 300px !important;
+}
+
+.w-400{
+  width: 400px !important;
+}
+
+.w-500{
+  width: 500px !important;
+}
+
+.w-600{
+  width: 600px !important;
+}
+
+.w-700{
+  width: 700px !important;
+}
+
+.h-200{
+  height: 200px !important;
+}
+
+.h-300{
+  height: 300px !important;
+}
+
+.h-400{
+  height: 400px !important;
+}
+
+.h-500{
+  height: 500px !important;
+}
+
+.h-600{
+  height: 600px !important;
+}
+
+.h-700{
+  height: 700px !important;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+.navbar-border {
+  border-bottom: 2px solid var(--bg-6);
+}
+
+
