@@ -62,7 +62,7 @@ export default function ContactUs() {
 							<p className="color-5 m-3">Get in touch and let us know how we can help.</p>
 							<div className="d-flex flex-wrap p-3 m-3">
 								<div className="d-flex w-100 flex-column flex-lg-row">
-									<StudentCard picLink="https://www.svgrepo.com/show/472750/phone.svg" name="Phone" item="09273411314"/>			
+									<StudentCard picLink="https://www.svgrepo.com/show/472750/phone.svg" name="Phone" item="09634112627"/>			
 									<StudentCard picLink="https://tse4.mm.bing.net/th?id=OIP.SV72EbhM23iKCGSWnYEwRAHaHa&pid=Api&P=0&h=220" name="Email" item="gillyjeand@gmail.com"/>							
 
 								</div>

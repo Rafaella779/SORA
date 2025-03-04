@@ -17,21 +17,23 @@ export default function Login(){
 	}
 
 	return(
-		<div className="d-flex justify-content-center align-items-center pt-serif-bold ">
+	<div className="d-flex justify-content-center align-items-center pt-serif-bold p-5">
 		{
 			(formReturn == null) ?
-				<div>
+				<div className="p-5 border-2px">
 					<h2 className="pt-serif-bold ">Login Page</h2>
-					<div className="d-flex gap-1">
+					<h3 className="d-flex justify-content-center">Are you a</h3>
+					<div className="d-flex gap-1 flex-column">
 						<Button onClick={handleTeacher}>Teacher</Button>
 						<Button onClick={handleStudent}>Student</Button>
 					</div>
 				</div>
-				: <></>
-			}
-			<div className="w-40 mt-5 bg-2 h-100 b-1px bg-4 p-3">
+				:
+				<div className="w-40 mt-5 bg-2 h-100 b-1px bg-4 p-3">
 				{formReturn}
-			</div>
+				</div>
+			}
+			
 		</div>)
 	}
 
@@ -95,7 +97,7 @@ function TeacherLogin() {
 				<div className="d-flex justify-content-center align-items-center">
 					<div>
 						<h5 className="color-5 pt-serif-bold">Log In to SORA</h5>
-						<Form className="col-5 row w-600 b-1px">
+						<Form className="col-5 row w-600">
 							<Form.Group className="mb-3">
 								<Form.Label>Email address</Form.Label>
 								<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
@@ -174,7 +176,7 @@ function StudentLogin() {
 			<div className="d-flex justify-content-center align-items-center">
 				<div>
 				<h5 className="color-5 pt-serif-bold">SORA Student Login</h5>
-							<Form className="col-5 row w-600 b-1px">
+							<Form className="col-5 row w-600">
 								<Form.Group className="mb-3">
 									<Form.Label>Email address</Form.Label>
 									<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
