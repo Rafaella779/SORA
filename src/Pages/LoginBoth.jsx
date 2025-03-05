@@ -18,14 +18,16 @@ export default function Login(){
 
 	return(
 
-	<div className="d-flex justify-content-center align-items-center pt-serif-bold p-5">
-
+	<div className="d-flex justify-content-end align-items-center pt-serif-bold p-5 m-5 flex-column flex-lg-row">
+		<div className="col-6">
+			<img src="https://img.freepik.com/free-vector/research-paper-concept-illustration_114360-8162.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid"/>
+		</div>
 		{
 			(formReturn == null) ?
-				<div className="p-5 border-2px">
-					<h2 className="pt-serif-bold ">Login Page</h2>
-					<h3 className="d-flex justify-content-center">Are you a</h3>
-					<div className="d-flex gap-1 flex-column">
+				<div className="flex-column flex-lg-row col-6">
+					<h2 className="pt-serif-bold justify">Login Page</h2>
+					<h3 className="d-flex justify-content-center col-6">Are you a</h3>
+					<div className="d-flex gap-1 flex-column col-6">
 						<Button onClick={handleTeacher}>Teacher</Button>
 						<Button onClick={handleStudent}>Student</Button>
 					</div>
@@ -34,10 +36,10 @@ export default function Login(){
 				<div className="w-40 mt-5 bg-2 h-100 b-1px bg-4 p-3">
 					{formReturn}
 				</div>
-			
+			}
 		</div>)
 	}
-
+	
 function TeacherLogin() {
 	let n = useNavigate()
 
@@ -95,28 +97,27 @@ function TeacherLogin() {
 	return(
     <div>
 			<div>
-				<div className="d-flex justify-content-center align-items-center">
-					<div>
-						<h5 className="color-5 pt-serif-bold">Log In to SORA</h5>
-						<Form className="col-5 row w-600">
-							<Form.Group className="mb-3">
-								<Form.Label>Email address</Form.Label>
-								<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
-							</Form.Group>
-							<Form.Group className="mb-3">
-								<Form.Label>Password</Form.Label>
-								<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
-							</Form.Group>
-								<div className="d-flex justify-content-center align-items-center">
-									<Button onClick={handleSubmit}>Submit</Button>
-								</div>
-						</Form>
+				<div className="flex-column flex-lg-row">
+					<h5 className="color-5 pt-serif-bold">Log In to SORA</h5>
+					<Form className="d-flex row flex-column flex-lg-row align-items-center">
+					<Form.Group className="mb-3">
+						<Form.Label>Email address</Form.Label>
+						<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
+					</Form.Group>
+					<Form.Group className="mb-3">
+						<Form.Label>Password</Form.Label>
+						<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
+					</Form.Group>
+					<div className="d-flex justify-content-center align-items-center">
+						<Button onClick={handleSubmit}>Submit</Button>
 					</div>
+					</Form>
 				</div>
 			</div>
-		</div>
+	</div>
 	)
 }
+
 
 function StudentLogin() {
 	let n = useNavigate()
@@ -176,24 +177,24 @@ function StudentLogin() {
 		<div>
 			<div className="d-flex justify-content-center align-items-center">
 				<div>
-				<h5 className="color-5 pt-serif-bold">SORA Student Login</h5>
-							<Form className="col-5 row w-600 b-1px flex-column flex-lg-row">
-								<Form.Group className="mb-3">
-									<Form.Label>Email address</Form.Label>
-									<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
-								</Form.Group>
-								<Form.Group className="mb-3">
-									<Form.Label>Password</Form.Label>
-									<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
-								</Form.Group>
-								<div className="d-flex justify-content-end align-items-center">
-									<Button onClick={handleSubmit}>Submit</Button>
-								</div>
-							</Form>
+					<h5 className="color-5 pt-serif-bold">SORA Student Login</h5>
+					<Form className="d-flex row flex-column flex-lg-row align-items-center">
+						<Form.Group className="mb-3">
+							<Form.Label>Email address</Form.Label>
+							<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
+						</Form.Group>
+						<Form.Group className="mb-3">
+							<Form.Label>Password</Form.Label>
+							<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
+						</Form.Group>
+						<div className="d-flex justify-content-end align-items-center">
+							<Button onClick={handleSubmit}>Submit</Button>
 						</div>
-						</div>
-					</div>
+					</Form>
 				</div>
+			</div>
+		</div>
+	</div>
 	
 		)
 }
