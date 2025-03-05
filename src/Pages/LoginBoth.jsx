@@ -34,7 +34,7 @@ export default function Login(){
 				<div className="w-40 mt-5 bg-2 h-100 b-1px bg-4 p-3">
 					{formReturn}
 				</div>
-			
+		}
 		</div>)
 	}
 

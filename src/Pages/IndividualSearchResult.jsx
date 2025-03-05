@@ -67,7 +67,6 @@ export default function IndividualSearchResult() {
                         <h1 class="light p-0  m-0"><strong></strong> {title}</h1>
                         <h6 class="light p-0  m-0"><strong>Author: </strong>{Authors.map(x => {return <>{x.name};</>})}</h6>
                         <hr />
-
                         <p class="light p-0  m-0"><strong>Abstract:</strong> {abstract }</p>
                         <p class="light p-0  m-0"><strong>Approval Request Date:</strong> {approvalrequestDate}</p>
                         <p class="light p-0  m-0"><strong>Approvals Count:</strong> {approvalsCount}</p>

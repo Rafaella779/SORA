@@ -73,7 +73,6 @@ export default function TeacherLogin() {
 									<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
 								</Form.Group>
 								<div className="d-flex justify-content-end align-items-center">
-
 									<Button onClick={handleSubmit}>Submit</Button>
 								</div>
 							</Form>

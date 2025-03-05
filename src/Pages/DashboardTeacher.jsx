@@ -15,10 +15,9 @@ export default function DashboardTeacher() {
 
 	return(
 
-		<div className="d-flex ">
-			<div className="d-flex">
-				
-				<div className="b-1px d-flex flex-column mw-300 p-3">
+		<div className="d-flex">
+			<div className="d-flex flex-column flex-lg-row">
+				<div className="b-1px d-flex flex-column p-3 col-12 col-lg-3">
 					<div className="d-flex justify-content-center">
 						<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
 					</div>
@@ -33,8 +32,7 @@ export default function DashboardTeacher() {
 						<p className="mb-1 p-0 text-break"> <strong>No. of research:</strong> {localStorage.getItem('')}</p>
 					</div>
 				</div>
-
-				<Outlet/>
+				<Outlet className="col-12 col-lg-9 w-100"/>
 			</div>
 
 		</div>
