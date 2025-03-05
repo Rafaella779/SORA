@@ -43,7 +43,7 @@ export default function Upload() {
 				console.log(result)
 				Swal.fire({
 					icon: "error",
-					title: "Missing Or Invalid  Words Pleasen Checks",
+					title: "Missing Or Invalid  Words Please Check",
 					text: 'check your details and try again'
 				})
 			}
