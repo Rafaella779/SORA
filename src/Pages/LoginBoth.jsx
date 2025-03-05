@@ -17,21 +17,21 @@ export default function Login(){
 	}
 
 	return(
-	<div className="d-flex justify-content-center align-items-center pt-serif-bold p-5">
+
+		<div className="d-flex justify-content-center align-items-center pt-serif-bold ">
 		{
 			(formReturn == null) ?
-				<div className="p-5 border-2px">
+				<div>
 					<h2 className="pt-serif-bold ">Login Page</h2>
-					<h3 className="d-flex justify-content-center">Are you a</h3>
-					<div className="d-flex gap-1 flex-column">
+					<div className="d-flex gap-1">
 						<Button onClick={handleTeacher}>Teacher</Button>
 						<Button onClick={handleStudent}>Student</Button>
 					</div>
 				</div>
-		:
+				:
 				<div className="w-40 mt-5 bg-2 h-100 b-1px bg-4 p-3">
 				{formReturn}
-				</div>
+			</div>
 			}
 			
 		</div>)
@@ -44,7 +44,7 @@ function TeacherLogin() {
 	const [password, setpassword] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/login/student`, {
+		fetch(`https://sora-q8wl.onrender.com/login/teacher`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
@@ -97,7 +97,7 @@ function TeacherLogin() {
 				<div className="d-flex justify-content-center align-items-center">
 					<div>
 						<h5 className="color-5 pt-serif-bold">Log In to SORA</h5>
-						<Form className="col-5 row w-600">
+						<Form className="col-5 row w-600 b-1px">
 							<Form.Group className="mb-3">
 								<Form.Label>Email address</Form.Label>
 								<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
@@ -161,7 +161,7 @@ function StudentLogin() {
 					l.setItem('o', res.l);
 					l.setItem('p', res.bi);
 					l.setItem('v', res.s);
-					n('/StudentDashboard')
+					n('StudentDashboard')
 				})
 				
 
@@ -176,7 +176,7 @@ function StudentLogin() {
 			<div className="d-flex justify-content-center align-items-center">
 				<div>
 				<h5 className="color-5 pt-serif-bold">SORA Student Login</h5>
-							<Form className="col-5 row w-600">
+							<Form className="col-5 row w-600 b-1px">
 								<Form.Group className="mb-3">
 									<Form.Label>Email address</Form.Label>
 									<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
