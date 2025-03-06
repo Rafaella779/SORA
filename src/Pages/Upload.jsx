@@ -93,10 +93,9 @@ export default function Upload() {
 
 function p1(){ 
 	return(
-	<div className="d-flex w-100 ">
-		
+	<div className="d-flex w-100">
 		<Form.Group className="col-4">
-			<h1>Submit Your Research</h1>
+			
 			<Form.Label> Title of the Research </Form.Label>
 			<Form.Control  onChange={e => settitle(e.target.value)} value={title}/>
 			<Form.Label>Authors Of The Research </Form.Label>
@@ -117,53 +116,67 @@ function p1(){
 			<Form.Control  onChange={e => setlink(e.target.value)} value={link}/>	
 		</Form.Group>
 
-		<div className=" col-3">
+		<div className="col-3 b-form1 ">
 		
-			
-		<h1>Authors</h1>
+		
+		<div className="h-200 mw-150">	
+
+		<h3>Authors</h3>
 			{authorsArray.map((j, k) => {
 				console.log(j)
 				console.log(k)
 				return <div className="d-flex">
-					<p>{j}</p>
+					<h6>{j}</h6>
 					<Button onClick={() => {
 						authorsArray.splice(k, 1)
 						setCount(count + 1);
 					}}> - </Button>
 				</div>
 			})}
+			</div>
 		</div>
 
-		<div className="col-3">
-			<h1>ID</h1>
+
+		<div className="col-3 b-form1 ">
+			<div className="h-200  mw-150">
+			<h3>ID</h3>
 			{idArray.map((p, o) => {
 				console.log(p)
 				console.log(o)
 				return <div className="d-flex">
-					<p>{p}</p>
+					<h6>{p}</h6>
 					<Button onClick={() => {
 						idArray.splice(o, 1)
 						setCount(count + 1);
 					}}> - </Button>
 				</div>
 			})}
+
+			</div>
+
 		</div>
 
-		<div className="col">
-			<h1>Keywords</h1>
+
+		<div className="col-3 b-form1">
+			<div className="h-200  mw-150">
+			<h3>Keywords</h3>
 			{keywordArray.map((x, i) => {
 				console.log(x)
 				console.log(i)
 				return <div className="d-flex">
-					<p>{x}</p>
+					<h6>{x}</h6>
 					<Button onClick={() => {
 						keywordArray.splice(i,1)
 						setCount(count + 1);
 					}}> - </Button>
 				</div>
 			})}
+			</div>
 		</div>
+
 	</div>
+
+		
 		)
 	}
 
@@ -184,7 +197,7 @@ function p2(){
 	</Form.Group>
 
 	<div className="col-4 ">
-			<h1>Panelist</h1>
+			<h5>Panelist</h5>
 			{whoPaneledArray.map((p, o) => {
 				console.log(p)
 				console.log(o)
@@ -227,10 +240,9 @@ useEffect(() => {}, [])
 return(
 		<>
 		<div>
-			
-
-				
-			
+		<div>
+			<h1>Submit Your Research</h1>
+		</div>
 			<Form className="w-100">
 				{(page == 1 ? p1() : p2())}
 				<div className="d-flex gap-1 mt-3">
