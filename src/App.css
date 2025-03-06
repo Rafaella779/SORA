@@ -71,6 +71,7 @@ h1 {
   background-color: #48CAE4;
 }
 
+
 .color-1{
   color: #FFFFFF !important;
 }
@@ -109,6 +110,11 @@ h1 {
 .btn-primary {
   background-color: mediumpurple !important;
   border: 0px solid transparent !important;
+}
+
+.ratings-button{
+  background-color: lightpink !important;
+  color: black !important;
 }
   
 

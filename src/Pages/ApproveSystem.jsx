@@ -14,7 +14,7 @@ export default function ApproveSystem() {
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
 				m: Message,
-				r: ratings,
+				r: Ratings,
 				
 			})
 		}).then(result => result.json()).then(result => {
@@ -49,31 +49,31 @@ export default function ApproveSystem() {
 	}
 
 	return ( 
-		<div className="d-flex w-100 col-12">
-			<iframe src="https://drive.google.com/file/d/1L4XscAandKN2bVn5R4AAEsKF_j-nf0gQ/preview" width="640" height="480" allow="autoplay"></iframe>
-			<div className="b-1px d-flex flex-column col-4 p-4">
-				<h4 className="pt-serif-bold">Leave A Comment</h4>
+		<div className="d-flex w-100 col-12 p-4 flex-column flex-lg-row">
+			<iframe src="https://drive.google.com/file/d/1L4XscAandKN2bVn5R4AAEsKF_j-nf0gQ/preview" className="w-100 h-100 d-flex flex-column p-2" allow="autoplay"></iframe>
+			<div className="b-1px d-flex flex-column col-lg-6 p-4">
+				<h4 className="pt-serif-bold">Feedback</h4>
 				<Form className="d-flex flex-column gap-1">							
 					<Form.Group>
-						<Form.Label>Comment</Form.Label>
+							<h6>Comments</h6>
 						<Form.Control as="textarea" rows={5} onChange={e => setMessage(e.target.value)} value={Message}/>
 					</Form.Group>
 					<Form.Group>
-						<Form.Label>Ratings 1-10</Form.Label>
+						    <h6>Ratings (1-10)</h6>
 						<div className="d-flex gap-2 flex-wrap">
 							<div className="d-flex gap-2 flex-wrap">
-								<Button onClick={() => handleRatings(1)}>1</Button>
-								<Button onClick={() => handleRatings(2)}>2</Button>
-								<Button onClick={() => handleRatings(3)}>3</Button>
-								<Button onClick={() => handleRatings(4)}>4</Button>
-								<Button onClick={() => handleRatings(5)}>5</Button>
+								<Button className={`${(Ratings == 1) ? "ratings-button" : ""}`} onClick={() => handleRatings(1)}>1</Button>
+								<Button className={`${(Ratings == 2) ? "ratings-button" : ""}`} onClick={() => handleRatings(2)}>2</Button>
+								<Button className={`${(Ratings == 3) ? "ratings-button" : ""}`} onClick={() => handleRatings(3)}>3</Button>
+								<Button className={`${(Ratings == 4) ? "ratings-button" : ""}`} onClick={() => handleRatings(4)}>4</Button>
+								<Button className={`${(Ratings == 5) ? "ratings-button" : ""}`} onClick={() => handleRatings(5)}>5</Button>
 							</div>
-							<div className="d-flex gap-2 flex-wrap">
-								<Button onClick={() => handleRatings(6)}>6</Button>
-								<Button onClick={() => handleRatings(7)}>7</Button>
-								<Button onClick={() => handleRatings(8)}>8</Button>
-								<Button onClick={() => handleRatings(9)}>9</Button>
-								<Button onClick={() => handleRatings(10)}>10</Button>
+							<div className={`d-flex gap-2 flex-wrap`}>
+								<Button className={`${(Ratings == 6) ? "ratings-button" : ""}`} onClick={() => handleRatings(6)}>6</Button>
+								<Button className={`${(Ratings == 7) ? "ratings-button" : ""}`} onClick={() => handleRatings(7)}>7</Button>
+								<Button className={`${(Ratings == 8) ? "ratings-button" : ""}`} onClick={() => handleRatings(8)}>8</Button>
+								<Button className={`${(Ratings == 9) ? "ratings-button" : ""}`} onClick={() => handleRatings(9)}>9</Button>
+								<Button className={`${(Ratings == 10) ? "ratings-button" : ""}`} onClick={() => handleRatings(10)}>10</Button>
 							</div>
 						</div>
 					</Form.Group>

@@ -53,12 +53,12 @@ export default function ViewPage() {
       }, [])
 
 	return ( 
-		<div className="d-flex flex-column flex-lg-row">
-	        <div className="d-flex flex-column gap-2 b-1px m-1 p-3">
+		<div className="d-flex flex-column flex-lg-row w-100">
+	        <div className="d-flex flex-column gap-2 b-1px m-1 p-3 w-100">
 	        	<h5 className="pt-serif-bold">Pending</h5>
 	        	<Pending title={title} author={Authors.map(x => {return <>{x.name};</>})} abstract={abstract} id={id}/>
 		    </div>
-		    <div className="d-flex flex-column gap-2 b-1px m-1 p-3">
+		    <div className="d-flex flex-column gap-2 b-1px m-1 p-3 w-100">
 		    	<h5 className="pt-serif-bold">Approved</h5>
 		    	<Approved title={title} author={Authors.map(x => {return <>{x.name};</>})} abstract={abstract} id={id}/>
 		    </div> 
