@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import { Button, Form, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import { Button, Form, Container, Nav, Navbar, NavDropdown, Card } from 'react-bootstrap'
 import { useNavigate, Outlet } from 'react-router'
 import Swal from 'sweetalert2'
 
@@ -17,17 +17,16 @@ export default function Login(){
 	}
 
 	return(
-
-	<div className="d-flex justify-content-end align-items-center pt-serif-bold p-5 m-5 flex-column flex-lg-row">
-		<div className="col-6">
-			<img src="https://img.freepik.com/free-vector/research-paper-concept-illustration_114360-8162.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid"/>
-		</div>
+		<div className="d-flex justify-content-center align-items-center pt-serif-bold flex-column flex-lg-row">
+			<div className="d-flex flex-column flex-lg-row mw-200">
+				<img src="https://img.freepik.com/free-vector/research-paper-concept-illustration_114360-8162.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid"/>
+			</div>
 		{
 			(formReturn == null) ?
-				<div className="flex-column flex-lg-row col-6">
-					<h2 className="pt-serif-bold justify">Login Page</h2>
-					<h3 className="d-flex justify-content-center col-6">Are you a</h3>
-					<div className="d-flex gap-1 flex-column col-6">
+				<div className="flex-column flex-lg-row">
+					<h2 className="pt-serif-bold">Login Page</h2>
+					<h3 className="d-flex justify-content-center">Are you a</h3>
+					<div className="d-flex gap-1 flex-column">
 						<Button onClick={handleTeacher}>Teacher</Button>
 						<Button onClick={handleStudent}>Student</Button>
 					</div>
@@ -39,7 +38,7 @@ export default function Login(){
 			}
 		</div>)
 	}
-	
+
 function TeacherLogin() {
 	let n = useNavigate()
 
