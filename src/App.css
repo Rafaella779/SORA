@@ -375,4 +375,7 @@ p.light {
   border-bottom: 2px solid var(--bg-6);
 }
 
+.login-title {
+  border-bottom: 2px solid black;
+}
 

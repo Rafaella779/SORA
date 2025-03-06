@@ -50,16 +50,16 @@ export default function ApproveSystem() {
 
 	return ( 
 		<div className="d-flex w-100 col-12 p-4 flex-column flex-lg-row">
-			<iframe src="https://drive.google.com/file/d/1L4XscAandKN2bVn5R4AAEsKF_j-nf0gQ/preview" className="w-100 h-100 d-flex flex-column p-2" allow="autoplay"></iframe>
-			<div className="b-1px d-flex flex-column col-lg-6 p-4">
+			<iframe src="https://drive.google.com/file/d/12ccdaqZI85O4m7-JvkCjrTvq6_m73nnJ/preview" className="w-100 mnh-500  d-flex flex-column" allow="autoplay"></iframe>
+			<div className="b-1px d-flex flex-column col-lg-5 p-4">
 				<h4 className="pt-serif-bold">Feedback</h4>
-				<Form className="d-flex flex-column gap-1">							
+				<Form className="d-flex flex-column gap-3">							
 					<Form.Group>
 							<h6>Comments</h6>
 						<Form.Control as="textarea" rows={5} onChange={e => setMessage(e.target.value)} value={Message}/>
 					</Form.Group>
 					<Form.Group>
-						    <h6>Ratings (1-10)</h6>
+						<h6>Ratings (1-10)</h6>
 						<div className="d-flex gap-2 flex-wrap">
 							<div className="d-flex gap-2 flex-wrap">
 								<Button className={`${(Ratings == 1) ? "ratings-button" : ""}`} onClick={() => handleRatings(1)}>1</Button>

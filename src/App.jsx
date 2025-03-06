@@ -22,6 +22,7 @@ import  StudentLogin from './Pages/StudentLogin.jsx'
 import  Error from './Pages/Error.jsx'
 import  ViewPage from './Pages/ViewPage.jsx'
 import  LoginBoth from './Pages/LoginBoth.jsx'
+import  Instruction from './Pages/Instruction.jsx'
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="Upload" element={<Upload/>} />
         <Route path="StudentLogin" element={<StudentLogin/>} />
         <Route path="ContactUs" element={<ContactUs/>} />
+        <Route path="Instruction" element={<Instruction/>} />
         <Route path="teacher" >
           <Route index element={<DashboardTeacher/>} />                                                                                             >
           <Route path="ApproveSystem" element={<ApproveSystem/>} />

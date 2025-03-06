@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import {Form, ButtonGroup, SplitButton, Button, Table, Container } from 'react-bootstrap'
+import {Form, ButtonGroup, SplitButton, Button, Table, Container, Pagination  } from 'react-bootstrap'
 import {useNavigate} from 'react-router'
 import Swal from 'sweetalert2'
 
@@ -40,16 +40,39 @@ export default function HomePage() {
             })
       }
 
+      let active = 2 ;
+	  let items = [];
+	  for (let number = 1; number <= 5; number++) {
+	    items.push(
+	      <Pagination.Item key={number} active={number === active}>
+	        {number}
+	      </Pagination.Item>,
+	    );
+	  }
+
+	  const paginationBasic = (
+	    <div>
+	      <Pagination>{items}</Pagination>
+	      <br />
+
+	      <Pagination size="lg">{items}</Pagination>
+	      <br />
+
+	      <Pagination size="sm">{items}</Pagination>
+	    </div>
+	  );
+
+
       
 
 	return ( 
-		<div className="p-5">
-			<div>
-				 <div className="cinzel-decorative d-flex text-center justify-content-center">
+		<div className="p-0">
+			<div className="p-3 p-md-5">
+				 <div className="cinzel-decorative d-flex text-center justify-content-center mb-3">
 				 	<h1>SORA</h1>
 				 </div>
 	             
-	             <div className="w-75 h-2">
+	             <div className=" h-2">
 	            	 <Form>
 	             		<Form.Group className="d-flex gap-4">
                             <Form.Control  type="Name or Author" placeholder="Enter Name or author" onChange={e => setSubmit(e.target.value)} value={submit} />
@@ -59,7 +82,7 @@ export default function HomePage() {
 	           	 </div>
 
 	            <div class="w-100 h-2">
-	             	<Table striped bordered hover>
+	             	<Table striped bordered hover responsive>
 	             		<thead>
 	             			<tr>
 		             			<th>Author</th>

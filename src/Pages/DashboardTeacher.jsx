@@ -16,8 +16,8 @@ export default function DashboardTeacher() {
 
 	return(
 		<div className="d-flex">
-			<div className="d-flex flex-column flex-lg-row w-100">
-				<div className="b-1px flex-column p-3 col-lg-2">
+			<div className="d-flex flex-column flex-md-row w-100">
+				<div className="b-1px flex-column p-3 col-md-4 col-lg-2">
 					<div className="d-flex justify-content-center">
 						<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
 					</div>
