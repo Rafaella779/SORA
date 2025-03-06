@@ -1,4 +1,3 @@
-
 import React, {useState, useEffect, useContext } from 'react'
 import {Form, ButtonGroup, SplitButton, Button, Table, Container } from 'react-bootstrap'
 import {useNavigate} from 'react-router'
@@ -58,7 +57,8 @@ export default function HomePage() {
 	             		</Form.Group>
 	             	</Form>
 	           	 </div>
-	            <div className="w-100 h-2">
+
+	            <div class="w-100 h-2">
 	             	<Table striped bordered hover>
 	             		<thead>
 	             			<tr>

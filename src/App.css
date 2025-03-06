@@ -6,6 +6,16 @@
   box-sizing: border-box;
 }
 
+:root {
+   --bg-1: #82CAFF;
+   --bg-2: #D9D9D9;
+   --bg-3: #CCDBE9;
+   --bg-4: #004AAD;
+   --bg-5: #2CBEC4;
+   --bg-6: #48CAE4;
+
+}
+
 .cinzel-decorative {
   font-family: "Cinzel Decorative", serif;
   font-weight: 400;
@@ -364,3 +374,9 @@ p.light {
 .cover {
   object-fit: cover;
 }
+
+.navbar-border {
+  border-bottom: 2px solid var(--bg-6);
+}
+
+
