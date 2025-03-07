@@ -40,10 +40,10 @@ export default function HomePage() {
             })
       }
 
-      const [active, setActive] = useState([])
+      const [active, setActive] = useState();
       const [items, setItems] = useState([]);
 
-      const handleRatings = (num) => {
+      const handleItems = () => {
 			for (let i = 1; i <= 5; i++) {
 		       items.push(
 		      <Pagination.Item key={i} setActive={i === active}>
@@ -90,7 +90,7 @@ export default function HomePage() {
 				             	</tbody>
 	            	 </Table>
 	            	 <div>
-  						<Pagination className={`${(Ratings == 1) ? "ratings-button" : ""}`} onClick={() => handleRatings(items)}>{items}</Pagination>
+	            	 	<Button className={`${(items == active) ? "ratings-button" : ""}`} onClick={() => handleItems()}><Pagination>{items}</Pagination></Button>
 					</div>
 	            </div>
 			</div>

@@ -41,11 +41,10 @@ export default function Login(){
 					<div className="p-3">
 						{formReturn}
 					</div>
-					
 				</div>
 		}
-		</div>)
-	}
+	</div>)
+}
 
 function TeacherLogin() {
 	let n = useNavigate()
