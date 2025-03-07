@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {Button, Form} from 'react-bootstrap';
+import {Button, Form, Col} from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
 
@@ -94,7 +94,7 @@ export default function Upload() {
 function p1(){ 
 	return(
 	<div className="d-flex w-100">
-		<Form.Group className="col-4">
+		<Form.Group className="col-3">
 			
 			<Form.Label> Title of the Research </Form.Label>
 			<Form.Control  onChange={e => settitle(e.target.value)} value={title}/>
@@ -196,19 +196,21 @@ function p2(){
 		<br />
 	</Form.Group>
 
-	<div className="col-4 ">
-			<h5>Panelist</h5>
+	<div className="col-4 b-form1">
+		<div className="h-200  mw-150">
+			<h3>Panelist</h3>
 			{whoPaneledArray.map((p, o) => {
 				console.log(p)
 				console.log(o)
 				return <div className="d-flex">
-					<p>{p}</p>
+					<h6>{p}</h6>
 					<Button onClick={() => {
 						whoPaneledsArray.splice(o, 1)
 						setCount(count + 1);
 					}}> - </Button>
 				</div>
 			})}
+			</div>
 		</div>
 
 
