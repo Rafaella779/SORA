@@ -21,6 +21,7 @@ export default function Register() {
 			(formReturn == null) ?
 				<div className="p-5 border-2px">
 					<h2 className="pt-serif-bold ">Register Page</h2>
+					<hr />
 					<h3 className="d-flex justify-content-center">Are you a</h3>
 					<div className="d-flex gap-1 flex-column">
 						<Button onClick={handleTeacher}>Teacher</Button>

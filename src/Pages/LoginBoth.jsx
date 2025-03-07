@@ -7,13 +7,15 @@ export default function Login(){
 	
 
 	const [formReturn, setFormReturn] = useState();
-
+	const [headerColor, setHeaderColor] = useState("");
 	
 	const handleTeacher = () => {
 		setFormReturn(<TeacherLogin />)
+		setHeaderColor("bg-1")
 	}
 	const handleStudent = () => {
 		setFormReturn(<StudentLogin />)
+		setHeaderColor("bg-5 text-white")
 	}
 
 	return(
@@ -24,17 +26,24 @@ export default function Login(){
 			(formReturn == null) ?
 				<div className="p-5 border-2px">
 					<h2 className="pt-serif-bold ">Login Page</h2>
-					<h3 className="d-flex justify-content-center">Are you a</h3>
-					<div className="d-flex gap-1 flex-column">
+					<hr />
+					<h5 className="d-flex justify-content-center">Are you a</h5>
+					<div className="d-flex gap-2 mt-3 flex-column">
 						<Button onClick={handleTeacher}>Teacher</Button>
 						<Button onClick={handleStudent}>Student</Button>
 					</div>
 				</div>
 			  : 
-				<div className="w-40 mt-5 bg-2 h-100 b-1px bg-4 p-3">
-					{formReturn}
+				<div className="w-40 mt-5  h-100 b-1px ">
+					<div className={`p-3 login-title ${headerColor}`}>
+						<h5 className="m-0 color-5 pt-serif-bold">Log In to SORA</h5>
+					</div>
+					<div className="p-3">
+						{formReturn}
+					</div>
+					
 				</div>
-			
+		}
 		</div>)
 	}
 
@@ -97,7 +106,6 @@ function TeacherLogin() {
 			<div>
 				<div className="d-flex justify-content-center align-items-center">
 					<div>
-						<h5 className="color-5 pt-serif-bold">Log In to SORA</h5>
 						<Form className="col-5 row w-600">
 							<Form.Group className="mb-3">
 								<Form.Label>Email address</Form.Label>
@@ -107,7 +115,7 @@ function TeacherLogin() {
 								<Form.Label>Password</Form.Label>
 								<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
 							</Form.Group>
-								<div className="d-flex justify-content-center align-items-center">
+								<div className="d-flex justify-content-end align-items-center">
 									<Button onClick={handleSubmit}>Submit</Button>
 								</div>
 						</Form>
@@ -172,28 +180,26 @@ function StudentLogin() {
 
 
 	return(
-	<div> 
+
+	<div className="d-flex justify-content-center align-items-center">
+
 		<div>
-			<div className="d-flex justify-content-center align-items-center">
-				<div>
-				<h5 className="color-5 pt-serif-bold">SORA Student Login</h5>
-							<Form className="col-5 row w-600 b-1px flex-column flex-lg-row">
-								<Form.Group className="mb-3">
-									<Form.Label>Email address</Form.Label>
-									<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
-								</Form.Group>
-								<Form.Group className="mb-3">
-									<Form.Label>Password</Form.Label>
-									<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
-								</Form.Group>
-								<div className="d-flex justify-content-end align-items-center">
-									<Button onClick={handleSubmit}>Submit</Button>
-								</div>
-							</Form>
-						</div>
-						</div>
-					</div>
+			<Form className="col-5 row w-600  flex-column flex-lg-row">
+				<Form.Group className="mb-3">
+					<Form.Label>Email address</Form.Label>
+					<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
+				</Form.Group>
+				<Form.Group className="mb-3">
+					<Form.Label>Password</Form.Label>
+					<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
+				</Form.Group>
+				<div className="d-flex justify-content-end align-items-center">
+					<Button onClick={handleSubmit}>Submit</Button>
 				</div>
+			</Form>
+		</div>
+	</div>
+	
 	
 		)
 }
