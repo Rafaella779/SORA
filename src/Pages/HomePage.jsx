@@ -49,7 +49,7 @@ export default function HomePage() {
 				 	<h1>SORA</h1>
 				 </div>
 	             
-	             <div className="w-75 h-2">
+	             <div className="h-2">
 	            	 <Form>
 	             		<Form.Group className="d-flex gap-4">
                             <Form.Control  type="Name or Author" placeholder="Enter Name or author" onChange={e => setSubmit(e.target.value)} value={submit} />

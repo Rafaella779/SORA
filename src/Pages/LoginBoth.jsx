@@ -17,13 +17,13 @@ export default function Login(){
 	}
 
 	return(
-		<div className="d-flex justify-content-center align-items-center pt-serif-bold flex-column flex-lg-row p-5 m-3">
+		<div className="d-flex gap-lg-5 justify-content-center align-items-center pt-serif-bold flex-column flex-lg-row p-5 m-3 flex-lg-row">
 			<div className="d-flex justify-content-begin flex-column mw-300">
 				<img src="https://img.freepik.com/free-vector/research-paper-concept-illustration_114360-8162.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid"/>
 			</div>
 		{
 			(formReturn == null) ?
-				<div className="1-bpx">
+				<div className="m-5 p-5">
 					<h2 className="pt-serif-bold">Login Page</h2>
 					<h3 className="d-flex justify-content-center">Are you a</h3>
 					<div className="d-flex gap-1 flex-column">
@@ -32,7 +32,7 @@ export default function Login(){
 					</div>
 				</div>
 			  : 
-				<div className="w-40 mt-5 bg-2 h-100 b-1px bg-4 p-3">
+				<div className="w-40 mt-5 h-100 b-1px p-3">
 					{formReturn}
 				</div>
 			}
@@ -95,10 +95,13 @@ function TeacherLogin() {
 
 	return(
     <div>
+    	<div className="d-flex col bg-7">
+				<h5 className="color-5 pt-serif-bold">SORA Student Login</h5>
+			</div>
 			<div>
-				<div className="flex-column flex-lg-row">
-					<h5 className="color-5 pt-serif-bold">Log In to SORA</h5>
-					<Form className="d-flex row flex-column flex-lg-row align-items-center">
+				<div className="flex-column flex-lg-row ">
+						<h5 className="color-5 pt-serif-bold">Log In to SORA</h5>
+					<Form className="col-5 row w-600">
 					<Form.Group className="mb-3">
 						<Form.Label>Email address</Form.Label>
 						<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
@@ -174,9 +177,10 @@ function StudentLogin() {
 	return(
 	<div> 
 		<div>
-			<div className="d-flex justify-content-center align-items-center">
-				<div>
-					<h5 className="color-5 pt-serif-bold">SORA Student Login</h5>
+			<div className="d-flex col bg-7">
+				<h5 className="color-5 pt-serif-bold">SORA Student Login</h5>
+			</div>
+			<div className="justify-content-center align-items-center m-0 p-0">
 					<Form className="d-flex row flex-column flex-lg-row align-items-center">
 						<Form.Group className="mb-3">
 							<Form.Label>Email address</Form.Label>
@@ -186,11 +190,10 @@ function StudentLogin() {
 							<Form.Label>Password</Form.Label>
 							<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
 						</Form.Group>
-						<div className="d-flex justify-content-end align-items-center">
+						<div className="d-flex justify-content-center align-items-center">
 							<Button onClick={handleSubmit}>Submit</Button>
 						</div>
 					</Form>
-				</div>
 			</div>
 		</div>
 	</div>
