@@ -40,30 +40,24 @@ export default function HomePage() {
             })
       }
 
-      let active = 2 ;
-	  let items = [];
-	  for (let number = 1; number <= 5; number++) {
-	    items.push(
-	      <Pagination.Item key={number} active={number === active}>
-	        {number}
-	      </Pagination.Item>,
-	    );
+      const [active, setActive] = useState([])
+      const [items, setItems] = useState([]);
+
+      const handleRatings = (num) => {
+			for (let i = 1; i <= 5; i++) {
+		       items.push(
+		      <Pagination.Item key={i} setActive={i === active}>
+		        {i}
+		      </Pagination.Item>,
+		    );
+		  }
 	  }
-
-	  const paginationBasic = (
-	    <div>
-	      <Pagination>{items}</Pagination>
-	      <br />
-
-	      <Pagination size="lg">{items}</Pagination>
-	      <br />
-
-	      <Pagination size="sm">{items}</Pagination>
-	    </div>
-	  );
+     
+	  
 
 
-      
+
+
 
 	return ( 
 		<div className="p-0">
@@ -95,9 +89,12 @@ export default function HomePage() {
 				             		{tableData}
 				             	</tbody>
 	            	 </Table>
+	            	 <div>
+  						<Pagination className={`${(Ratings == 1) ? "ratings-button" : ""}`} onClick={() => handleRatings(items)}>{items}</Pagination>
+					</div>
 	            </div>
 			</div>
 		</div>
 		)
 }
-			
+	
