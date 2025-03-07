@@ -7,13 +7,15 @@ export default function Login(){
 	
 
 	const [formReturn, setFormReturn] = useState();
-
+	const [headerColor, setHeaderColor] = useState("");
 	
 	const handleTeacher = () => {
 		setFormReturn(<TeacherLogin />)
+		setHeaderColor("bg-1")
 	}
 	const handleStudent = () => {
 		setFormReturn(<StudentLogin />)
+		setHeaderColor("bg-5 text-white")
 	}
 
 	return(
@@ -32,10 +34,19 @@ export default function Login(){
 					</div>
 				</div>
 			  : 
-				<div className="w-40 mt-5 bg-2 h-100 b-1px bg-4 p-3">
-					{formReturn}
+				<div className="w-40 mt-5  h-100 b-1px ">
+					<div className={`p-3 login-title ${headerColor}`}>
+						<h5 className="m-0 color-5 pt-serif-bold">Log In to SORA</h5>
+					</div>
+					<div className="p-3">
+						{formReturn}
+					</div>
+					
 				</div>
 			}
+
+		}
+
 		</div>)
 	}
 
@@ -172,7 +183,7 @@ function StudentLogin() {
 
 
 	return(
-	<div> 
+	<div className="d-flex justify-content-center align-items-center">
 		<div>
 			<div className="d-flex justify-content-center align-items-center">
 				<div>
