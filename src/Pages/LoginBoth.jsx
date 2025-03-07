@@ -17,13 +17,13 @@ export default function Login(){
 	}
 
 	return(
-		<div className="d-flex justify-content-center align-items-center pt-serif-bold flex-column flex-lg-row">
-			<div className="d-flex flex-column flex-lg-row mw-200">
+		<div className="d-flex justify-content-center align-items-center pt-serif-bold flex-column flex-lg-row p-5 m-3">
+			<div className="d-flex justify-content-begin flex-column mw-300">
 				<img src="https://img.freepik.com/free-vector/research-paper-concept-illustration_114360-8162.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid"/>
 			</div>
 		{
 			(formReturn == null) ?
-				<div className="flex-column flex-lg-row">
+				<div className="1-bpx">
 					<h2 className="pt-serif-bold">Login Page</h2>
 					<h3 className="d-flex justify-content-center">Are you a</h3>
 					<div className="d-flex gap-1 flex-column">
