@@ -9,7 +9,7 @@ export default function ContactUs() {
 	const [Message, setMessage] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/user/createUser`, {
+		fetch(`https://sora-q8wl.onrender.com/message/messageRequest`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
@@ -24,23 +24,19 @@ export default function ContactUs() {
 				console.log(result)
 				Swal.fire({
 					icon: "error",
-					title: "invalid Credentials",
-					text: `${res.error} check your details and try again`
+					title: "Fill up all please",
+					text: `check your details and try again`
 				})
 			}
 			else {
 				Swal.fire({
 					icon: "success",
-					title: "Register Success!",
+					title: "Thank You ",
 					timer: 1500,
 					showConfirmButton: false
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
-					l.setItem('t', res.t);
-					l.setItem('u', res.t);
-					l.setItem('a', res.t);
-					l.setItem('n', res.t);
 				})
 
 			}
@@ -83,11 +79,11 @@ export default function ContactUs() {
 								</Form.Group>
 								<Form.Group>
 									<Form.Label>Name </Form.Label>
-									<Form.Control type="Name" onChange={e => setName(e.target.value)} value={Name}/>	
+									<Form.Control onChange={e => setName(e.target.value)} value={Name}/>	
 								</Form.Group>
 								<Form.Group>
 									<Form.Label>Phone</Form.Label>
-									<Form.Control type="phone" onChange={e => setPhone(e.target.value)} value={phone}/>
+									<Form.Control onChange={e => setPhone(e.target.value)} value={phone}/>
 								</Form.Group>
 								<Form.Group>
 									<Form.Label>Message</Form.Label>

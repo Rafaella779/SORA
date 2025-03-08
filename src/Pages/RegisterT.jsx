@@ -1,5 +1,5 @@
 import {useState, useEffect, useContext} from 'react';
-import {Button, Form, Card} from 'react-bootstrap';
+import {Button, Form, Card, InputGroup} from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
 export default function Register() {
@@ -19,10 +19,9 @@ export default function Register() {
 
 	return(
 		<div className="d-flex justify-content-center align-items-center pt-serif-bold p-5">
-
 		{
 			(formReturn == null) ?
-				<div className="p-5 border-2px">
+				<div className="p-5 col-6">
 					<h2 className="pt-serif-bold ">Register Page</h2>
 					<hr />
 					<h5 className="d-flex justify-content-center">Are you a</h5>

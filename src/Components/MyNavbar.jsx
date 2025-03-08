@@ -7,7 +7,7 @@ export default function MyNavbar(){
 		<>
 			<Navbar expand="lg" className="navbar-border">
 				<Container fluid>
-					<Navbar.Brand onClick={() => n("/")} className="cinzel-decorative">SORA</Navbar.Brand>
+					<Navbar.Brand href="#" className="cinzel-decorative">SORA</Navbar.Brand>
 					<Navbar.Toggle aria-controls="navbarScroll" />
 					<Navbar.Collapse id="navbarScroll">
 					<Nav className="me-auto my-2 my-lg-0 w-100" style={{ maxHeight: '100px' }} navbarScroll>
@@ -16,11 +16,10 @@ export default function MyNavbar(){
 					    	<Nav.Link  onClick={() => n('/')} >Home</Nav.Link>
 					    	<Nav.Link  onClick={() => n('/AboutUs')} >About Us</Nav.Link>
 					    	<Nav.Link  onClick={() => n('/ContactUs')} >Contact Us</Nav.Link>
-
 					    </div>
+
 					    <div className="d-flex flex-column flex-lg-row">
 					    	<Nav.Link onClick={() => n('/logBoth')} >Log In</Nav.Link>
-
 					    	<Nav.Link onClick={() => n('/RegisterT')} >Register</Nav.Link>
 					    </div>
 					</div>
@@ -28,10 +27,11 @@ export default function MyNavbar(){
 				    </Navbar.Collapse>
 				</Container>
 			</Navbar>
-			<div className="">
+			<div>
 				<Outlet />
 			</div>
 
 		</>
 
-	) }
+	)
+}

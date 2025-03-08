@@ -30,6 +30,10 @@ h1 {
   color: deepskyblue;
 }
 
+.h-150 {
+  height: 150px !important;
+}
+
 .f-80 {
   font-size: 80px !important;
 }
@@ -43,6 +47,17 @@ h1 {
   border: 3px solid black;
   border-radius: 5px;
 }
+
+.b-form1{
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.b-form2{
+  border-bottom: 1px solid black;
+  border-radius: 5px;
+}
+
 .h-1{
   height: 600px;
 }
@@ -70,7 +85,9 @@ h1 {
 .bg-7{
   background-color: #48CAE4;
 }
-
+.bg-8{
+  background-color: #0077B6;
+}
 
 .color-1{
   color: #FFFFFF !important;
@@ -106,6 +123,10 @@ h1 {
   object-fit: cover !important;
   aspect-ratio: 1/1;
 }
+.loginBoth {
+  object-fit: cover !important;
+  aspect-ratio: 1/1;
+}
 
 .btn-primary {
   background-color: mediumpurple !important;
@@ -119,6 +140,11 @@ h1 {
   
 
 .aboutUsCard{
+  height: 100% !important;
+  max-height: 100% !important;
+  min-height: 100% !important;
+}
+.lohinBothCard{
   height: 100% !important;
   max-height: 100% !important;
   min-height: 100% !important;
@@ -161,6 +187,10 @@ p.light {
 
 .mw-200{
   max-width: 200px !important;
+}
+
+.mw-150{
+  max-width: 150px !important ;
 }
 
 .mw-300{
@@ -374,6 +404,9 @@ p.light {
 .navbar-border {
   border-bottom: 2px solid var(--bg-6);
 }
+.button1 {height: 30px !important;
+          width: 30px !important;
+          margin: 3px !important;}
 
 .login-title {
   border-bottom: 2px solid black;
