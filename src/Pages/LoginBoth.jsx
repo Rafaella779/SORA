@@ -21,7 +21,7 @@ export default function Login(){
 	return(
 
 	<div className="d-flex justify-content-center align-items-center pt-serif-bold p-5">
-
+	
 		{
 			(formReturn == null) ?
 				<div className="p-5 border-2px">
@@ -44,7 +44,7 @@ export default function Login(){
 				</div>
 		}
 	</div>)
-	}
+}
 
 function TeacherLogin() {
 	let n = useNavigate()
