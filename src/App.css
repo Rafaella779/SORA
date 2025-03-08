@@ -85,7 +85,9 @@ h1 {
 .bg-7{
   background-color: #48CAE4;
 }
-
+.bg-8{
+  background-color: #0077B6;
+}
 
 .color-1{
   color: #FFFFFF !important;
@@ -402,6 +404,9 @@ p.light {
 .navbar-border {
   border-bottom: 2px solid var(--bg-6);
 }
+.button1 {height: 30px !important;
+          width: 30px !important;
+          margin: 3px !important;}
 
 .login-title {
   border-bottom: 2px solid black;

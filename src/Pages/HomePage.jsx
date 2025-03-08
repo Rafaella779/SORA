@@ -64,13 +64,12 @@ export default function HomePage() {
 			<div className="p-3 p-md-5">
 				 <div className="cinzel-decorative d-flex text-center justify-content-center mb-3">
 				 	<h1>SORA</h1>
-				 </div>
-	             
+				 </div>       
 	             <div className=" h-2">
 	            	 <Form>
 	             		<Form.Group className="d-flex gap-4">
-                            <Form.Control  type="Name or Author" placeholder="Enter Name or author" onChange={e => setSubmit(e.target.value)} value={submit} />
-                            <Button onClick={handleSubmit}>Search</Button>
+                      <Form.Control  type="Name or Author" placeholder="Enter Name or author" onChange={e => setSubmit(e.target.value)} value={submit} />
+                      <Button onClick={handleSubmit}>Search</Button>
 	             		</Form.Group>
 	             	</Form>
 	           	 </div>
