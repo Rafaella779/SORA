@@ -1,5 +1,5 @@
-import {useState, useEffect} from 'react';
-import {Button, Form} from 'react-bootstrap';
+import {useState, useEffect, useContext} from 'react';
+import {Button, Form, Card} from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
 export default function Register() {
@@ -10,32 +10,38 @@ export default function Register() {
 	
 	const handleTeacher = () => {
 		setFormReturn(<RegisterTeacher />)
+		setHeaderColor("bg-1")
 	}
 	const handleStudent = () => {
 		setFormReturn(<RegisterStudent />)
+		setHeaderColor("bg-5 text-white")
 	}
 
 	return(
 		<div className="d-flex justify-content-center align-items-center pt-serif-bold p-5">
+
 		{
 			(formReturn == null) ?
 				<div className="p-5 border-2px">
 					<h2 className="pt-serif-bold ">Register Page</h2>
 					<hr />
-					<h3 className="d-flex justify-content-center">Are you a</h3>
-					<div className="d-flex gap-1 flex-column">
+					<h5 className="d-flex justify-content-center">Are you a</h5>
+					<div className="d-flex gap-2 mt-3 flex-column">
 						<Button onClick={handleTeacher}>Teacher</Button>
 						<Button onClick={handleStudent}>Student</Button>
 					</div>
 				</div>
-				: 
-				<div className="w-40 mt-5 bg-2 h-100 b-1px bg-4 p-3">
-					{formReturn}
+			  : 
+				<div className="w-40 mt-5  h-100 b-1px ">
+					<div className={`p-3 login-title ${headerColor}`}>
+						<h5 className="m-0 color-5 pt-serif-bold">Sign In to SORA</h5>
+					</div>
+					<div className="p-3">
+						{formReturn}
+					</div>
 				</div>
-			}
-
-			
-		</div>)
+		}
+	</div>)
 	}
 
 function RegisterStudent() {
