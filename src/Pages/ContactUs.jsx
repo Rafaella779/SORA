@@ -9,7 +9,7 @@ export default function ContactUs() {
 	const [Message, setMessage] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/message/messageRequest`, {
+		fetch(`https://sora-q8wl.onrender.com/user/createUser`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
@@ -24,19 +24,23 @@ export default function ContactUs() {
 				console.log(result)
 				Swal.fire({
 					icon: "error",
-					title: "Fill up all please",
-					text: `check your details and try again`
+					title: "invalid Credentials",
+					text: `${res.error} check your details and try again`
 				})
 			}
 			else {
 				Swal.fire({
 					icon: "success",
-					title: "Thank You ",
+					title: "Register Success!",
 					timer: 1500,
 					showConfirmButton: false
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
+					l.setItem('t', res.t);
+					l.setItem('u', res.t);
+					l.setItem('a', res.t);
+					l.setItem('n', res.t);
 				})
 
 			}
@@ -45,7 +49,7 @@ export default function ContactUs() {
 	return (
 		<div className="d-flex justify-content-center ">
 			<div className="mw-1200 d-flex flex-column">
-				<div className="d-flex flex-column w-100 p-5 p-xl-0 py-xl-4 ">
+				<div className="d-flex flex-column w-100 p-5 p-xl-0">
 					
 						<h1 className=" pt-serif-bold ">Contact us</h1>
 						<h6 className=" pt-serif-bold text-break text-wrap w-100">SORA is ready to provide the rigth solution according to your needs.</h6>
@@ -70,6 +74,7 @@ export default function ContactUs() {
 
 							</div>
 						</div>
+
 						<div className="b-1px d-flex flex-column col-12 col-lg-5 p-4">
 							<h4 className="pt-serif-bold">Leave A Message</h4>
 							<Form className="w-100 d-flex flex-column gap-1">							
@@ -79,11 +84,11 @@ export default function ContactUs() {
 								</Form.Group>
 								<Form.Group>
 									<Form.Label>Name </Form.Label>
-									<Form.Control onChange={e => setName(e.target.value)} value={Name}/>	
+									<Form.Control type="Name" onChange={e => setName(e.target.value)} value={Name}/>	
 								</Form.Group>
 								<Form.Group>
 									<Form.Label>Phone</Form.Label>
-									<Form.Control onChange={e => setPhone(e.target.value)} value={phone}/>
+									<Form.Control type="phone" onChange={e => setPhone(e.target.value)} value={phone}/>
 								</Form.Group>
 								<Form.Group>
 									<Form.Label>Message</Form.Label>
@@ -95,6 +100,7 @@ export default function ContactUs() {
 					    	</Form>
 							
 						</div>
+						
 					</div>
 				</div>
 			</div>
