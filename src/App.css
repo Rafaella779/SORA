@@ -379,5 +379,7 @@ p.light {
 .navbar-border {
   border-bottom: 2px solid var(--bg-6);
 }
-
+.button1 {height: 30px !important;
+          width: 30px !important;
+          margin: 3px !important;}
 
