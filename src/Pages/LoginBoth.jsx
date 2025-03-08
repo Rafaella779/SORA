@@ -55,7 +55,7 @@ function TeacherLogin() {
 	const [password, setpassword] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/login/student`, {
+		fetch(`https://sora-q8wl.onrender.com/login/teacher`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
@@ -95,7 +95,7 @@ function TeacherLogin() {
 					l.setItem('u', res.te);
 					l.setItem('m', res.bi);
 					l.setItem('v', res.s);
-					n('DashboardTeacher')
+					n('/teacher')
 				})
 
 			}
@@ -178,7 +178,6 @@ function StudentLogin() {
 			}
 		})
 	}
-
 
 	return(
 	<div className="d-flex justify-content-center align-items-center">

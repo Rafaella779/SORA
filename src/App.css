@@ -30,6 +30,10 @@ h1 {
   color: deepskyblue;
 }
 
+.h-150 {
+  height: 150px !important;
+}
+
 .f-80 {
   font-size: 80px !important;
 }
@@ -43,6 +47,17 @@ h1 {
   border: 3px solid black;
   border-radius: 5px;
 }
+
+.b-form1{
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.b-form2{
+  border-bottom: 1px solid black;
+  border-radius: 5px;
+}
+
 .h-1{
   height: 600px;
 }
@@ -170,6 +185,10 @@ p.light {
 
 .mw-200{
   max-width: 200px !important;
+}
+
+.mw-150{
+  max-width: 150px !important ;
 }
 
 .mw-300{
