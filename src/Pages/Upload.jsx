@@ -131,7 +131,7 @@ function p1(){
 						}}>.</Button>
 					</div>
 				})}
-			</div>
+		</div>
 
 		<div className="col-3 b-1px m-1">
 			<h2 className="pt-serif-bold m-1">ID</h2>
@@ -146,7 +146,6 @@ function p1(){
 					}}>.</Button>
 				</div>
 			})}
-
 			</div>
 
 
@@ -217,11 +216,6 @@ const [render, setRender] = useState(p1);
 			console.log("handlen")
 
 		}
-
-
-
-
-
 
 useEffect(() => {}, [])
 return(
