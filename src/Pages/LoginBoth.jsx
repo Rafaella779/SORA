@@ -7,13 +7,15 @@ export default function Login(){
 	
 
 	const [formReturn, setFormReturn] = useState();
-
+	const [headerColor, setHeaderColor] = useState("");
 	
 	const handleTeacher = () => {
 		setFormReturn(<TeacherLogin />)
+		setHeaderColor("bg-1")
 	}
 	const handleStudent = () => {
 		setFormReturn(<StudentLogin />)
+		setHeaderColor("bg-5 text-white")
 	}
 
 	return(
@@ -32,11 +34,18 @@ export default function Login(){
 					</div>
 				</div>
 			  : 
-				<div className="w-40 mt-5 h-100 b-1px p-3">
-					{formReturn}
+				<div className="w-40 mt-5  h-100 b-1px ">
+					<div className={`p-3 login-title ${headerColor}`}>
+						<h5 className="m-0 color-5 pt-serif-bold">Log In to SORA</h5>
+					</div>
+					<div className="p-3">
+						{formReturn}
+					</div>
 				</div>
 			}
-		</div>)
+
+		}
+	</div>)
 	}
 
 function TeacherLogin() {
@@ -46,7 +55,7 @@ function TeacherLogin() {
 	const [password, setpassword] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/login/student`, {
+		fetch(`https://sora-q8wl.onrender.com/login/teacher`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
@@ -86,7 +95,7 @@ function TeacherLogin() {
 					l.setItem('u', res.te);
 					l.setItem('m', res.bi);
 					l.setItem('v', res.s);
-					n('DashboardTeacher')
+					n('/teacher')
 				})
 
 			}
@@ -173,9 +182,8 @@ function StudentLogin() {
 		})
 	}
 
-
 	return(
-	<div> 
+	<div className="d-flex justify-content-center align-items-center">
 		<div>
 			<div className="d-flex col bg-7">
 				<h5 className="color-5 pt-serif-bold">SORA Student Login</h5>

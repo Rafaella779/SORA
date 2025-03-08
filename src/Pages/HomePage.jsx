@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import {Form, ButtonGroup, SplitButton, Button, Table, Container } from 'react-bootstrap'
+import {Form, ButtonGroup, SplitButton, Button, Table, Container, Pagination  } from 'react-bootstrap'
 import {useNavigate} from 'react-router'
 import Swal from 'sweetalert2'
 
@@ -40,26 +40,42 @@ export default function HomePage() {
             })
       }
 
-      
+      const [active, setActive] = useState();
+      const [items, setItems] = useState([]);
+
+      const handleItems = () => {
+			for (let i = 1; i <= 5; i++) {
+		       items.push(
+		      <Pagination.Item key={i} setActive={i === active}>
+		        {i}
+		      </Pagination.Item>,
+		    );
+		  }
+	  }
+     
+	  
+
+
+
+
 
 	return ( 
-		<div>
-			<div>
-				 <div className="cinzel-decorative d-flex text-center justify-content-center">
+		<div className="p-0">
+			<div className="p-3 p-md-5">
+				 <div className="cinzel-decorative d-flex text-center justify-content-center mb-3">
 				 	<h1>SORA</h1>
-				 </div>
-	             
-	             <div className="mw-100 h-2">
+				 </div>       
+	             <div className=" h-2">
 	            	 <Form>
 	             		<Form.Group className="d-flex gap-4">
-                            <Form.Control  type="Name or Author" placeholder="Enter Name or author" onChange={e => setSubmit(e.target.value)} value={submit} />
-                            <Button onClick={handleSubmit}>Search</Button>
+                      <Form.Control  type="Name or Author" placeholder="Enter Name or author" onChange={e => setSubmit(e.target.value)} value={submit} />
+                      <Button onClick={handleSubmit}>Search</Button>
 	             		</Form.Group>
 	             	</Form>
 	           	 </div>
 
 	            <div class="w-100 h-2">
-	             	<Table striped bordered hover>
+	             	<Table striped bordered hover responsive>
 	             		<thead>
 	             			<tr>
 		             			<th>Author</th>
@@ -72,9 +88,12 @@ export default function HomePage() {
 				             		{tableData}
 				             	</tbody>
 	            	 </Table>
+	            	 <div>
+	            	 	<Button className={`${(items == active) ? "ratings-button" : ""}`} onClick={() => handleItems()}><Pagination>{items}</Pagination></Button>
+					</div>
 	            </div>
 			</div>
 		</div>
 		)
 }
-			
+	

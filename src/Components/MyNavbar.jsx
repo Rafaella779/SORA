@@ -17,6 +17,7 @@ export default function MyNavbar(){
 					    	<Nav.Link  onClick={() => n('/AboutUs')} >About Us</Nav.Link>
 					    	<Nav.Link  onClick={() => n('/ContactUs')} >Contact Us</Nav.Link>
 					    </div>
+
 					    <div className="d-flex flex-column flex-lg-row">
 					    	<Nav.Link onClick={() => n('/logBoth')} >Log In</Nav.Link>
 					    	<Nav.Link onClick={() => n('/RegisterT')} >Register</Nav.Link>

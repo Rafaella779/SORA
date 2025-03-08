@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import { Button, Form, Container, Nav, Navbar, NavDropdown, Card, Modal, SplitButton, ButtonGroup, Table } from 'react-bootstrap'
 import { useNavigate, Outlet } from 'react-router'
 import Swal from 'sweetalert2'
+import ViewPage from './ViewPage.jsx'
 
 export default function DashboardTeacher() {
   const [show, setShow] = useState(false);
@@ -14,11 +15,9 @@ export default function DashboardTeacher() {
 
 
 	return(
-
-		<div className="d-flex ">
-			<div className="d-flex">
-				
-				<div className="b-1px d-flex flex-column mw-300 p-3">
+		<div className="d-flex">
+			<div className="d-flex flex-column flex-md-row w-100">
+				<div className="b-1px flex-column p-3 col-md-4 col-lg-2">
 					<div className="d-flex justify-content-center">
 						<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
 					</div>
@@ -33,19 +32,17 @@ export default function DashboardTeacher() {
 						<p className="mb-1 p-0 text-break"> <strong>No. of research:</strong> {localStorage.getItem('')}</p>
 					</div>
 				</div>
-
-				<Outlet/>
+					<ViewPage className="d-flex col-10 w-100"/>
 			</div>
-
 		</div>
 
 	)
 }
 function ModalChange({show, setShow}){
 	const handleClose = () => setShow(false);
-  	const handleShow = () => setShow(true);
+  const handleShow = () => setShow(true);
 
-  	const [page, setPage] = useState(1);
+ 	const [page, setPage] = useState(1);
 	const [username, setUsername] = useState("")
 	const [password, setPassword] = useState("")
 	const [email, setEmail] = useState("")
