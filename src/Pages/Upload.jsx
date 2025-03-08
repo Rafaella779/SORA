@@ -139,7 +139,7 @@ function p1(){
 				console.log(p)
 				console.log(o)
 				return <div className="d-flex m-1">
-					<p>{p}</p>
+					<p>{p}</p> 
 					<Button  variant="link" className="button1" onClick={() => {
 		<div className="col-3 b-form1 ">
 		
