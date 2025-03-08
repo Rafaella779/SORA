@@ -137,7 +137,7 @@ function p1(){
 				console.log(p)
 				console.log(o)
 				return <div className="d-flex m-1">
-					<p>{p}</p>
+					<p>{p}</p> 
 					<Button  variant="link" className="button1" onClick={() => {
 						idArray.splice(o, 1)
 						setCount(count + 1);

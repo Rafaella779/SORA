@@ -43,13 +43,13 @@ export default function HomePage() {
       
 
 	return ( 
-		<div className="p-5">
+		<div>
 			<div>
 				 <div className="cinzel-decorative d-flex text-center justify-content-center">
 				 	<h1>SORA</h1>
 				 </div>
 	             
-	             <div className="h-2">
+	             <div className="mw-100 h-2">
 	            	 <Form>
 	             		<Form.Group className="d-flex gap-4">
                             <Form.Control  type="Name or Author" placeholder="Enter Name or author" onChange={e => setSubmit(e.target.value)} value={submit} />
