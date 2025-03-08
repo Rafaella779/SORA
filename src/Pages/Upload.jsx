@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {Button, Form} from 'react-bootstrap';
+import {Button, Form, Col} from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
 
@@ -43,7 +43,7 @@ export default function Upload() {
 				console.log(result)
 				Swal.fire({
 					icon: "error",
-					title: "Missing Or Invalid  Words Pleasen Checks",
+					title: "Missing Or Invalid  Words Please Check",
 					text: 'check your details and try again'
 				})
 			}
@@ -93,6 +93,7 @@ export default function Upload() {
 
 function p1(){ 
 	return(
+
 	<div className="d-flex w-100 p-1 m-1">
 		<Form.Group className="col-3 b-1px  m-1 p-2">
 			<h2 className=" pt-serif-bold ">Submit Your Research</h2>
@@ -115,6 +116,7 @@ function p1(){
 			<Form.Label className="d-flex m-1"> Link of the Research </Form.Label>
 			<Form.Control  onChange={e => setlink(e.target.value)} value={link}/>	
 		</Form.Group>
+
 
 		<div className=" col-3 b-1px m-1">
 			<h2 className=" pt-serif-bold m-1">Authors</h2>
@@ -139,11 +141,44 @@ function p1(){
 				return <div className="d-flex m-1">
 					<p>{p}</p>
 					<Button  variant="link" className="button1" onClick={() => {
+		<div className="col-3 b-form1 ">
+		
+		
+		<div className="h-200 mw-150">	
+
+		<h3>Authors</h3>
+			{authorsArray.map((j, k) => {
+				console.log(j)
+				console.log(k)
+				return <div className="d-flex">
+					<h6>{j}</h6>
+					<Button onClick={() => {
+						authorsArray.splice(k, 1)
+						setCount(count + 1);
+					}}> - </Button>
+				</div>
+			})}
+			</div>
+		</div>
+
+
+		<div className="col-3 b-form1 ">
+			<div className="h-200  mw-150">
+			<h3>ID</h3>
+			{idArray.map((p, o) => {
+				console.log(p)
+				console.log(o)
+				return <div className="d-flex">
+					<h6>{p}</h6>
+					<Button onClick={() => {
 						idArray.splice(o, 1)
 						setCount(count + 1);
 					}}>.</Button>
 				</div>
 			})}
+
+			</div>
+
 		</div>
 
 		<div className="col b-1px m-1">
@@ -159,8 +194,12 @@ function p1(){
 					}}>.</Button>
 				</div>
 			})}
+			</div>
 		</div>
+
 	</div>
+
+		
 		)
 	}
 
@@ -180,6 +219,7 @@ function p2(){
 		<br />
 	</Form.Group>
 
+
 	<div className="col-5 b-1px m-1">
 			<h2 className="d-flex pt-serif-bold m-1" >Panelist</h2>
 			{whoPaneledArray.map((p, o) => {
@@ -193,6 +233,7 @@ function p2(){
 					}}> - </Button>
 				</div>
 			})}
+			</div>
 		</div>
 
 
@@ -224,6 +265,10 @@ useEffect(() => {}, [])
 return(
 		<div>
 			<Form className="w-90">
+		<div>
+			<h1>Submit Your Research</h1>
+		</div>
+			<Form className="w-100">
 				{(page == 1 ? p1() : p2())}
 				<div className="d-flex mt-3 m-1 p-2 gap-1">
 					{(page == 1) ? <></> : <Button onClick={handlePrev}>Previous</Button>}

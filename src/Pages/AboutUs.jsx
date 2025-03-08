@@ -21,11 +21,11 @@ export default function AboutUs() {
 						<h5 className="pt-serif-bold ">Members</h5>
 					</div>
 					<div className=" d-flex justify-content-center flex-wrap ">
-						<StudentCard picLink={lisya} name="Leisha Mariel Grutas"/>
-						<StudentCard picLink={jobert} name="Jhon Robert Novela"/>
-						<StudentCard picLink={gilly} name="Gilly Jean De Castro"/>
-						<StudentCard picLink={rean} name="Rean Paclibar" />
-						<StudentCard picLink={rafaella} name="Rafaella Sabenorio"/>
+						<StudentCard description="descripition here" picLink={lisya} name="Leisha Mariel Grutas"/>
+						<StudentCard description="descripition here" picLink={jobert} name="Jhon Robert Novela"/>
+						<StudentCard description="descripition here" picLink={gilly} name="Gilly Jean De Castro"/>
+						<StudentCard description="descripition here" picLink={rean} name="Rean Paclibar" />
+						<StudentCard description="descripition here" picLink={rafaella} name="Rafaella Sabenorio"/>
 					</div>
 				</div>
 				<div className="d-flex flex-column mt-5 p-3">
@@ -39,7 +39,7 @@ export default function AboutUs() {
 }
 
 
-function StudentCard({picLink, name}){
+function StudentCard({picLink, name, description}){
 	return(<div className="p-1 m-0 col-6 col-md-4 col-lg-2">
 		<div className="b-1px m-0 p-0 d-flex align-items-center aboutUsCard flex-column h-auto ">
 			<div className="d-flex">
@@ -47,7 +47,7 @@ function StudentCard({picLink, name}){
 			</div>
 			<div className="text-center py-2 ">
 				<h6 className="d-flex text-center m-0">{name}</h6>
-				<p className=" m-0">A student of JNHS</p>
+				<p className=" m-0">{description}</p>
 			</div>
 		</div>
 
