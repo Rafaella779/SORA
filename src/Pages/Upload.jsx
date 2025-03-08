@@ -94,32 +94,32 @@ export default function Upload() {
 function p1(){ 
 	return(
 
-	<div className="d-flex w-100 p-1 m-1">
-		<Form.Group className="col-3 b-1px  m-1 p-2">
-			<h2 className=" pt-serif-bold ">Submit Your Research</h2>
-			<Form.Label className="d-flex m-1"> Title of the Research </Form.Label>
-			<Form.Control  onChange={e => settitle(e.target.value)} value={title}/>
-			<Form.Label className="d-flex m-1">Authors Of The Research </Form.Label>
-			<Form.Control  onChange={e => setauthors(e.target.value)} value={authors}/>
-			<Button className="m-1" size="sm" onClick={addAuthors}>Add</Button>
-			<br />
-			<Form.Label className="d-flex m-1"> ID </Form.Label>
-			<Form.Control  onChange={e => setid(e.target.value)} value={id}/>
-			<Button className="m-1" size="sm" onClick={addid}>Add</Button>
-			<br />
-			<Form.Label className="d-flex m-1">Keywords of the Research</Form.Label>
-			<Form.Control  onChange={e => setkeywords(e.target.value)} value={keywords}/>
-			<Button className="m-1" size="sm" onClick={addKeyword}>Add</Button>
-			<br />
-			<Form.Label className="d-flex m-1">Category of the Research</Form.Label>
-			<Form.Control  onChange={e => setcategory(e.target.value)} value={category}/>
-			<Form.Label className="d-flex m-1"> Link of the Research </Form.Label>
-			<Form.Control  onChange={e => setlink(e.target.value)} value={link}/>	
-		</Form.Group>
+		<div className="d-flex w-100 p-1 m-1">
+			<Form.Group className="col-3 b-1px  m-1 p-2">
+				<h2 className=" pt-serif-bold ">Submit Your Research</h2>
+				<Form.Label className="d-flex m-1"> Title of the Research </Form.Label>
+				<Form.Control  onChange={e => settitle(e.target.value)} value={title}/>
+				<Form.Label className="d-flex m-1">Authors Of The Research </Form.Label>
+				<Form.Control  onChange={e => setauthors(e.target.value)} value={authors}/>
+				<Button className="m-1" size="sm" onClick={addAuthors}>Add</Button>
+				<br />
+				<Form.Label className="d-flex m-1"> ID </Form.Label>
+				<Form.Control  onChange={e => setid(e.target.value)} value={id}/>
+				<Button className="m-1" size="sm" onClick={addid}>Add</Button>
+				<br />
+				<Form.Label className="d-flex m-1">Keywords of the Research</Form.Label>
+				<Form.Control  onChange={e => setkeywords(e.target.value)} value={keywords}/>
+				<Button className="m-1" size="sm" onClick={addKeyword}>Add</Button>
+				<br />
+				<Form.Label className="d-flex m-1">Category of the Research</Form.Label>
+				<Form.Control  onChange={e => setcategory(e.target.value)} value={category}/>
+				<Form.Label className="d-flex m-1"> Link of the Research </Form.Label>
+				<Form.Control  onChange={e => setlink(e.target.value)} value={link}/>	
+			</Form.Group>
 
 
-		<div className=" col-3 b-1px m-1">
-			<h2 className=" pt-serif-bold m-1">Authors</h2>
+			<div className=" col-3 b-1px m-1">
+				<h2 className=" pt-serif-bold m-1">Authors</h2>
 				{authorsArray.map((j, k) => {
 					console.log(j)
 					console.log(k)
@@ -131,40 +131,10 @@ function p1(){
 						}}>.</Button>
 					</div>
 				})}
-		</div>
-
-		<div className="col-3 b-1px  m-1">
-			<h2 className=" pt-serif-bold m-1">ID</h2>
-			{idArray.map((p, o) => {
-				console.log(p)
-				console.log(o)
-				return <div className="d-flex m-1">
-					<p>{p}</p>
-					<Button  variant="link" className="button1" onClick={() => {
-		<div className="col-3 b-form1 ">
-		
-		
-		<div className="h-200 mw-150">	
-
-		<h3>Authors</h3>
-			{authorsArray.map((j, k) => {
-				console.log(j)
-				console.log(k)
-				return <div className="d-flex">
-					<h6>{j}</h6>
-					<Button onClick={() => {
-						authorsArray.splice(k, 1)
-						setCount(count + 1);
-					}}> - </Button>
-				</div>
-			})}
 			</div>
-		</div>
 
-
-		<div className="col-3 b-form1 ">
-			<div className="h-200  mw-150">
-			<h3>ID</h3>
+		<div className="col-3 b-1px m-1">
+			<h2 className="pt-serif-bold m-1">ID</h2>
 			{idArray.map((p, o) => {
 				console.log(p)
 				console.log(o)
@@ -179,7 +149,6 @@ function p1(){
 
 			</div>
 
-		</div>
 
 		<div className="col b-1px m-1">
 			<h2 className=" pt-serif-bold m-1">Keywords</h2>
@@ -196,9 +165,6 @@ function p1(){
 			})}
 			</div>
 		</div>
-
-	</div>
-
 		
 		)
 	}
@@ -233,11 +199,7 @@ function p2(){
 					}}> - </Button>
 				</div>
 			})}
-			</div>
 		</div>
-
-
-
 	</div>
 		)
 	}
@@ -265,10 +227,6 @@ useEffect(() => {}, [])
 return(
 		<div>
 			<Form className="w-90">
-		<div>
-			<h1>Submit Your Research</h1>
-		</div>
-			<Form className="w-100">
 				{(page == 1 ? p1() : p2())}
 				<div className="d-flex mt-3 m-1 p-2 gap-1">
 					{(page == 1) ? <></> : <Button onClick={handlePrev}>Previous</Button>}
