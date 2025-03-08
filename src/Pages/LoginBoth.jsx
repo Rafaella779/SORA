@@ -46,7 +46,7 @@ export default function Login(){
 
 		}
 	</div>)
-	}
+}
 
 function TeacherLogin() {
 	let n = useNavigate()

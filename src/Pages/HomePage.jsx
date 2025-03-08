@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext } from 'react'
 import {Form, ButtonGroup, SplitButton, Button, Table, Container, Pagination  } from 'react-bootstrap'
 import {useNavigate} from 'react-router'
 import Swal from 'sweetalert2'
+import Paginate from '../Components/Pagination.jsx'
 
 export default function HomePage() {
 
@@ -11,9 +12,40 @@ export default function HomePage() {
       const [view, setView] = useState("")
       const [tableData, setTableData] = useState([]) 
       const [submit, setSubmit] = useState("") 
+      const [Active, setActive] = useState("") 
+      const [iLength, setiLength] = useState("") 
+      const [iPerPage, setiPerPage] = useState("") 
       let n = useNavigate()
       const handleSubmit = () => {
             fetch(`https://sora-q8wl.onrender.com/research/getAll`, {
+                  method: "POST",
+                  headers: {"Content-Type": "application/json"},
+                  /*body: JSON.stringify({
+                       toFind: {
+                       	title: submit
+                       }
+                  }) */
+            }).then(result => result.json()).then(res => {
+                
+                console.log(res)
+                setTableData(res.research.map(x => {
+                    return(
+                          <tr onClick={() => n(`/IndividualSearchResult/${x._id}`)}>
+                                <td>{x.authors.map(y => {
+                                	return <p>{y.name}</p>
+                                })}</td>
+                                <td>{x.title}</td>
+                                <td>{x.abstract}</td>
+                                <td>{x.view}</td>
+                          </tr>
+                    )
+                  })
+                )  
+            })
+      }
+
+      useEffect(() => {
+      	    fetch(`https://sora-q8wl.onrender.com/research/getAll`, {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
                   /*body: JSON.stringify({
@@ -38,27 +70,9 @@ export default function HomePage() {
                   })
                 )  
             })
-      }
-
-      const [active, setActive] = useState();
-      const [items, setItems] = useState([]);
-
-      const handleItems = () => {
-			for (let i = 1; i <= 5; i++) {
-		       items.push(
-		      <Pagination.Item key={i} setActive={i === active}>
-		        {i}
-		      </Pagination.Item>,
-		    );
-		  }
-	  }
-     
-	  
-
-
-
-
-
+      
+      } , [Active])
+  
 	return ( 
 		<div className="p-0">
 			<div className="p-3 p-md-5">
@@ -88,9 +102,7 @@ export default function HomePage() {
 				             		{tableData}
 				             	</tbody>
 	            	 </Table>
-	            	 <div>
-	            	 	<Button className={`${(items == active) ? "ratings-button" : ""}`} onClick={() => handleItems()}><Pagination>{items}</Pagination></Button>
-					</div>
+					 <Paginate className="d-flex col-10 w-100"/>	
 	            </div>
 			</div>
 		</div>
