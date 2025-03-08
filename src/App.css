@@ -20,6 +20,10 @@ h1 {
   color: deepskyblue;
 }
 
+.h-150 {
+  height: 150px !important;
+}
+
 .f-80 {
   font-size: 80px !important;
 }
@@ -36,6 +40,11 @@ h1 {
 
 .b-form1{
   border: 1px solid black;
+  border-radius: 5px;
+}
+
+.b-form2{
+  border-bottom: 1px solid black;
   border-radius: 5px;
 }
 

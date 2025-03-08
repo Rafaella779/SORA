@@ -17,9 +17,11 @@ export default function Register() {
 
 	return(
 		<div className="d-flex justify-content-center align-items-center pt-serif-bold p-5">
+		<div className="col-6 flex-column">
+		</div>
 		{
 			(formReturn == null) ?
-				<div className="p-5 border-2px">
+				<div className="p-5 col-6">
 					<h2 className="pt-serif-bold ">Register Page</h2>
 					<h3 className="d-flex justify-content-center">Are you a</h3>
 					<div className="d-flex gap-1 flex-column">

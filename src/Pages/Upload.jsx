@@ -95,7 +95,6 @@ function p1(){
 	return(
 	<div className="d-flex w-100">
 		<Form.Group className="col-3">
-			
 			<Form.Label> Title of the Research </Form.Label>
 			<Form.Control  onChange={e => settitle(e.target.value)} value={title}/>
 			<Form.Label>Authors Of The Research </Form.Label>

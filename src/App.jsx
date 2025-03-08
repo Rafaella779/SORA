@@ -23,6 +23,7 @@ import  Error from './Pages/Error.jsx'
 import  ViewPage from './Pages/ViewPage.jsx'
 import  LoginBoth from './Pages/LoginBoth.jsx'
 import  Rejection from './Pages/Rejection.jsx'
+import  Inbox from './Pages/Inbox.jsx'
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path="Upload" element={<Upload/>} />
         <Route path="StudentLogin" element={<StudentLogin/>} />
         <Route path="ContactUs" element={<ContactUs/>} />
+        <Route path="inbox" element={<Inbox/>} />
         <Route path="teacher" element={<DashboardTeacher/>}> 
           <Route index element={<ViewPage/>} />                                                                                             >
           <Route path="ApproveSystem" element={<ApproveSystem/>} />
