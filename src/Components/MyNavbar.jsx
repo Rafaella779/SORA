@@ -5,7 +5,7 @@ export default function MyNavbar(){
 	let n = useNavigate()
 	return(
 		<>
-			<Navbar expand="lg">
+			<Navbar expand="lg" className="navbar-border">
 				<Container fluid>
 					<Navbar.Brand href="#" className="cinzel-decorative">SORA</Navbar.Brand>
 					<Navbar.Toggle aria-controls="navbarScroll" />
@@ -16,7 +16,6 @@ export default function MyNavbar(){
 					    	<Nav.Link  onClick={() => n('/')} >Home</Nav.Link>
 					    	<Nav.Link  onClick={() => n('/AboutUs')} >About Us</Nav.Link>
 					    	<Nav.Link  onClick={() => n('/ContactUs')} >Contact Us</Nav.Link>
-
 					    </div>
 
 					    <div className="d-flex flex-column flex-lg-row">
@@ -28,7 +27,7 @@ export default function MyNavbar(){
 				    </Navbar.Collapse>
 				</Container>
 			</Navbar>
-			<div className="">
+			<div>
 				<Outlet />
 			</div>
 

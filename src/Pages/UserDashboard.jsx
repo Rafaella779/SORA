@@ -5,11 +5,9 @@ import Swal from 'sweetalert2'
 
 export default function UserDashboardT() {
 	const [show, setShow] = useState(false);
-
-  	const handleClose = () => setShow(false);
-  	const handleShow = () => setShow(true);
-
-  	let n = useNavigate()
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  let n = useNavigate()
 	return(
 		<div>
 			<ModalChange show={show} setShow={setShow}/>

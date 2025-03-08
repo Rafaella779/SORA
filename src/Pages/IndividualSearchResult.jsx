@@ -56,18 +56,17 @@ export default function IndividualSearchResult() {
                   setId(res[0]._id)
             })
       }, [])
-
+      
       const handleSubmit = () => {
             
       }
 
       return (
-            <div className="justify-content-center d-flex">
+            <div className="justify-content-center d-flex mt-md-4">
                   <div className="b-1px col p-4 mw-1000">
-                        <h1 class="light p-0  m-0"><strong></strong> {title}</h1>
+                        <h1 class="light p-0 d-none d m-0"><strong></strong> {title}</h1>
                         <h6 class="light p-0  m-0"><strong>Author: </strong>{Authors.map(x => {return <>{x.name};</>})}</h6>
                         <hr />
-
                         <p class="light p-0  m-0"><strong>Abstract:</strong> {abstract }</p>
                         <p class="light p-0  m-0"><strong>Approval Request Date:</strong> {approvalrequestDate}</p>
                         <p class="light p-0  m-0"><strong>Approvals Count:</strong> {approvalsCount}</p>
