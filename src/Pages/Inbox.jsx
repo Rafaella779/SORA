@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import { Button, Form, Container, Nav, Navbar, NavDropdown, Card, Table, InputGroup } from 'react-bootstrap'
+import { Button, Form, Container, Nav, Navbar, NavDropdown, Card, Table, InputGroup, Modal } from 'react-bootstrap'
 import {useNavigate} from 'react-router'
 import Swal from 'sweetalert2'
 
@@ -41,6 +41,10 @@ export default function Inbox() {
             })
       }, [])
 
+ const [show, setShow] = useState(true);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
 
 return (
@@ -66,44 +70,49 @@ return (
 				<div className="d-flex justify-content-center flex-column">
 					<Button variant="light" size="lg"> All </Button>	
 					<Button variant="light" size="lg"> Important </Button>	
-					<Button variant="light" size="lg"> Archive </Button>	
+					<Button variant="light" size="lg"> Archive </Button>
+
+				      <Modal  show={show} onHide={handleClose}>
+				        <Modal.Header closeButton>
+				          <Modal.Title>Checking Request</Modal.Title>
+				        </Modal.Header>
+				        <Modal.Body>Are you availble for checking </Modal.Body>
+				        <Modal.Footer>
+				          <Button variant="secondary" onClick={handleClose}>
+				            No
+				          </Button>
+				          <Button variant="primary" onClick={() => n('/teacher/ApproveSystem')}>
+				            Yes
+				          </Button>
+				        </Modal.Footer>
+				      </Modal>
+		    
 				</div>
 		</div>
 
 		<div className="col-9 b-form1 flex-column">
-		<Table>
-		<thead>
-	        <tr>
-		        <th>Author</th>
-		        <th>Title</th>
-		        <th>Abstract</th>
-		        <th>Views</th>
-	        </tr>
-	    </thead>
 
-	    <tbody>
-				{tableData}
-		</tbody>
+			<Table>
+				<thead>
+			        <tr>
+				        <th>Author</th>
+				        <th>Title</th>
+				        <th>Abstract</th>
+				        <th>Views</th>
+			        </tr>
+			    </thead>
 
-
-       </Table>
-
-
+			    <tbody>
+					{tableData}
+				</tbody>
+    		</Table>
 		</div>
-
-
-
-
-
+				
+		      
 	</div>
 
 	)
 
-
-
-}
-
- function pic({picLink, name, item}){
 
 
 }
