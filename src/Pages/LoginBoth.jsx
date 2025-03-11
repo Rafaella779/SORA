@@ -7,6 +7,7 @@ export default function Login(){
 	
 
 	const [formReturn, setFormReturn] = useState();
+	const [headerColor, setHeaderColor] = useState("");
 
 	
 	const handleTeacher = () => {
@@ -20,7 +21,7 @@ export default function Login(){
 
 	return(
 		<div className="d-flex gap-lg-5 justify-content-center align-items-center pt-serif-bold flex-column flex-lg-row p-5 m-3 flex-lg-row">
-			<div className="d-flex justify-content-begin flex-column mw-300">
+			<div className="d-flex justify-content-center flex-column mw-300">
 				<img src="https://img.freepik.com/premium-vector/man-sits-front-phone-that-says-logitech_1314854-10316.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid"/>
 			</div>
 		{
@@ -34,7 +35,7 @@ export default function Login(){
 					</div>
 				</div>
 			  : 
-				<div className="w-40 mt-5 h-100 b-1px ">
+				<div className="w-40 mt-5 h-100 b-1px">
 					<div className={`p-3 login-title ${headerColor}`}>
 						<h5 className="m-0 color-5 pt-serif-bold">Log In to SORA</h5>
 					</div>
