@@ -115,16 +115,13 @@ function RegisterStudent() {
 			<Form.Group>
 				<Form.Label>Username</Form.Label>
 				<Form.Control onChange={(e) => {setUsername(e.target.value); console.log(username)}} value={username}/>
-				<Form.Group className="mb-3">
-							<Form.Label>Username</Form.Label>
-						<InputGroup className="mb-3">
-						<InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-							<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
-						</InputGroup>
-						</Form.Group>
+				<Form.Label>Username</Form.Label>
+				<InputGroup className="mb-3">
+				<InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+				<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
+				</InputGroup>
 				<Form.Label>Password </Form.Label>
 				<Form.Control type="password" onChange={e => setPassword(e.target.value)} value={password}/>
-				
 		</Form.Group>
 		</Form>)
 	} 
