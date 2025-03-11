@@ -411,3 +411,24 @@ p.light {
 .login-title {
   border-bottom: 2px solid black;
 }
+
+.b-left{
+  border-left: 2px solid black;
+}
+
+.b-right{
+  border-right: 2px solid black;
+}
+
+.b-top{
+  border-top: 2px solid black;
+}
+
+.b-bottom{
+  border-bottom: 2px solid black;
+}
+
+.b-full{
+  border: 2px solid black;
+}
+

@@ -5,35 +5,38 @@ import Swal from 'sweetalert2'
 
 export default function Inbox() {
 
-      const [authors, setAuthors] = useState("")
-      const [title, setTitle] = useState("")
-      const [abstract, setAbstract] = useState("")
-      const [view, setView] = useState("")
-      const [tableData, setTableData] = useState([]) 
-      const [submit, setSubmit] = useState("") 
+      const [senderId, setsenderId] = useState("")
+      const [receiveId, setreceiveId] = useState("")
+      const [researchId, setresearchId] = useState("")
+      const [message, setmessage] = useState("")
       let n = useNavigate()
   
       useEffect(() => {
-      	fetch(`https://sora-q8wl.onrender.com/mail/sendNotification`, {
-                  method: "POST",
+      	fetch(`https://sora-q8wl.onrender.com/mail`, {
+                  method: "GET",
                   headers: {"Content-Type": "application/json"},
                   /*body: JSON.stringify({
                        toFind: {
                        	title: submit
                        }
                   }) */
+                  method: "POST",
+                  headers: {"Content-Type": "application/json"},
+                  body: JSON.stringify({
+                       toFind: {
+                        _id: params.id
+                       }
+                  })
             }).then(result => result.json()).then(res => {
                 
                 console.log(res)
                 setTableData(res.map(x => {
                     return(
                           <tr onClick={() => n(`/Inboxmail/${x._id}`)}>
-                                <td>{x.authors.map(y => {
-                                	return <p>{y.name}</p>
-                                })}</td>
-                                <td>{x.title}</td>
-                                <td>{x.abstract}</td>
-                                <td>{x.view}</td>
+                                <td>{x.senderId}</td>
+                                <td>{x.receiveId}</td>
+                                <td>{x.researchId}</td>
+                                <td>{x.message}</td>
                           </tr>
                     )
                   })
@@ -95,10 +98,10 @@ return (
 			<Table>
 				<thead>
 			        <tr>
-				        <th>Author</th>
-				        <th>Title</th>
-				        <th>Abstract</th>
-				        <th>Views</th>
+				        <th>Sender</th>
+				        <th>Receiver</th>
+				        <th>Research</th>
+				        <th>Message</th>
 			        </tr>
 			    </thead>
 
