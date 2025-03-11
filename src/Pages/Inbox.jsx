@@ -14,7 +14,7 @@ export default function Inbox() {
       let n = useNavigate()
   
       useEffect(() => {
-      	fetch(`https://sora-q8wl.onrender.com/research/getAll`, {
+      	fetch(`https://sora-q8wl.onrender.com/mail/sendNotification`, {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
                   /*body: JSON.stringify({
@@ -27,7 +27,7 @@ export default function Inbox() {
                 console.log(res)
                 setTableData(res.map(x => {
                     return(
-                          <tr onClick={() => n(`/IndividualSearchResult/${x._id}`)}>
+                          <tr onClick={() => n(`/Inboxmail/${x._id}`)}>
                                 <td>{x.authors.map(y => {
                                 	return <p>{y.name}</p>
                                 })}</td>
