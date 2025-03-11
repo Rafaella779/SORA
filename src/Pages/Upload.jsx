@@ -94,8 +94,8 @@ export default function Upload() {
 function p1(){ 
 	return(
 
-		<div className="d-flex w-100 p-1 m-1">
-			<Form.Group className="col-3 b-1px  m-1 p-2">
+		<div className="d-flex w-100 p-1 m-1 flex-column flex-lg-row" responsive>
+			<Form.Group className="b-1px m-1 p-2">
 				<h2 className=" pt-serif-bold ">Submit Your Research</h2>
 				<Form.Label className="d-flex m-1"> Title of the Research </Form.Label>
 				<Form.Control  onChange={e => settitle(e.target.value)} value={title}/>
@@ -105,7 +105,7 @@ function p1(){
 				<br />
 				<Form.Label className="d-flex m-1"> ID </Form.Label>
 				<Form.Control  onChange={e => setid(e.target.value)} value={id}/>
-				<Button className="m-1" size="sm" onClick={addid}>Add</Button>
+				<Button className="m-1" size="sm"  onClick={addid}>Add</Button>
 				<br />
 				<Form.Label className="d-flex m-1">Keywords of the Research</Form.Label>
 				<Form.Control  onChange={e => setkeywords(e.target.value)} value={keywords}/>
@@ -118,7 +118,7 @@ function p1(){
 			</Form.Group>
 
 
-			<div className=" col-3 b-1px m-1">
+			<div className="col b-1px m-1">
 				<h2 className=" pt-serif-bold m-1">Authors</h2>
 				{authorsArray.map((j, k) => {
 					console.log(j)
@@ -131,16 +131,16 @@ function p1(){
 						}}>.</Button>
 					</div>
 				})}
-		</div>
+			</div>
 
-		<div className="col-3 b-1px m-1">
+		<div className="col b-1px m-1">
 			<h2 className="pt-serif-bold m-1">ID</h2>
 			{idArray.map((p, o) => {
 				console.log(p)
 				console.log(o)
-				return <div className="d-flex">
-					<h6>{p}</h6>
-					<Button onClick={() => {
+				return <div className="d-flex m-1">
+					<p>{p}</p>
+					<Button variant="link" className="button1" onClick={() => {
 						idArray.splice(o, 1)
 						setCount(count + 1);
 					}}>.</Button>
@@ -162,9 +162,10 @@ function p1(){
 					}}>.</Button>
 				</div>
 			})}
-			</div>
 		</div>
-		
+
+	</div>
+
 		)
 	}
 
@@ -172,8 +173,8 @@ function p1(){
 
 function p2(){ 
 	return(
-	<div className="d-flex col-8 m-2">
-	<Form.Group className="col-3 b-1px  m-1 p-1">
+	<div className="d-flex w-100 p-1 m-1 flex-column flex-lg-row">
+	<Form.Group className="b-1px m-1 p-2">
 		<Form.Label className="d-flex m-1"> Abstract of the Research </Form.Label>
 		<Form.Control  onChange={e => setabstract(e.target.value)} value={abstract}/>
 		<Form.Label className="d-flex m-1"> Is Your Research Approved by the School </Form.Label>
@@ -185,21 +186,22 @@ function p2(){
 	</Form.Group>
 
 
-	<div className="col-5 b-1px m-1">
-			<h2 className="d-flex pt-serif-bold m-1" >Panelist</h2>
-			{whoPaneledArray.map((p, o) => {
-				console.log(p)
-				console.log(o)
-				return <div className="d-flex m-1">
-					<p>{p}</p>
-					<Button variant="link" className="button1" onClick={() => {
-						whoPaneledsArray.splice(o, 1)
-						setCount(count + 1);
-					}}> - </Button>
-				</div>
-			})}
-		</div>
+	<div className="flex-column flex-lg-row b-1px m-1">
+		<h2 className=" pt-serif-bold col-5 m-1">Panelist</h2>
+		{whoPaneledArray.map((p, o) => {
+			console.log(p)
+			console.log(o)
+			return <div className="d-flex m-1">
+				<p>{p}</p>
+				<Button variant="link" className="button1" onClick={() => {
+					whoPaneledArray.splice(o, 1)
+					setCount(count + 1);
+				}}>.</Button>
+			</div>
+		})}
 	</div>
+</div>
+
 		)
 	}
 
@@ -219,7 +221,7 @@ const [render, setRender] = useState(p1);
 
 useEffect(() => {}, [])
 return(
-		<div>
+		<div responsive>
 			<Form className="w-90">
 				{(page == 1 ? p1() : p2())}
 				<div className="d-flex mt-3 m-1 p-2 gap-1">
