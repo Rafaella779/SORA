@@ -18,15 +18,15 @@ export default function DashboardTeacher() {
 	return(
 
 		<div className="d-flex ">
-			<div className="d-flex">
+			<div className="d-flex flex-column w-100 mw-1200 flex-md-row">
 				
-				<div className="b-1px d-flex flex-column mw-300 p-3">
+				<div className="b-1px d-flex flex-column col-12 col-md-auto  p-3">
 					<div className="d-flex justify-content-center">
 						<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
 					</div>
 					<div className="d-flex flex-column p-3">
-						<p className="mb-1 p-0 text-break"> <strong>Email:</strong> {localStorage.getItem('n')}</p>
-						<p className="mb-1 p-0 text-break"> <strong>Name:</strong> {localStorage.getItem('t')}</p>
+						<p className="mb-1 p-0 text-break"> <strong>Email:</strong> {localStorage.getItem('e')}</p>
+						<p className="mb-1 p-0 text-break"> <strong>Name:</strong> {localStorage.getItem('n')}</p>
 						<p className="mb-1 p-0 text-break"> <strong>Birthdate:</strong> {new Date(localStorage.getItem('m')).toDateString()}</p>
 						<p className="mb-1 p-0 text-break"> <strong>SchoolID:</strong> {localStorage.getItem('b')}</p>	
 						<p className="mb-1 p-0 text-break"> <strong>ID:</strong> {localStorage.getItem('s')}	</p>
@@ -36,19 +36,19 @@ export default function DashboardTeacher() {
 
 						
 						<Modal  show={show} onHide={handleClose}>
-				        <Modal.Header closeButton>
-				          <Modal.Title>Mail</Modal.Title>
-				        </Modal.Header>
-				        <Modal.Body>Hello you got mail, would you like to check?</Modal.Body>
-				        <Modal.Footer>
-				          <Button variant="secondary" onClick={handleClose}>
-				            No
-				          </Button>
-				          <Button variant="primary" onClick={() => n('Inbox')}>
-				            Yes
-				          </Button>
-				        </Modal.Footer>
-				      </Modal>
+			        <Modal.Header closeButton>
+			          <Modal.Title>Mail</Modal.Title>
+			        </Modal.Header>
+			        <Modal.Body>Hello you got mail, would you like to check?</Modal.Body>
+			        <Modal.Footer>
+			          <Button variant="secondary" onClick={handleClose}>
+			            No
+			          </Button>
+			          <Button variant="primary" onClick={() => n('Inbox')}>
+			            Yes
+			          </Button>
+			        </Modal.Footer>
+				    </Modal>
 					</div>
 				</div>
 

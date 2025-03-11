@@ -9,7 +9,7 @@ export default function SearchResult() {
       const [view, setView] = useState("")
 
       const handleSubmit = () => {
-            fetch(`https://sora-q8wl.onrender.com/research/getAll`, {
+            fetch(`${import.meta.env.VITE_BACKEND}/research/getAll`, {
                   method: "GET",
                   headers: {"Content-Type": "application/json"},
                   /*body: JSON.stringify({

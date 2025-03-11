@@ -9,7 +9,7 @@ export default function ContactUs() {
 	const [Message, setMessage] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/user/createUser`, {
+		fetch(`${import.meta.env.VITE_BACKEND}/user/createUser`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({

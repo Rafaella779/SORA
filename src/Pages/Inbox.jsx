@@ -12,7 +12,7 @@ export default function Inbox() {
       let n = useNavigate()
   
       useEffect(() => {
-      	fetch(`https://sora-q8wl.onrender.com/mail`, {
+      	fetch(`${import.meta.env.VITE_BACKEND}/mail`, {
                   method: "GET",
                   headers: {"Content-Type": "application/json"},
                   /*body: JSON.stringify({

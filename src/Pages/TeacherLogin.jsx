@@ -7,7 +7,7 @@ export default function TeacherLogin() {
 	const [password, setpassword] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/login/student`, {
+		fetch(`${import.meta.env.VITE_BACKEND}/login/student`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
@@ -21,7 +21,7 @@ export default function TeacherLogin() {
 				Swal.fire({
 					icon: "error",
 					title: "Invalid Password",
-					text: '${res.error} check your details and try again'
+					text: `${res.error} check your details and try again`
 				})
 			}
 			else {

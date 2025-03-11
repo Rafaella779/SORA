@@ -17,7 +17,7 @@ export default function HomePage() {
       const [iPerPage, setiPerPage] = useState(10) 
       let n = useNavigate()
       const handleSubmit = () => {
-            fetch(`https://sora-q8wl.onrender.com/research/searchP1`, {
+            fetch(`${import.meta.env.VITE_BACKEND}/research/searchP1`, {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({
@@ -53,7 +53,7 @@ export default function HomePage() {
 
       useEffect(() => {
       	    if (tableData.length > 0){
-      	    fetch(`https://sora-q8wl.onrender.com/research/searchP2`, {
+      	    fetch(`${import.meta.env.VITE_BACKEND}/research/searchP2`, {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({
@@ -85,7 +85,7 @@ export default function HomePage() {
  
 	return ( 
 		<div>
-			<div className="p-2 p-lg-5">
+			<div className="p-4 p-lg-5">
 				 <div className="cinzel-decorative d-flex text-center justify-content-center">
 				 	<h1>SORA</h1>
 				 </div>

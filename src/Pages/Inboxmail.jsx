@@ -12,7 +12,7 @@ export default function Inboxmail() {
       let params = useParams()
 
       useEffect(() => {
-            fetch(`https://sora-q8wl.onrender.com/mail/sendNotification`, {
+            fetch(`${import.meta.env.VITE_BACKEND}/mail/sendNotification`, {
                   method: "GET",
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({

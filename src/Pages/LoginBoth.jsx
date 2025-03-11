@@ -55,7 +55,7 @@ function TeacherLogin() {
 	const [password, setpassword] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/login/teacher`, {
+		fetch(`${import.meta.env.VITE_BACKEND}/login/teacher`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
@@ -69,7 +69,7 @@ function TeacherLogin() {
 				Swal.fire({
 					icon: "error",
 					title: "Invalid Password",
-					text: '${res.error} check your details and try again'
+					text: `${res.error} check your details and try again`
 
 				})
 			}
@@ -95,7 +95,7 @@ function TeacherLogin() {
 					l.setItem('u', res.te);
 					l.setItem('m', res.bi);
 					l.setItem('v', res.s);
-					n('/DashboardTeacher')
+					n('/teacher')
 				})
 
 			}
@@ -108,7 +108,7 @@ function TeacherLogin() {
 			<div className="justify-content-center align-items-center m-0 p-0">
 					<Form className="d-flex row flex-column flex-lg-row align-items-center">
 						<Form.Group className="mb-3">
-							<Form.Label>Username</Form.Label>
+							<Form.Label>Email</Form.Label>
 						<InputGroup className="mb-3">
 						<InputGroup.Text id="basic-addon1">@</InputGroup.Text>
 							<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
@@ -138,7 +138,7 @@ function StudentLogin() {
 	const [password, setpassword] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/login/student`, {
+		fetch(`${import.meta.env.VITE_BACKEND}/login/student`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
@@ -152,7 +152,7 @@ function StudentLogin() {
 				Swal.fire({
 					icon: "error",
 					title: "Invalid Password",
-					text: '${res.error} check your details and try again'
+					text: `${res.error} check your details and try again`
 				})
 			}
 			else {
