@@ -85,7 +85,7 @@ export default function HomePage() {
  
 	return ( 
 		<div>
-			<div>
+			<div className="p-2 p-lg-5">
 				 <div className="cinzel-decorative d-flex text-center justify-content-center">
 				 	<h1>SORA</h1>
 				 </div>
@@ -100,7 +100,7 @@ export default function HomePage() {
 	           	 </div>
 
 	            <div class="w-100 h-2">
-	             	<Table striped bordered hover>
+	             	<Table striped bordered hover responsive>
 	             		<thead>
 	             			<tr>
 		             			<th>Author</th>

@@ -65,28 +65,28 @@ h1 {
   height: 100px;
 }
 .bg-1{
-  background-color: #82CAFF;
+  background-color: #82CAFF !important;
 }
 .bg-2{
-  background-color: #D9D9D9;
+  background-color: #D9D9D9 !important;
 }
 .bg-3{
-  background-color: #CCDBE9;
+  background-color: #CCDBE9 !important;
 }
 .bg-4{
-  background-color: #CCDBE9;
+  background-color: #CCDBE9 !important;
 }
 .bg-5{
-  background-color: #004AAD;
+  background-color: #004AAD !important;
 }
 .bg-6{
-  background-color: #2CBEC4;
+  background-color: #2CBEC4 !important;
 }
 .bg-7{
-  background-color: #48CAE4;
+  background-color: #48CAE4 !important;
 }
 .bg-8{
-  background-color: #0077B6;
+  background-color: #0077B6 !important;
 }
 
 .color-1{
@@ -404,9 +404,9 @@ p.light {
 .navbar-border {
   border-bottom: 2px solid var(--bg-6);
 }
-.button1 {height: 30px !important;
-          width: 30px !important;
-          margin: 3px !important;}
+.button1 {
+  
+}
 
 .login-title {
   border-bottom: 2px solid black;
