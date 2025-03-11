@@ -2,7 +2,7 @@ import {Nav, Navbar, Container, Button, Form, NavDropdown} from 'react-bootstrap
 import { Outlet, useNavigate} from 'react-router'
 
 export default function MyNavbar(){
-
+	
 	let n = useNavigate()
 	return(
 		<>
