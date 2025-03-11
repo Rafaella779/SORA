@@ -18,21 +18,15 @@ export default function HomePage() {
       let n = useNavigate()
       const handleSubmit = () => {
             fetch(`https://sora-q8wl.onrender.com/research/searchP1`, {
-                  method: "POST",
-                  headers: {"Content-Type": "application/json"},
-                  body: JSON.stringify({
-                       toFind: { 
-                        $or: [
-							  { "title": { $regex: submit, $options: "i"} },
-							 // { "authors": { $regex: submit, $options: "i"} }
-							]
-                       }
-                  })
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    toFind: {
+                    	title: { $regex: submit, $options: "i" }
+                    }
+                })
             }).then(result => result.json()).then(res => {
-            	if (res.message){
-            		setTableData("No Match Found")
-            	}
-            	else{
+                
                 console.log(res)
                 setiLength(res.total)
                 setTableData(res.items.map(x => {
@@ -47,21 +41,19 @@ export default function HomePage() {
                           </tr>
                     )
                   })
-                )}      
+                )  
             })
       }
-
       useEffect(() => {
-      	    if (tableData.length > 0){
       	    fetch(`https://sora-q8wl.onrender.com/research/searchP2`, {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({
-                       toFind: {
-                       	title: { $regex: submit, $options: "i"}
-                       },
-                       skip: Active
-                  })
+                        toFind: {
+	                    	title: { $regex: submit, $options: "i" }
+	                    },
+	                    skip: Active
+                  }) 
             }).then(result => result.json()).then(res => {
                 
                 console.log(res)
@@ -79,9 +71,9 @@ export default function HomePage() {
                   })
                 )  
             })
-      	    }
-      	    
-      } , [Active]) 
+      
+      } , [Active])
+      
   
 	return ( 
 		<div className="p-0">
