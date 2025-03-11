@@ -205,6 +205,7 @@ function StudentLogin() {
 						<div className="d-flex justify-content-center align-items-center">
 							<Button onClick={handleSubmit}>Submit</Button>
 						</div>
+						</Form>
 						</div>
 					</div>
 				</div>

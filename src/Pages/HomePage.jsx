@@ -81,9 +81,7 @@ export default function HomePage() {
             })
       }
 
-      	    }
-      	    
-      } , [Active]) 
+      }, [Active]) 
  
 	return ( 
 		<div>
