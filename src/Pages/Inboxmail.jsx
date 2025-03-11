@@ -8,12 +8,12 @@ export default function Inboxmail() {
       const [senderId, setsenderId] = useState("") 
       const [receiveId, setreceiveId] = useState("") 
       const [researchId, setresearchId] = useState("") 
-      const [messages, setmessages] = useState("") 
+      const [message , setmessage] = useState("") 
       let params = useParams()
 
       useEffect(() => {
             fetch(`https://sora-q8wl.onrender.com/mail/sendNotification`, {
-                  method: "POST",
+                  method: "GET",
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({
                        toFind: {
@@ -26,7 +26,7 @@ export default function Inboxmail() {
                   setsenderId(res[0].senderId)
                   setreceiveId(res[0].receiveId)
                   setresearchId(res[0].researchId)
-                  setmessages(res[0].messages)
+                  setmessages(res[0].message)
             })
       }, [])
       
@@ -41,13 +41,13 @@ export default function Inboxmail() {
                         <p class="light p-0  m-0"><strong>Sender:</strong> {senderId }</p>
                         <p class="light p-0  m-0"><strong>Receiver:</strong> {receiveId}</p>
                         <p class="light p-0  m-0"><strong>Research:</strong> {researchId}</p>
-                        <p class="light p-0  m-0"><strong>Message:</strong> {messages}</p>
+                        <p class="light p-0  m-0"><strong>Message:</strong> {message}</p>
                         <div>
-                              <div className="d-flex justify-content-begin flex-column mw-200">
+                              {/*<div className="d-flex justify-content-begin flex-column mw-200">
                                 <img src="https://tse1.mm.bing.net/th?id=OIP.dsN8jTQnZukDvJ43Pu63MAHaHa&pid=Api"/>
                               </div>
                               <div>copy right 2024</div> 
-                              <div>STE</div> 
+                              <div>STE</div> */}
                         </div>                                     
                   </div>
             </div>
