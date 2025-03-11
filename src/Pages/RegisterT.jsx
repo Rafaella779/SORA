@@ -1,16 +1,17 @@
 import {useState, useEffect, useContext} from 'react';
-import {Button, Form, Card, InputGroup} from 'react-bootstrap';
+import {Button, Form, InputGroup} from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
 export default function Register() {
 
 
 	const [formReturn, setFormReturn] = useState();
+	const [headerColor, setHeaderColor] = useState("");
 
 	
 	const handleTeacher = () => {
 		setFormReturn(<RegisterTeacher />)
-		setHeaderColor("bg-1")
+		setHeaderColor("bg-5 text-white")
 	}
 	const handleStudent = () => {
 		setFormReturn(<RegisterStudent />)
@@ -18,29 +19,32 @@ export default function Register() {
 	}
 
 	return(
-		<div className="d-flex justify-content-center align-items-center pt-serif-bold p-5">
+		<div className="d-flex gap-lg-5 justify-content-center align-items-center pt-serif-bold p-5 flex-column flex-lg-row">
+		<div className="d-flex justify-content-begin flex-column mw-400">
+			<img src="https://img.freepik.com/premium-vector/two-factor-autentication-security-illustration-login-confirmation-notification-with-password-code-message-smartphone-mobile-phone-computer-app-account-shield-lock-icons-isolated_167715-3210.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid"/>
+		</div>
 		{
 			(formReturn == null) ?
-				<div className="p-5 col-6">
+				<div>
 					<h2 className="pt-serif-bold ">Register Page</h2>
-					<hr />
-					<h5 className="d-flex justify-content-center">Are you a</h5>
-					<div className="d-flex gap-2 mt-3 flex-column">
+					<h3 className="d-flex justify-content-center">Are you a</h3>
+					<div className="d-flex gap-1 flex-column">
 						<Button onClick={handleTeacher}>Teacher</Button>
 						<Button onClick={handleStudent}>Student</Button>
 					</div>
 				</div>
-			  : 
-				<div className="w-40 mt-5  h-100 b-1px ">
+				: 
+				<div className="w-40 mt-5 h-100 b-1px w-400">
 					<div className={`p-3 login-title ${headerColor}`}>
-						<h5 className="m-0 color-5 pt-serif-bold">Sign In to SORA</h5>
+						<h5 className="m-0 color-5 pt-serif-bold">Register</h5>
 					</div>
 					<div className="p-3">
 						{formReturn}
 					</div>
 				</div>
-		}
-	</div>)
+			}
+			
+		</div>)
 	}
 
 function RegisterStudent() {
@@ -105,15 +109,24 @@ function RegisterStudent() {
 		})
 	}
 
+
 	function p1()  {
-		return (<Form.Group>
+		return (<Form className="d-flex row flex-column flex-lg-row align-items-center">
+			<Form.Group>
 				<Form.Label>Username</Form.Label>
 				<Form.Control onChange={(e) => {setUsername(e.target.value); console.log(username)}} value={username}/>
-				<Form.Label>Email address</Form.Label>
-				<Form.Control type="email" onChange={e => setEmail(e.target.value)} value={email}/>
+				<Form.Group className="mb-3">
+							<Form.Label>Username</Form.Label>
+						<InputGroup className="mb-3">
+						<InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+							<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
+						</InputGroup>
+						</Form.Group>
 				<Form.Label>Password </Form.Label>
 				<Form.Control type="password" onChange={e => setPassword(e.target.value)} value={password}/>
-		</Form.Group>)
+				
+		</Form.Group>
+		</Form>)
 	} 
 
 	function p2() {
@@ -134,12 +147,12 @@ function RegisterStudent() {
 			<Form.Group>
 			<Form.Label>School Name</Form.Label>
 				<Form.Control onChange={e => setSchoolName(e.target.value)} value={SchoolName}/>
-				<Form.Label>Lrn</Form.Label>
-				<Form.Control  onChange={e => setlrn(e.target.value)} value={lrn}/>
-				<Form.Label>ID</Form.Label>
+				<Form.Label> LRN </Form.Label>
+				<Form.Control  onChange={e => setID(e.target.value)} value={lrn}/>
+				<Form.Label> ID </Form.Label>
 				<Form.Control  onChange={e => setID(e.target.value)} value={ID}/>
 				<Form.Label>School ID</Form.Label>
-				<Form.Control  onChange={e => setSchoolID(e.target.value)} value={SchoolID}/>
+				<Form.Control onChange={e => setSchoolID(e.target.value)} value={SchoolID}/>
 			</Form.Group>
 		)
 	}
@@ -163,13 +176,12 @@ function RegisterStudent() {
 	useEffect(() => {}, [])
 	return(
 		<>
-			<h2 className="pt-serif-bold ">Register Student</h2>
 			<Form>
 
 				<div>
 						{(page == 1 ? p1() : (page == 2) ? p2() : p3())}
 				</div>
-				<div className="d-flex gap-1 mt-3">
+				<div className="d-flex gap-1 mt-3 justify-content-end">
 					{(page == 1) ? <></> : <Button onClick={handlePrev}>Previous</Button>}
 					{(page == 3) ? <></> : <Button onClick={handleNext}>Next</Button>}
 					{(page == 3) ? <Button onClick={handleSubmit}>Submit</Button>  : <></> }
@@ -289,7 +301,6 @@ function RegisterTeacher() {
 
 	function p3() { 
 		return (
-			<div className="d-flex w-100">
 			<Form.Group className="justify-content-center">
 			<Form.Label>School Name</Form.Label>
 				<Form.Control onChange={e => setSchoolName(e.target.value)} value={SchoolName}/>
@@ -299,12 +310,8 @@ function RegisterTeacher() {
 				<Form.Control  onChange={e => setSchoolID(e.target.value)} value={SchoolID}/>
 				<Form.Label>Educational Degree</Form.Label>
 				<Form.Control  onChange={e => seteducationalDegree(e.target.value)} value={educationalDegree}/>
-				<Form.Label>Are you A Research Teacher</Form.Label>
-				<Form.Control  onChange={e => setisresearchTeacher(e.target.value)} value={isresearchTeacher}/>
 				<br />
 			</Form.Group>
-
-			</div>
 		)
 	}
 
@@ -327,7 +334,6 @@ function RegisterTeacher() {
 	useEffect(() => {}, [])
 	return(
 		<>
-			<h2 className="pt-serif-bold">Register Teacher</h2>
 			<Form>
 				{(page == 1 ? p1() : (page == 2) ? p2() : p3())}
 				<div className="d-flex gap-1 mt-3 justify-content-end">

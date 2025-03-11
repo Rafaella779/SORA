@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import { Form, Button, Table,} from 'react-bootstrap';
+import { Form, Button, Table} from 'react-bootstrap';
 import Swal from 'sweetalert2'
 export default function SearchResult() {
 
