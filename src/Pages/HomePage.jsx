@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import {Form, ButtonGroup, SplitButton, Button, Table, Container } from 'react-bootstrap'
+import {Form, ButtonGroup, SplitButton, Button, Table } from 'react-bootstrap'
 import {useNavigate} from 'react-router'
 import Swal from 'sweetalert2'
 
@@ -49,7 +49,7 @@ export default function HomePage() {
 				 	<h1>SORA</h1>
 				 </div>
 	             
-	             <div className="mw-100 h-2">
+	             <div className="h-2">
 	            	 <Form>
 	             		<Form.Group className="d-flex gap-4">
                             <Form.Control  type="Name or Author" placeholder="Enter Name or author" onChange={e => setSubmit(e.target.value)} value={submit} />

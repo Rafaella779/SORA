@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import { Button, Form, Container, Nav, Navbar, NavDropdown, Card, InputGroup } from 'react-bootstrap'
+import { Button, Form, InputGroup } from 'react-bootstrap'
 import { useNavigate, Outlet } from 'react-router'
 import Swal from 'sweetalert2'
 
@@ -107,15 +107,19 @@ function TeacherLogin() {
 			<div className="justify-content-center align-items-center m-0 p-0">
 					<Form className="d-flex row flex-column flex-lg-row align-items-center">
 						<Form.Group className="mb-3">
-							<Form.Label>Email address</Form.Label>
+							<Form.Label>Username</Form.Label>
+						<InputGroup className="mb-3">
+						<InputGroup.Text id="basic-addon1">@</InputGroup.Text>
 							<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
+						</InputGroup>
 						</Form.Group>
-						<div className="Input-group">
 						<Form.Group className="mb-3">
 							<Form.Label>Password</Form.Label>
+							<InputGroup className="mb-3">
+						<InputGroup.Text id="basic-addon1">*</InputGroup.Text>
 							<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
+							</InputGroup>
 						</Form.Group>
-						</div>
 						<div className="d-flex justify-content-center align-items-center">
 							<Button onClick={handleSubmit}>Submit</Button>
 						</div>
@@ -171,7 +175,7 @@ function StudentLogin() {
 					l.setItem('o', res.l);
 					l.setItem('p', res.bi);
 					l.setItem('v', res.s);
-					n('StudentDashboard')
+					n('/StudentDashboard')
 				})
 				
 
@@ -180,17 +184,23 @@ function StudentLogin() {
 	}
 
 	return(
-	<div className="d-flex justify-content-center align-items-center">
+	 <div className="d-flex justify-content-center align-items-center">
 		<div>
 			<div className="justify-content-center align-items-center m-0 p-0">
 					<Form className="d-flex row flex-column flex-lg-row align-items-center">
 						<Form.Group className="mb-3">
-							<Form.Label>Email address</Form.Label>
+							<Form.Label>Username</Form.Label>
+						<InputGroup className="mb-3">
+						<InputGroup.Text id="basic-addon1">@</InputGroup.Text>
 							<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
+						</InputGroup>
 						</Form.Group>
 						<Form.Group className="mb-3">
 							<Form.Label>Password</Form.Label>
+							<InputGroup className="mb-3">
+						<InputGroup.Text id="basic-addon1">*</InputGroup.Text>
 							<Form.Control type="password" placeholder="Password" onChange={e => setpassword(e.target.value)} value={password}/>
+							</InputGroup>
 						</Form.Group>
 						<div className="d-flex justify-content-center align-items-center">
 							<Button onClick={handleSubmit}>Submit</Button>

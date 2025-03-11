@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { Button, Form, Container, Nav, Navbar, NavDropdown, Card, Modal, SplitButton, ButtonGroup, Table } from 'react-bootstrap'
+import { Button, Form, Card, Modal, SplitButton, ButtonGroup, Table } from 'react-bootstrap'
 import { useNavigate, Outlet } from 'react-router'
 import Swal from 'sweetalert2'
 
@@ -8,11 +8,7 @@ export default function DashboardTeacher() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
-
 	let n = useNavigate()
-
-
 	return(
 		<div className="d-flex">
 			<div className="d-flex flex-column flex-md-row w-100">

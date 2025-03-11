@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import { Button, Form, Container, Nav, Navbar, NavDropdown, Card } from 'react-bootstrap'
+import { Button, Form, Card } from 'react-bootstrap'
 import Swal from 'sweetalert2'
 export default function ContactUs() {
 
@@ -47,7 +47,7 @@ export default function ContactUs() {
 		})
 	}
 	return (
-		<div className="d-flex justify-content-center ">
+		<div className="d-flex justify-content-center p-3">
 			<div className="mw-1200 d-flex flex-column">
 				<div className="d-flex flex-column w-100 p-5 p-xl-0">
 					

@@ -1,5 +1,5 @@
 import {useState, useEffect, useContext} from 'react';
-import {Button, Form} from 'react-bootstrap';
+import {Button, Form, InputGroup} from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
 export default function Register() {
@@ -20,8 +20,8 @@ export default function Register() {
 
 	return(
 		<div className="d-flex gap-lg-5 justify-content-center align-items-center pt-serif-bold p-5 flex-column flex-lg-row">
-		<div className="d-flex justify-content-begin flex-column mw-300">
-			<img src="https://img.freepik.com/free-vector/sign-up-concept-illustration_114360-7875.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid"/>
+		<div className="d-flex justify-content-begin flex-column mw-400">
+			<img src="https://img.freepik.com/premium-vector/two-factor-autentication-security-illustration-login-confirmation-notification-with-password-code-message-smartphone-mobile-phone-computer-app-account-shield-lock-icons-isolated_167715-3210.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid"/>
 		</div>
 		{
 			(formReturn == null) ?
@@ -109,15 +109,24 @@ function RegisterStudent() {
 		})
 	}
 
+
 	function p1()  {
-		return (<Form.Group>
+		return (<Form className="d-flex row flex-column flex-lg-row align-items-center">
+			<Form.Group>
 				<Form.Label>Username</Form.Label>
 				<Form.Control onChange={(e) => {setUsername(e.target.value); console.log(username)}} value={username}/>
-				<Form.Label>Email address</Form.Label>
-				<Form.Control type="email" onChange={e => setEmail(e.target.value)} value={email}/>
+				<Form.Group className="mb-3">
+							<Form.Label>Username</Form.Label>
+						<InputGroup className="mb-3">
+						<InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+							<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
+						</InputGroup>
+						</Form.Group>
 				<Form.Label>Password </Form.Label>
 				<Form.Control type="password" onChange={e => setPassword(e.target.value)} value={password}/>
-		</Form.Group>)
+				
+		</Form.Group>
+		</Form>)
 	} 
 
 	function p2() {
