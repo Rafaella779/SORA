@@ -111,19 +111,20 @@ function RegisterStudent() {
 
 
 	function p1()  {
-		return (<Form className="d-flex row flex-column flex-lg-row align-items-center">
-			<Form.Group>
+		return (<Form.Group>
 				<Form.Label>Username</Form.Label>
 				<Form.Control onChange={(e) => {setUsername(e.target.value); console.log(username)}} value={username}/>
-				<Form.Label>Username</Form.Label>
-				<InputGroup className="mb-3">
+				<Form.Label>Email address</Form.Label>
+				<InputGroup>
 				<InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-				<Form.Control type="email" placeholder="Enter email" onChange={e => setemail(e.target.value)} value={email} />
+				<Form.Control type="email" onChange={e => setEmail(e.target.value)} value={email}/>
 				</InputGroup>
 				<Form.Label>Password </Form.Label>
+				<InputGroup>
+				<InputGroup.Text id="basic-addon1">*</InputGroup.Text>
 				<Form.Control type="password" onChange={e => setPassword(e.target.value)} value={password}/>
-		</Form.Group>
-		</Form>)
+				</InputGroup>
+		</Form.Group>)
 	} 
 
 	function p2() {
@@ -271,16 +272,20 @@ function RegisterTeacher() {
 	}
 
 	function p1()  {
-		return (
-				<Form.Group>
+		return (<Form.Group>
 				<Form.Label>Username</Form.Label>
 				<Form.Control onChange={(e) => {setUsername(e.target.value); console.log(username)}} value={username}/>
 				<Form.Label>Email address</Form.Label>
+				<InputGroup>
+				<InputGroup.Text id="basic-addon1">@</InputGroup.Text>
 				<Form.Control type="email" onChange={e => setEmail(e.target.value)} value={email}/>
+				</InputGroup>
 				<Form.Label>Password </Form.Label>
+				<InputGroup>
+				<InputGroup.Text id="basic-addon1">*</InputGroup.Text>
 				<Form.Control type="password" onChange={e => setPassword(e.target.value)} value={password}/>
-		</Form.Group>
-		)
+				</InputGroup>
+		</Form.Group>)
 	} 
 
 	function p2() {
