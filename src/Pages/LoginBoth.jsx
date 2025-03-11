@@ -1,5 +1,5 @@
-import React, {useState, useEffect, useContext } from 'react'
-import { Button, Form, InputGroup } from 'react-bootstrap'
+import React, {useState, useEffect, useContext } from 'react'                         
+import { Button, Form, InputGroup } from 'react-bootstrap'        
 import { useNavigate, Outlet } from 'react-router'
 import Swal from 'sweetalert2'
 
@@ -7,15 +7,15 @@ export default function Login(){
 	
 
 	const [formReturn, setFormReturn] = useState();
-	const [headerColor, setHeaderColor] = useState("");
+
 	
 	const handleTeacher = () => {
-		setFormReturn(<TeacherLogin />)
+		setFormReturn(<TeacherLogin />)        
 		setHeaderColor("bg-5 text-white")
 	}
 	const handleStudent = () => {
 		setFormReturn(<StudentLogin />)
-		setHeaderColor("bg-5 text-white")
+    setHeaderColor("bg-5 text-white")           
 	}
 
 	return(
@@ -130,7 +130,6 @@ function TeacherLogin() {
 	)
 }
 
-
 function StudentLogin() {
 	let n = useNavigate()
 
@@ -183,6 +182,7 @@ function StudentLogin() {
 		})
 	}
 
+
 	return(
 	 <div className="d-flex justify-content-center align-items-center">
 		<div>
@@ -205,10 +205,9 @@ function StudentLogin() {
 						<div className="d-flex justify-content-center align-items-center">
 							<Button onClick={handleSubmit}>Submit</Button>
 						</div>
-					</Form>
-			</div>
-		</div>
-	</div>
+						</div>
+					</div>
+				</div>
 	
 		)
 }
