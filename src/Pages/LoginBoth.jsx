@@ -7,6 +7,7 @@ export default function Login(){
 	
 
 	const [formReturn, setFormReturn] = useState();
+	const [headerColor, setHeaderColor] = useState("");
 
 	
 	const handleTeacher = () => {

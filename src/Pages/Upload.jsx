@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import {Button, Form, Col} from 'react-bootstrap';
+import {Button, Form, Col, InputGroup} from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
 
@@ -94,75 +94,79 @@ export default function Upload() {
 function p1(){ 
 	return(
 
-		<div className="d-flex w-100 p-1 m-1 flex-column flex-lg-row" responsive>
-			<Form.Group className="b-1px m-1 p-2">
+		<div className="d-flex p-0 mt-3 flex-column flex-lg-row" responsive>
+			<Form.Group className="b-1px m-1 p-4 mw-300">
 				<h2 className=" pt-serif-bold ">Submit Your Research</h2>
 				<Form.Label className="d-flex m-1"> Title of the Research </Form.Label>
 				<Form.Control  onChange={e => settitle(e.target.value)} value={title}/>
 				<Form.Label className="d-flex m-1">Authors Of The Research </Form.Label>
-				<Form.Control  onChange={e => setauthors(e.target.value)} value={authors}/>
-				<Button className="m-1" size="sm" onClick={addAuthors}>Add</Button>
-				<br />
+				<InputGroup>
+					<Form.Control  onChange={e => setauthors(e.target.value)} value={authors}/>
+					<InputGroup.Text className="bg-1" onClick={addAuthors}>Add</InputGroup.Text>
+				</InputGroup>
 				<Form.Label className="d-flex m-1"> ID </Form.Label>
-				<Form.Control  onChange={e => setid(e.target.value)} value={id}/>
-				<Button className="m-1" size="sm"  onClick={addid}>Add</Button>
-				<br />
+				<InputGroup>
+					<Form.Control  onChange={e => setid(e.target.value)} value={id}/>
+					<InputGroup.Text className="bg-1"  onClick={addid}>Add</InputGroup.Text>
+				</InputGroup>
 				<Form.Label className="d-flex m-1">Keywords of the Research</Form.Label>
-				<Form.Control  onChange={e => setkeywords(e.target.value)} value={keywords}/>
-				<Button className="m-1" size="sm" onClick={addKeyword}>Add</Button>
-				<br />
+				<InputGroup>
+					<Form.Control  onChange={e => setkeywords(e.target.value)} value={keywords}/>
+					<InputGroup.Text className="bg-1" onClick={addKeyword}>Add</InputGroup.Text>
+				</InputGroup>
 				<Form.Label className="d-flex m-1">Category of the Research</Form.Label>
 				<Form.Control  onChange={e => setcategory(e.target.value)} value={category}/>
 				<Form.Label className="d-flex m-1"> Link of the Research </Form.Label>
 				<Form.Control  onChange={e => setlink(e.target.value)} value={link}/>	
 			</Form.Group>
 
-
-			<div className="col b-1px m-1">
-				<h2 className=" pt-serif-bold m-1">Authors</h2>
-				{authorsArray.map((j, k) => {
-					console.log(j)
-					console.log(k)
-					return <div className="d-flex m-1">
-						<p>{j}</p>
-						<Button  variant="link" className="button1" onClick={() => {
-							authorsArray.splice(k, 1)
-							setCount(count + 1);
-						}}>.</Button>
-					</div>
-				})}
-			</div>
-
-		<div className="col b-1px m-1">
-			<h2 className="pt-serif-bold m-1">ID</h2>
-			{idArray.map((p, o) => {
-				console.log(p)
-				console.log(o)
-				return <div className="d-flex m-1">
-					<p>{p}</p>
-					<Button variant="link" className="button1" onClick={() => {
-						idArray.splice(o, 1)
-						setCount(count + 1);
-					}}>.</Button>
+			<div>
+				<div className="col b-1px m-1 p-4">
+					<h4 className=" pt-serif-bold m-1">Authors</h4>
+					<div className="d-flex flex-column gap-1">{authorsArray.map((j, k) => {
+						console.log(j)
+						console.log(k)
+						return <div className="d-flex m-0 align-items-center justify-content-between">
+							<p className="m-0">{k + 1}. {j}</p>
+							<Button  className="px-2 py-0" onClick={() => {
+								authorsArray.splice(k, 1)
+								setCount(count + 1);
+							}}> - </Button>
+						</div>
+					})}</div>
 				</div>
-			})}
-			</div>
 
-
-		<div className="col b-1px m-1">
-			<h2 className=" pt-serif-bold m-1">Keywords</h2>
-			{keywordArray.map((x, i) => {
-				console.log(x)
-				console.log(i)
-				return <div className="d-flex m-1">
-					<p>{x}</p>
-					<Button  variant="link" className="button1" onClick={() => {
-						keywordArray.splice(i,1)
-						setCount(count + 1);
-					}}>.</Button>
+				<div className="col b-1px m-1 p-4">
+					<h4 className="pt-serif-bold m-1">ID</h4>
+					<div className="d-flex flex-column gap-1">{idArray.map((p, o) => {
+						console.log(p)
+						console.log(o)
+						return <div className="d-flex m-0 align-items-center justify-content-between">
+							<p className="m-0">{o + 1}. {p}</p>
+							<Button className="px-2 py-0" onClick={() => {
+								idArray.splice(o, 1)
+								setCount(count + 1);
+							}}> - </Button>
+						</div>
+					})}</div>
 				</div>
-			})}
-		</div>
+
+
+				<div className="col b-1px m-1 p-4">
+					<h4 className=" pt-serif-bold m-1">Keywords</h4>
+					<div className="d-flex flex-column gap-1">{keywordArray.map((x, i) => {
+						console.log(x)
+						console.log(i)
+						return <div className="d-flex m-0 align-items-center justify-content-between">
+							<p className="m-0">{i + 1}. {x}</p>
+							<Button className="px-2 py-0" onClick={() => {
+								keywordArray.splice(i,1)
+								setCount(count + 1);
+							}}> - </Button>
+						</div>
+					})}</div>
+				</div>
+			</div>
 
 	</div>
 
@@ -173,34 +177,34 @@ function p1(){
 
 function p2(){ 
 	return(
-	<div className="d-flex w-100 p-1 m-1 flex-column flex-lg-row">
-	<Form.Group className="b-1px m-1 p-2">
-		<Form.Label className="d-flex m-1"> Abstract of the Research </Form.Label>
-		<Form.Control  onChange={e => setabstract(e.target.value)} value={abstract}/>
-		<Form.Label className="d-flex m-1"> Is Your Research Approved by the School </Form.Label>
-		<Form.Control  onChange={e => setisApprovedBySchool(e.target.value)} value={isApprovedBySchool}/>
-		<Form.Label className="d-flex m-1"> Panelist of your Reseach	 </Form.Label>
-		<Form.Control  onChange={e => setwhoPaneled(e.target.value)} value={whoPaneled}/>
-		<Button className="m-1" size="sm" onClick={addwhopaneled}>Add</Button>
-		<br />
-	</Form.Group>
+	<div className="d-flex p-0 mt-3 flex-column flex-lg-row">
+		<Form.Group className="b-1px m-1 p-2">
+			<Form.Label className="d-flex m-1"> Abstract of the Research </Form.Label>
+			<Form.Control as="textarea" rows={5}  onChange={e => setabstract(e.target.value)} value={abstract}/>
+			<Form.Label className="d-flex m-1"> Is Your Research Approved by the School </Form.Label>
+			<Form.Control  onChange={e => setisApprovedBySchool(e.target.value)} value={isApprovedBySchool}/>
+			<Form.Label className="d-flex m-1"> Panelist of your Reseach	 </Form.Label>
+			<InputGroup>
+				<Form.Control  onChange={e => setwhoPaneled(e.target.value)} value={whoPaneled}/>
+				<InputGroup.Text className="bg-1" onClick={addwhopaneled}>Add</InputGroup.Text>
+			</InputGroup>
+			<br />
+		</Form.Group>
 
-
-	<div className="flex-column flex-lg-row b-1px m-1">
-		<h2 className=" pt-serif-bold col-5 m-1">Panelist</h2>
-		{whoPaneledArray.map((p, o) => {
-			console.log(p)
-			console.log(o)
-			return <div className="d-flex m-1">
-				<p>{p}</p>
-				<Button variant="link" className="button1" onClick={() => {
-					whoPaneledArray.splice(o, 1)
-					setCount(count + 1);
-				}}>.</Button>
-			</div>
-		})}
-	</div>
-</div>
+		<div className="col b-1px m-1 p-4">
+			<h4 className=" pt-serif-bold m-1">Panelist</h4>{whoPaneledArray.map((p, o) => {
+				console.log(p)
+				console.log(o)
+				return <div className="d-flex m-1 align-items-center justify-content-between">
+					<p className="m-0">{o + 1}. {p}</p>
+					<Button className="px-2 py-0" onClick={() => {
+						whoPaneledArray.splice(o,1)
+						setCount(count + 1);
+					}}> - </Button>
+				</div>
+			})}
+		</div>
+    </div>
 
 		)
 	}
@@ -221,10 +225,11 @@ const [render, setRender] = useState(p1);
 
 useEffect(() => {}, [])
 return(
-		<div responsive>
-			<Form className="w-90">
+		<div className="w-100 d-flex justify-content-center">
+			<Form className=" d-flex justify-content-center flex-column">
+				
 				{(page == 1 ? p1() : p2())}
-				<div className="d-flex mt-3 m-1 p-2 gap-1">
+				<div className="d-flex mt-3 m-1 p-2 gap-1 justify-content-end">
 					{(page == 1) ? <></> : <Button onClick={handlePrev}>Previous</Button>}
 					{(page == 2) ? <></> : <Button onClick={handleNext}>Next</Button>}
 					{(page == 2) ? <Button onClick={handleSubmit}>Submit</Button>  : <></> }

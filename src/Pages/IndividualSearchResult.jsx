@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import { Form, Button, Table,} from 'react-bootstrap';
+import { Form, Button, Table, Card } from 'react-bootstrap';
 import {useParams} from 'react-router'
 import Swal from 'sweetalert2'
 export default function IndividualSearchResult() {
@@ -62,6 +62,7 @@ export default function IndividualSearchResult() {
       }
 
       return (
+      <div className="p-3">
             <div className="justify-content-center d-flex mt-md-4 ">
                   <div className="b-1px col p-4 w-100 mw-1000">
                         <h1 class="light p-0 d-none d m-0"><strong></strong> {title}</h1>
@@ -83,16 +84,27 @@ export default function IndividualSearchResult() {
                         <p class="light p-0  m-0"><strong>Views:</strong> {view}</p>
                         <p class="light p-0  m-0"><strong>Id:</strong> {id}</p>
                         <div>
-                              <div className="d-flex justify-content-begin flex-column mw-200">
-                                <img src="https://tse1.mm.bing.net/th?id=OIP.dsN8jTQnZukDvJ43Pu63MAHaHa&pid=Api"/>
-                              </div>
-                              <div>copy right 2024</div> 
-                              <div>STE</div> 
-                        </div>                                     
+                              <BasicExample />
+                        </div>                                  
                   </div>
             </div>
+      </div>
       )
 }
 
-
-      
+ function BasicExample() {
+  return (
+    <Card style={{ width: '15rem' }}>
+      <Card.Body>
+      <Card.Img variant="top" src="https://tse1.mm.bing.net/th?id=OIP.dsN8jTQnZukDvJ43Pu63MAHaHa&pid=Api" />
+        <Card.Title className="cinzel-decorative">SORA</Card.Title>
+        <Card.Text>
+          copyright
+        </Card.Text>
+        <Card.Text>
+          STE 2024
+        </Card.Text>
+      </Card.Body>
+    </Card>
+  );
+}

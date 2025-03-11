@@ -18,6 +18,7 @@ import  ApproveSystem from './Pages/ApproveSystem.jsx'
 import Swal from 'sweetalert2'; 
 import {Routes, Route} from 'react-router'
 import  Navbar from './Components/MyNavbar.jsx'
+import  Footer from './Components/Footer.jsx'
 import  StudentLogin from './Pages/StudentLogin.jsx'
 import  Error from './Pages/Error.jsx'
 import  ViewPage from './Pages/ViewPage.jsx'
@@ -55,6 +56,7 @@ function App() {
         </Route>
         <Route path="*" element={<Error/>} />  
       </Route>
+      <Route path="/" element={<Footer/>} />
     </Routes>
     </>
   )

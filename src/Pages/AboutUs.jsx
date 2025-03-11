@@ -46,8 +46,8 @@ function StudentCard({picLink, name, description}){
 				<img src={picLink} alt="" className="aboutUsPic w-100 " />
 			</div>
 			<div className="text-center py-2 ">
-				<h6 className="d-flex text-center">{name}</h6>
-				<p className="p-1 m-1">{description}</p>
+				<h6 className="text-center m-0">{name}</h6>
+				<p className="p-0 m-1">{description}</p>
 			</div>
 		</div>
 
