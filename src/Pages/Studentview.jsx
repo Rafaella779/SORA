@@ -15,7 +15,7 @@ export default function StudentViewPage() {
       let params = useParams()
 
        useEffect(() => {
-            fetch(`https://sora-q8wl.onrender.com/research/getAll`, {
+            fetch(`${import.meta.env.VITE_BACKEND}/research/getAll`, {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({
@@ -33,7 +33,7 @@ export default function StudentViewPage() {
       }, [])
 
        useEffect(() => {
-            fetch(`https://sora-q8wl.onrender.com/research/getAll`, {
+            fetch(`${import.meta.env.VITE_BACKEND}/research/getAll`, {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({

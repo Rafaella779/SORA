@@ -22,8 +22,8 @@ export default function Upload() {
 		const [count, setCount] = useState(0)
 
 
-			const handleSubmit = () => {
-		fetch(`https://sora-q8wl.onrender.com/research/createResearch`, {
+		const handleSubmit = () => {
+		fetch(`${import.meta.env.VITE_BACKEND}/research/createResearch`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({

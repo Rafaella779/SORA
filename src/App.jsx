@@ -50,9 +50,9 @@ function App() {
         <Route index element={<ViewPage/>} />                                                                                             >
         <Route path="Instruction" element={<Instruction/>} />
         <Route path="teacher" >
-        <Route index element={<DashboardTeacher/>} />                                                                                             >
-        <Route path="ApproveSystem" element={<ApproveSystem/>} />
-         <Route path="inbox" element={<Inbox/>} />
+          <Route index element={<DashboardTeacher/>} />                                                                                             >
+          <Route path="ApproveSystem" element={<ApproveSystem/>} />
+          <Route path="inbox" element={<Inbox/>} />
         </Route>
         <Route path="*" element={<Error/>} />  
       </Route>
