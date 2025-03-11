@@ -62,8 +62,8 @@ export default function IndividualSearchResult() {
       }
 
       return (
-            <div className="justify-content-center d-flex mt-md-4">
-                  <div className="b-1px col p-4 mw-1000">
+            <div className="justify-content-center d-flex mt-md-4 ">
+                  <div className="b-1px col p-4 w-100 mw-1000">
                         <h1 class="light p-0 d-none d m-0"><strong></strong> {title}</h1>
                         <h6 class="light p-0  m-0"><strong>Author: </strong>{Authors.map(x => {return <>{x.name};</>})}</h6>
                         <hr />
@@ -75,13 +75,20 @@ export default function IndividualSearchResult() {
                         <p class="light p-0  m-0"><strong>Date Modified:</strong> {dateModified}</p>
                         <p class="light p-0  m-0"><strong>Is Approved By School:</strong> {isApprovedBySchool}</p>
                         <p class="light p-0  m-0"><strong>Is Published:</strong> {isPublished}</p>
-                        <p class="light p-0  m-0"><strong>Link:</strong> <a href={link}>{link}</a></p>
+                        <p class="light p-0  m-0 text-break"><strong>Link:</strong> <a href={link}>{link}</a></p>
                         <p class="light p-0  m-0"><strong>Ratings:</strong> {ratings}</p>
                         <p class="light p-0  m-0"><strong>Rejection Count:</strong> {rejectionCount}</p>
                         <p class="light p-0  m-0"><strong>Research Status:</strong> {researchStatus}</p>
                         <p class="light p-0  m-0"><strong>Updated At:</strong> {updatedAt}</p>
                         <p class="light p-0  m-0"><strong>Views:</strong> {view}</p>
-                        <p class="light p-0  m-0"><strong>Id:</strong> {id}</p>                                      
+                        <p class="light p-0  m-0"><strong>Id:</strong> {id}</p>
+                        <div>
+                              <div className="d-flex justify-content-begin flex-column mw-200">
+                                <img src="https://tse1.mm.bing.net/th?id=OIP.dsN8jTQnZukDvJ43Pu63MAHaHa&pid=Api"/>
+                              </div>
+                              <div>copy right 2024</div> 
+                              <div>STE</div> 
+                        </div>                                     
                   </div>
             </div>
       )
