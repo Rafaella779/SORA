@@ -27,7 +27,7 @@ export default function IndividualSearchResult() {
       let params = useParams()
 
       useEffect(() => {
-            fetch(`${import.meta.env.VITE_BACKEND}/research/getAll`, {
+            fetch(`https://sora-q8wl.onrender.com/research/getAll`, {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({
@@ -83,28 +83,10 @@ export default function IndividualSearchResult() {
                         <p class="light p-0  m-0"><strong>Updated At:</strong> {updatedAt}</p>
                         <p class="light p-0  m-0"><strong>Views:</strong> {view}</p>
                         <p class="light p-0  m-0"><strong>Id:</strong> {id}</p>
-                        <div>
-                              <BasicExample />
-                        </div>                                  
                   </div>
             </div>
       </div>
       )
 }
 
- function BasicExample() {
-  return (
-    <Card style={{ width: '15rem' }}>
-      <Card.Body>
-      <Card.Img variant="top" src="https://tse1.mm.bing.net/th?id=OIP.dsN8jTQnZukDvJ43Pu63MAHaHa&pid=Api" />
-        <Card.Title className="cinzel-decorative">SORA</Card.Title>
-        <Card.Text>
-          copyright
-        </Card.Text>
-        <Card.Text>
-          STE 2024
-        </Card.Text>
-      </Card.Body>
-    </Card>
-  );
-}
+ 

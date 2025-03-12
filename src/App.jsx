@@ -19,7 +19,8 @@ import Swal from 'sweetalert2';
 import {Routes, Route} from 'react-router'
 import  Navbar from './Components/MyNavbar.jsx'
 import  Footer from './Components/Footer.jsx'
-import  StudentLogin from './Pages/StudentLogin.jsx'
+import  StudentLogin from './Pages/LogOut.jsx'
+import  LogOut from './Pages/LogOut.jsx'
 import  Error from './Pages/Error.jsx'
 import  ViewPage from './Pages/ViewPage.jsx'
 import  LoginBoth from './Pages/LoginBoth.jsx'
@@ -45,6 +46,7 @@ function App() {
         <Route path="SearchResult" element={<SearchResult/>} />
         <Route path="HomePage" element={<HomePage/>} />
         <Route path="Upload" element={<Upload/>} />
+        <Route path="LogOut" element={<LogOut/>} />
         <Route path="StudentLogin" element={<StudentLogin/>} />
         <Route path="ContactUs" element={<ContactUs/>} />
         <Route index element={<ViewPage/>} />                                                                                             >
