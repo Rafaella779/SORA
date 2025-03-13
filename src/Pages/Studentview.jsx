@@ -43,7 +43,6 @@ export default function StudentViewPage() {
                   })
             }).then(result => result.json()).then(res => {
                   console.log(res)
-                  setInfo(res[0])
                   setAuthors(res[0].authors)
                   setTitle(res[0].title)
                   setAbstract(res[0].abstract)

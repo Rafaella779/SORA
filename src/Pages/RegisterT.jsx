@@ -60,7 +60,6 @@ function RegisterStudent() {
 	const [SchoolName, setSchoolName] = useState("")
 	const [lrn, setlrn] = useState("")
 	const [SchoolID, setSchoolID] = useState("")
-	const [ID, setID] = useState("")
 
 	const handleSubmit = () => {
 		fetch(`${import.meta.env.VITE_BACKEND}/user/createUser`, {
@@ -75,7 +74,7 @@ function RegisterStudent() {
 				schoolName: SchoolName,
 				LRN: lrn,
 				schoolID: SchoolID,
-				ID: ID,
+		
 				
 			})
 		}).then(result => result.json()).then(result => {
@@ -140,9 +139,7 @@ function RegisterStudent() {
 			<Form.Label>School Name</Form.Label>
 				<Form.Control onChange={e => setSchoolName(e.target.value)} value={SchoolName}/>
 				<Form.Label> LRN </Form.Label>
-				<Form.Control  onChange={e => setID(e.target.value)} value={lrn}/>
-				<Form.Label> ID </Form.Label>
-				<Form.Control  onChange={e => setID(e.target.value)} value={ID}/>
+				<Form.Control  onChange={e => setlrn(e.target.value)} value={lrn}/>
 				<Form.Label>School ID</Form.Label>
 				<Form.Control onChange={e => setSchoolID(e.target.value)} value={SchoolID}/>
 			</Form.Group>
@@ -190,7 +187,6 @@ function RegisterTeacher() {
 	const [birthdate, setbirthdate] = useState("")
 	const [SchoolName, setSchoolName] = useState("")
 	const [SchoolID, setSchoolID] = useState("")
-	const [ID, setID] = useState("")
 	const [isresearchTeacher, setisresearchTeacher] = useState("")
 	const [isChecker, setisChecker] = useState("")
 	const [numberofResearch, setnumberofResearch] = useState("")
@@ -213,7 +209,6 @@ function RegisterTeacher() {
 				birthdate: new Date(birthdate),
 				schoolName: SchoolName,
 				schoolID: SchoolID,
-				ID: ID,
 				isresearchTeacher: isresearchTeacher,
 				isChecker: isChecker,
 				numberofResearch: numberofResearch,
@@ -292,8 +287,6 @@ function RegisterTeacher() {
 			<Form.Group className="justify-content-center">
 			<Form.Label>School Name</Form.Label>
 				<Form.Control onChange={e => setSchoolName(e.target.value)} value={SchoolName}/>
-				<Form.Label>ID</Form.Label>
-				<Form.Control  onChange={e => setID(e.target.value)} value={ID}/>
 				<Form.Label>School ID</Form.Label>
 				<Form.Control  onChange={e => setSchoolID(e.target.value)} value={SchoolID}/>
 				<Form.Label>Educational Degree</Form.Label>

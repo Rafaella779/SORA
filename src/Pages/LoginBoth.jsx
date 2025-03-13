@@ -82,19 +82,20 @@ function TeacherLogin() {
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
-					l.setItem('t', res.n);
-					l.setItem('u', res.i);
-					l.setItem('a', res.b);
-					l.setItem('n', res.e);
-					l.setItem('i', res.c);
-					l.setItem('x', res.sn);
-					l.setItem('b', res.si);
-					l.setItem('s', res.d);
-					l.setItem('o', res.ed);
-					l.setItem('p', res.nu);
-					l.setItem('u', res.te);
-					l.setItem('m', res.bi);
-					l.setItem('v', res.s);
+					l.setItem('t', res.t);
+					l.setItem('n', res.n);
+					l.setItem('i', res.i);
+					l.setItem('b', res.b);
+					l.setItem('e', res.e);
+					l.setItem('c', res.c);
+					l.setItem('sn', res.sn);
+					l.setItem('si', res.si);
+					l.setItem('d', res.d);
+					l.setItem('ed', res.ed);
+					l.setItem('nu', res.nu);
+					l.setItem('te', res.te);
+					l.setItem('bi', res.bi);
+					l.setItem('s', res.s);
 					n('/teacher')
 				})
 
@@ -164,17 +165,17 @@ function StudentLogin() {
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
-					l.setItem('t', res.n);
-					l.setItem('u', res.i);
-					l.setItem('a', res.b);
-					l.setItem('n', res.e);
-					l.setItem('i', res.c);
-					l.setItem('x', res.sn);
-					l.setItem('b', res.si);
-					l.setItem('s', res.d);
-					l.setItem('o', res.l);
-					l.setItem('p', res.bi);
-					l.setItem('v', res.s);
+					l.setItem('t', res.t);
+					l.setItem('n', res.n);
+					l.setItem('i', res.i);
+					l.setItem('b', res.b);
+					l.setItem('e', res.e);
+					l.setItem('c', res.c);
+					l.setItem('sn', res.sn);
+					l.setItem('si', res.si);
+					l.setItem('l', res.l);
+					l.setItem('bi', res.bi);
+					l.setItem('s', res.s);
 					n('/StudentDashboard')
 				})
 				

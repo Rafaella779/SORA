@@ -1,27 +1,32 @@
 import React, {useState, useEffect, useContext } from 'react'
 import { Button, Form, Container, Nav, Navbar, NavDropdown, Card, Table, InputGroup, Modal } from 'react-bootstrap'
 import {useNavigate} from 'react-router'
+import {useParams} from 'react-router'
 import Swal from 'sweetalert2'
 
 export default function Inbox() {
+
+
 
       const [senderId, setsenderId] = useState("")
       const [receiveId, setreceiveId] = useState("")
       const [researchId, setresearchId] = useState("")
       const [message, setmessage] = useState("")
+      const [TableData, setTableData] = useState("")
       let n = useNavigate()
-  
+  	  let params = useParams()	
+
       useEffect(() => {
       	fetch(`${import.meta.env.VITE_BACKEND}/mail`, {
-                  method: "GET",
+                  method: "POST",
                   headers: {"Content-Type": "application/json"},
                   /*body: JSON.stringify({
                        toFind: {
                        	title: submit
                        }
                   }) */
-                  method: "POST",
-                  headers: {"Content-Type": "application/json"},
+                  // method: "POST",
+                  // headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({
                        toFind: {
                         _id: params.id
@@ -30,14 +35,17 @@ export default function Inbox() {
             }).then(result => result.json()).then(res => {
                 
                 console.log(res)
+                let L = localStorage;
+            	 setId(res[0]._id)
                 setTableData(res.map(x => {
                     return(
                           <tr onClick={() => n(`/Inboxmail/${x._id}`)}>
                                 <td>{x.senderId}</td>
-                                <td>{x.receiveId}</td>
+                                <td>{_Id}</td>
                                 <td>{x.researchId}</td>
                                 <td>{x.message}</td>
                           </tr>
+
                     )
                   })
                 )  
@@ -104,9 +112,9 @@ return (
 				        <th>Message</th>
 			        </tr>
 			    </thead>
-
 			    <tbody>
-					{tableData}
+					{TableData}
+					
 				</tbody>
     		</Table>
 		</div>
