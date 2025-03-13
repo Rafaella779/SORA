@@ -24,19 +24,15 @@ export default function MyNavbar(){
 					    	(localStorage.getItem('t')) 
 
 					    	? 
-					    	<Nav.Link onClick={() => n('/logBoth')} >Log Out</Nav.Link>
-					    	: 
-					    	<Nav.Link onClick={() => n('/logBoth')} >Log In</Nav.Link>
-					    }
-					    {
-					    	(localStorage.getItem('t')) 
-
-					    	? 
-					    	<Nav.Link onClick={() => n('/RegisterT')} >Register</Nav.Link>
-					    	: 
-					    	<Nav.Link onClick={() => n('/RegisterT')} >Register</Nav.Link>
-					    }
 					    	
+					    	<Nav.Link onClick={() => n('LogOut')} >Log Out</Nav.Link>
+
+					    	: 
+					    	<>
+					    		<Nav.Link onClick={() => n('/logBoth')} >Log In</Nav.Link>
+					    		<Nav.Link onClick={() => n('/RegisterT')} >Register</Nav.Link>
+					    	</>
+					    }
 					    </div>
 					</div>
 				    </Nav>
