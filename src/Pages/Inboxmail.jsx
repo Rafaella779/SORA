@@ -9,11 +9,12 @@ export default function Inboxmail() {
       const [receiveId, setreceiveId] = useState("") 
       const [researchId, setresearchId] = useState("") 
       const [message , setmessage] = useState("") 
+      const [id, setId] = useState("") 
       let params = useParams()
 
       useEffect(() => {
-            fetch(`${import.meta.env.VITE_BACKEND}/mail/sendNotification`, {
-                  method: "GET",
+            fetch(`https://sora-q8wl.onrender.com/mail/sendNotification`, {
+                  method: "POST",
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({
                        toFind: {
@@ -27,6 +28,8 @@ export default function Inboxmail() {
                   setreceiveId(res[0].receiveId)
                   setresearchId(res[0].researchId)
                   setmessages(res[0].message)
+                  setId(res[0]._id)
+
             })
       }, [])
       
@@ -40,7 +43,7 @@ export default function Inboxmail() {
                         
                         <p class="light p-0  m-0"><strong>Sender:</strong> {senderId }</p>
                         <p class="light p-0  m-0"><strong>Receiver:</strong> {receiveId}</p>
-                        <p class="light p-0  m-0"><strong>Research:</strong> {researchId}</p>
+                        <p class="light p-0  m-0"><strong>Research:</strong> {_Id}</p>
                         <p class="light p-0  m-0"><strong>Message:</strong> {message}</p>
                         <div>
                               {/*<div className="d-flex justify-content-begin flex-column mw-200">
