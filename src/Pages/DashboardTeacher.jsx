@@ -18,8 +18,23 @@ export default function DashboardTeacher() {
 	return(
 
 		<div className="d-flex ">
-			<div className="d-flex flex-column w-100 mw-1200 flex-md-row">
-				
+			
+			<Modal  show={show} onHide={handleClose}>
+	      <Modal.Header closeButton>
+	        <Modal.Title>Mail</Modal.Title>
+	      </Modal.Header>
+	      <Modal.Body>Hello you got mail, would you like to check?</Modal.Body>
+	      <Modal.Footer>
+	        <Button variant="secondary" onClick={handleClose}>
+	          No
+	        </Button>
+	        <Button variant="primary" onClick={() => n('Inbox')}>
+	          Yes
+	        </Button>
+	      </Modal.Footer>
+	    </Modal>
+
+			<div className="d-flex flex-column w-100 flex-md-row">
 				<div className="b-1px d-flex flex-column col-12 col-md-auto  p-3">
 					<div className="d-flex justify-content-center">
 						<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
@@ -35,21 +50,9 @@ export default function DashboardTeacher() {
 						<p className="mb-1 p-0 text-break"> <strong>No. of research:</strong> {localStorage.getItem('')}</p>
 
 						
-						<Modal  show={show} onHide={handleClose}>
-			        <Modal.Header closeButton>
-			          <Modal.Title>Mail</Modal.Title>
-			        </Modal.Header>
-			        <Modal.Body>Hello you got mail, would you like to check?</Modal.Body>
-			        <Modal.Footer>
-			          <Button variant="secondary" onClick={handleClose}>
-			            No
-			          </Button>
-			          <Button variant="primary" onClick={() => n('Inbox')}>
-			            Yes
-			          </Button>
-			        </Modal.Footer>
-				    </Modal>
+						
 					</div>
+					<Button onClick={() => n('/upload')}>Upload Research</Button>
 				</div>
 
 				<Viewpage/>

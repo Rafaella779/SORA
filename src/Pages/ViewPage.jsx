@@ -52,7 +52,8 @@ export default function ViewPage() {
             })
       }, [])
 
-	return ( 
+	return (
+	
 		<div className="d-flex flex-column flex-lg-row w-100">
 	        <div className="d-flex flex-column gap-2 b-1px m-1 p-3 w-100">
 	        	<h5 className="pt-serif-bold">Pending</h5>
@@ -84,7 +85,7 @@ function Pending({author, abstract, title, id}){
 }
 			
 function Approved({author, abstract, title}){
-	 let n = useNavigate()
+	let n = useNavigate()
 	return(
 		<div className="b-1px">
 			<div className="m-1 p-1 d-flex flex-column">
