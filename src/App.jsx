@@ -32,6 +32,7 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<Navbar />}>
+      <Route path="/" element={<Footer />} />
         <Route index element={<HomePage />} />
         <Route path="IndividualSearchResult/:id" element={<IndividualSearchResult/>} />
         <Route path="TeacherLogin" element={<TeacherLogin/>} />
@@ -40,6 +41,7 @@ function App() {
         <Route path="StudentDashboard" element={<StudentDashboard/>} />
         <Route path="RegisterT" element={<RegisterT/>} />
         <Route path="AboutUs" element={<AboutUs/>} />
+        <Route path="Footer" element={<Footer/>} />
         <Route path="LogBoth" element={<LoginBoth/>} />
         <Route path="MyNavbar" element={<Navbar/>} />
         <Route path="SearchResult" element={<SearchResult/>} />
@@ -54,10 +56,18 @@ function App() {
           <Route path="ApproveSystem" element={<ApproveSystem/>} />
           <Route path="inbox" element={<Inbox/>} />
         </Route>
-        <Route path="*" element={<Error/>} />  
+        <Route path="*" element={<Error/>} /> 
       </Route>
-      <Route path="/" element={<Footer/>} />
     </Routes>
+    <div>
+      <header>
+        Header Section
+      </header>
+      <main>
+        Main Section
+      </main>
+      <footer />
+    </div>
     </>
   )
 }
