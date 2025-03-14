@@ -61,17 +61,8 @@ function App() {
         <Route path="*" element={<Error/>} /> 
       </Route>
     </Routes>
-    <div>
-      <header>
-        Header Section
-      </header>
-      <main>
-        Main Section
-      </main>
-      <footer />
-    </div>
     </>
-  )
+  );
 }
 
 
