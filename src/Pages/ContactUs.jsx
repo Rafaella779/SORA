@@ -9,40 +9,43 @@ export default function ContactUs() {
 	const [Message, setMessage] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`${import.meta.env.VITE_BACKEND}/user/createUser`, {
+		fetch(`${import.meta.env.VITE_BACKEND}/messageRequest`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
-			body: JSON.stringify({
+			/*body: JSON.stringify({
 				e: email,
-				n: Name,
-				ph: phone,
-				m: Message,
-				
-			})
-		}).then(result => result.json()).then(result => {
-			if(result.error){
-				console.log(result)
+			})*/
+		}).then(result => result.json()).then(res => {
+			console.log(res);
+			if(res.error){
+				console.log(res)
 				Swal.fire({
 					icon: "error",
-					title: "invalid Credentials",
+					title: "Invalid Password",
 					text: `${res.error} check your details and try again`
 				})
 			}
 			else {
 				Swal.fire({
 					icon: "success",
-					title: "Register Success!",
+					title: "Message Success!",
 					timer: 1500,
 					showConfirmButton: false
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
 					l.setItem('t', res.t);
-					l.setItem('u', res.t);
-					l.setItem('a', res.t);
-					l.setItem('n', res.t);
+					l.setItem('n', res.n);
+					l.setItem('i', res.i);
+					l.setItem('b', res.b);
+					l.setItem('e', res.e);
+					l.setItem('c', res.c);
+					l.setItem('sn', res.sn);
+					l.setItem('si', res.si);
+					l.setItem('l', res.l);
+					l.setItem('bi', res.bi);
+					l.setItem('s', res.s);
 				})
-
 			}
 		})
 	}

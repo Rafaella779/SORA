@@ -27,6 +27,8 @@ import  LoginBoth from './Pages/LoginBoth.jsx'
 import  Rejection from './Pages/Rejection.jsx'
 import  Inbox from './Pages/Inbox.jsx'
 import  Instruction from './Pages/Instruction.jsx'
+import  AdminDashboard from './Pages/AdminDashboard.jsx'
+import  ApplyApproveTeacher from './Pages/ApplyApproveTeacher.jsx'
 
 function App() {
   return (
@@ -47,8 +49,10 @@ function App() {
         <Route path="MyNavbar" element={<Navbar/>} />
         <Route path="SearchResult" element={<SearchResult/>} />
         <Route path="HomePage" element={<HomePage/>} />
+        <Route path="AdminDashboard" element={<AdminDashboard/>} />
         <Route path="Upload" element={<Upload/>} />
         <Route path="LogOut" element={<LogOut/>} />
+        <Route path="ApplyApproveTeacher" element={<ApplyApproveTeacher/>} />
         <Route path="StudentLogin" element={<StudentLogin/>} />
         <Route path="ContactUs" element={<ContactUs/>} />
         <Route index element={<ViewPage/>} />                                                                                             >
