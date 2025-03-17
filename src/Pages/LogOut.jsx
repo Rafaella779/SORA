@@ -1,4 +1,4 @@
-import React, { useState } from 'react' 
+import React, { useEffect } from 'react' 
 import {Nav, Navbar, Container, Button, Form, NavDropdown} from 'react-bootstrap';                                
 import { useNavigate, Outlet } from 'react-router'
 
@@ -6,7 +6,7 @@ import { useNavigate, Outlet } from 'react-router'
 export default function LogOut(){
 	let n = useNavigate()
 	localStorage.clear();
-	n('/')
+	useEffect(() => {n('/')}, [])
 
 	return(
 	 		<div>
