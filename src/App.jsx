@@ -35,7 +35,7 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<Navbar />}>
-      <Route path="/" element={<Footer />} />
+        <Route path="/" element={<Footer />}>
         <Route index element={<HomePage />} />
         <Route path="IndividualSearchResult/:id" element={<IndividualSearchResult/>} />
         <Route path="TeacherLogin" element={<TeacherLogin/>} />
@@ -63,6 +63,7 @@ function App() {
           <Route path="inbox" element={<Inbox/>} />
         </Route>
         <Route path="*" element={<Error/>} /> 
+      </Route>
       </Route>
     </Routes>
     </>
