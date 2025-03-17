@@ -9,7 +9,7 @@ export default function Inboxmail() {
       const [receiveId, setreceiveId] = useState("") 
       const [researchId, setresearchId] = useState("") 
       const [message , setmessage] = useState("") 
-      const [id, setId] = useState("") 
+      const [_id, setId] = useState("") 
       let params = useParams()
 
       useEffect(() => {
@@ -41,9 +41,9 @@ export default function Inboxmail() {
             <div className="justify-content-center d-flex mt-md-4 ">
                   <div className="b-1px col p-4 w-100 mw-1000">
                         
-                        <p class="light p-0  m-0"><strong>Sender:</strong> {senderId }</p>
+                        <p class="light p-0  m-0"><strong>Sender:</strong> {senderId}</p>
                         <p class="light p-0  m-0"><strong>Receiver:</strong> {receiveId}</p>
-                        <p class="light p-0  m-0"><strong>Research:</strong> {_Id}</p>
+                        <p class="light p-0  m-0"><strong>Research:</strong> {_id}</p>
                         <p class="light p-0  m-0"><strong>Message:</strong> {message}</p>
                         <div>
                               {/*<div className="d-flex justify-content-begin flex-column mw-200">

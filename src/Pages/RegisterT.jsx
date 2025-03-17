@@ -60,6 +60,7 @@ function RegisterStudent() {
 	const [SchoolName, setSchoolName] = useState("")
 	const [lrn, setlrn] = useState("")
 	const [SchoolID, setSchoolID] = useState("")
+	let n = useNavigate()
 
 	const handleSubmit = () => {
 		fetch(`${import.meta.env.VITE_BACKEND}/user/createUser`, {
@@ -77,9 +78,9 @@ function RegisterStudent() {
 		
 				
 			})
-		}).then(result => result.json()).then(result => {
-			if(result.error){
-				console.log(result)
+		}).then(result => result.json()).then(res => {
+			if(res.error){
+				console.log(res)
 				Swal.fire({
 					icon: "error",
 					title: "invalid Credentials",
@@ -92,7 +93,7 @@ function RegisterStudent() {
 					title: "Register Success!",
 					timer: 1500,
 					showConfirmButton: false
-				}).then(result => {
+				}).then(res => {
 					let l = localStorage;
 					console.log(res);
 					l.setItem('t', res.t);
@@ -103,7 +104,7 @@ function RegisterStudent() {
 					l.setItem('x', res.t);
 					l.setItem('b', res.t);
 					l.setItem('s', res.t);
-					n("/StudentDashboard")
+					n('/logBoth')
 				})
 
 			}
@@ -217,9 +218,9 @@ function RegisterTeacher() {
 				listapprovedResearch: listofResearch.split("; ")
 
 			})
-		}).then(result => result.json()).then(result => {
-			if(result.error){
-				console.log(result)
+		}).then(result => result.json()).then(res => {
+			if(res.error){
+				console.log(res)
 				Swal.fire({
 					icon: "error",
 					title: "Error",
@@ -233,7 +234,7 @@ function RegisterTeacher() {
 					text: "Now proceeding to Login",
 					timer: 1500,
 					showConfirmButton: false
-				}).then(result => {
+				}).then(res => {
 					let l = localStorage;
 					console.log(res);
 					l.setItem('t', res.t);
@@ -244,7 +245,7 @@ function RegisterTeacher() {
 					l.setItem('x', res.t);
 					l.setItem('b', res.t);
 					l.setItem('s', res.t);
-					n("/logBoth")
+					n('/logBoth')
 				})
 
 			}
