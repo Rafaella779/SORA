@@ -91,7 +91,32 @@ export default function Upload() {
 		}
 	}
 
-function p1(){ 
+	function p1(){
+		return(
+
+			<div>
+				
+				<h4>HEllo</h4>
+
+			</div>
+
+			)
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function p2(){ 
 	return(
 
 		<div className="d-flex p-0 mt-3 flex-column flex-lg-row" responsive>
@@ -175,7 +200,7 @@ function p1(){
 
 
 
-function p2(){ 
+function p3(){ 
 	return(
 	<div className="d-flex p-0 mt-3 flex-column flex-lg-row">
 		<Form.Group className="b-1px m-1 p-2">
@@ -223,18 +248,27 @@ const [render, setRender] = useState(p1);
 
 		}
 
+
+
+
+
 useEffect(() => {}, [])
 return(
 		<div className="w-100 d-flex justify-content-center">
 			<Form className=" d-flex justify-content-center flex-column">
 				
-				{(page == 1 ? p1() : p2())}
+				{ (page == 1) ? p1() : 
+				  (page == 2) ? p2() :
+				  (page == 3) ? p3() :
+				}
+				
+			
 				<div className="d-flex mt-3 m-1 p-2 gap-1 justify-content-end">
-					{(page == 1) ? <></> : <Button onClick={handlePrev}>Previous</Button>}
-					{(page == 2) ? <></> : <Button onClick={handleNext}>Next</Button>}
-					{(page == 2) ? <Button onClick={handleSubmit}>Submit</Button>  : <></> }
+					{(page == 2) ? <></> : <Button onClick={handlePrev}>Previous</Button>}
+					{(page == 1) ? <></> : <Button onClick={handleNext}>Next</Button>}
+					{(page == 3) ? <Button onClick={handleSubmit}>Submit</Button>  : <></> }
 				</div>
 			</Form>
 		</div>			
 	)
-}
+}  
