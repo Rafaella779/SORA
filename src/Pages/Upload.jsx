@@ -31,10 +31,10 @@ export default function Upload() {
 				id: id.split("; "),
 				words: keywords.split("; "),
 				abstract: abstract,
-				category: category,
-				link: link,
+				category: category.toLowerCase(),
+				link: link.replace("view?usp=drive_link", ""),
 				isApprovedBySchool: isApprovedBySchool,
-				name: whoPaneled.split("; "),
+				name: whoPaneledArray,
 				title: title,
 				
 			})
@@ -104,11 +104,7 @@ function p1(){
 					<Form.Control  onChange={e => setauthors(e.target.value)} value={authors}/>
 					<InputGroup.Text className="bg-1" onClick={addAuthors}>Add</InputGroup.Text>
 				</InputGroup>
-				<Form.Label className="d-flex m-1"> ID </Form.Label>
-				<InputGroup>
-					<Form.Control  onChange={e => setid(e.target.value)} value={id}/>
-					<InputGroup.Text className="bg-1"  onClick={addid}>Add</InputGroup.Text>
-				</InputGroup>
+				
 				<Form.Label className="d-flex m-1">Keywords of the Research</Form.Label>
 				<InputGroup>
 					<Form.Control  onChange={e => setkeywords(e.target.value)} value={keywords}/>
@@ -136,21 +132,7 @@ function p1(){
 					})}</div>
 				</div>
 
-				<div className="col b-1px m-1 p-4">
-					<h4 className="pt-serif-bold m-1">ID</h4>
-					<div className="d-flex flex-column gap-1">{idArray.map((p, o) => {
-						console.log(p)
-						console.log(o)
-						return <div className="d-flex m-0 align-items-center justify-content-between">
-							<p className="m-0">{o + 1}. {p}</p>
-							<Button className="px-2 py-0" onClick={() => {
-								idArray.splice(o, 1)
-								setCount(count + 1);
-							}}> - </Button>
-						</div>
-					})}</div>
-				</div>
-
+				
 
 				<div className="col b-1px m-1 p-4">
 					<h4 className=" pt-serif-bold m-1">Keywords</h4>
@@ -181,8 +163,11 @@ function p2(){
 		<Form.Group className="b-1px m-1 p-2">
 			<Form.Label className="d-flex m-1"> Abstract of the Research </Form.Label>
 			<Form.Control as="textarea" rows={5}  onChange={e => setabstract(e.target.value)} value={abstract}/>
+			
 			<Form.Label className="d-flex m-1"> Is Your Research Approved by the School </Form.Label>
-			<Form.Control  onChange={e => setisApprovedBySchool(e.target.value)} value={isApprovedBySchool}/>
+			<Form.Check  onChange={() => {setisApprovedBySchool(true)}} label="Yes" checked={isApprovedBySchool} name="isApprovedBySchool"/>
+			<Form.Check  onChange={() => {setisApprovedBySchool(false)}} label="No" checked={!isApprovedBySchool} name="isApprovedBySchool"/>
+			
 			<Form.Label className="d-flex m-1"> Panelist of your Reseach	 </Form.Label>
 			<InputGroup>
 				<Form.Control  onChange={e => setwhoPaneled(e.target.value)} value={whoPaneled}/>

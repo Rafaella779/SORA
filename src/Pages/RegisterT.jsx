@@ -61,7 +61,6 @@ function RegisterStudent() {
 	const [lrn, setlrn] = useState("")
 	const [SchoolID, setSchoolID] = useState("")
 	let n = useNavigate()
-
 	const handleSubmit = () => {
 		fetch(`${import.meta.env.VITE_BACKEND}/user/createUser`, {
 			method: "POST",
@@ -93,18 +92,9 @@ function RegisterStudent() {
 					title: "Register Success!",
 					timer: 1500,
 					showConfirmButton: false
-				}).then(res => {
-					let l = localStorage;
-					console.log(res);
-					l.setItem('t', res.t);
-					l.setItem('u', res.t);
-					l.setItem('a', res.t);
-					l.setItem('n', res.t);
-					l.setItem('i', res.t);
-					l.setItem('x', res.t);
-					l.setItem('b', res.t);
-					l.setItem('s', res.t);
-					n('/logBoth')
+				}).then(res => {	
+					n("/logBoth")
+
 				})
 
 			}
@@ -235,17 +225,7 @@ function RegisterTeacher() {
 					timer: 1500,
 					showConfirmButton: false
 				}).then(res => {
-					let l = localStorage;
-					console.log(res);
-					l.setItem('t', res.t);
-					l.setItem('u', res.t);
-					l.setItem('a', res.t);
-					l.setItem('n', res.t);
-					l.setItem('i', res.t);
-					l.setItem('x', res.t);
-					l.setItem('b', res.t);
-					l.setItem('s', res.t);
-					n('/logBoth')
+					n("/logBoth")
 				})
 
 			}
@@ -292,9 +272,9 @@ function RegisterTeacher() {
 				<Form.Control  onChange={e => setSchoolID(e.target.value)} value={SchoolID}/>
 				<Form.Label>Educational Degree</Form.Label>
 				<Form.Control  onChange={e => seteducationalDegree(e.target.value)} value={educationalDegree}/>
-				<Form.Label>Are you a research teacher?</Form.Label>
+				{/*<Form.Label>Are you a research teacher?</Form.Label>
 				<Form.Check type="radio" checked={isresearchTeacher} name="isResearchTeacher" onChange={() => setisresearchTeacher(true)} label="Yes" />
-				<Form.Check type="radio" checked={!isresearchTeacher} name="isResearchTeacher" onChange={() => setisresearchTeacher(false)} label="No" />
+				<Form.Check type="radio" checked={!isresearchTeacher} name="isResearchTeacher" onChange={() => setisresearchTeacher(false)} label="No" />*/}
 				<br />
 			</Form.Group>
 		)
