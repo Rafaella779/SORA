@@ -237,17 +237,14 @@ const [render, setRender] = useState(p1);
 
 
 
-useEffect(() => {}, [])
+/*useEffect(() => {}, [])
 return(
 		<div className="w-100 d-flex justify-content-center">
-			<Form className=" d-flex justify-content-center flex-column">
-				
+			<Form className=" d-flex justify-content-center flex-column">				
 				{ (page == 1) ? p1() : 
 				  (page == 2) ? p2() :
 				  (page == 3) ? p3() :
 				}
-				
-			
 				<div className="d-flex mt-3 m-1 p-2 gap-1 justify-content-end">
 					{(page == 2) ? <></> : <Button onClick={handlePrev}>Previous</Button>}
 					{(page == 1) ? <></> : <Button onClick={handleNext}>Next</Button>}
@@ -256,4 +253,4 @@ return(
 			</Form>
 		</div>			
 	)
-}  
+}*/
