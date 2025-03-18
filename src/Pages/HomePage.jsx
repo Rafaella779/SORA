@@ -19,7 +19,10 @@ export default function HomePage() {
       const handleSubmit = () => {
             fetch(`${import.meta.env.VITE_BACKEND}/research/searchP1`, {
                   method: "POST",
-                  headers: {"Content-Type": "application/json"},
+                  headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+                  },
                   body: JSON.stringify({
                        toFind: { 
                         $or: [
@@ -55,7 +58,10 @@ export default function HomePage() {
       	    if (tableData.length > 0){
       	    fetch(`${import.meta.env.VITE_BACKEND}/research/searchP2`, {
                   method: "POST",
-                  headers: {"Content-Type": "application/json"},
+                  headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+                  },
                   body: JSON.stringify({
                        toFind: {
                        	title: { $regex: submit, $options: "i"}

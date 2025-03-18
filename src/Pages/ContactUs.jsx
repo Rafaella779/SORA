@@ -11,7 +11,10 @@ export default function ContactUs() {
 	const handleSubmit = () => {
 		fetch(`${import.meta.env.VITE_BACKEND}/messageRequest`, {
 			method: "POST",
-			headers: {"Content-Type": "application/json"},
+			headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+            },
 			/*body: JSON.stringify({
 				e: email,
 			})*/
@@ -78,7 +81,7 @@ export default function ContactUs() {
 							</div>
 						</div>
 
-						<div className="b-1px d-flex flex-column col-12 col-lg-5 p-4">
+						<div className="b-1px col-12 col-lg-7 p-3 flex-column">
 							<h4 className="pt-serif-bold">Leave A Message</h4>
 							<Form className="w-100 d-flex flex-column gap-1">							
 								<Form.Group className="d-flex flex-column" controller="">

@@ -11,7 +11,10 @@ export default function SearchResult() {
       const handleSubmit = () => {
             fetch(`${import.meta.env.VITE_BACKEND}/research/getAll`, {
                   method: "GET",
-                  headers: {"Content-Type": "application/json"},
+                  headers: {
+                        "Content-Type": "application/json",
+                        "authorization": `Bearer ${localStorage.getItem('t')}`
+                  },
                   /*body: JSON.stringify({
                         e: email,
                         t: Title,

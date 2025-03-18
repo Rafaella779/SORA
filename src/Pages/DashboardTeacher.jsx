@@ -16,7 +16,10 @@ export default function DashboardTeacher() {
 	useEffect(() => {
             fetch(`https://sora-q8wl.onrender.com/research/getAll`, {
                   method: "POST",
-                  headers: {"Content-Type": "application/json"},
+                  headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+                  },
                   body: JSON.stringify({
                        toFind: {
                                                                      
@@ -45,7 +48,16 @@ export default function DashboardTeacher() {
 						<p className="mb-0 p-0 text-break"> <strong>SchoolName:</strong> {localStorage.getItem('sn')}</p>
 						<p className="mb-0 p-0 text-break"> <strong>Educational Degree:</strong> {localStorage.getItem('ed')}</p>
 						<p className="mb-0 p-0 text-break"> <strong>No. of research:</strong> {localStorage.getItem('nu')}</p>
-						<Button className="mt-3" onClick={() => n('/ApplyApproveTeacher')}>Apply to Approve</Button>
+						{
+							(localStorage.getItem('ira') == 0) ?
+								<Button className="mt-3 bg-r-2" onClick={() => n('/ApplyApproveTeacher')}>Research Reviewer Application</Button>
+							:(localStorage.getItem('ira') == 1) ?
+								<Button className="mt-3 bg-r-2" >Research Reviewer</Button>
+							:
+								<Button className="mt-3 bg-r-2" >Reviewer Status Pending</Button>
+							
+
+						}
 					</div>
 				</div>
 				<ViewPage className="d-flex col-19 w-100"/>
