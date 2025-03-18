@@ -58,7 +58,7 @@ export default function DashboardTeacher() {
 							<div className="w-600 b-right b-top b-bottom">
 				
 							<Studentsview/>
-							<Inbox/>
+							<Inbox />
 			</div>
 			</div>
 		</div>

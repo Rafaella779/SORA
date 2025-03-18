@@ -90,7 +90,6 @@ function TeacherLogin() {
 					l.setItem('c', res.c);
 					l.setItem('sn', res.sn);
 					l.setItem('si', res.si);
-					l.setItem('d', res.d);
 					l.setItem('ed', res.ed);
 					l.setItem('nu', res.nu);
 					l.setItem('te', res.te);

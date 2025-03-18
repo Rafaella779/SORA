@@ -43,7 +43,7 @@ export default function Inboxmail() {
                         
                         <p class="light p-0  m-0"><strong>Sender:</strong> {senderId }</p>
                         <p class="light p-0  m-0"><strong>Receiver:</strong> {receiveId}</p>
-                        <p class="light p-0  m-0"><strong>Research:</strong> {_Id}</p>
+                        <p class="light p-0  m-0"><strong>Research:</strong> {}</p>
                         <p class="light p-0  m-0"><strong>Message:</strong> {message}</p>
                         <div>
                               {/*<div className="d-flex justify-content-begin flex-column mw-200">

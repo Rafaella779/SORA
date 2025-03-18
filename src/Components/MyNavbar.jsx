@@ -2,7 +2,7 @@ import {Nav, Navbar, Container, Button, Form, NavDropdown} from 'react-bootstrap
 import { Outlet, useNavigate} from 'react-router'
 
 export default function MyNavbar(){
-
+	
 	let n = useNavigate()
 	return(
 		<>
@@ -20,19 +20,8 @@ export default function MyNavbar(){
 					    </div>
 
 					    <div className="d-flex flex-column flex-lg-row">
-					    {
-					    	(localStorage.getItem('t')) 
-
-					    	? 
-					    	
-					    	<Nav.Link onClick={() => n('LogOut')} >Log Out</Nav.Link>
-
-					    	: 
-					    	<>
-					    		<Nav.Link onClick={() => n('/logBoth')} >Log In</Nav.Link>
-					    		<Nav.Link onClick={() => n('/RegisterT')} >Register</Nav.Link>
-					    	</>
-					    }
+					    	{/*<Nav.Link className={`${(localStorage.getItem('')) ?  : }`} onClick={() => n('/logBoth')} >Log In</Nav.Link>*/}
+					    	<Nav.Link onClick={() => n('/RegisterT')} >Register</Nav.Link>
 					    </div>
 					</div>
 				    </Nav>
