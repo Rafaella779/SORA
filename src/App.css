@@ -88,7 +88,9 @@ h1 {
 .bg-8{
   background-color: #0077B6 !important;
 }
-
+.bg-9{
+  background-color: #1167b1 !important;
+}
 .color-1{
   color: #FFFFFF !important;
 }
@@ -413,11 +415,11 @@ p.light {
 }
 
 .b-left{
-  border-left: 2px solid black;
+  border-left: 2px solid white;
 }
 
 .b-right{
-  border-right: 2px solid black;
+  border-right: 2px solid white;
 }
 
 .b-top{
@@ -431,4 +433,20 @@ p.light {
 .b-full{
   border: 2px solid black;
 }
+.line {
+  border-bottom: 1px solid white;
+  margin-top: 2px;
+  width: 100%;
+}
+.bg-12{
+  background-color: #4292c6 !important;
+}
+.bg-13{
+  background-color: #2171b5 !important;
+}
+.ex1 {
+  min-height: 200px;
+}
+
+
 

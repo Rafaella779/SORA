@@ -16,7 +16,7 @@ export default function AboutUs() {
 						<h3 className="d-flex justify-content-center align-items-center pt-serif-bold ">About us</h3>
 					</div>
 				</div>
-				<div>
+				<div className="">
 					<div className="d-flex justify-content-center align-items-center">
 						<h5 className="pt-serif-bold ">Members</h5>
 					</div>
