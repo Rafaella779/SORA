@@ -14,7 +14,10 @@ export default function ViewPage() {
        useEffect(() => {
             fetch(`${import.meta.env.VITE_BACKEND}/research/getByUser`, {
                   method: "POST",
-                  headers: {"Content-Type": "application/json"},
+                  headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+                  },
                   body: JSON.stringify({
                        	toFind: {
                     		_id: localStorage.getItem('t')
@@ -53,7 +56,6 @@ export default function ViewPage() {
 					</div>
 		        	
 			    </div>
-
 		    </div>
 		</div>
 
@@ -72,7 +74,6 @@ function ResearchCard({author, abstract, title, id}){
 		</div>
 	)
 }
-			
 
 			
 		

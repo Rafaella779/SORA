@@ -18,7 +18,6 @@ import  ApproveSystem from './Pages/ApproveSystem.jsx'
 import Swal from 'sweetalert2'; 
 import {Routes, Route} from 'react-router'
 import  Navbar from './Components/MyNavbar.jsx'
-import  Footer from './Components/Footer.jsx'
 import  StudentLogin from './Pages/LogOut.jsx'
 import  LogOut from './Pages/LogOut.jsx'
 import  Error from './Pages/Error.jsx'
@@ -29,13 +28,13 @@ import  Inbox from './Pages/Inbox.jsx'
 import  Instruction from './Pages/Instruction.jsx'
 import  AdminDashboard from './Pages/AdminDashboard.jsx'
 import  ApplyApproveTeacher from './Pages/ApplyApproveTeacher.jsx'
+import  Footer from './Components/Footer.jsx'
 
 function App() {
   return (
     <>
     <Routes>
       <Route path="/" element={<Navbar />}>
-      <Route path="/" element={<Footer />} />
         <Route index element={<HomePage />} />
         <Route path="IndividualSearchResult/:id" element={<IndividualSearchResult/>} />
         <Route path="TeacherLogin" element={<TeacherLogin/>} />
@@ -44,7 +43,6 @@ function App() {
         <Route path="StudentDashboard" element={<StudentDashboard/>} />
         <Route path="RegisterT" element={<RegisterT/>} />
         <Route path="AboutUs" element={<AboutUs/>} />
-        <Route path="Footer" element={<Footer/>} />
         <Route path="LogBoth" element={<LoginBoth/>} />
         <Route path="MyNavbar" element={<Navbar/>} />
         <Route path="SearchResult" element={<SearchResult/>} />
@@ -58,13 +56,15 @@ function App() {
         <Route index element={<ViewPage/>} />
         <Route path="Instruction" element={<Instruction/>} />
         <Route path="teacher" >
-          <Route index element={<DashboardTeacher/>} />
+          <Route index element={<DashboardTeacher/>} />  
+          <Route path="inbox" element={<Inbox/>} />                                                                                           >
           <Route path="ApproveSystem" element={<ApproveSystem/>} />
-          <Route path="inbox" element={<Inbox/>} />
         </Route>
-        <Route path="*" element={<Error/>} /> 
+
+        <Route path="*" element={<Error/>} />
       </Route>
     </Routes>
+    <Footer />
     </>
   );
 }

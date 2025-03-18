@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router'
 import Swal from 'sweetalert2'
 
 export default function ApplyApproveTeacher() {
+
 	const [show, setShow] = useState(false)
 	const [link, setLink] = useState("")
 	const n = useNavigate();

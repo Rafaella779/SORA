@@ -15,7 +15,10 @@ export default function Inboxmail() {
       useEffect(() => {
             fetch(`${import.meta.env.VITE_BACKEND}/mail/sendNotification`, {
                   method: "POST",
-                  headers: {"Content-Type": "application/json"},
+                  headers: {
+                        "Content-Type": "application/json",
+                        "authorization": `Bearer ${localStorage.getItem('t')}`
+                  },
                   body: JSON.stringify({
                        toFind: {
                         _id: params.id

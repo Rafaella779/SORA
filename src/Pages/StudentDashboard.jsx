@@ -28,7 +28,6 @@ export default function DashboardTeacher() {
 						<p className="m-0 p-1 text-break"><strong>ID:</strong> {localStorage.getItem('s')}	</p>
 						<p className="m-0 p-1 text-break"><strong>SchoolName:</strong> {localStorage.getItem('x')}</p>
 						<Button onClick={() => n('/Upload')}>Upload</Button>
-
 					</div>
 				</div>
 				<div>
@@ -58,7 +57,7 @@ export default function DashboardTeacher() {
 							<div className="w-600 b-right b-top b-bottom">
 				
 							<Studentsview/>
-							<Inbox/>
+							<Inbox />
 			</div>
 			</div>
 		</div>
