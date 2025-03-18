@@ -57,7 +57,10 @@ function TeacherLogin() {
 	const handleSubmit = () => {
 		fetch(`${import.meta.env.VITE_BACKEND}/login/teacher`, {
 			method: "POST",
-			headers: {"Content-Type": "application/json"},
+			headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+            },
 			body: JSON.stringify({
 				e: email,
 				p: password
@@ -141,7 +144,10 @@ function StudentLogin() {
 	const handleSubmit = () => {
 		fetch(`${import.meta.env.VITE_BACKEND}/login/student`, {
 			method: "POST",
-			headers: {"Content-Type": "application/json"},
+			headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+            },
 			body: JSON.stringify({
 				e: email,
 				p: password

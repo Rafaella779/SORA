@@ -27,9 +27,12 @@ export default function IndividualSearchResult() {
       let params = useParams()
 
       useEffect(() => {
-            fetch(`https://sora-q8wl.onrender.com/research/getAll`, {
+            fetch(`${import.meta.env.VITE_BACKEND}/research/getAll`, {
                   method: "POST",
-                  headers: {"Content-Type": "application/json"},
+                  headers: {
+                        "Content-Type": "application/json",
+                        "authorization": `Bearer ${localStorage.getItem('t')}`
+                  },
                   body: JSON.stringify({
                        toFind: {
                         _id: params.id
