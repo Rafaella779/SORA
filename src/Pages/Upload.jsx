@@ -38,9 +38,9 @@ export default function Upload() {
 				title: title,
 				
 			})
-		}).then(result => result.json()).then(result => {
-			if(result.error){
-				console.log(result)
+		}).then(result => result.json()).then(res => {
+			if(res.error){
+				console.log(res)
 				Swal.fire({
 					icon: "error",
 					title: "Missing Or Invalid  Words Please Check",
@@ -54,7 +54,7 @@ export default function Upload() {
 					timer: 1500,
 					showConfirmButton: false
 				})
-				.then(result => {
+				.then(res => {
 					let l = localStorage;
 					console.log(res);
 				})

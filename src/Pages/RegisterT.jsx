@@ -60,6 +60,7 @@ function RegisterStudent() {
 	const [SchoolName, setSchoolName] = useState("")
 	const [lrn, setlrn] = useState("")
 	const [SchoolID, setSchoolID] = useState("")
+	let n = useNavigate()
 
 	let n = useNavigate();
 	const handleSubmit = () => {
@@ -78,9 +79,9 @@ function RegisterStudent() {
 		
 				
 			})
-		}).then(result => result.json()).then(result => {
-			if(result.error){
-				console.log(result)
+		}).then(result => result.json()).then(res => {
+			if(res.error){
+				console.log(res)
 				Swal.fire({
 					icon: "error",
 					title: "invalid Credentials",
@@ -95,6 +96,7 @@ function RegisterStudent() {
 					showConfirmButton: false
 				}).then(res => {	
 					n("/logBoth")
+
 				})
 
 			}
@@ -208,9 +210,9 @@ function RegisterTeacher() {
 				listapprovedResearch: listofResearch.split("; ")
 
 			})
-		}).then(result => result.json()).then(result => {
-			if(result.error){
-				console.log(result)
+		}).then(result => result.json()).then(res => {
+			if(res.error){
+				console.log(res)
 				Swal.fire({
 					icon: "error",
 					title: "Error",
@@ -225,7 +227,21 @@ function RegisterTeacher() {
 					timer: 1500,
 					showConfirmButton: false
 				}).then(res => {
+<<<<<<< HEAD
 					n("/logBoth")
+=======
+					let l = localStorage;
+					console.log(res);
+					l.setItem('t', res.t);
+					l.setItem('u', res.t);
+					l.setItem('a', res.t);
+					l.setItem('n', res.t);
+					l.setItem('i', res.t);
+					l.setItem('x', res.t);
+					l.setItem('b', res.t);
+					l.setItem('s', res.t);
+					n('/logBoth')
+>>>>>>> 508a47cfdfe5e155bccccce9d0ea8ba69da415b0
 				})
 
 			}
