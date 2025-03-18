@@ -26,13 +26,14 @@ export default function AboutUs() {
 					<div className="d-flex justify-content-center align-items-center">
 						<h5 className="pt-serif-bold ">Members</h5>
 					</div>
-
+  
 					<div className="d-flex justify-content-center">
 						 <StudentCard description="Currently a student at Juban National High School, and the backend developer of this website." picLink={lisya} name="Leisha Mariel Grutas"/>
 						<StudentCard description="Currently a student at Juban National High School, and the frontend developer of this website." picLink={jobert} name="Jhon Robert Novela"/>
 						<StudentCard description="Currently a student at Juban National High School, and the secretary of the group." picLink={gilly} name="Gilly Jean De Castro"/>
 						<StudentCard description="Currently a student at Juban National High School, and the frontend developer of this website." picLink={rean} name="Rean Paclibar" />
 						<StudentCard description="Currently a student at Juban National High School, and the frontend developer of this website." picLink={rafaella} name="Rafaella Sabenorio"/>
+
 					</div>
 			</div>
 		</div>
@@ -48,8 +49,8 @@ function StudentCard({picLink, name, description}){
 				<img src={picLink} alt="" className="aboutUsPic w-100 " />
 			</div>
 			<div className="text-center py-2 ">
-				<h6 className="text-center m-0">{name}</h6>
-				<p className="p-0 m-1">{description}</p>
+				<h6 className="d-flex text-center m-0">{name}</h6>
+				<p className=" m-0">{description}</p>
 			</div>
 		</div>
 

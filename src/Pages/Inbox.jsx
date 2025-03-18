@@ -44,7 +44,7 @@ export default function Inbox() {
                     return(
                           <tr onClick={() => n(`/Inboxmail/${x._id}`)}>
                                 <td>{x.senderId}</td>
-                                <td>{_Id}</td>
+                                <td>{ _Id}</td>
                                 <td>{x.researchId}</td>
                                 <td>{x.message}</td>
                           </tr>

@@ -56,10 +56,11 @@ function App() {
         <Route index element={<ViewPage/>} />
         <Route path="Instruction" element={<Instruction/>} />
         <Route path="teacher" >
-          <Route index element={<DashboardTeacher/>} />
+          <Route index element={<DashboardTeacher/>} />  
+          <Route path="inbox" element={<Inbox/>} />                                                                                           >
           <Route path="ApproveSystem" element={<ApproveSystem/>} />
-          <Route path="inbox" element={<Inbox/>} />
         </Route>
+
         <Route path="*" element={<Error/>} />
       </Route>
     </Routes>

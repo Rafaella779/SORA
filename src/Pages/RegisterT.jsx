@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import {useNavigate} from 'react-router'
 
 export default function Register() {
-
+	let n = useNavigate()
 
 	const [formReturn, setFormReturn] = useState();
 	const [headerColor, setHeaderColor] = useState("");
@@ -81,7 +81,7 @@ function RegisterStudent() {
 		
 				
 			})
-		}).then(result => result.json()).then(res => {
+		}).then(res => res.json()).then(res => {
 			if(res.error){
 				console.log(res)
 				Swal.fire({
@@ -107,7 +107,7 @@ function RegisterStudent() {
 					l.setItem('x', res.t);
 					l.setItem('b', res.t);
 					l.setItem('s', res.t);
-					n('/logBoth')
+					n("/logBoth")
 				})
 
 			}
@@ -224,7 +224,7 @@ function RegisterTeacher() {
 				listapprovedResearch: listofResearch.split("; ")
 
 			})
-		}).then(result => result.json()).then(res => {
+		}).then(res => res.json()).then(res => {
 			if(res.error){
 				console.log(res)
 				Swal.fire({

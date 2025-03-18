@@ -80,7 +80,6 @@ function Pending({author, abstract, title, id}){
 				<p className="m-0 p-0"><strong>Author:</strong> {author}</p>
 				<p className="m-0 p-0"><strong>Abstract:</strong> {abstract}</p>
 				<div>
-					<Button onClick={() => n('ApproveSystem')}>View</Button>
 				</div>
 			</div>
 		</div>
@@ -96,7 +95,7 @@ function Approved({author, abstract, title}){
 				<p className="m-0 p-0"><strong>Author:</strong> {author}</p>
 				<p className="m-0 p-0"><strong>Abstract:</strong> {abstract}</p>
 				<div>
-					<Button onClick={() => n('ApproveSystem')}>View</Button>
+					
 				</div>
 			</div>
 		</div>
