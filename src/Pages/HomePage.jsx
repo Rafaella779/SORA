@@ -90,8 +90,8 @@ export default function HomePage() {
       }, [Active]) 
  
 	return ( 
-		<div>
-			<div className="p-4 p-lg-5">
+		<div className="d-flex justify-content-center w-100">
+			<div className="p-4 p-lg-5 w-100 mw-1300">
 				 <div className="cinzel-decorative d-flex text-center justify-content-center">
 				 	<h1>SORA</h1>
 				 </div>

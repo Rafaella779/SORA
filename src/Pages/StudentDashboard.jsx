@@ -7,7 +7,7 @@ import Inbox from './Inboxmail.jsx'
 
 
 export default function DashboardTeacher() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -20,14 +20,13 @@ export default function DashboardTeacher() {
 						<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
 					</div>
 					<div className="d-flex flex-column p-3">
-						<p className="m-0 p-1 text-break"><strong>Email:</strong> {localStorage.getItem('n')}</p>
-						<p className="m-0 p-1 text-break"><strong>Name:</strong> {localStorage.getItem('t')}</p>
-						<p className="m-0 p-1 text-break"><strong>Birthdate:</strong> {new Date(localStorage.getItem('m')).toDateString()}</p>
-						<p className="m-0 p-1 text-break"><strong>LRN:</strong> {localStorage.getItem('o')}</p>
-						<p className="m-0 p-1 text-break"><strong>SchoolID:</strong> {localStorage.getItem('b')}</p>	
-						<p className="m-0 p-1 text-break"><strong>ID:</strong> {localStorage.getItem('s')}	</p>
-						<p className="m-0 p-1 text-break"><strong>SchoolName:</strong> {localStorage.getItem('x')}</p>
-						<Button onClick={() => n('/Upload')}>Upload</Button>
+						<p className="m-0 p-0 text-break"><strong>Email:</strong> {localStorage.getItem('e')}</p>
+						<p className="m-0 p-0 text-break"><strong>Name:</strong> {localStorage.getItem('n')}</p>
+						<p className="m-0 p-0 text-break"><strong>Birthdate:</strong> {new Date(localStorage.getItem('bi')).toDateString()}</p>
+						<p className="m-0 p-0 text-break"><strong>LRN:</strong> {localStorage.getItem('l')}</p>
+						<p className="m-0 p-0 text-break"><strong>SchoolID:</strong> {localStorage.getItem('si')}</p>	
+						<p className="m-0 p-0 text-break"><strong>SchoolName:</strong> {localStorage.getItem('sn')}</p>
+						<Button className="mt-3	" onClick={() => n('/Upload')}>Upload</Button>
 					</div>
 				</div>
 				<div>
