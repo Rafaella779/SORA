@@ -1,27 +1,33 @@
-import React, {useState, useEffect, useContext } from 'react'
-import {Nav, Navbar, Row, Col, Stack, Container, Button, Form, NavDropdown, Card} from 'react-bootstrap';
+import {Container, Nav} from 'react-bootstrap';
 import { Outlet, useNavigate} from 'react-router'
 
-  function Footer() {
+  export default function Footer() {
+
+  let n = useNavigate()
   return(
-    <footer>
-      <container fluid>
-        <Row className="bg-primary text-white">
-          <Col className="mx-5">
-            <Stack>
-              <h2>Website Name</h2>
-            </Stack>
-            Column 1
-          </Col>
-          <Col>
-            Column 2
-          </Col>
-          <Col>
-            Column 3
-          </Col>
-        </Row>
-      </container>
-    </footer>
+    <div className="align-items-end bg-12 mh-100">
+      <div className="d-flex p-2">
+        <div className="d-flex col align-items-center flex-column text-white">
+          <h5 className="d-flex cinzel-decorative">SORA</h5>
+          <p>Google Scholar provides a simple way to broadly search for scholarly literature. Search across a wide variety of disciplines and sources.</p>
+        </div>
+        <div className="d-flex align-items-center col flex-column text-white">
+          <h5 className="d-flex justify-content-center">Useful Links</h5>
+          <Nav.Link  onClick={() => n('/')} >Home</Nav.Link>
+          <Nav.Link  onClick={() => n('/AboutUs')} >About Us</Nav.Link>
+          <Nav.Link  onClick={() => n('/ContactUs')} >Contact Us</Nav.Link>
+        </div>
+        <div className="d-flex align-items-center col flex-column text-white">
+          <h5 className="d-flex justify-content-center">Contact Us</h5>
+          <p>gillydecastro@gmail.com</p>
+          <p>09090000000</p>
+          <p>Gilly Jean De Castro</p>
+          <p>Tublijon Juban Sorsogon</p>
+        </div>
+      </div>
+          <div className="d-flex text-white bg-13 line justify-content-center">
+            <h6>Copyright 2024-2025</h6>
+          </div>
+    </div>
     )
-  }
-     export default Footer; 
+  } 

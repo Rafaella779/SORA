@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 * {
   padding: 0px;
   margin: 0px;
@@ -88,7 +89,9 @@ h1 {
 .bg-8{
   background-color: #0077B6 !important;
 }
-
+.bg-9{
+  background-color: #1167b1 !important;
+}
 .color-1{
   color: #FFFFFF !important;
 }
@@ -402,7 +405,7 @@ p.light {
 }
 
 .navbar-border {
-  border-bottom: 2px solid var(--bg-6);
+  border-bottom: 3px solid var(--bg-6);
 }
 .button1 {
   
@@ -413,11 +416,11 @@ p.light {
 }
 
 .b-left{
-  border-left: 2px solid black;
+  border-left: 2px solid white;
 }
 
 .b-right{
-  border-right: 2px solid black;
+  border-right: 2px solid white;
 }
 
 .b-top{
@@ -431,4 +434,43 @@ p.light {
 .b-full{
   border: 2px solid black;
 }
+
+.bg-9{
+  background-color: #023E8A  !important;
+}
+.bg-10{
+  background-color: #0096C7 !important;
+}
+.bg-11{
+  background-color: #0077B6 !important;
+}
+.bg-12{
+  background-color: #00B4D8 !important;
+}
+.bg-13{
+  background-color: #03045E !important;
+}
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.line {
+  border-bottom: 1px solid white;
+  margin-top: 2px;
+  width: 100%;
+}
+.bg-14{
+  background-color: #4292c6 !important;
+}
+.bg-15{
+  background-color: #2171b5 !important;
+}
+.ex1 {
+  min-height: 200px;
+}
+
+
+
 

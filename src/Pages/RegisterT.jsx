@@ -62,11 +62,13 @@ function RegisterStudent() {
 	const [SchoolID, setSchoolID] = useState("")
 	let n = useNavigate()
 
-
 	const handleSubmit = () => {
 		fetch(`${import.meta.env.VITE_BACKEND}/user/createUser`, {
 			method: "POST",
-			headers: {"Content-Type": "application/json"},
+			headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+            },
 			body: JSON.stringify({
 				email: email,
 				password: password,
@@ -202,7 +204,10 @@ function RegisterTeacher() {
 	const handleSubmit = () => {
 		fetch(`${import.meta.env.VITE_BACKEND}/teacher/createTeacher`, {
 			method: "POST",
-			headers: {"Content-Type": "application/json"},
+			headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+            },
 			body: JSON.stringify({
 				email: email,
 				password: password,
@@ -246,7 +251,7 @@ function RegisterTeacher() {
 					l.setItem('x', res.t);
 					l.setItem('b', res.t);
 					l.setItem('s', res.t);
-					n("/logBoth")
+					n('/logBoth')
 				})
 
 			}

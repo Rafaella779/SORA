@@ -28,22 +28,25 @@ export default function Upload() {
 		const handleSubmit = () => {
 		fetch(`${import.meta.env.VITE_BACKEND}/research/createResearch`, {
 			method: "POST",
-			headers: {"Content-Type": "application/json"},
+			headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+            },
 			body: JSON.stringify({
 				name: authors.split("; "),
 				id: id.split("; "),
 				words: keywords.split("; "),
 				abstract: abstract,
-				category: category,
-				link: link,
+				category: category.toLowerCase(),
+				link: link.replace("view?usp=drive_link", ""),
 				isApprovedBySchool: isApprovedBySchool,
-				name: whoPaneled.split("; "),
+				name: whoPaneledArray,
 				title: title,
 				
 			})
-		}).then(result => result.json()).then(result => {
-			if(result.error){
-				console.log(result)
+		}).then(result => result.json()).then(res => {
+			if(res.error){
+				console.log(res)
 				Swal.fire({
 					icon: "error",
 					title: "Missing Or Invalid  Words Please Check",
@@ -57,7 +60,7 @@ export default function Upload() {
 					timer: 1500,
 					showConfirmButton: false
 				})
-				.then(result => {
+				.then(res => {
 					let l = localStorage;
 					console.log(res);
 				})
@@ -94,7 +97,32 @@ export default function Upload() {
 		}
 	}
 
-function p1(){ 
+	function p1(){
+		return(
+
+			<div>
+				
+				<h4>HEllo</h4>
+
+			</div>
+
+			)
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function p2(){ 
 	return(
 
 		<div className="d-flex p-0 mt-3 flex-column flex-lg-row" responsive>
@@ -107,11 +135,7 @@ function p1(){
 					<Form.Control  onChange={e => setauthors(e.target.value)} value={authors}/>
 					<InputGroup.Text className="bg-1" onClick={addAuthors}>Add</InputGroup.Text>
 				</InputGroup>
-				<Form.Label className="d-flex m-1"> ID </Form.Label>
-				<InputGroup>
-					<Form.Control  onChange={e => setid(e.target.value)} value={id}/>
-					<InputGroup.Text className="bg-1"  onClick={addid}>Add</InputGroup.Text>
-				</InputGroup>
+				
 				<Form.Label className="d-flex m-1">Keywords of the Research</Form.Label>
 				<InputGroup>
 					<Form.Control  onChange={e => setkeywords(e.target.value)} value={keywords}/>
@@ -139,21 +163,7 @@ function p1(){
 					})}</div>
 				</div>
 
-				<div className="col b-1px m-1 p-4">
-					<h4 className="pt-serif-bold m-1">ID</h4>
-					<div className="d-flex flex-column gap-1">{idArray.map((p, o) => {
-						console.log(p)
-						console.log(o)
-						return <div className="d-flex m-0 align-items-center justify-content-between">
-							<p className="m-0">{o + 1}. {p}</p>
-							<Button className="px-2 py-0" onClick={() => {
-								idArray.splice(o, 1)
-								setCount(count + 1);
-							}}> - </Button>
-						</div>
-					})}</div>
-				</div>
-
+				
 
 				<div className="col b-1px m-1 p-4">
 					<h4 className=" pt-serif-bold m-1">Keywords</h4>
@@ -178,14 +188,17 @@ function p1(){
 
 
 
-function p2(){ 
+function p3(){ 
 	return(
 	<div className="d-flex p-0 mt-3 flex-column flex-lg-row">
 		<Form.Group className="b-1px m-1 p-2">
 			<Form.Label className="d-flex m-1"> Abstract of the Research </Form.Label>
 			<Form.Control as="textarea" rows={5}  onChange={e => setabstract(e.target.value)} value={abstract}/>
+			
 			<Form.Label className="d-flex m-1"> Is Your Research Approved by the School </Form.Label>
-			<Form.Control  onChange={e => setisApprovedBySchool(e.target.value)} value={isApprovedBySchool}/>
+			<Form.Check  onChange={() => {setisApprovedBySchool(true)}} label="Yes" checked={isApprovedBySchool} name="isApprovedBySchool"/>
+			<Form.Check  onChange={() => {setisApprovedBySchool(false)}} label="No" checked={!isApprovedBySchool} name="isApprovedBySchool"/>
+			
 			<Form.Label className="d-flex m-1"> Panelist of your Reseach	 </Form.Label>
 			<InputGroup>
 				<Form.Control  onChange={e => setwhoPaneled(e.target.value)} value={whoPaneled}/>
@@ -229,15 +242,18 @@ const [render, setRender] = useState(p1);
 useEffect(() => {}, [])
 
 	const [show, setShow] = useState(false);
-  	const handleClose = () => setShow(false);
-  	const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
 return(
 		<div className="w-100 d-flex justify-content-center">
-			<Form className=" d-flex justify-content-center flex-column">
-				
-				{(page == 1 ? p1() : p2())}
+			<Form className=" d-flex justify-content-center flex-column">				
+				{ (page == 1) ? p1() : 
+				  (page == 2) ? p2() :
+				  (page == 3) ? p3() :
+				}
 				<div className="d-flex mt-3 m-1 p-2 gap-1 justify-content-end">
+
 					{(page == 1) ? <></> : <Button onClick={handlePrev}>Previous</Button>}
 					{(page == 2) ? <></> : <Button onClick={handleNext}>Next</Button>}
 					{(page == 2) ? <Button onClick={handleShow}>Submit</Button>  : <></> }
@@ -381,9 +397,8 @@ return(
 				        </Button>
 				      </Modal.Footer>
 				    </Modal>
-
 				</div>
 			</Form>
 		</div>			
-	)
+	)*/
 }

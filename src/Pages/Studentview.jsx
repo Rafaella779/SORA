@@ -17,7 +17,10 @@ export default function StudentViewPage() {
        useEffect(() => {
             fetch(`${import.meta.env.VITE_BACKEND}/research/getAll`, {
                   method: "POST",
-                  headers: {"Content-Type": "application/json"},
+                  headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+                  },
                   body: JSON.stringify({
                        toFind: {
                         _id: params.id
@@ -35,7 +38,10 @@ export default function StudentViewPage() {
        useEffect(() => {
             fetch(`${import.meta.env.VITE_BACKEND}/research/getAll`, {
                   method: "POST",
-                  headers: {"Content-Type": "application/json"},
+                  headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+                  },
                   body: JSON.stringify({
                        toFind: {
                         _id: params.id

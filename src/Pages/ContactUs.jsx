@@ -9,40 +9,46 @@ export default function ContactUs() {
 	const [Message, setMessage] = useState("")
 
 	const handleSubmit = () => {
-		fetch(`${import.meta.env.VITE_BACKEND}/user/createUser`, {
+		fetch(`${import.meta.env.VITE_BACKEND}/messageRequest`, {
 			method: "POST",
-			headers: {"Content-Type": "application/json"},
-			body: JSON.stringify({
+			headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+            },
+			/*body: JSON.stringify({
 				e: email,
-				n: Name,
-				ph: phone,
-				m: Message,
-				
-			})
-		}).then(result => result.json()).then(result => {
-			if(result.error){
-				console.log(result)
+			})*/
+		}).then(result => result.json()).then(res => {
+			console.log(res);
+			if(res.error){
+				console.log(res)
 				Swal.fire({
 					icon: "error",
-					title: "invalid Credentials",
+					title: "Invalid Password",
 					text: `${res.error} check your details and try again`
 				})
 			}
 			else {
 				Swal.fire({
 					icon: "success",
-					title: "Register Success!",
+					title: "Message Success!",
 					timer: 1500,
 					showConfirmButton: false
 				}).then(result => {
 					let l = localStorage;
 					console.log(res);
 					l.setItem('t', res.t);
-					l.setItem('u', res.t);
-					l.setItem('a', res.t);
-					l.setItem('n', res.t);
+					l.setItem('n', res.n);
+					l.setItem('i', res.i);
+					l.setItem('b', res.b);
+					l.setItem('e', res.e);
+					l.setItem('c', res.c);
+					l.setItem('sn', res.sn);
+					l.setItem('si', res.si);
+					l.setItem('l', res.l);
+					l.setItem('bi', res.bi);
+					l.setItem('s', res.s);
 				})
-
 			}
 		})
 	}
@@ -75,7 +81,7 @@ export default function ContactUs() {
 							</div>
 						</div>
 
-						<div className="b-1px d-flex flex-column col-12 col-lg-5 p-4">
+						<div className="b-1px col-12 col-lg-7 p-3 flex-column">
 							<h4 className="pt-serif-bold">Leave A Message</h4>
 							<Form className="w-100 d-flex flex-column gap-1">							
 								<Form.Group className="d-flex flex-column" controller="">
