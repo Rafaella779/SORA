@@ -15,6 +15,13 @@
    --bg-5: #2CBEC4;
    --bg-6: #48CAE4;
 
+   --regal-1: #11100f;
+   --regal-2: #5d1c34;
+   --regal-3: #a67d44;
+   --regal-4: #899481;
+   --regal-5: #cdbcab;
+   --regal-6: #efe9e1;
+
 }
 
 .cinzel-decorative {
@@ -435,6 +442,90 @@ p.light {
   border: 2px solid black;
 }
 
+.apply-approve-border {
+  border: 1px solid black;
+}
+
+.f-10 {
+  font-size: 10px;
+}
+.f-12 {
+  font-size: 12px;
+}
+.f-14 {
+  font-size: 14px;
+}
+.f-16 {
+  font-size: 16px;
+}
+.f-18 {
+  font-size: 18px;
+}
+.f-20 {
+  font-size: 20px;
+}
+.f-22 {
+  font-size: 22px;
+}
+.f-24 {
+  font-size: 24px;
+}
+.f-26 {
+  font-size: 26px;
+}
+.f-28 {
+  font-size: 28px;
+}
+.f-30 {
+  font-size: 30px;
+}
+.f-32 {
+  font-size: 32px;
+}
+.f-34 {
+  font-size: 34px;
+}
+.f-36 {
+  font-size: 36px;
+}
+.f-38 {
+  font-size: 38px;
+}
+.f-40 {
+  font-size: 40px;
+}
+.f-42 {
+  font-size: 42px;
+}
+.f-44 {
+  font-size: 44px;
+}
+.f-46 {
+  font-size: 46px;
+}
+
+hr {
+  opacity: 1 !important;
+}
+
+.bg-m-1 {
+  background-color: var(--regal-1) !important
+}
+.bg-m-2 {
+  background-color: var(--regal-2) !important
+}
+.bg-m-3 {
+  background-color: var(--regal-3) !important
+}
+.bg-m-4 {
+  background-color: var(--regal-4) !important
+}
+.bg-m-5 {
+  background-color: var(--regal-5) !important
+}
+.bg-m-6 {
+  background-color: var(--regal-6) !important
+}
 .bg-9{
   background-color: #023E8A  !important;
 }
@@ -470,7 +561,5 @@ p.light {
 .ex1 {
   min-height: 200px;
 }
-
-
 
 

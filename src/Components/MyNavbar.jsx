@@ -15,9 +15,10 @@ export default function MyNavbar(){
 					<div className="d-flex justify-content-between w-100 flex-column flex-lg-row">
 						<div className="d-flex flex-column flex-lg-row">
 					    	<Nav.Link  onClick={() => n('/')} >Home</Nav.Link>
-					    	{(localStorage.getItem('t')) ? <Nav.Link onClick={() => {n('/teacher')}}>Dashboard</Nav.Link> : <></>}
+					    	
 					    	<Nav.Link  onClick={() => n('/AboutUs')} >About Us</Nav.Link>
 					    	<Nav.Link  onClick={() => n('/ContactUs')} >Contact Us</Nav.Link>
+					    	{(localStorage.getItem('t') && localStorage.getItem('utype') == "teacher") ? <Nav.Link onClick={() => {n('/teacher')}}>Dashboard</Nav.Link> : <></>}
 					    </div>
 
 					    <div className="d-flex flex-column flex-lg-row">

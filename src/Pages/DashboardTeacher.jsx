@@ -35,23 +35,32 @@ export default function DashboardTeacher() {
 	return(
 		<div className="d-flex">
 			<div className="d-flex flex-column flex-md-row w-100">
-				<div className="b-1px flex-column p-3 col-md-4 col-lg-2">
+				<div className="b-1px flex-column p-3 col-md-4 col-lg-3">
 					<div className="d-flex justify-content-center">
 						<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
 					</div>
 					<div className="d-flex flex-column p-3">
-						<p className="mb-1 p-0 text-break"> <strong>Email:</strong> {localStorage.getItem('n')}</p>
-						<p className="mb-1 p-0 text-break"> <strong>Name:</strong> {localStorage.getItem('t')}</p>
-						<p className="mb-1 p-0 text-break"> <strong>Birthdate:</strong> {new Date(localStorage.getItem('m')).toDateString()}</p>
-						<p className="mb-1 p-0 text-break"> <strong>SchoolID:</strong> {localStorage.getItem('b')}</p>	
-						<p className="mb-1 p-0 text-break"> <strong>ID:</strong> {localStorage.getItem('s')}	</p>
-						<p className="mb-1 p-0 text-break"> <strong>SchoolName:</strong> {localStorage.getItem('x')}</p>
-						<p className="mb-1 p-0 text-break"> <strong>Educational Degree:</strong> {localStorage.getItem('')}</p>
-						<p className="mb-1 p-0 text-break"> <strong>No. of research:</strong> {localStorage.getItem('')}</p>
-						<Button onClick={() => n('/ApplyApproveTeacher')}>Apply to Approve</Button>
+						<p className="mb-0 p-0 text-break"> <strong>Email:</strong> {localStorage.getItem('e')}</p>
+						<p className="mb-0 p-0 text-break"> <strong>Name:</strong> {localStorage.getItem('n')}</p>
+						<p className="mb-0 p-0 text-break"> <strong>Birthdate:</strong> {new Date(localStorage.getItem('bi')).toDateString()}</p>
+						<p className="mb-0 p-0 text-break"> <strong>SchoolID:</strong> {localStorage.getItem('si')}</p>	
+						<p className="mb-0 p-0 text-break"> <strong>ID:</strong> {localStorage.getItem('i')}	</p>
+						<p className="mb-0 p-0 text-break"> <strong>SchoolName:</strong> {localStorage.getItem('sn')}</p>
+						<p className="mb-0 p-0 text-break"> <strong>Educational Degree:</strong> {localStorage.getItem('ed')}</p>
+						<p className="mb-0 p-0 text-break"> <strong>No. of research:</strong> {localStorage.getItem('nu')}</p>
+						{
+							(localStorage.getItem('ira') == 0) ?
+								<Button className="mt-3 bg-r-2" onClick={() => n('/ApplyApproveTeacher')}>Research Reviewer Application</Button>
+							:(localStorage.getItem('ira') == 1) ?
+								<Button className="mt-3 bg-r-2" >Research Reviewer</Button>
+							:
+								<Button className="mt-3 bg-r-2" >Reviewer Status Pending</Button>
+							
+
+						}
 					</div>
 				</div>
-					<ViewPage className="d-flex col-10 w-100"/>
+				<ViewPage className="d-flex col-19 w-100"/>
 			</div>
 		</div>
 
