@@ -21,6 +21,12 @@ export default function AboutUs() {
 					 on choosing that problem they came up with a solution with the help of their research teacher, the solution is a website, where local researches
 					 within Sorsogon can be found. They named this website SORA (Students Online Research Archive).</strong></p>
 				</div>
+
+				<div className="">
+					<div className="d-flex justify-content-center align-items-center">
+						<h5 className="pt-serif-bold ">Members</h5>
+					</div>
+
 					<div className="d-flex justify-content-center">
 						 <StudentCard description="Currently a student at Juban National High School, and the backend developer of this website." picLink={lisya} name="Leisha Mariel Grutas"/>
 						<StudentCard description="Currently a student at Juban National High School, and the frontend developer of this website." picLink={jobert} name="Jhon Robert Novela"/>
