@@ -1,34 +1,27 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { Button, Card } from 'react-bootstrap'
-import { useNavigate, Outlet, useParams } from 'react-router'
+import { Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router'
 import Swal from 'sweetalert2'
 
 export default function ViewPage() {
      
       const [research, setResearch] = useState([])
-      const [title, setTitle] = useState([])
-      const [Authors, setAuthors] = useState([])
-      const [abstract, setAbstract] = useState([])
-      const [tableData, setTableData] = useState([]) 
-      const [id, setId] = useState("") 
-      let params = useParams()
+      const [active, setActive] = useState([]) 
+      const [iLength, setILength] = useState([]) 
+      const [iPerPage, setIPerPage] = useState([]) 
+      let n = useNavigate();
 
        useEffect(() => {
             fetch(`${import.meta.env.VITE_BACKEND}/research/getByUser`, {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({
-                       toFind: {
-                        
-                       }
+                       	toFind: {
+                    		_id: localStorage.getItem('t')
+                       	}
                   })
-            }).then(result => result.json()).then(res => {
-                  console.log(res)
-                  setInfo(res[0])
-                  setAuthors(res[0].authors)
-                  setTitle(res[0].title)
-                  setAbstract(res[0].abstract)
-                  setId(res[0]._id)
+            }).then(result => result.json()).then(result => {
+                  console.log(result)
             })
       }, [])
 
@@ -42,11 +35,21 @@ export default function ViewPage() {
 				
 		        <div className="d-flex flex-column gap-2 b-1px p-3 w-100">
 		        	<div className="d-flex w-100 justify-content-between">
-						<h3>Your Researches</h3>
-						<Button>Add</Button>
+						<h3>Your Research</h3>
+						<Button onClick={() => {n('/upload')}}>Add</Button>
 					</div>
 					<div className="d-flex w-100">
-						<ResearchCard title={title} author={Authors.map(x => {return <>{x.name};</>})} abstract={abstract} id={id}/>
+						{
+							(research.length) ? 
+								research.map((x, i) => {
+									<ResearchCard title={x.title} author={x.Authors.map(y => {return <>{y.name};</>})} abstract={abstract} id={y._id}/>
+								})
+							:
+								<div className="bg-m-6 w-100 px-2 py-5 b-1px">
+									<h6>You haven't uploaded any research papers</h6>
+								</div>
+							
+						}
 					</div>
 		        	
 			    </div>
