@@ -19,7 +19,10 @@ export default function Inbox() {
       useEffect(() => {
       	fetch(`${import.meta.env.VITE_BACKEND}/mail`, {
                   method: "POST",
-                  headers: {"Content-Type": "application/json"},
+                  headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+                  },
                   /*body: JSON.stringify({
                        toFind: {
                        	title: submit

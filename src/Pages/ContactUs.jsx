@@ -11,7 +11,10 @@ export default function ContactUs() {
 	const handleSubmit = () => {
 		fetch(`${import.meta.env.VITE_BACKEND}/messageRequest`, {
 			method: "POST",
-			headers: {"Content-Type": "application/json"},
+			headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+            },
 			/*body: JSON.stringify({
 				e: email,
 			})*/

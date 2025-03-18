@@ -41,9 +41,9 @@ export default function UserDashboardT() {
 }
 function ModalChange({show, setShow}){
 	const handleClose = () => setShow(false);
-  	const handleShow = () => setShow(true);
+  const handleShow = () => setShow(true);
 
-  	const [page, setPage] = useState(1);
+  const [page, setPage] = useState(1);
 	const [username, setUsername] = useState("")
 	const [password, setPassword] = useState("")
 	const [email, setEmail] = useState("")

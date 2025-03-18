@@ -25,7 +25,10 @@ export default function Upload() {
 		const handleSubmit = () => {
 		fetch(`${import.meta.env.VITE_BACKEND}/research/createResearch`, {
 			method: "POST",
-			headers: {"Content-Type": "application/json"},
+			headers: {
+                  	"Content-Type": "application/json",
+                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+            },
 			body: JSON.stringify({
 				name: authors.split("; "),
 				id: id.split("; "),
@@ -252,5 +255,5 @@ return(
 				</div>
 			</Form>
 		</div>			
-	)
-}*/
+	)*/
+}
