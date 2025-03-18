@@ -15,7 +15,7 @@ export default function ViewPage() {
       let params = useParams()
 
        useEffect(() => {
-            fetch(`${import.meta.env.VITE_BACKEND}/research/getAll`, {
+            fetch(`${import.meta.env.VITE_BACKEND}/research/getByUser`, {
                   method: "POST",
                   headers: {"Content-Type": "application/json"},
                   body: JSON.stringify({

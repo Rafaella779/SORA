@@ -99,7 +99,7 @@ export default function HomePage() {
 	             	</Form>
 	           	 </div>
 
-	            <div class="w-100 h-2">
+	            <div className="w-100 h-2">
 	             	<Table striped bordered hover responsive>
 	             		<thead>
 	             			<tr>

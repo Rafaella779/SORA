@@ -96,6 +96,7 @@ function TeacherLogin() {
 					l.setItem('te', res.te);
 					l.setItem('bi', res.bi);
 					l.setItem('s', res.s);
+					l.setItem('utype', "teacher")
 					n('/teacher')
 				})
 
