@@ -14,6 +14,13 @@
    --bg-5: #2CBEC4;
    --bg-6: #48CAE4;
 
+   --regal-1: #11100f;
+   --regal-2: #5d1c34;
+   --regal-3: #a67d44;
+   --regal-4: #899481;
+   --regal-5: #cdbcab;
+   --regal-6: #efe9e1;
+
 }
 
 .cinzel-decorative {
@@ -496,4 +503,23 @@ p.light {
 
 hr {
   opacity: 1 !important;
+}
+
+.bg-m-1 {
+  background-color: var(--regal-1) !important
+}
+.bg-m-2 {
+  background-color: var(--regal-2) !important
+}
+.bg-m-3 {
+  background-color: var(--regal-3) !important
+}
+.bg-m-4 {
+  background-color: var(--regal-4) !important
+}
+.bg-m-5 {
+  background-color: var(--regal-5) !important
+}
+.bg-m-6 {
+  background-color: var(--regal-6) !important
 }

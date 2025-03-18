@@ -93,10 +93,12 @@ function TeacherLogin() {
 					l.setItem('d', res.d);
 					l.setItem('ed', res.ed);
 					l.setItem('nu', res.nu);
-					l.setItem('te', res.te);
+					l.setItem('ira', res.ira);
 					l.setItem('bi', res.bi);
 					l.setItem('s', res.s);
 					l.setItem('utype', "teacher")
+					l.setItem('ln', res.ln)
+					l.setItem('fn', res.fn)
 					n('/teacher')
 				})
 
