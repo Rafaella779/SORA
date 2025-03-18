@@ -6,7 +6,6 @@ import Swal from 'sweetalert2'
 
 export default function LogOut(){
 	let n = useNavigate()
-
 	useEffect(() => {
 		localStorage.clear();
 		Swal.fire({
@@ -20,7 +19,6 @@ export default function LogOut(){
 	  	                                 
       }, []) 
 	
-
 	return(
 	 		<div>
 				
