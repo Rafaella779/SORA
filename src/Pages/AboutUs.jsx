@@ -35,6 +35,7 @@ export default function AboutUs() {
 						<StudentCard description="Currently a student at Juban National High School, and the frontend developer of this website." picLink={rafaella} name="Rafaella Sabenorio"/>
 
 					</div>
+				</div>
 			</div>
 		</div>
 	)
