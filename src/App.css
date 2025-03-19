@@ -588,11 +588,9 @@ hr {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-.ex1 {
-  min-height: 200px;
+.bg-19{
+  background-color: #9fc3cc  !important;
 }
-
-
 .mh-90 {
   min-height: 90vh;
 }
@@ -607,4 +605,7 @@ hr {
   background-color: white !important;
   color: black !important;
   border: 1px solid black !important;
+}
+.min-height{
+  min-height: 10px !important;
 }
