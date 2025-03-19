@@ -260,6 +260,7 @@ return(
 						<p>Users must provide accurate personal and academic details upon registration.
 
 						</p>
+						
 
 
 						<p>Teachers</p>
