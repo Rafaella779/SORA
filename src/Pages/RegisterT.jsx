@@ -20,7 +20,7 @@ export default function Register() {
 	}
 
 	return(
-		<div className="d-flex gap-lg-5 justify-content-center align-items-center pt-serif-bold p-3 p-lg-5 flex-column flex-lg-row">
+		<div className="d-flex gap-lg-5 navbar-border justify-content-center align-items-center pt-serif-bold p-3 p-lg-5 flex-column flex-lg-row p-body mnh-700">
 			<div className="d-flex justify-content-begin flex-column mw-400">
 				<img src="https://img.freepik.com/premium-vector/two-factor-autentication-security-illustration-login-confirmation-notification-with-password-code-message-smartphone-mobile-phone-computer-app-account-shield-lock-icons-isolated_167715-3210.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid" className="w-100"/>
 			</div>
