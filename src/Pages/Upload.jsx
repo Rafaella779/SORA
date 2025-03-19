@@ -248,9 +248,7 @@ useEffect(() => {}, [])
 return(
 		<div className="w-100 d-flex justify-content-center">
 			<Form className=" d-flex justify-content-center flex-column">				
-				{ (page == 1) ? p1() : 
-				  (page == 2) ? p2() :
-				  (page == 3) ? p3() :
+				{ (page == 1) ? p1() :  p2() 
 				}
 				<div className="d-flex mt-3 m-1 p-2 gap-1 justify-content-end">
 
@@ -379,14 +377,6 @@ return(
 						</p>
 
 						</div>
-
-
-
-
-
-
-
-
 				      </Modal.Body>
 				      <Modal.Footer>
 				        <Button variant="secondary" onClick={handleClose}>
@@ -400,5 +390,5 @@ return(
 				</div>
 			</Form>
 		</div>			
-	)*/
+	)
 }
