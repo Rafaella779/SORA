@@ -139,12 +139,12 @@ h1 {
 }
 
 .btn-primary {
-  background-color: mediumpurple !important;
+  background-color: royalblue !important;
   border: 0px solid transparent !important;
 }
 
 .ratings-button{
-  background-color: lightpink !important;
+  background-color: lightblue !important;
   color: black !important;
 }
   
@@ -608,4 +608,8 @@ hr {
 }
 .min-height{
   min-height: 10px !important;
+}
+.div {
+  text-align: justify;
+  text-justify: inter-word;
 }

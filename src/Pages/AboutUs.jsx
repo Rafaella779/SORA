@@ -14,7 +14,7 @@ export default function AboutUs() {
 				<h3 className="d-flex justify-content-center align-items-center pt-serif-bold">About us</h3>
 				<div className="d-flex flex-column p-3">
 					<h4 className="d-flex pt-serif-bold">Meet The Team</h4>
-					<p class="light"><strong>Once upon a time in a school named Juban National High School, there were 5 students namely Leisha, 
+					<p class="light" ><strong>Once upon a time in a school named Juban National High School, there were 5 students namely Leisha, 
 					 Rean, Gilly, Jobert, and Rafaella. One day they happen to face a problem in a subject called Research.
 					 They needed a research topic, each member gave problems that should have a solution. One problem stood out the most, it is a problem 
 					 that they also tackled in research, a problem that most researchers encounter, finding local Review of Related Literature. Upon agreeing 

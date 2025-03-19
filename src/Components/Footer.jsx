@@ -5,8 +5,8 @@ import { Outlet, useNavigate} from 'react-router'
 
   let n = useNavigate()
   return(
-    <div className="align-items-end bg-17 min-height ">
-	      <div className="d-flex p-2">
+    <div className="align-items-end bg-17 min-height flex-lg-row ">
+	      <div className="d-flex p-2 ">
 	        <div className="d-flex col align-items-center flex-column gap-0">
 	          <h5 className="d-flex cinzel-decorative"><strong>SORA</strong></h5>
 	          <p>SORA provides a simple way to broadly search for local literature. Search across a wide variety of disciplines and sources.</p>
@@ -17,7 +17,7 @@ import { Outlet, useNavigate} from 'react-router'
 	          <Nav.Link  onClick={() => n('/AboutUs')} >About Us</Nav.Link>
 	          <Nav.Link  onClick={() => n('/ContactUs')} >Contact Us</Nav.Link>
 	        </div>
-	        <div className="d-flex align-items-center col flex-column">
+	        <div className="d-flex align-items-center col gap-0 flex-column">
 	          <h5 className="d-flex justify-content-center pt-serif-bold">Contact Us</h5>
 	          <p>gillydecastro@gmail.com</p>
 	          <p>09634112627</p>
