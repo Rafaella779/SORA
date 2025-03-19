@@ -1,110 +1,77 @@
 import React, {useState, useEffect, useContext} from 'react'
-import { Button, Card } from 'react-bootstrap'
-import { useNavigate, Outlet, useParams } from 'react-router'
+import { Button } from 'react-bootstrap'
+import { useNavigate } from 'react-router'
 import Swal from 'sweetalert2'
 
-export default function StudentViewPage() {
+export default function ViewPage() {
      
-      const [pending, setPending] = useState([])
-      const [approved, setApproved] = useState([])
-      const [title, setTitle] = useState([])
-      const [Authors, setAuthors] = useState([])
-      const [abstract, setAbstract] = useState([])
-      const [tableData, setTableData] = useState([]) 
-      const [id, setId] = useState("") 
-      let params = useParams()
+      const [research, setResearch] = useState([])
+      const [active, setActive] = useState([]) 
+      const [iLength, setILength] = useState([]) 
+      const [iPerPage, setIPerPage] = useState([]) 
+      let n = useNavigate();
 
        useEffect(() => {
-            fetch(`${import.meta.env.VITE_BACKEND}/research/getAll`, {
-                  method: "POST",
+            fetch(`${import.meta.env.VITE_BACKEND}/research/getByUser`, {
+                  method: "GET",
                   headers: {
                   	"Content-Type": "application/json",
                   	"authorization": `Bearer ${localStorage.getItem('t')}`
-                  },
-                  body: JSON.stringify({
-                       toFind: {
-                        _id: params.id
-                       }
-                  })
-            }).then(result => result.json()).then(res => {
-                  console.log(res)
-                  setAuthors(res[0].authors)
-                  setTitle(res[0].title)
-                  setAbstract(res[0].abstract)
-                  setId(res[0]._id)
+                  }
+            }).then(result => result.json()).then(result => {
+                  console.log(result)
             })
       }, [])
 
-       useEffect(() => {
-            fetch(`${import.meta.env.VITE_BACKEND}/research/getAll`, {
-                  method: "POST",
-                  headers: {
-                  	"Content-Type": "application/json",
-                  	"authorization": `Bearer ${localStorage.getItem('t')}`
-                  },
-                  body: JSON.stringify({
-                       toFind: {
-                        _id: params.id
-                       }
-                  })
-            }).then(result => result.json()).then(res => {
-                  console.log(res)
-                  setAuthors(res[0].authors)
-                  setTitle(res[0].title)
-                  setAbstract(res[0].abstract)
-                  setId(res[0]._id)
-            })
-      }, [])
 
-	return ( 
-		<div className="d-flex flex-column flex-lg-row w-100">
-	        <div className="d-flex flex-column gap-2 b-1px m-1 p-3 w-100">
-	        	<h5 className="pt-serif-bold">Pending</h5>
-	        	<Pending title={title} author={Authors.map(x => {return <>{x.name};</>})} abstract={abstract} id={id}/>
+
+	return (
+	
+		<div className="d-flex flex-column w-100 p-2 p-md-4 gap-2">
+					
+			<div className="d-flex flex-column flex-lg-row flex-wrap w-100 gap-3">
+				
+		        <div className="d-flex flex-column gap-2 b-1px p-3 w-100">
+		        	<div className="d-flex w-100 justify-content-between">
+						<h3>Your Research</h3>
+						<Button onClick={() => {n('/upload')}}>Upload Research</Button>
+					</div>
+					<div className="d-flex w-100">
+						{
+							(research.length) ? 
+								research.map((x, i) => {
+									<ResearchCard title={x.title} author={x.Authors.map(y => {return <>{y.name};</>})} abstract={abstract} id={y._id}/>
+								})
+							:
+								<div className="bg-m-6 w-100 px-2 py-5 b-1px">
+									<h6>You haven't uploaded any research papers</h6>
+								</div>
+							
+						}
+					</div>
+		        	
+			    </div>
 		    </div>
-		    <div className="d-flex flex-column gap-2 b-1px m-1 p-3 w-100">
-		    	<h5 className="pt-serif-bold">Approved</h5>
-		    	<Approved title={title} author={Authors.map(x => {return <>{x.name};</>})} abstract={abstract} id={id}/>
-		    </div> 
 		</div>
 
 		)
 }
 
-function Pending({author, abstract, title, id}){
+function ResearchCard({author, abstract, title, id}){
 	 let n = useNavigate()
 	return(
-		<div className="b-1px">
+		<div className="b-1px bg-m-6  col-12 col-md-6 col-lg-4 " onClick={() => n('ApproveSystem')}>
 			<div className="m-1 p-1 d-flex flex-column">
 				<p className="m-0 p-0"><strong>Title:</strong> {title}</p>
 				<p className="m-0 p-0"><strong>Author:</strong> {author}</p>
 				<p className="m-0 p-0"><strong>Abstract:</strong> {abstract}</p>
-				<div>
-				</div>
 			</div>
 		</div>
 	)
 }
-			
-function Approved({author, abstract, title}){
-	 let n = useNavigate()
-	return(
-		<div className="b-1px">
-			<div className="m-1 p-1 d-flex flex-column">
-				<p className="m-0 p-0"><strong>Title:</strong> {title}</p>
-				<p className="m-0 p-0"><strong>Author:</strong> {author}</p>
-				<p className="m-0 p-0"><strong>Abstract:</strong> {abstract}</p>
-				<div>
-					
-				</div>
-			</div>
-		</div>
-	)
-}
-
 
 			
 		
 			         	
 		     
-	
+		
