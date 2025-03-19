@@ -50,7 +50,7 @@ export default function ApplyApproveTeacher() {
 					</Modal.Header>
 					<Modal.Body>
 						
-						<h6 className="f-12">By clicking on submit, you hereby agree to the specified terms and conditions</h6>
+						<h6 className="">By clicking on submit, you hereby agree to the specified terms and conditions</h6>
 					</Modal.Body>
 					<Modal.Footer>
 						<Button onClick={handleSubmit}>Submit</Button>
@@ -64,9 +64,9 @@ export default function ApplyApproveTeacher() {
 				<div className="d-flex flex-column flex-md-row gap-md-3">
 					<div className="d-flex flex-column col">
 						<h6 className="m-0">Requirements:</h6>	
-						<p className="f-12 mb-0">The following documents are the minimum requirements for screening to become a research submission approver:
+						<p className=" mb-0">The following documents are the minimum requirements for screening to become a research submission approver:
 						</p>
-						<ol className="f-12">
+						<ol className="">
 							<li>Employee ID</li>
 							<li>Transcript of Records</li>
 							<li>A letter confirming your employment and designation as a Research Teacher or a teacher in your applied specific fields, signed by the School Head</li>
@@ -75,7 +75,7 @@ export default function ApplyApproveTeacher() {
 					</div>
 					<div className="d-flex flex-column col">
 						<h6 className="m-0">Instructions:</h6>	
-						<ol className="f-12">
+						<ol className="">
 							<li>Documents should be in PDF format</li>
 							<li>Upload your documents to a Google Drive or OneDrive folder</li>
 							<li>Share and copy the link</li>

@@ -1,13 +1,11 @@
 import {useState, useEffect} from 'react';
 import {Button, Form, Col, InputGroup, Modal} from 'react-bootstrap';
 import Swal from 'sweetalert2'
+import {useNavigate} from 'react-router'
 
 
 export default function Upload() {
 
-	
-
-	
 		const [page, setPage] = useState(1);
 		const [authors, setauthors] = useState("")
 		const [authorsArray, setauthorsArray] = useState([])
@@ -17,39 +15,37 @@ export default function Upload() {
 		const [keywordArray, setkeywordArray] = useState([])
 		const [abstract, setabstract] = useState("")
 		const [category, setcategory] = useState("")
-		const [link, setlink] = useState("")
-		const [isApprovedBySchool, setisApprovedBySchool] = useState("")
+		const [link, setlink] = useState("");
+		const [documentLink, setDocumentLink] = useState("")
+		const [isApprovedBySchool, setisApprovedBySchool] = useState()
 		const [whoPaneled, setwhoPaneled] = useState("")
 		const [whoPaneledArray, setwhoPaneledArray] = useState([])
 		const [title, settitle] = useState("")
 		const [count, setCount] = useState(0)
-
+		let n = useNavigate();
 
 		const handleSubmit = () => {
 		fetch(`${import.meta.env.VITE_BACKEND}/research/createResearch`, {
 			method: "POST",
-			headers: {
-                  	"Content-Type": "application/json",
-                  	"authorization": `Bearer ${localStorage.getItem('t')}`
-            },
+			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
 				name: authors.split("; "),
 				id: id.split("; "),
 				words: keywords.split("; "),
 				abstract: abstract,
-				category: category.toLowerCase(),
-				link: link.replace("view?usp=drive_link", ""),
+				category: category,
+				link: link,
 				isApprovedBySchool: isApprovedBySchool,
-				name: whoPaneledArray,
+				name: whoPaneled.split("; "),
 				title: title,
-				
+				documentLink: documentLink
 			})
-		}).then(result => result.json()).then(res => {
-			if(res.error){
-				console.log(res)
+		}).then(result => result.json()).then(result => {
+			if(result.error){
+				console.log(result)
 				Swal.fire({
 					icon: "error",
-					title: "Missing Or Invalid  Words Please Check",
+					title: result.error,
 					text: 'check your details and try again'
 				})
 			}
@@ -57,12 +53,13 @@ export default function Upload() {
 				Swal.fire({
 					icon: "success",
 					title: "Submission Success!",
-					timer: 1500,
-					showConfirmButton: false
+					timer: 1500,		
+					showConfirmButton: false,		
+					text: "Thank you for your contribution"
 				})
-				.then(res => {
-					let l = localStorage;
-					console.log(res);
+				.then(result => {
+					
+					n(`/${localStorage.getItem('utype')}`)
 				})
 
 			}
@@ -97,59 +94,39 @@ export default function Upload() {
 		}
 	}
 
-	function p1(){
-		return(
-
-			<div>
-				
-				<h4>HEllo</h4>
-
-			</div>
-
-			)
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function p2(){ 
+function p1(){ 
 	return(
 
 		<div className="d-flex p-0 mt-3 flex-column flex-lg-row" responsive>
-			<Form.Group className="b-1px m-1 p-4 mw-300">
+			<Form.Group className="b-1px m-1 p-4 col-12 col-lg-6">
 				<h2 className=" pt-serif-bold ">Submit Your Research</h2>
 				<Form.Label className="d-flex m-1"> Title of the Research </Form.Label>
 				<Form.Control  onChange={e => settitle(e.target.value)} value={title}/>
 				<Form.Label className="d-flex m-1">Authors Of The Research </Form.Label>
 				<InputGroup>
 					<Form.Control  onChange={e => setauthors(e.target.value)} value={authors}/>
-					<InputGroup.Text className="bg-1" onClick={addAuthors}>Add</InputGroup.Text>
+					<InputGroup.Text className="bg-3" onClick={addAuthors}>Add</InputGroup.Text>
 				</InputGroup>
-				
 				<Form.Label className="d-flex m-1">Keywords of the Research</Form.Label>
 				<InputGroup>
 					<Form.Control  onChange={e => setkeywords(e.target.value)} value={keywords}/>
-					<InputGroup.Text className="bg-1" onClick={addKeyword}>Add</InputGroup.Text>
+					<InputGroup.Text className="bg-3" onClick={addKeyword}>Add</InputGroup.Text>
 				</InputGroup>
 				<Form.Label className="d-flex m-1">Category of the Research</Form.Label>
 				<Form.Control  onChange={e => setcategory(e.target.value)} value={category}/>
-				<Form.Label className="d-flex m-1"> Link of the Research </Form.Label>
+				<Form.Label className="d-flex m-1">Research Link </Form.Label>
 				<Form.Control  onChange={e => setlink(e.target.value)} value={link}/>	
+				<hr />
+					<Form.Label className=""><strong>Research Documents Link </strong></Form.Label>
+					<p>Please upload on Google Drive documents certifying that your paper has been presented and/or checked and approved by your School</p>
+					<Form.Control  onChange={e => setDocumentLink(e.target.value)} value={documentLink}/>
+				
 			</Form.Group>
 
-			<div>
-				<div className="col b-1px m-1 p-4">
+			<div className="col-12 col-lg-6">
+				<div className=" b-1px m-1 p-4">
 					<h4 className=" pt-serif-bold m-1">Authors</h4>
+
 					<div className="d-flex flex-column gap-1">{authorsArray.map((j, k) => {
 						console.log(j)
 						console.log(k)
@@ -163,9 +140,9 @@ function p2(){
 					})}</div>
 				</div>
 
-				
 
-				<div className="col b-1px m-1 p-4">
+
+				<div className=" b-1px m-1 p-4">
 					<h4 className=" pt-serif-bold m-1">Keywords</h4>
 					<div className="d-flex flex-column gap-1">{keywordArray.map((x, i) => {
 						console.log(x)
@@ -188,26 +165,26 @@ function p2(){
 
 
 
-function p3(){ 
+function p2(){ 
 	return(
 	<div className="d-flex p-0 mt-3 flex-column flex-lg-row">
-		<Form.Group className="b-1px m-1 p-2">
+		<Form.Group className="col-12 col-lg-6 b-1px m-1 p-3 p-lg-4">
 			<Form.Label className="d-flex m-1"> Abstract of the Research </Form.Label>
 			<Form.Control as="textarea" rows={5}  onChange={e => setabstract(e.target.value)} value={abstract}/>
-			
-			<Form.Label className="d-flex m-1"> Is Your Research Approved by the School </Form.Label>
-			<Form.Check  onChange={() => {setisApprovedBySchool(true)}} label="Yes" checked={isApprovedBySchool} name="isApprovedBySchool"/>
-			<Form.Check  onChange={() => {setisApprovedBySchool(false)}} label="No" checked={!isApprovedBySchool} name="isApprovedBySchool"/>
-			
 			<Form.Label className="d-flex m-1"> Panelist of your Reseach	 </Form.Label>
 			<InputGroup>
 				<Form.Control  onChange={e => setwhoPaneled(e.target.value)} value={whoPaneled}/>
 				<InputGroup.Text className="bg-1" onClick={addwhopaneled}>Add</InputGroup.Text>
 			</InputGroup>
-			<br />
+			<Form.Label className="d-flex m-1"> Is Your Research Approved by the School </Form.Label>
+			<div className="d-flex gap-1">
+				<Button className={`${(isApprovedBySchool === false) ? "btn-selected" : "btn-not-selected" }`} onClick={() => {setisApprovedBySchool(false)}}>No</Button>
+				<Button className={`${(isApprovedBySchool)  ? "btn-selected" : "btn-not-selected"}`} onClick={() => {setisApprovedBySchool(true)}}>Yes</Button>
+			</div>
+
 		</Form.Group>
 
-		<div className="col b-1px m-1 p-4">
+		<div className="col-12 col-lg-6 b-1px m-1 p-4">
 			<h4 className=" pt-serif-bold m-1">Panelist</h4>{whoPaneledArray.map((p, o) => {
 				console.log(p)
 				console.log(o)
@@ -242,22 +219,23 @@ const [render, setRender] = useState(p1);
 useEffect(() => {}, [])
 
 	const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  	const handleClose = () => setShow(false);
+  	const handleShow = () => setShow(true);
 
 return(
 		<div className="w-100 d-flex justify-content-center">
-			<Form className=" d-flex justify-content-center flex-column">				
-				{ (page == 1) ? p1() :  p2() 
-				}
-				<div className="d-flex mt-3 m-1 p-2 gap-1 justify-content-end">
 
+			<Form className=" d-flex justify-content-center flex-column w-100 mw-1000">
+				
+				{(page == 1 ? p1() : p2())}
+        
+				<div className="d-flex mt-3 m-1 p-2 gap-1 justify-content-end">
 					{(page == 1) ? <></> : <Button onClick={handlePrev}>Previous</Button>}
 					{(page == 2) ? <></> : <Button onClick={handleNext}>Next</Button>}
 					{(page == 2) ? <Button onClick={handleShow}>Submit</Button>  : <></> }
 
 
-					<Modal  show={show} onHide={handleClose}>
+					<Modal  show={show} onHide={handleClose} scrollable="true">
 				      <Modal.Header closeButton>
 				        <Modal.Title>Notice</Modal.Title>
 				      </Modal.Header>
@@ -387,6 +365,7 @@ return(
 				        </Button>
 				      </Modal.Footer>
 				    </Modal>
+
 				</div>
 			</Form>
 		</div>			

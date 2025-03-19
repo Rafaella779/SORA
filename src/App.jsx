@@ -40,7 +40,6 @@ function App() {
         <Route path="TeacherLogin" element={<TeacherLogin/>} />
         <Route path="Rejection" element={<Rejection/>} />
         <Route path="register" element={<Register/>} />
-        <Route path="StudentDashboard" element={<StudentDashboard/>} />
         <Route path="RegisterT" element={<RegisterT/>} />
         <Route path="AboutUs" element={<AboutUs/>} />
         <Route path="LogBoth" element={<LoginBoth/>} />
@@ -60,7 +59,9 @@ function App() {
           <Route path="inbox" element={<Inbox/>} />                                                                                           >
           <Route path="ApproveSystem" element={<ApproveSystem/>} />
         </Route>
-
+        <Route path="student" >
+          <Route index element={<StudentDashboard />} />
+        </Route>
         <Route path="*" element={<Error/>} />
       </Route>
     </Routes>

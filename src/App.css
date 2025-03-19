@@ -563,3 +563,18 @@ hr {
 }
 
 
+.mh-90 {
+  min-height: 90vh;
+}
+
+.btn-selected {
+  background-color: var(--regal-2) !important;
+  color: var(--regal-6) !important;
+  border: 1px solid black !important;
+}
+
+.btn-not-selected {
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid black !important;
+}

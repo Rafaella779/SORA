@@ -59,7 +59,7 @@ function TeacherLogin() {
 			method: "POST",
 			headers: {
                   	"Content-Type": "application/json",
-                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+
             },
 			body: JSON.stringify({
 				e: email,
@@ -148,7 +148,7 @@ function StudentLogin() {
 			method: "POST",
 			headers: {
                   	"Content-Type": "application/json",
-                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+
             },
 			body: JSON.stringify({
 				e: email,
@@ -184,7 +184,8 @@ function StudentLogin() {
 					l.setItem('l', res.l);
 					l.setItem('bi', res.bi);
 					l.setItem('s', res.s);
-					n('/StudentDashboard')
+					l.setItem('utype', "student")
+					n('/student')
 				})
 				
 

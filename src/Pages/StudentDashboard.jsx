@@ -6,28 +6,43 @@ import Studentsview from './Studentview.jsx'
 import Inbox from './Inboxmail.jsx'
 
 
-export default function DashboardTeacher() {
-  const [show, setShow] = useState(true);
+export default function StudentDashboard() {
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
 	let n = useNavigate()
 	return(
-		<div className="d-flex m-1">
+		<div className="d-flex m-0">
+			<Modal  show={show} onHide={handleClose}>
+        		<Modal.Header closeButton>
+          		<Modal.Title>Mail</Modal.Title>
+        		</Modal.Header>
+         	
+         	<Modal.Body>Hello you got mail, would you like to check?</Modal.Body>
+	         
+	         <Modal.Footer>
+	            <Button variant="secondary" onClick={handleClose}>
+	            	No
+	          	</Button>
+		         <Button variant="primary" onClick={() => n('/Inbox')}>
+		         	Yes
+		         </Button>
+	         </Modal.Footer>
+      	</Modal>
 			<div className="d-flex flex-column flex-md-row w-100">
 				<div className="b-full flex-column p-3 col-md-4 col-lg-2">
 					<div className="d-flex justify-content-center">
 						<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
 					</div>
 					<div className="d-flex flex-column p-3">
-						<p className="m-0 p-1 text-break"><strong>Email:</strong> {localStorage.getItem('n')}</p>
-						<p className="m-0 p-1 text-break"><strong>Name:</strong> {localStorage.getItem('t')}</p>
-						<p className="m-0 p-1 text-break"><strong>Birthdate:</strong> {new Date(localStorage.getItem('m')).toDateString()}</p>
-						<p className="m-0 p-1 text-break"><strong>LRN:</strong> {localStorage.getItem('o')}</p>
-						<p className="m-0 p-1 text-break"><strong>SchoolID:</strong> {localStorage.getItem('b')}</p>	
-						<p className="m-0 p-1 text-break"><strong>ID:</strong> {localStorage.getItem('s')}	</p>
-						<p className="m-0 p-1 text-break"><strong>SchoolName:</strong> {localStorage.getItem('x')}</p>
-						<Button onClick={() => n('/Upload')}>Upload</Button>
+						<p className="m-0 p-0 text-break"><strong>Email:</strong> {localStorage.getItem('e')}</p>
+						<p className="m-0 p-0 text-break"><strong>Name:</strong> {localStorage.getItem('n')}</p>
+						<p className="m-0 p-0 text-break"><strong>Birthdate:</strong> {new Date(localStorage.getItem('bi')).toDateString()}</p>
+						<p className="m-0 p-0 text-break"><strong>LRN:</strong> {localStorage.getItem('l')}</p>
+						<p className="m-0 p-0 text-break"><strong>SchoolID:</strong> {localStorage.getItem('si')}</p>	
+						<p className="m-0 p-0 text-break"><strong>SchoolName:</strong> {localStorage.getItem('sn')}</p>
+						{/*<Button className="mt-3	" onClick={() => n('/Upload')}>Upload</Button>*/}
 					</div>
 				</div>
 				<div>
@@ -38,27 +53,13 @@ export default function DashboardTeacher() {
 						Inbox
 						</Button>*/}
 
-						<Modal  show={show} onHide={handleClose}>
-				        <Modal.Header closeButton>
-				          <Modal.Title>Mail</Modal.Title>
-				        </Modal.Header>
-				        <Modal.Body>Hello you got mail, would you like to check?</Modal.Body>
-				        <Modal.Footer>
-				          <Button variant="secondary" onClick={handleClose}>
-				            No
-				          </Button>
-				          <Button variant="primary" onClick={() => n('/Inbox')}>
-				            Yes
-				          </Button>
-				        </Modal.Footer>
-				      </Modal>
-						</div>
+						
+				</div>
 
-							<div className="w-600 b-right b-top b-bottom">
+				<div className="w-100 b-right b-top b-bottom">
 				
-							<Studentsview/>
-							<Inbox />
-			</div>
+					<Studentsview />	
+				</div>
 			</div>
 		</div>
 
@@ -111,7 +112,7 @@ function ModalChange({show, setShow}){
 
 function StudentCard({picLink, name}){
 	return(<>
-		<div className="p-0 m-0 d-flex align-items-center aboutUsCard ">
+		<div className="p-0 m-0 d-flex align-items-center aboutUsCard  ">
 			<div className="d-flex p-0 m-0">
 				<img src={picLink} alt="" className="dashboardPic m-0" />
 			</div>

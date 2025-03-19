@@ -19,18 +19,27 @@ export default function MyNavbar(){
 					    	<Nav.Link  onClick={() => n('/AboutUs')} >About Us</Nav.Link>
 					    	<Nav.Link  onClick={() => n('/ContactUs')} >Contact Us</Nav.Link>
 					    	{(localStorage.getItem('t') && localStorage.getItem('utype') == "teacher") ? <Nav.Link onClick={() => {n('/teacher')}}>Dashboard</Nav.Link> : <></>}
+					    	{(localStorage.getItem('t') && localStorage.getItem('utype') == "student") ? <Nav.Link onClick={() => {n('/student')}}>Dashboard</Nav.Link> : <></>}
 					    </div>
 
 					    <div className="d-flex flex-column flex-lg-row">
-					    	{/*<Nav.Link className={`${(localStorage.getItem('')) ?  : }`} onClick={() => n('/logBoth')} >Log In</Nav.Link>*/}
-					    	<Nav.Link onClick={() => n('/RegisterT')} >Register</Nav.Link>
+					    	{
+					    		(!localStorage.getItem('t')) ?
+					    		<>
+						    		<Nav.Link onClick={() => n('/logBoth')} >Log In</Nav.Link>
+						    		<Nav.Link onClick={() => n('/RegisterT')} >Register</Nav.Link>
+						    	</>
+						    	: 
+						    	<><Nav.Link onClick={() => n('/logout')} >Log Out</Nav.Link></>
+					    	}
+					    	
 					    </div>
 					</div>
 				    </Nav>
 				    </Navbar.Collapse>
 				</Container>
 			</Navbar>
-			<div>
+			<div className="mh-90">
 				<Outlet />
 			</div>
 
