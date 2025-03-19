@@ -356,7 +356,9 @@ p.light {
 .mnh-700{
   min-height: 700px !important;
 }
-
+.mnh-7=800{
+  min-height: 800px !important;
+}
 
 
 .w-200{
@@ -552,11 +554,39 @@ hr {
   margin-top: 2px;
   width: 100%;
 }
+.bg-14{
+  background-color: #A7C7E7 !important;
+}
+.bg-15{
+  background-color: #B6D0E2 !important;
+}
+.bg-16{
+  background-color: #018FC7 !important;
+}
 .bg-17{
-  background-color: #dbeeed !important;
+  background-color: #DBEEED !important;
 }
 .bg-18{
-  background-color: #b8e3e4  !important;
+  background-color: #B8E3E4 !important;
+}
+.bg-19{
+  background-color: #9FC3CC !important;
+}
+.bg-20{
+  background-color: #CDD7DB !important;
+}
+.bg-21{
+  background-color: #C9DFE5  !important;
+}
+.b-body {
+  background-image: url('https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-102040.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.p-body {
+  background-image: url('https://img.freepik.com/free-photo/artistic-blurry-colorful-wallpaper-background_58702-8236.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 .bg-19{
   background-color: #9fc3cc  !important;
