@@ -35,7 +35,7 @@ export default function Login(){
 					</div>
 				</div>
 			  : 
-				<div className="w-40 mt-5 h-100 b-1px">
+				<div className="w-40 mt-5 h-100 b-1px bg-22">
 					<div className={`p-3 login-title ${headerColor}`}>
 						<h5 className="m-0 color-5 pt-serif-bold">Log In to SORA</h5>
 					</div>

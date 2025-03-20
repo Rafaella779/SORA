@@ -132,6 +132,7 @@ h1 {
 .aboutUsPic {
   object-fit: cover !important;
   aspect-ratio: 1/1;
+  border-radius: 50%;
 }
 .loginBoth {
   object-fit: cover !important;
@@ -154,6 +155,7 @@ h1 {
   height: 100% !important;
   max-height: 100% !important;
   min-height: 100% !important;
+
 }
 .lohinBothCard{
   height: 100% !important;
@@ -579,13 +581,16 @@ hr {
 .bg-21{
   background-color: #C9DFE5  !important;
 }
+.bg-22{
+  background-color: #C9DFE5  !important;
+}
 .b-body {
   background-image: url('https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-102040.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid');
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 .p-body {
-  background-image: url('https://www.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_16441534.htm#fromView=image_search&page=2&position=7&uuid=a5704da9-ad85-4203-bf3e-cf6bbbf75c87');
+  background-image: url('https://img.freepik.com/free-photo/artistic-blurry-colorful-wallpaper-background_58702-8236.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid');
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }

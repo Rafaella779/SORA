@@ -20,29 +20,29 @@ export default function HomePage() {
             fetch(`${import.meta.env.VITE_BACKEND}/research/searchP1`, {
                   method: "POST",
                   headers: {
-                  	"Content-Type": "application/json",
-                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+                    "Content-Type": "application/json",
+                    "authorization": `Bearer ${localStorage.getItem('t')}`
                   },
                   body: JSON.stringify({
                        toFind: { 
                         $or: [
-							  { "title": { $regex: submit, $options: "i"} },
-							 // { "authors": { $regex: submit, $options: "i"} }
-							]
+                              { "title": { $regex: submit, $options: "i"} },
+                             // { "authors": { $regex: submit, $options: "i"} }
+                            ]
                        }
                   })
             }).then(result => result.json()).then(res => {
-            	if (res.message){
-            		setTableData("No Match Found")
-            	}
-            	else{
+                if (res.message){
+                    setTableData("No Match Found")
+                }
+                else{
                 console.log(res)
                 setiLength(res.total)
                 setTableData(res.items.map(x => {
                     return(
                           <tr onClick={() => n(`/IndividualSearchResult/${x._id}`)}>
                                 <td>{x.authors.map(y => {
-                                	return <p>{y.name}</p>
+                                    return <p>{y.name}</p>
                                 })}</td>
                                 <td>{x.title}</td>
                                 <td>{x.abstract}</td>
@@ -55,16 +55,16 @@ export default function HomePage() {
       }
 
       useEffect(() => {
-      	    if (tableData.length > 0){
-      	    fetch(`${import.meta.env.VITE_BACKEND}/research/searchP2`, {
+            if (tableData.length > 0){
+            fetch(`${import.meta.env.VITE_BACKEND}/research/searchP2`, {
                   method: "POST",
                   headers: {
-                  	"Content-Type": "application/json",
-                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+                    "Content-Type": "application/json",
+                    "authorization": `Bearer ${localStorage.getItem('t')}`
                   },
                   body: JSON.stringify({
                        toFind: {
-                       	title: { $regex: submit, $options: "i"}
+                        title: { $regex: submit, $options: "i"}
                        },
                        skip: Active
                   })
@@ -75,7 +75,7 @@ export default function HomePage() {
                     return(
                           <tr onClick={() => n(`/IndividualSearchResult/${x._id}`)}>
                                 <td>{x.authors.map(y => {
-                                	return <p>{y.name}</p>
+                                    return <p>{y.name}</p>
                                 })}</td>
                                 <td>{x.title}</td>
                                 <td>{x.abstract}</td>
@@ -89,39 +89,38 @@ export default function HomePage() {
 
       }, [Active]) 
  
-	return ( 
-		<div className="d-flex justify-content-center mnh-700">
-			<div className="p-4 p-lg-5 w-100 mw-1500 bg-18 navbar-border p-body">
-				 <div className="cinzel-decorative d-flex text-center justify-content-center">
-				 	<h1>SORA</h1>
-				 </div>
-	             
-	             <div className="h-2">
-	            	 <Form>
-	             		<Form.Group className="d-flex gap-4">
+    return ( 
+        <div className="d-flex justify-content-center mnh-700">
+            <div className="p-4 p-lg-5 w-100 mw-1500 navbar-border p-body">
+                 <div className="cinzel-decorative d-flex text-center justify-content-center">
+                    <h1>SORA</h1>
+                 </div>
+                 
+                 <div className="h-2">
+                     <Form>
+                        <Form.Group className="d-flex gap-4">
                             <Form.Control  type="Name or Author" placeholder="Enter Name or author" onChange={e => setSubmit(e.target.value)} value={submit} />
                             <Button onClick={handleSubmit}>Search</Button>
-	             		</Form.Group>
-	             	</Form>
-	           	 </div>
+                        </Form.Group>
+                    </Form>
+                 </div>
 
-	            <div className="w-100 h-2">
-	             	<Table striped bordered hover responsive>
-	             		<thead>
-	             			<tr>
-		             			<th className="pt-serif-bold">Author</th>
-		             			<th className="pt-serif-bold">Title</th>
-		             			<th className="pt-serif-bold">Abstract</th>
-		             			<th className="pt-serif-bold">Views</th>
-	             			</tr>
-	             		</thead>
-				             	<tbody>
-				             		{tableData}
-				             	</tbody>
-	            	 </Table>
-	            </div>
-			</div>
-		</div>
-		)
+                <div className="w-100 h-2">
+                    <Table striped bordered hover responsive>
+                        <thead>
+                            <tr>
+                                <th>Author</th>
+                                <th>Title</th>
+                                <th>Abstract</th>
+                                <th>Views</th>
+                            </tr>
+                        </thead>
+                                <tbody>
+                                    {tableData}
+                                </tbody>
+                     </Table>
+                </div>
+            </div>
+        </div>
+        )
 }
-			
