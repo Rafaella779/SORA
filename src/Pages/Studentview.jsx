@@ -6,20 +6,28 @@ import Swal from 'sweetalert2'
 export default function ViewPage() {
      
       const [research, setResearch] = useState([])
-      const [active, setActive] = useState([]) 
+      const [active, setActive] = useState(1) 
       const [iLength, setILength] = useState([]) 
-      const [iPerPage, setIPerPage] = useState([]) 
+      const [iPerPage, setIPerPage] = useState(10) 
       let n = useNavigate();
 
        useEffect(() => {
             fetch(`${import.meta.env.VITE_BACKEND}/research/getByUser`, {
-                  method: "GET",
+                  method: "POST",
                   headers: {
                   	"Content-Type": "application/json",
                   	"authorization": `Bearer ${localStorage.getItem('t')}`
-                  }
+                  },
+                  body: JSON.stringify({
+                  	skip: active,
+                  	iLength: iLength
+                  })
             }).then(result => result.json()).then(result => {
-                  console.log(result)
+            	console.log(result)
+                  setResearch(result.map((x, i) => {
+				return <ResearchCard title={x.title} author={x.authors.map((y, j) => {return <>({j + 1}) {y.name}; </>})} abstract={(x.abstract.length >= 200) ? `${x.abstract.substring(0, 200)}...` : x.abstract} id={x._id}/>
+			}));
+                  
             })
       }, [])
 
@@ -36,12 +44,11 @@ export default function ViewPage() {
 						<h3>Your Research</h3>
 						<Button onClick={() => {n('/upload')}}>Upload Research</Button>
 					</div>
-					<div className="d-flex w-100">
+					<div className="d-flex w-100 flex-wrap ">
 						{
-							(research.length) ? 
-								research.map((x, i) => {
-									<ResearchCard title={x.title} author={x.Authors.map(y => {return <>{y.name};</>})} abstract={abstract} id={y._id}/>
-								})
+							(research.length > 0) ? 
+								research
+								
 							:
 								<div className="bg-m-6 w-100 px-2 py-5 b-1px">
 									<h6>You haven't uploaded any research papers</h6>
@@ -60,11 +67,13 @@ export default function ViewPage() {
 function ResearchCard({author, abstract, title, id}){
 	 let n = useNavigate()
 	return(
-		<div className="b-1px bg-m-6  col-12 col-md-6 col-lg-4 " onClick={() => n('ApproveSystem')}>
-			<div className="m-1 p-1 d-flex flex-column">
-				<p className="m-0 p-0"><strong>Title:</strong> {title}</p>
-				<p className="m-0 p-0"><strong>Author:</strong> {author}</p>
-				<p className="m-0 p-0"><strong>Abstract:</strong> {abstract}</p>
+		<div className="p-1 col-12 col-md-4 col-lg-3">
+			<div className="b-1px bg-m-6 h-100 " onClick={() => n(`/IndividualSearchResult/${id}/1`)}>
+				<div className="m-1 p-1 d-flex flex-column">
+					<p className="m-0 p-0"><strong>Title:</strong> {title}</p>
+					<p className="m-0 p-0"><strong>Author:</strong> {author}</p>
+					<p className="m-0 p-0"><strong>Abstract:</strong> {abstract}</p>
+				</div>
 			</div>
 		</div>
 	)

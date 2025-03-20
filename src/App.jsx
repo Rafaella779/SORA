@@ -33,10 +33,10 @@ import  Footer from './Components/Footer.jsx'
 function App() {
   return (
     <>
-    <Routes>
+    <Routes className="mh-90 ">
       <Route path="/" element={<Navbar />}>
         <Route index element={<HomePage />} />
-        <Route path="IndividualSearchResult/:id" element={<IndividualSearchResult/>} />
+        <Route path="IndividualSearchResult/:id/:options" element={<IndividualSearchResult/>} />
         <Route path="TeacherLogin" element={<TeacherLogin/>} />
         <Route path="Rejection" element={<Rejection/>} />
         <Route path="register" element={<Register/>} />
@@ -56,7 +56,7 @@ function App() {
         <Route path="Instruction" element={<Instruction/>} />
         <Route path="teacher" >
           <Route index element={<DashboardTeacher/>} />  
-          <Route path="inbox" element={<Inbox/>} />                                                                                           >
+          <Route path="inbox" element={<Inbox/>} />                                                                                           
           <Route path="ApproveSystem" element={<ApproveSystem/>} />
         </Route>
         <Route path="student" >
