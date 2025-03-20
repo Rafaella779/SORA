@@ -17,8 +17,8 @@ import { Outlet, useNavigate} from 'react-router'
 	          <Nav.Link  onClick={() => n('/AboutUs')} >About Us</Nav.Link>
 	          <Nav.Link  onClick={() => n('/ContactUs')} >Contact Us</Nav.Link>
 	        </div>
-	        <div className="d-flex align-items-center col flex-column">
-	          <h5 className="d-flex justify-content-center pt-serif-bold f-20">Contact Us</h5>
+	        <div className="d-flex align-items-center col gap-0 flex-column">
+	          <h5 className="d-flex justify-content-center pt-serif-bold">Contact Us</h5>
 	          <p>gillydecastro@gmail.com</p>
 	          <p>09634112627</p>
 	          <p>Gilly Jean De Castro</p>
