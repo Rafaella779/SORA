@@ -22,7 +22,7 @@ import { Outlet, useNavigate} from 'react-router'
 	          <p>gillydecastro@gmail.com</p>
 	          <p>09634112627</p>
 	          <p>Gilly Jean De Castro</p>
-	          <h1>hdfwauth</h1>>
+	          <p>Tublijon Juban Sorsogon</p>
 	        </div>
 	    </div>
 	    <div className="d-flex bg-19 line justify-content-center b-body">
