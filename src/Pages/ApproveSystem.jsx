@@ -52,7 +52,7 @@ export default function ApproveSystem() {
 	}
 
 	return ( 
-		<div className="d-flex w-100 col-12 p-4 flex-column flex-lg-row">
+		<div className="d-flex w-100 col-12 p-4 flex-column flex-lg-row p-body mnh-700 navbar-border">
 			<iframe src="https://drive.google.com/file/d/12ccdaqZI85O4m7-JvkCjrTvq6_m73nnJ/preview" className="w-100 mnh-500  d-flex flex-column" allow="autoplay"></iframe>
 			<div className="b-1px d-flex flex-column col-lg-5 p-4">
 				<h4 className="pt-serif-bold">Feedback</h4>
