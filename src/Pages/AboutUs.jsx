@@ -11,9 +11,9 @@ export default function AboutUs() {
 	return ( 
 		<div className="d-flex justify-content-center p-4 mnh-700 navbar-border p-body">
 			<div className="mw-1200">
-				<h1 className="d-flex justify-content-center align-items-center pt-serif-bold">About Us</h1>
+				<h3 className="d-flex justify-content-center align-items-center pt-serif-bold f-30">About us</h3>
 				<div className="d-flex flex-column p-3">
-					<h2 className="d-flex pt-serif-bold">Meet The Team</h2>
+					<h4 className="d-flex pt-serif-bold f-20">Meet The Team</h4>
 					<p className="light text-center"><strong>Once upon a time in a school named Juban National High School, there were 5 students namely Leisha, 
 					 Rean, Gilly, Jobert, and Rafaella. One day they happen to face a problem in a subject called Research.
 					 They needed a research topic, each member gave problems that should have a solution. One problem stood out the most, it is a problem 
@@ -43,7 +43,7 @@ export default function AboutUs() {
 
 function StudentCard({picLink, name, description}){
 	return(<div className="p-1 m-0 col-6 col-md-4 col-lg-2">
-		<div className="	 m-0 p-0 d-flex align-items-center aboutUsCard flex-column h-auto ">
+		<div className=" m-0 p-0 d-flex align-items-center aboutUsCard flex-column h-auto ">
 			<div className="d-flex">
 				<img src={picLink} alt="" className="aboutUsPic w-100 " />
 			</div>

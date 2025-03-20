@@ -53,8 +53,10 @@ export default function ContactUs() {
 		})
 	}
 	return (
-		<div className="d-flex justify-content-center navbar-border p-3 p-body">
-			<div className="mw-1200 d-flex flex-column w-100">
+
+		<div className="d-flex justify-content-center p-3 p-body navbar-border">
+			<div className="mw-1200 d-flex flex-column w-100 mnh-700">
+
 				<div className="d-flex flex-column w-100 p-3 p-xl-0">
 					
 						<h1 className=" pt-serif-bold ">Contact us</h1>
@@ -130,4 +132,3 @@ function StudentCard({picLink, name, item}){
 		</div>
 	)
 }
-	
