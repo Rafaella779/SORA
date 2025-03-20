@@ -2,13 +2,15 @@ import React, {useState, useEffect, useContext} from 'react'
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 import Swal from 'sweetalert2'
+import Paginate from '../Components/Pagination.jsx'
 
 export default function ViewPage() {
      
       const [research, setResearch] = useState([])
       const [active, setActive] = useState(1) 
-      const [iLength, setILength] = useState([]) 
-      const [iPerPage, setIPerPage] = useState(10) 
+      const [iLength, setILength] = useState(0) 
+      const [iPerPage, setIPerPage] = useState(10)
+      const [a, setA] = useState(false) // first render for fetching pagination
       let n = useNavigate();
 
        useEffect(() => {
@@ -19,17 +21,22 @@ export default function ViewPage() {
                   	"authorization": `Bearer ${localStorage.getItem('t')}`
                   },
                   body: JSON.stringify({
-                  	skip: active,
-                  	iLength: iLength
+                  	skip: (active - 1) * 10,
+                  	a: a
                   })
             }).then(result => result.json()).then(result => {
             	console.log(result)
-                  setResearch(result.map((x, i) => {
+            	if(!a) {
+            		setILength(result.total);
+            		setA(true)
+            	}
+            	
+                  setResearch(result.items.map((x, i) => {
 				return <ResearchCard title={x.title} author={x.authors.map((y, j) => {return <>({j + 1}) {y.name}; </>})} abstract={(x.abstract.length >= 200) ? `${x.abstract.substring(0, 200)}...` : x.abstract} id={x._id}/>
 			}));
                   
             })
-      }, [])
+      }, [active])
 
 
 
@@ -44,19 +51,32 @@ export default function ViewPage() {
 						<h3>Your Research</h3>
 						<Button onClick={() => {n('/upload')}}>Upload Research</Button>
 					</div>
-					<div className="d-flex w-100 flex-wrap ">
+					<div className="d-flex flex-column w-100">
 						{
-							(research.length > 0) ? 
-								research
+							(a && iLength)
+							? <Paginate active={active} setActive={setActive} iPerPage={iPerPage} iLength={iLength}/>
+							: <></>
+						}
+						<div className="d-flex flex w-100 flex-wrap ">
+
+							{
+								(research.length > 0) ? 
+									research
+									
+								:
+									<div className="bg-m-6 w-100 px-2 py-5 b-1px">
+										<h6>You haven't uploaded any research papers</h6>
+									</div>
 								
-							:
-								<div className="bg-m-6 w-100 px-2 py-5 b-1px">
-									<h6>You haven't uploaded any research papers</h6>
-								</div>
-							
+							}
+						</div>
+						{
+							(a && iLength)
+							? <Paginate active={active} setActive={setActive} iPerPage={iPerPage} iLength={iLength}/>
+							: <></>
 						}
 					</div>
-		        	
+			        	
 			    </div>
 		    </div>
 		</div>
@@ -64,6 +84,7 @@ export default function ViewPage() {
 		)
 }
 
+			         	
 function ResearchCard({author, abstract, title, id}){
 	 let n = useNavigate()
 	return(
@@ -81,6 +102,5 @@ function ResearchCard({author, abstract, title, id}){
 
 			
 		
-			         	
 		     
 		

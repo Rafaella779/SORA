@@ -2,6 +2,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router'
 import Swal from 'sweetalert2'
+import Paginate from "../Components/Pagination.jsx"
 
 export default function ViewPage() {
      
@@ -38,7 +39,7 @@ export default function ViewPage() {
 				
 		        <div className="d-flex flex-column gap-2 b-1px p-3 w-100">
 		        	<div className="d-flex w-100 justify-content-between">
-						<h3>Your Research</h3>
+						<h3>My Research</h3>
 						<Button onClick={() => {n('/upload')}}>Add</Button>
 					</div>
 					<div className="d-flex w-100">
