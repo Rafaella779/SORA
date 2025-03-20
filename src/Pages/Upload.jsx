@@ -10,8 +10,7 @@ export default function Upload() {
 		const [authors, setauthors] = useState("")
 		const [authorsUser, setauthorsUser] = useState("")
 		const [authorsTeacher, setauthorsTeacher] = useState("")
-		
-		const [authorsArray, setauthorsArray] = useState([{name: localStorage.getItem('n'), i: localStorage.getItem('i'), u: (localStorage.getItem('utype') == "student") ? "user" : "Teacher"}])
+		const [authorsArray, setauthorsArray] = useState([{name: localStorage.getItem('n'), i: localStorage.getItem('i'), u: (localStorage.getItem('utype') == "student") ? "user" : "teacher"}])
 		const [authorsEmail, setAuthorsEmail] = useState("")
 		const [noAuthor, setNoAuthor] = useState(false);
 		const [id, setid] = useState("")

@@ -52,11 +52,12 @@ function App() {
         <Route path="ApplyApproveTeacher" element={<ApplyApproveTeacher/>} />
         <Route path="StudentLogin" element={<StudentLogin/>} />
         <Route path="ContactUs" element={<ContactUs/>} />
-        <Route index element={<ViewPage/>} />
+        
         <Route path="Instruction" element={<Instruction/>} />
         <Route path="teacher" >
           <Route index element={<DashboardTeacher/>} />  
           <Route path="inbox" element={<Inbox/>} />                                                                                           
+          <Route path="myResearch" element={<ViewPage/>} />                                                                                           
           <Route path="ApproveSystem" element={<ApproveSystem/>} />
         </Route>
         <Route path="student" >
