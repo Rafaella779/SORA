@@ -38,6 +38,10 @@ h1 {
   color: deepskyblue;
 }
 
+.color-red {
+  color: red;
+}
+
 .h-150 {
   height: 150px !important;
 }
