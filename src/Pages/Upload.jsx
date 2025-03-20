@@ -223,7 +223,7 @@ useEffect(() => {}, [])
   	const handleShow = () => setShow(true);
 
 return(
-		<div className="w-100 d-flex justify-content-center">
+		<div className="w-100 d-flex justify-content-center p-body navbar-border mnh-700">
 
 			<Form className=" d-flex justify-content-center flex-column w-100 mw-1000">
 				

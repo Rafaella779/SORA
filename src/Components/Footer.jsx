@@ -5,11 +5,11 @@ import { Outlet, useNavigate} from 'react-router'
 
   let n = useNavigate()
   return(
-    <div className="align-items-end bg-17 flex-column">
-	      <div className="d-flex p-2 flex-column flex-lg-row p-body">
-	        <div className="d-flex col align-items-center flex-column">
-	          <h5 className="d-flex cinzel-decorative f-30"><strong>SORA</strong></h5>
-	          <p className="text-center">SORA provides a simple way to broadly search for local literature. Search across a wide variety of disciplines and sources.</p>
+    <div className="align-items-end min-height flex-lg-row ">
+	      <div className="d-flex p-2 ">
+	        <div className="d-flex col align-items-center flex-column gap-0">
+	          <h5 className="d-flex cinzel-decorative"><strong>SORA</strong></h5>
+	          <p>SORA provides a simple way to broadly search for local literature. Search across a wide variety of disciplines and sources.</p>
 	        </div>
 	        <div className="d-flex align-items-center col flex-column">
 	          <h5 className="d-flex justify-content-center  pt-serif-bold f-20">Useful Links</h5>
@@ -22,10 +22,10 @@ import { Outlet, useNavigate} from 'react-router'
 	          <p>gillydecastro@gmail.com</p>
 	          <p>09634112627</p>
 	          <p>Gilly Jean De Castro</p>
-	          <h1>hdfwauth</h1>>
+	          <p>Tublijon Juban Sorsogon</p>
 	        </div>
 	    </div>
-	    <div className="d-flex bg-19 line justify-content-center b-body">
+	    <div className="d-flex line justify-content-center">
 	           <h6 className="pt-serif-bold ">Copyright 2024-2025</h6>
 	        </div>
     </div>
