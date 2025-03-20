@@ -70,8 +70,8 @@ export default function IndividualSearchResult() {
       }
 
       return (
-      <div className="p-3">
-            <div className="justify-content-center d-flex mt-md-4 ">
+      <div className="p-3 p-body navbar-border">
+            <div className="justify-content-center d-flex mt-md-4">
                   <div className="b-1px col p-4 w-100 mw-1000">
                         <h1 class="light p-0 d m-0"><strong></strong> {title}</h1>
                         <h6 class="light p-0  m-0"><strong>Author: </strong>{Authors.map(x => {return <>{x.name};</>})}</h6>

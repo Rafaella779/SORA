@@ -134,10 +134,12 @@ export default function HomePage() {
 	             	<Table striped  hover responsive className=" b-1px">
 	             		<thead>
 	             			<tr>
-		             			<th className="col col-lg-2">Author</th>
-		             			<th className="col col-lg-2">Title</th>
-		             			<th className="col col-lg-7">Abstract</th>
-		             			<th className="col col-lg-1">Views</th>
+
+		             			<th className="col col-lg-2 pt-serif-bold">Author</th>
+		             			<th className="col col-lg-2 pt-serif-bold">Title</th>
+		             			<th className="col col-lg-7 pt-serif-bold">Abstract</th>
+		             			<th className="col col-lg-1 pt-serif-bold">Views</th>
+
 	             			</tr>
 	             		</thead>
 				             	<tbody>

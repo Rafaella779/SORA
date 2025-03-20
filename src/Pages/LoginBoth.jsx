@@ -20,7 +20,7 @@ export default function Login(){
 	}
 
 	return(
-		<div className="d-flex gap-lg-5 justify-content-center align-items-center pt-serif-bold flex-column flex-lg-row p-5 m-3 flex-lg-row">
+		<div className="d-flex gap-lg-5 justify-content-center align-items-center p-body pt-serif-bold flex-column flex-lg-row mnh-700 navbar-border m-0 flex-lg-row">
 			<div className="d-flex justify-content-center flex-column mw-300">
 				<img src="https://img.freepik.com/premium-vector/man-sits-front-phone-that-says-logitech_1314854-10316.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid"/>
 			</div>
@@ -223,4 +223,3 @@ function StudentLogin() {
 	
 		)
 }
-
