@@ -26,7 +26,10 @@ export default function IndividualSearchResult() {
       const [info, setInfo] = useState("") 
       let params = useParams()
 
+      const [options, setOptions] = useState(params.options) // this is used for the view 0 - new View, 1 - invalid view because it is my work
+      
       useEffect(() => {
+            console.log("options", options)
             fetch(`${import.meta.env.VITE_BACKEND}/research/getIndividual`, {
                   method: "POST",
                   headers: {
@@ -37,7 +40,7 @@ export default function IndividualSearchResult() {
                        toFind: {
                         _id: params.id
                        },
-                       options: localStorage.getItem('i')
+                       options: options
                   })
             }).then(result => result.json()).then(res => {
                   console.log(res)
@@ -58,6 +61,7 @@ export default function IndividualSearchResult() {
                   setUpdatedAt(res.updatedAt)
                   setView(res.view)
                   setId(res._id)
+                  
             })
       }, [])
       
@@ -71,22 +75,25 @@ export default function IndividualSearchResult() {
                   <div className="b-1px col p-4 w-100 mw-1000">
                         <h1 class="light p-0 d m-0"><strong></strong> {title}</h1>
                         <h6 class="light p-0  m-0"><strong>Author: </strong>{Authors.map(x => {return <>{x.name};</>})}</h6>
+                        <p class="light p-0  m-0"><strong>Id:</strong> {id}</p>
+                        <p class="light p-0  m-0"><strong>Created At:</strong> {createdAt}</p>
+                        <p class="light p-0  m-0"><strong>Date Modified:</strong> {dateModified}</p>        
                         <hr />
                         <p class="light p-0  m-0"><strong>Abstract:</strong> {abstract }</p>
-                        <p class="light p-0  m-0"><strong>Approval Request Date:</strong> {approvalrequestDate}</p>
+                        {
+                              //<p class="light p-0  m-0"><strong>Approval Request Date:</strong> {approvalrequestDate}</p>
+                        }
                         <p class="light p-0  m-0"><strong>Approvals Count:</strong> {approvalsCount}</p>
-                        <p class="light p-0  m-0"><strong>Cite:</strong> {cite}</p>
-                        <p class="light p-0  m-0"><strong>Created At:</strong> {createdAt}</p>
-                        <p class="light p-0  m-0"><strong>Date Modified:</strong> {dateModified}</p>
                         <p class="light p-0  m-0"><strong>Is Approved By School:</strong> {isApprovedBySchool}</p>
-                        <p class="light p-0  m-0"><strong>Is Published:</strong> {isPublished}</p>
+                        <p class="light p-0  m-0"><strong>Is Published:</strong> {(isPublished) ? isPublished : <>False</>}</p>
                         <p class="light p-0  m-0 text-break"><strong>Link:</strong> <a href={link}>{link}</a></p>
-                        <p class="light p-0  m-0"><strong>Ratings:</strong> {ratings}</p>
                         <p class="light p-0  m-0"><strong>Rejection Count:</strong> {rejectionCount}</p>
                         <p class="light p-0  m-0"><strong>Research Status:</strong> {researchStatus}</p>
                         <p class="light p-0  m-0"><strong>Updated At:</strong> {updatedAt}</p>
+                        <p class="light p-0  m-0"><strong>Ratings:</strong> {ratings}</p>                        
                         <p class="light p-0  m-0"><strong>Views:</strong> {view}</p>
-                        <p class="light p-0  m-0"><strong>Id:</strong> {id}</p>
+                        <p class="light p-0  m-0"><strong>Cite:</strong> {cite}</p>
+
                   </div>
             </div>
       </div>

@@ -39,13 +39,21 @@ export default function HomePage() {
                 console.log(res)
                 setiLength(res.total)
                 setTableData(res.items.map(x => {
+                    let options = 0;
+                    for (let i = 0; i < x.authors.length; i++) {
+                        console.log("array authors", x.authors[i].i)
+                        if (localStorage.getItem('i') && localStorage.getItem('i') ==  x.authors[i]._id) {
+                            console.log("checking options")
+                            options = 1
+                        }
+                    }
                     return(
-                          <tr onClick={() => n(`/IndividualSearchResult/${x._id}`)}>
-                                <td>{x.authors.map(y => {
-                                	return <p>{y.name}</p>
-                                })}</td>
+                          <tr onClick={() => n(`/IndividualSearchResult/${x._id}/${options}`)}>
+                                <td><ol>{x.authors.map((y, i) => {
+                                	return <li>{`${y.name}`}</li>
+                                })}</ol></td>
                                 <td>{x.title}</td>
-                                <td>{x.abstract}</td>
+                                <td>{(x.abstract.length >= 200) ? `${x.abstract.substring(0, 200)}...` : x.abstract}</td>
                                 <td>{x.view}</td>
                           </tr>
                     )
@@ -70,10 +78,18 @@ export default function HomePage() {
                   })
             }).then(result => result.json()).then(res => {
                 
-                console.log(res)
+                console.log(res);
+                
                 setTableData(res.map(x => {
+                    let options = 0;
+                    for (let i = 0; i < x.authors.length; i++) {
+                        if (localStorage.getItem('i') ==  x.authors[i].i) {
+                            options = 1
+                        }
+                     }
+
                     return(
-                          <tr onClick={() => n(`/IndividualSearchResult/${x._id}`)}>
+                          <tr onClick={() => n(`/IndividualSearchResult/${x._id}/${options}`)}>
                                 <td>{x.authors.map(y => {
                                 	return <p>{y.name}</p>
                                 })}</td>
@@ -97,7 +113,11 @@ export default function HomePage() {
 				 </div>
 	             
 	             <div className="h-2">
-	            	 <Form>
+	            	 <Form onSubmit={(e) => {
+                        e.preventDefault();
+                        console.log("submitting form")
+                        handleSubmit();
+                    }}>
 	             		<Form.Group className="d-flex gap-4">
                             <Form.Control  type="Name or Author" placeholder="Enter Name or author" onChange={e => setSubmit(e.target.value)} value={submit} />
                             <Button onClick={handleSubmit}>Search</Button>
@@ -105,14 +125,19 @@ export default function HomePage() {
 	             	</Form>
 	           	 </div>
 
-	            <div className="w-100 h-2">
-	             	<Table striped bordered hover responsive>
+                {
+                    (iLength > 0) ? 
+                    <Paginate active={Active} iLength={iLength} iPerPage={iPerPage} setActive={setActive} /> 
+                    : <></>
+                }
+	            <div className="w-100 mb-3 b-1px">
+	             	<Table striped  hover responsive className=" b-1px">
 	             		<thead>
 	             			<tr>
-		             			<th>Author</th>
-		             			<th>Title</th>
-		             			<th>Abstract</th>
-		             			<th>Views</th>
+		             			<th className="col col-lg-2">Author</th>
+		             			<th className="col col-lg-2">Title</th>
+		             			<th className="col col-lg-7">Abstract</th>
+		             			<th className="col col-lg-1">Views</th>
 	             			</tr>
 	             		</thead>
 				             	<tbody>
@@ -120,6 +145,11 @@ export default function HomePage() {
 				             	</tbody>
 	            	 </Table>
 	            </div>
+                {
+                    (iLength > 0) ? 
+                    <Paginate active={Active} iLength={iLength} iPerPage={iPerPage} setActive={setActive} /> 
+                    : <></>
+                }
 			</div>
 		</div>
 		)

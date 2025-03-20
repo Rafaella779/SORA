@@ -68,7 +68,7 @@ function ResearchCard({author, abstract, title, id}){
 	 let n = useNavigate()
 	return(
 		<div className="p-1 col-12 col-md-4 col-lg-3">
-			<div className="b-1px bg-m-6 h-100 " onClick={() => n(`/IndividualSearchResult/${id}`)}>
+			<div className="b-1px bg-m-6 h-100 " onClick={() => n(`/IndividualSearchResult/${id}/1`)}>
 				<div className="m-1 p-1 d-flex flex-column">
 					<p className="m-0 p-0"><strong>Title:</strong> {title}</p>
 					<p className="m-0 p-0"><strong>Author:</strong> {author}</p>

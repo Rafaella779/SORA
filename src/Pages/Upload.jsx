@@ -40,12 +40,12 @@ export default function Upload() {
 				keywords: keywords.split("; "),
 				abstract: abstract,
 				category: category,
-				link: link.replace("/view?usp=drive_link", ""),
+				link: link,
 				isApprovedBySchool: isApprovedBySchool,
 				whoPaneled: whoPaneledArray,
 				title: title,
 				documentLink: documentLink,
-				uploaderID	
+
 			})
 		}).then(result => result.json()).then(result => {
 			if(result.error){
