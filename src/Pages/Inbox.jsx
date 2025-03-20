@@ -63,7 +63,7 @@ export default function Inbox() {
 
 return (
 
-	<div className="d-flex p-4 h-1000 flex-lg-row">
+	<div className="d-flex p-4 h-1000 flex-lg-row p-body mnh-700 navbar-border">
 	
 
 		<div className="col-2 b-form1">
