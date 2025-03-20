@@ -6,7 +6,7 @@ export default function MyNavbar(){
 	let n = useNavigate()
 	return(
 		<>
-			<Navbar expand="lg" className="navbar-border bg-17">
+			<Navbar expand="lg" className="navbar-border">
 				<Container fluid>
 					<Navbar.Brand onClick={() => n('/')} className="cinzel-decorative">SORA</Navbar.Brand>
 					<Navbar.Toggle aria-controls="navbarScroll" />

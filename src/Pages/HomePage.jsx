@@ -20,22 +20,22 @@ export default function HomePage() {
             fetch(`${import.meta.env.VITE_BACKEND}/research/searchP1`, {
                   method: "POST",
                   headers: {
-                  	"Content-Type": "application/json",
-                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+                    "Content-Type": "application/json",
+                    "authorization": `Bearer ${localStorage.getItem('t')}`
                   },
                   body: JSON.stringify({
                        toFind: { 
                         $or: [
-							  { "title": { $regex: submit, $options: "i"} },
-							 // { "authors": { $regex: submit, $options: "i"} }
-							]
+                              { "title": { $regex: submit, $options: "i"} },
+                             // { "authors": { $regex: submit, $options: "i"} }
+                            ]
                        }
                   })
             }).then(result => result.json()).then(res => {
-            	if (res.message){
-            		setTableData("No Match Found")
-            	}
-            	else{
+                if (res.message){
+                    setTableData("No Match Found")
+                }
+                else{
                 console.log(res)
                 setiLength(res.total)
                 setTableData(res.items.map(x => {
@@ -63,16 +63,16 @@ export default function HomePage() {
       }
 
       useEffect(() => {
-      	    if (tableData.length > 0){
-      	    fetch(`${import.meta.env.VITE_BACKEND}/research/searchP2`, {
+            if (tableData.length > 0){
+            fetch(`${import.meta.env.VITE_BACKEND}/research/searchP2`, {
                   method: "POST",
                   headers: {
-                  	"Content-Type": "application/json",
-                  	"authorization": `Bearer ${localStorage.getItem('t')}`
+                    "Content-Type": "application/json",
+                    "authorization": `Bearer ${localStorage.getItem('t')}`
                   },
                   body: JSON.stringify({
                        toFind: {
-                       	title: { $regex: submit, $options: "i"}
+                        title: { $regex: submit, $options: "i"}
                        },
                        skip: Active
                   })
@@ -91,7 +91,7 @@ export default function HomePage() {
                     return(
                           <tr onClick={() => n(`/IndividualSearchResult/${x._id}/${options}`)}>
                                 <td>{x.authors.map(y => {
-                                	return <p>{y.name}</p>
+                                    return <p>{y.name}</p>
                                 })}</td>
                                 <td>{x.title}</td>
                                 <td>{x.abstract}</td>
@@ -121,9 +121,9 @@ export default function HomePage() {
 	             		<Form.Group className="d-flex gap-4">
                             <Form.Control  type="Name or Author" placeholder="Enter Name or author" onChange={e => setSubmit(e.target.value)} value={submit} />
                             <Button onClick={handleSubmit}>Search</Button>
-	             		</Form.Group>
-	             	</Form>
-	           	 </div>
+                        </Form.Group>
+                    </Form>
+                 </div>
 
                 {
                     (iLength > 0) ? 
@@ -156,4 +156,3 @@ export default function HomePage() {
 		</div>
 		)
 }
-			

@@ -35,7 +35,7 @@ export default function Register() {
 						</div>
 					</div>
 					: 
-					<div className="mt-5 h-100 b-1px w-100 mw-400">
+					<div className="mt-5 h-100 b-1px w-100 mw-400 bg-22">
 						<div className={`p-3 login-title ${headerColor}`}>
 							<h5 className="m-0 color-5 pt-serif-bold">Register</h5>
 						</div>
