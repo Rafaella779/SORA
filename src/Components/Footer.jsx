@@ -12,7 +12,7 @@ import { Outlet, useNavigate} from 'react-router'
 	          <p>SORA provides a simple way to broadly search for local literature. Search across a wide variety of disciplines and sources.</p>
 	        </div>
 	        <div className="d-flex align-items-center col flex-column">
-	          <h5 className="d-flex justify-content-center  pt-serif-bold">Useful Links</h5>
+	          <h5 className="d-flex justify-content-center  pt-serif-bold f-20">Useful Links</h5>
 	          <Nav.Link  onClick={() => n('/')} >Home</Nav.Link>
 	          <Nav.Link  onClick={() => n('/AboutUs')} >About Us</Nav.Link>
 	          <Nav.Link  onClick={() => n('/ContactUs')} >Contact Us</Nav.Link>
@@ -25,7 +25,7 @@ import { Outlet, useNavigate} from 'react-router'
 	          <p>Tublijon Juban Sorsogon</p>
 	        </div>
 	    </div>
-	        <div className="d-flex bg-19 line gap-0 justify-content-center">
+	    <div className="d-flex bg-19 line justify-content-center b-body">
 	           <h6 className="pt-serif-bold ">Copyright 2024-2025</h6>
 	        </div>
     </div>

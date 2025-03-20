@@ -138,7 +138,7 @@ h1 {
   aspect-ratio: 1/1;
 }
 
-.btn-primary {
+.btn-primary {  
   background-color: royalblue !important;
   border: 0px solid transparent !important;
 }
@@ -585,6 +585,11 @@ hr {
 }
 .p-body {
   background-image: url('https://img.freepik.com/free-photo/artistic-blurry-colorful-wallpaper-background_58702-8236.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.t-body {
+  background-image: url('https://img.freepik.com/free-vector/funeral-ceremony_23-2148004761.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid');
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
