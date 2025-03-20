@@ -5,8 +5,8 @@ import { Outlet, useNavigate} from 'react-router'
 
   let n = useNavigate()
   return(
-    <div className="align-items-end bg-17 flex-column b-body">
-	      <div className="d-flex p-2 flex-column flex-lg-row t-body">
+    <div className="align-items-end bg-17 flex-column">
+	      <div className="d-flex p-2 flex-column flex-lg-row p-body">
 	        <div className="d-flex col align-items-center flex-column">
 	          <h5 className="d-flex cinzel-decorative f-30"><strong>SORA</strong></h5>
 	          <p className="text-center">SORA provides a simple way to broadly search for local literature. Search across a wide variety of disciplines and sources.</p>
