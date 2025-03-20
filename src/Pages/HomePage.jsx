@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext } from 'react'
-import {Form, ButtonGroup, SplitButton, Button, Table } from 'react-bootstrap'
+import {Form, ButtonGroup, SplitButton, Button, Table, Card } from 'react-bootstrap'
 import {useNavigate} from 'react-router'
 import Swal from 'sweetalert2'
 import Paginate from '../Components/Pagination.jsx'
@@ -15,6 +15,7 @@ export default function HomePage() {
       const [Active, setActive] = useState(1) 
       const [iLength, setiLength] = useState("") 
       const [iPerPage, setiPerPage] = useState(10) 
+      const [research, setResearch] = useState([])
       let n = useNavigate()
       const handleSubmit = () => {
             fetch(`${import.meta.env.VITE_BACKEND}/research/searchP1`, {
@@ -32,6 +33,7 @@ export default function HomePage() {
                        }
                   })
             }).then(result => result.json()).then(res => {
+
                 if (res.message){
                     setTableData("No Match Found")
                 }
@@ -57,6 +59,7 @@ export default function HomePage() {
                                 <td>{x.view}</td>
                           </tr>
                     )
+
                   })
                 )}      
             })
@@ -104,6 +107,26 @@ export default function HomePage() {
       }
 
       }, [Active]) 
+
+       useEffect(() => {
+            fetch(`${import.meta.env.VITE_BACKEND}/research/searchP2`, {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "authorization": `Bearer ${localStorage.getItem('t')}`
+                  },
+                  body: JSON.stringify({
+                    skip: Active,
+                    iLength: iLength
+                  })
+            }).then(result => result.json()).then(result => {
+                console.log(result)
+                  setResearch(result.map((x, i) => {
+                return  <ResultCard title={x.title} author={x.authors.map((y, j) => {return <>({j + 1}) {y.name}; </>})} abstract={(x.abstract.length >= 200) ? `${x.abstract.substring(0, 200)}...` : x.abstract} id={x._id}/>
+            }));
+                  
+            })
+      }, [])
  
 	return ( 
 		<div className="d-flex justify-content-center mnh-700">
@@ -120,7 +143,7 @@ export default function HomePage() {
                     }}>
 	             		<Form.Group className="d-flex gap-4">
                             <Form.Control  type="Name or Author" placeholder="Enter Name or author" onChange={e => setSubmit(e.target.value)} value={submit} />
-                            <Button onClick={handleSubmit}>Search</Button>
+                            <Button onClick={handleSubmit}>Search</Button> 
                         </Form.Group>
                     </Form>
                  </div>
@@ -130,23 +153,34 @@ export default function HomePage() {
                     <Paginate active={Active} iLength={iLength} iPerPage={iPerPage} setActive={setActive} /> 
                     : <></>
                 }
-	            <div className="w-100 mb-3 b-1px">
-	             	<Table striped  hover responsive className=" b-1px">
-	             		<thead>
-	             			<tr>
+	            
+                <div className="d-flex w-100 flex-wrap ">
+                        {
+                            (research.length > 0) ? 
+                                research
+                                
+                            :
+                                <div className="w-100 mb-3 b-1px">
+                    <Table striped  hover responsive className=" b-1px">
+                        <thead>
+                            <tr>
 
-		             			<th className="col col-lg-2 pt-serif-bold">Author</th>
-		             			<th className="col col-lg-2 pt-serif-bold">Title</th>
-		             			<th className="col col-lg-7 pt-serif-bold">Abstract</th>
-		             			<th className="col col-lg-1 pt-serif-bold">Views</th>
+                                <th className="col col-lg-2 pt-serif-bold">Author</th>
+                                <th className="col col-lg-2 pt-serif-bold">Title</th>
+                                <th className="col col-lg-7 pt-serif-bold">Abstract</th>
+                                <th className="col col-lg-1 pt-serif-bold">Views</th>
 
-	             			</tr>
-	             		</thead>
-				             	<tbody>
-				             		{tableData}
-				             	</tbody>
-	            	 </Table>
-	            </div>
+                            </tr>
+                        </thead>
+                                <tbody>
+                                    {tableData}
+                                </tbody>
+                     </Table>
+                </div>
+                            
+                        }
+                    </div>
+
                 {
                     (iLength > 0) ? 
                     <Paginate active={Active} iLength={iLength} iPerPage={iPerPage} setActive={setActive} /> 
@@ -156,3 +190,19 @@ export default function HomePage() {
 		</div>
 		)
 }
+
+function ResultCard({author, abstract, title, view}){
+
+    return(
+        <div className="p-1 col-12 col-md-4 col-lg-3">
+            <div className="b-1px bg-m-6 h-100 " onClick={() => n(`/IndividualSearchResult/${id}/1`)}>
+                <div className="m-1 p-1 d-flex flex-column">
+                    <p className="m-0 p-0"><strong>Title:</strong> {title}</p>
+                    <p className="m-0 p-0"><strong>Author:</strong> {author}</p>
+                    <p className="m-0 p-0"><strong>Abstract:</strong> {abstract}</p>
+                </div>
+            </div>
+        </div>
+    )
+}
+
