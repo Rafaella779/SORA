@@ -53,7 +53,7 @@ export default function ContactUs() {
 		})
 	}
 	return (
-		<div className="d-flex justify-content-center p-3">
+		<div className="d-flex justify-content-center p-3 p-body">
 			<div className="mw-1200 d-flex flex-column w-100">
 				<div className="d-flex flex-column w-100 p-3 p-xl-0">
 					

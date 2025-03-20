@@ -317,9 +317,11 @@ useEffect(() => {}, [])
 
 return(
 		<div className="w-100 d-flex justify-content-center">
+
 			<Form className=" d-flex justify-content-center flex-column w-100 mw-1000">
 				
 				{(page == 1 ? p1() : p2())}
+        
 				<div className="d-flex mt-3 m-1 p-2 gap-1 justify-content-end">
 					{(page == 1) ? <></> : <Button onClick={handlePrev}>Previous</Button>}
 					{(page == 2) ? <></> : <Button onClick={handleNext}>Next</Button>}
@@ -351,6 +353,7 @@ return(
 						<p>Users must provide accurate personal and academic details upon registration.
 
 						</p>
+						
 
 
 						<p>Teachers</p>
@@ -446,14 +449,6 @@ return(
 						</p>
 
 						</div>
-
-
-
-
-
-
-
-
 				      </Modal.Body>
 				      <Modal.Footer>
 				        <Button variant="secondary" onClick={handleClose}>
