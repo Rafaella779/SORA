@@ -109,10 +109,10 @@ export default function HomePage() {
 	             	<Table striped bordered hover responsive>
 	             		<thead>
 	             			<tr>
-		             			<th>Author</th>
-		             			<th>Title</th>
-		             			<th>Abstract</th>
-		             			<th>Views</th>
+		             			<th className="pt-serif-bold">Author</th>
+		             			<th className="pt-serif-bold">Title</th>
+		             			<th className="pt-serif-bold">Abstract</th>
+		             			<th className="pt-serif-bold">Views</th>
 	             			</tr>
 	             		</thead>
 				             	<tbody>

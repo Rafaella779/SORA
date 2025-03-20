@@ -138,13 +138,14 @@ h1 {
   aspect-ratio: 1/1;
 }
 
-.btn-primary {
+
+.btn-primary {  
   background-color: royalblue !important;
   border: 0px solid transparent !important;
 }
 
 .ratings-button{
-  background-color: lightpink !important;
+  background-color: lightblue !important;
   color: black !important;
 }
   
@@ -584,7 +585,7 @@ hr {
   background-size: 100% 100%;
 }
 .p-body {
-  background-image: url('https://img.freepik.com/free-photo/artistic-blurry-colorful-wallpaper-background_58702-8236.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid');
+  background-image: url('https://www.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_16441534.htm#fromView=image_search&page=2&position=7&uuid=a5704da9-ad85-4203-bf3e-cf6bbbf75c87');
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -613,4 +614,8 @@ hr {
 }
 .min-height{
   min-height: 10px !important;
+}
+.div {
+  text-align: justify;
+  text-justify: inter-word;
 }
