@@ -138,13 +138,13 @@ h1 {
   aspect-ratio: 1/1;
 }
 
-.btn-primary {
-  background-color: mediumpurple !important;
+.btn-primary {  
+  background-color: royalblue !important;
   border: 0px solid transparent !important;
 }
 
 .ratings-button{
-  background-color: lightpink !important;
+  background-color: lightblue !important;
   color: black !important;
 }
   
@@ -588,6 +588,11 @@ hr {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
+.t-body {
+  background-image: url('https://img.freepik.com/free-vector/funeral-ceremony_23-2148004761.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
 .bg-19{
   background-color: #9fc3cc  !important;
 }
@@ -609,7 +614,7 @@ hr {
 .min-height{
   min-height: 10px !important;
 }
- 
- .t-orange{
-  text-decoration-color: orange;
- }
+.div {
+  text-align: justify;
+  text-justify: inter-word;
+}
