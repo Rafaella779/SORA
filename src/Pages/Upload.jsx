@@ -8,7 +8,12 @@ export default function Upload() {
 
 		const [page, setPage] = useState(1);
 		const [authors, setauthors] = useState("")
-		const [authorsArray, setauthorsArray] = useState([])
+		const [authorsUser, setauthorsUser] = useState("")
+		const [authorsTeacher, setauthorsTeacher] = useState("")
+		
+		const [authorsArray, setauthorsArray] = useState([{name: localStorage.getItem('n'), i: localStorage.getItem('i'), u: (localStorage.getItem('utype') == "student") ? "user" : "Teacher"}])
+		const [authorsEmail, setAuthorsEmail] = useState("")
+		const [noAuthor, setNoAuthor] = useState(false);
 		const [id, setid] = useState("")
 		const [idArray, setidArray] = useState([])
 		const [keywords, setkeywords] = useState("")
@@ -25,20 +30,22 @@ export default function Upload() {
 		let n = useNavigate();
 
 		const handleSubmit = () => {
+
+		let author;
 		fetch(`${import.meta.env.VITE_BACKEND}/research/createResearch`, {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify({
-				name: authors.split("; "),
-				id: id.split("; "),
-				words: keywords.split("; "),
+				authors: authorsArray,
+				keywords: keywords.split("; "),
 				abstract: abstract,
 				category: category,
-				link: link,
+				link: link.replace("/view?usp=drive_link", ""),
 				isApprovedBySchool: isApprovedBySchool,
-				name: whoPaneled.split("; "),
+				whoPaneled: whoPaneledArray,
 				title: title,
-				documentLink: documentLink
+				documentLink: documentLink,
+				uploaderID	
 			})
 		}).then(result => result.json()).then(result => {
 			if(result.error){
@@ -75,9 +82,9 @@ export default function Upload() {
 
 	let addAuthors = () => {
 		if (authors != ""){
-		authorsArray.push(authors);
+		authorsArray.push({name: authors});
 		setauthors("");
-	}
+		}
 	}
 
 	let addid = () => {
@@ -89,38 +96,114 @@ export default function Upload() {
 
 	let addwhopaneled = () => {
 		if(whoPaneled != "") {
-			whoPaneledArray.push(whoPaneled);
+			whoPaneledArray.push({name: whoPaneled});
 			setwhoPaneled("");
 		}
 	}
+
+	let addAuthorMember = (userType) => {
+		fetch(`${import.meta.env.VITE_BACKEND}/research/getAuthors`, {
+			method: "POST",
+			headers: {"Content-Type": "application/json"},
+			body: JSON.stringify({
+				toFind: {
+					email: (userType == "teacher") ? authorsTeacher : authorsUser,
+				},
+				u: userType
+			})
+		}).then(res => res.json()).then(result => {
+			console.log("addauthormember: ", result)
+			console.log("authorsarray: ", authorsArray)
+			if (result) {
+				result.u = userType;
+				if (result.message) {
+					return Swal.fire({
+						icon: "warning",
+						title: "No Match Found"
+					}).then(x => {
+						setauthorsTeacher("");
+						setauthorsUser("");	
+						return;
+					})
+				}
+				for (let j = 0; j < authorsArray.length; j++) {
+					if ( result.i != undefined && result.i == authorsArray[j].i) {
+						Swal.fire({
+							icon: "warning",
+							title: "Author already entered"
+						})
+						return;
+					}
+				}
+				authorsArray.push(result);
+				setauthorsTeacher("");
+				setauthorsUser("");	
+			}
+			else {
+				setNoAuthor(true);
+			}
+		})
+	}
+
+	useEffect(() => {
+
+	}, [authorsArray.length])
+
 
 function p1(){ 
 	return(
 
 		<div className="d-flex p-0 mt-3 flex-column flex-lg-row" responsive>
+
 			<Form.Group className="b-1px m-1 p-4 col-12 col-lg-6">
-				<h2 className=" pt-serif-bold ">Submit Your Research</h2>
+				<h2 className=" pt-serif-bold m-0">Submit Your Research</h2>
+				<p>Only submit works where you are an author</p>
+				<hr />
 				<Form.Label className="d-flex m-1"> Title of the Research </Form.Label>
 				<Form.Control  onChange={e => settitle(e.target.value)} value={title}/>
-				<Form.Label className="d-flex m-1">Authors Of The Research </Form.Label>
-				<InputGroup>
-					<Form.Control  onChange={e => setauthors(e.target.value)} value={authors}/>
-					<InputGroup.Text className="bg-3" onClick={addAuthors}>Add</InputGroup.Text>
-				</InputGroup>
-				<Form.Label className="d-flex m-1">Keywords of the Research</Form.Label>
+				
+				<Form.Label className="d-flex m-1">Research Keywords</Form.Label>
 				<InputGroup>
 					<Form.Control  onChange={e => setkeywords(e.target.value)} value={keywords}/>
 					<InputGroup.Text className="bg-3" onClick={addKeyword}>Add</InputGroup.Text>
 				</InputGroup>
-				<Form.Label className="d-flex m-1">Category of the Research</Form.Label>
+				<Form.Label className="d-flex m-1">Research Category</Form.Label>
 				<Form.Control  onChange={e => setcategory(e.target.value)} value={category}/>
 				<Form.Label className="d-flex m-1">Research Link </Form.Label>
 				<Form.Control  onChange={e => setlink(e.target.value)} value={link}/>	
 				<hr />
-					<Form.Label className=""><strong>Research Documents Link </strong></Form.Label>
-					<p>Please upload on Google Drive documents certifying that your paper has been presented and/or checked and approved by your School</p>
-					<Form.Control  onChange={e => setDocumentLink(e.target.value)} value={documentLink}/>
-				
+				<div className="d-flex flex-column gap-3">
+					<div>
+						<Form.Label className="d-flex m-1"><strong>(Non-Member)</strong> &nbsp; Author Name </Form.Label>
+						<Form.Text></Form.Text>
+						<InputGroup>
+							<Form.Control list="user-list"  onChange={e => setauthors(e.target.value)} value={authors}/>
+							<InputGroup.Text className="bg-3" onClick={addAuthors}>Add</InputGroup.Text>
+						</InputGroup>
+					</div>
+					
+					<div>
+						<Form.Label className="d-flex m-1"><strong>(SORA Teacher)</strong> &nbsp; Author E-mail </Form.Label>
+						<Form.Text></Form.Text>
+						<InputGroup>
+							<Form.Control list="user-list"  onChange={e => setauthorsTeacher(e.target.value)} value={authorsTeacher}/>
+							<InputGroup.Text className="bg-3" onClick={() => addAuthorMember("teacher")}>Add</InputGroup.Text>
+
+						</InputGroup>
+						{(noAuthor) ? <h6 className="color-red">Email not used by any SORA member</h6> : <></>}
+					</div>
+					
+					<div>
+						<Form.Label className="d-flex m-1"><strong>(SORA Student)</strong> &nbsp; Author E-mail </Form.Label>
+						<Form.Text></Form.Text>
+						<InputGroup>
+							<Form.Control list="user-list"  onChange={e => setauthorsUser(e.target.value)} value={authorsUser}/>
+							<InputGroup.Text className="bg-3" onClick={() => addAuthorMember("user")}>Add</InputGroup.Text>
+
+						</InputGroup>
+						{(noAuthor) ? <h6 className="color-red">Email not used by any SORA member</h6> : <></>}
+					</div>
+				</div>	
 			</Form.Group>
 
 			<div className="col-12 col-lg-6">
@@ -131,9 +214,9 @@ function p1(){
 						console.log(j)
 						console.log(k)
 						return <div className="d-flex m-0 align-items-center justify-content-between">
-							<p className="m-0">{k + 1}. {j}</p>
-							<Button  className="px-2 py-0" onClick={() => {
-								authorsArray.splice(k, 1)
+							<p className="m-0"> <strong>{k + 1}. {j.name} {j.l}</strong> ({(j.u == "user" || j.u == "student") ? "Student" : (j.u == "teacher") ? "Teacher" : "Non-member"})</p>
+							<Button  className={`px-2 py-0 ${(localStorage.getItem('i') == j.i) ? "d-none" : ""}`} onClick={() => {
+								authorsArray.splice(k, 1);
 								setCount(count + 1);
 							}}> - </Button>
 						</div>
@@ -176,11 +259,21 @@ function p2(){
 				<Form.Control  onChange={e => setwhoPaneled(e.target.value)} value={whoPaneled}/>
 				<InputGroup.Text className="bg-1" onClick={addwhopaneled}>Add</InputGroup.Text>
 			</InputGroup>
-			<Form.Label className="d-flex m-1"> Is Your Research Approved by the School </Form.Label>
-			<div className="d-flex gap-1">
+			<Form.Label className="d-flex m-1"><strong>Is Your Research Approved by the School</strong></Form.Label>
+			<div className="d-flex gap-1 my-3">
 				<Button className={`${(isApprovedBySchool === false) ? "btn-selected" : "btn-not-selected" }`} onClick={() => {setisApprovedBySchool(false)}}>No</Button>
 				<Button className={`${(isApprovedBySchool)  ? "btn-selected" : "btn-not-selected"}`} onClick={() => {setisApprovedBySchool(true)}}>Yes</Button>
 			</div>
+			{
+				(isApprovedBySchool) ? 
+				<>
+					<Form.Label className=""><strong>Research Documents Link </strong></Form.Label>
+					<p>Please upload on Google Drive documents certifying that your paper has been presented and/or checked and approved by your School</p>
+					<Form.Control  onChange={e => setDocumentLink(e.target.value)} value={documentLink}/>
+				</>
+				: <></>
+
+			}
 
 		</Form.Group>
 
@@ -189,7 +282,7 @@ function p2(){
 				console.log(p)
 				console.log(o)
 				return <div className="d-flex m-1 align-items-center justify-content-between">
-					<p className="m-0">{o + 1}. {p}</p>
+					<p className="m-0">{o + 1}. {p.name}</p>
 					<Button className="px-2 py-0" onClick={() => {
 						whoPaneledArray.splice(o,1)
 						setCount(count + 1);
