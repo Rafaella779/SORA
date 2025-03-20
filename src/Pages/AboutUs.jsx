@@ -11,7 +11,7 @@ export default function AboutUs() {
 	return ( 
 		<div className="d-flex justify-content-center p-4 mnh-700 navbar-border p-body">
 			<div className="mw-1200">
-				<h3 className="d-flex justify-content-center align-items-center pt-serif-bold">About us</h3>
+				<h4 className="d-flex justify-content-center align-items-center pt-serif-bold">About us</h4>
 				<div className="d-flex flex-column p-3">
 					<h4 className="d-flex pt-serif-bold">Meet The Team</h4>
 					<p class="light"><strong>Once upon a time in a school named Juban National High School, there were 5 students namely Leisha, 
