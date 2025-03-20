@@ -59,7 +59,6 @@ function TeacherLogin() {
 			method: "POST",
 			headers: {
                   	"Content-Type": "application/json",
-
             },
 			body: JSON.stringify({
 				e: email,
