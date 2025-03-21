@@ -11,9 +11,8 @@ export default function AboutUs() {
 	return ( 
 		<div className="d-flex justify-content-center p-4 mnh-700 navbar-border p-body">
 			<div className="mw-1200">
-				<h3 className="d-flex justify-content-center align-items-center pt-serif-bold f-40">About Us</h3>
+				<h3 className="d-flex justify-content-center align-items-center jacques-francois-regular f-40 body"><strong>About Us</strong></h3>
 				<div className="d-flex flex-column p-3">
-					<h4 className="d-flex pt-serif-bold f-20">Meet The Team</h4>
 					<p className="light text-center pt-serif-regular"><strong>Once upon a time in a school named Juban National High School, there were 5 students namely Leisha, 
 					 Rean, Gilly, Jobert, and Rafaella. One day they happen to face a problem in a subject called Research.
 					 They needed a research topic, each member gave problems that should have a solution. One problem stood out the most, it is a problem 
@@ -23,7 +22,7 @@ export default function AboutUs() {
 				</div>
 				<div className="">
 					<div className="d-flex justify-content-center align-items-center">
-						<h2 className="pt-serif-bold f-30">Members</h2>
+						<h2 className="pt-serif-regular f-30 body"><strong>Members</strong></h2>
 					</div>
   
 					<div className="d-flex justify-content-center flex-wrap text-center">
