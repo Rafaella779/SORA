@@ -16,6 +16,7 @@ export default function HomePage() {
       const [iLength, setiLength] = useState("") 
       const [iPerPage, setiPerPage] = useState(10) 
       let n = useNavigate()
+{`${()
       const handleSubmit = () => {
             fetch(`${import.meta.env.VITE_BACKEND}/research/searchP1`, {
                   method: "POST",
@@ -104,7 +105,29 @@ export default function HomePage() {
       }
 
       }, [Active]) 
- 
+
+:
+
+      useEffect(() => {
+            fetch(`${import.meta.env.VITE_BACKEND}/research/getByUser`, {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "authorization": `Bearer ${localStorage.getItem('t')}`
+                  },
+                  body: JSON.stringify({
+                    skip: active,
+                    iLength: iLength
+                  })
+            }).then(result => result.json()).then(result => {
+                console.log(result)
+                  setResearch(result.map((x, i) => {
+                return <ResearchCard title={x.title} author={x.authors.map((y, j) => {return <>({j + 1}) {y.name}; </>})} abstract={(x.abstract.length >= 200) ? `${x.abstract.substring(0, 200)}...` : x.abstract} id={x._id}/>
+            }));
+                  
+            })
+      }, [Active])
+ }`}
 	return ( 
 		<div className="d-flex justify-content-center mnh-700">
 			<div className="p-4 p-lg-5 w-100 mw-1500 bg-18 navbar-border p-body">
@@ -155,4 +178,18 @@ export default function HomePage() {
 			</div>
 		</div>
 		)
+}
+function SearchCard({author, abstract, title, views}){
+     let n = useNavigate()
+    return(
+        <div className="p-1 col-12 col-md-4 col-lg-3">
+            <div className="b-1px bg-m-6 h-100 " onClick={() => n(`/IndividualSearchResult/${id}/1`)}>
+                <div className="m-1 p-1 d-flex flex-column">
+                    <p className="m-0 p-0"><strong>Title:</strong> {title}</p>
+                    <p className="m-0 p-0"><strong>Author:</strong> {author}</p>
+                    <p className="m-0 p-0"><strong>Abstract:</strong> {abstract}</p>
+                </div>
+            </div>
+        </div>
+    )
 }
