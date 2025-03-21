@@ -59,8 +59,8 @@ export default function ContactUs() {
 
 				<div className="d-flex flex-column w-100 p-3 p-xl-0">
 					
-						<h1 className=" pt-serif-bold ">Contact us</h1>
-						<h6 className=" pt-serif-bold text-break text-wrap w-100">SORA is ready to provide the rigth solution according to your needs.</h6>
+						<h1 className="pt-serif-bold">Contact us</h1>
+						<h6 className="pt-serif-bold text-break w-100">SORA is ready to provide the rigth solution according to your needs.</h6>
 					
 				</div>
 				<div className="p-0">
