@@ -56,15 +56,8 @@ export default function ContactUs() {
 		<div className="d-flex justify-content-center p-3 p-body navbar-border">
 			<div className="mw-1200 d-flex flex-column w-100">
 				<div className="d-flex flex-column w-100 p-3 p-xl-0">
-<<<<<<< HEAD
-					
-						<h1 className="pt-serif-bold">Contact us</h1>
-						<h6 className="pt-serif-bold text-break w-100">SORA is ready to provide the rigth solution according to your needs.</h6>
-					
-=======
 						<h1 className="pt-serif-bold">Contact us</h1>
 						<h6 className=" pt-serif-bold text-break text-wrap w-100 pt-serif-regular">SORA is ready to provide the rigth solution according to your needs.</h6>		
->>>>>>> 8204a4bd85174fed8065f28ac5c4f853966d739c
 				</div>
 				<div className="p-0">
 					<div className="d-flex gap-0 flex-column flex-lg-row">
