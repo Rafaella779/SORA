@@ -25,10 +25,12 @@ export default function HomePage() {
                   },
                   body: JSON.stringify({
                        toFind: { 
-                        $or: [
-                              { "title": { $regex: submit, $options: "i"} },
-                             // { "authors": { $regex: submit, $options: "i"} }
+                        
+                            $or: [
+                                {"title": { $regex: submit, $options: "i"}}, {"authors.name": {$regex: submit, $options: "i"}}
                             ]
+                             // { "authors": { $regex: submit, $options: "i"} }
+                            
                        }
                   })
             }).then(result => result.json()).then(res => {
