@@ -80,7 +80,7 @@ export default function IndividualSearchResult() {
                         <p className="light p-0  m-0"><strong>Created At:</strong> {createdAt}</p>
                         <p className="light p-0  m-0"><strong>Date Modified:</strong> {dateModified}</p>        
                         <hr />
-                        <div className="d-flex justify-content-center my-3">
+                        <div className="d-flex justify-content-center my-3    ">
                               <h6 className="light p-0  m-0 text-justify"><strong>Abstract</strong> </h6>
                         </div>
                         <p>{abstract }</p>

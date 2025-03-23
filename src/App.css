@@ -138,6 +138,10 @@ h1 {
 .b-1px {
   border: 1px solid black;
 }
+
+.b-r-1px {
+  border-right: 1px solid black !important;
+}
 .aboutUsPic {
   object-fit: cover !important;
   aspect-ratio: 1/1;
