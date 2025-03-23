@@ -11,11 +11,13 @@ export default function HomePage() {
       const [abstract, setAbstract] = useState("")
       const [view, setView] = useState("")
       const [tableData, setTableData] = useState([]) 
+      const [cardData, setCardData] = useState([]) 
       const [submit, setSubmit] = useState("") 
       const [Active, setActive] = useState(1) 
       const [iLength, setiLength] = useState("") 
       const [iPerPage, setiPerPage] = useState(10) 
       let n = useNavigate()
+
       const handleSubmit = () => {
             fetch(`${import.meta.env.VITE_BACKEND}/research/searchP1`, {
                   method: "POST",
@@ -59,10 +61,25 @@ export default function HomePage() {
                                 <td className="b-1px">{x.view}</td>
                           </tr>
                     )
+                  }))
+
+                  setCardData(res.items.map(x => {
+                    let options = 0;
+                    for (let i = 0; i < x.authors.length; i++) {
+                        console.log("array authors", x.authors[i].i)
+                        if (localStorage.getItem('i') && localStorage.getItem('i') ==  x.authors[i]._id) {
+                            console.log("checking options")
+                            options = 1
+                        }
+                    }
+                    return(
+                     <SearchCard title={x.title} author={x.authors.map((y, j) => {return <>({j + 1}) {y.name}; </>})} abstract={(x.abstract.length >= 200) ? `${x.abstract.substring(0, 200)}...` : x.abstract} id={x._id}/>
+                    )
                   })
-                )}      
+
+                 )}      
             })
-      }
+        }
 
       useEffect(() => {
             if (tableData.length > 0){
@@ -101,11 +118,28 @@ export default function HomePage() {
                           </tr>
                     )
                   })
-                )  
-            })
-      }
 
-      }, [Active]) 
+                )
+                setCardData(res.items.map(x => {
+                        let options = 0;
+                        for (let i = 0; i < x.authors.length; i++) {
+                            console.log("array authors", x.authors[i].i)
+                            if (localStorage.getItem('i') && localStorage.getItem('i') ==  x.authors[i]._id) {
+                                console.log("checking options")
+                                options = 1
+                            }
+                        }
+                        return(
+                         <SearchCard title={x.title} author={x.authors.map((y, j) => {return <>({j + 1}) {y.name}; </>})} abstract={(x.abstract.length >= 200) ? `${x.abstract.substring(0, 200)}...` : x.abstract} id={x._id}/>
+                        )
+                })  
+            )
+        
+
+    
+                    })
+        }
+    }, [Active]) 
  
 	return ( 
 		<div className="d-flex justify-content-center mnh-700 bg-18 p-body navbar-border">
@@ -120,7 +154,7 @@ export default function HomePage() {
                         console.log("submitting form")
                         handleSubmit();
                     }}>
-	             		<Form.Group className="d-flex gap-4">
+                        <Form.Group className="d-flex gap-4">
                             <Form.Control  type="Name or Author" placeholder="Enter Name or author" onChange={e => setSubmit(e.target.value)} value={submit} />
                             <Button onClick={handleSubmit}>Search</Button>
                         </Form.Group>
@@ -169,7 +203,22 @@ export default function HomePage() {
                     
                     : <></>
                 }
-			</div>
-		</div>
-		)
+            </div>
+        </div>
+        )
+}
+function SearchCard({author, abstract, title, id}){
+
+     let n = useNavigate()
+    return(
+        <div className="p-1 col-12 col-md-4 col-lg-3">
+            <div className="b-1px bg-m-6 h-100 " onClick={() => n(`/IndividualSearchResult/${id}/1`)}>
+                <div className="m-1 p-1 d-flex flex-column">
+                    <p className="m-0 p-0"><strong>Title:</strong> {title}</p>
+                    <p className="m-0 p-0"><strong>Author:</strong> {author}</p>
+                    <p className="m-0 p-0"><strong>Abstract:</strong> {abstract}</p>
+                </div>
+            </div>
+        </div>
+    )
 }

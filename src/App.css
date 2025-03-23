@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Lekton:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Suranna&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Elsie+Swash+Caps:wght@400;900&family=Lekton:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Suranna&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Elsie+Swash+Caps:wght@400;900&family=Jacques+Francois&family=Lekton:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Suranna&display=swap');
 * {
   padding: 0px;
   margin: 0px;
@@ -230,11 +233,13 @@ p.light {
 .mw-500{
   max-width: 500px !important;
 }
+.mw-545{
+  max-width: 545px !important;
+}
 
 .mw-600{
   max-width: 600px !important;
 }
-
 .mw-700{
   max-width: 700px !important;
 }
@@ -576,6 +581,9 @@ hr {
 .bg-15{
   background-color: #B6D0E2 !important;
 }
+.bg-23{
+  background-color: white !important;
+}
 .bg-16{
   background-color: #018FC7 !important;
 }
@@ -598,7 +606,7 @@ hr {
   background-color: #C9DFE5  !important;
 }
 .b-body {
-  background-image: url('https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-102040.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid');
+  background-image: url('https://img.freepik.com/premium-photo/yellow-blue-abstract-creative-background-blue-abstract-background-geometric-background_481527-28754.jpg?ga=GA1.1.143214804.1741401276&semt=ais_hybrid');
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -609,6 +617,11 @@ hr {
 }
 .t-body {
   background-image: url('https://img.freepik.com/free-vector/funeral-ceremony_23-2148004761.jpg?ga=GA1.1.272372896.1737352446&semt=ais_hybrid');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.bg-body {
+  background-image: url('https://img.freepik.com/premium-photo/about-us-information-info-company-presentation-internet-blue-computer-keyboard_770123-7082.jpg?ga=GA1.1.143214804.1741401276&semt=ais_hybrid');
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -637,7 +650,24 @@ hr {
   text-align: justify;
   text-justify: inter-word;
 }
-
 .text-justify{
   text-align: justify;
+}
+.pt-serif-regular {
+  font-family: "PT Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.elsie-swash-caps-regular {
+  font-family: "Elsie Swash Caps", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.jacques-francois-regular {
+  font-family: "Jacques Francois", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.body {
+  color: maroon;
 }
