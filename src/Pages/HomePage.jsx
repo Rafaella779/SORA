@@ -148,6 +148,7 @@ export default function HomePage() {
                  
                  <div className="h-2">
                      <Form onSubmit={(e) => {
+
                         e.preventDefault();
                         console.log("submitting form")
                         handleSubmit();
@@ -191,6 +192,7 @@ export default function HomePage() {
         )
 }
 function SearchCard({author, abstract, title, id}){
+
      let n = useNavigate()
     return(
         <div className="p-1 col-12 col-md-4 col-lg-3">
