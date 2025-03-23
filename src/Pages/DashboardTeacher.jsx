@@ -35,7 +35,7 @@ export default function DashboardTeacher() {
 	return(
 		<div className="d-flex p-body mnh-700 navbar-border">
 			<div className="d-flex flex-column flex-md-row w-100">
-				<div className="b-1px flex-column p-3 col-md-4 col-lg-3">
+				<div className="b-1px flex-column p-3 col-md-4 col-lg-3 d-flex">
 					<div className="d-flex justify-content-center">
 						<StudentCard picLink="https://www.svgrepo.com/show/408476/user-person-profile-block-account-circle.svg" />
 					</div>
@@ -48,19 +48,27 @@ export default function DashboardTeacher() {
 						<p className="mb-0 p-0 text-break"> <strong>SchoolName:</strong> {localStorage.getItem('sn')}</p>
 						<p className="mb-0 p-0 text-break"> <strong>Educational Degree:</strong> {localStorage.getItem('ed')}</p>
 						<p className="mb-0 p-0 text-break"> <strong>No. of research:</strong> {localStorage.getItem('nu')}</p>
-						{
-							(localStorage.getItem('ira') == 0) ?
-								<Button className="mt-3 bg-r-2" onClick={() => n('/ApplyApproveTeacher')}>Research Reviewer Application</Button>
-							:(localStorage.getItem('ira') == 1) ?
-								<Button className="mt-3 bg-r-2" >Research Reviewer</Button>
-							:
-								<Button className="mt-3 bg-r-2" >Reviewer Status Pending</Button>
-							
+						
+						<div className="d-flex flex-column gap-2 ">
+							{
+								(localStorage.getItem('ira') == 0) ?
+									<Button className="mt-3 bg-r-2" onClick={() => n('/ApplyApproveTeacher')}>Research Reviewer Application</Button>
+								:(localStorage.getItem('ira') == 1) ?
+									<Button className="mt-3 bg-r-2" >Research Reviewer</Button>
+								:
+									<Button className="mt-3 bg-r-2" >Reviewer Status Pending</Button>
+								
 
-						}
+							}
+							<Button  className="d-md-none"onClick={() => n('myResearch')}>My Research</Button>
+							<Button  className=""onClick={() => n('inbox')}>Inbox</Button>
+						</div>
 					</div>
 				</div>
-				<ViewPage className="d-flex col-19 w-100"/>
+				<div className="d-none d-md-flex w-100">
+					<ViewPage className="w-100"/>
+				</div>
+				
 			</div>
 		</div>
 
