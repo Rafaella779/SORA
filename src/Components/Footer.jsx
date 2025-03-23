@@ -8,7 +8,9 @@ import { Outlet, useNavigate} from 'react-router'
     <div className="align-items-end bg-17 flex-column">
 	      <div className="d-flex p-2 flex-column flex-lg-row">
 	        <div className="d-flex col align-items-center flex-column">
+
 	          <h5 className="d-flex jacques-francois-regular"><strong>SORA</strong></h5>
+
 	          <p className="text-center">SORA provides a simple way to broadly search for local literature. Search across a wide variety of disciplines and sources.</p>
 	        </div>
 	        <div className="d-flex align-items-center col flex-column">
