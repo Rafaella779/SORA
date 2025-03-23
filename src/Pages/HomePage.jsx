@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext } from 'react'
+    import React, {useState, useEffect, useContext } from 'react'
 import {Form, ButtonGroup, SplitButton, Button, Table } from 'react-bootstrap'
 import {useNavigate} from 'react-router'
 import Swal from 'sweetalert2'
@@ -27,10 +27,12 @@ export default function HomePage() {
                   },
                   body: JSON.stringify({
                        toFind: { 
-                        $or: [
-                              { "title": { $regex: submit, $options: "i"} },
-                             // { "authors": { $regex: submit, $options: "i"} }
+                        
+                            $or: [
+                                {"title": { $regex: submit, $options: "i"}}, {"authors.name": {$regex: submit, $options: "i"}}
                             ]
+                             // { "authors": { $regex: submit, $options: "i"} }
+                            
                        }
                   })
             }).then(result => result.json()).then(res => {
@@ -51,12 +53,12 @@ export default function HomePage() {
                     }
                     return(
                           <tr onClick={() => n(`/IndividualSearchResult/${x._id}/${options}`)}>
-                                <td><ol>{x.authors.map((y, i) => {
-                                    return <li>{`${y.name}`}</li>
+                                <td className="b-1px"><ol>{x.authors.map((y, i) => {
+                                	return <li>{`${y.name}`}</li>
                                 })}</ol></td>
-                                <td>{x.title}</td>
-                                <td>{(x.abstract.length >= 200) ? `${x.abstract.substring(0, 200)}...` : x.abstract}</td>
-                                <td>{x.view}</td>
+                                <td className="b-1px">{x.title}</td>
+                                <td className="b-1px">{(x.abstract.length >= 200) ? `${x.abstract.substring(0, 200)}...` : x.abstract}</td>
+                                <td className="b-1px">{x.view}</td>
                           </tr>
                     )
                   }))
@@ -107,12 +109,12 @@ export default function HomePage() {
 
                     return(
                           <tr onClick={() => n(`/IndividualSearchResult/${x._id}/${options}`)}>
-                                <td>{x.authors.map(y => {
-                                    return <p>{y.name}</p>
-                                })}</td>
-                                <td>{x.title}</td>
-                                <td>{x.abstract}</td>
-                                <td>{x.view}</td>
+                                <td className="b-1px"><ol>{x.authors.map((y, i) => {
+                                    return <li>{`${y.name}`}</li>
+                                })}</ol></td>
+                                <td className="b-1px">{x.title}</td>
+                                <td className="b-1px">{x.abstract}</td>
+                                <td className="b-1px">{x.view}</td>
                           </tr>
                     )
                   })
@@ -139,16 +141,15 @@ export default function HomePage() {
         }
     }, [Active]) 
  
-    return ( 
-        <div className="d-flex justify-content-center mnh-700">
-            <div className="p-4 p-lg-5 w-100 mw-1500 bg-18 navbar-border p-body">
-                 <div className="cinzel-decorative d-flex text-center justify-content-center">
-                    <h1>SORA</h1>
-                 </div>
-                 
-                 <div className="h-2">
-                     <Form onSubmit={(e) => {
-
+	return ( 
+		<div className="d-flex justify-content-center mnh-700 bg-18 p-body navbar-border">
+			<div className="p-4 p-lg-5 w-100 mw-1100  ">
+				 <div className="cinzel-decorative d-flex text-center justify-content-center">
+				 	<h1>SORA</h1>
+				 </div>
+	             
+	             <div className="h-2">
+	            	 <Form onSubmit={(e) => {
                         e.preventDefault();
                         console.log("submitting form")
                         handleSubmit();
@@ -162,29 +163,44 @@ export default function HomePage() {
 
                 {
                     (iLength > 0) ? 
-                    <Paginate active={Active} iLength={iLength} iPerPage={iPerPage} setActive={setActive} /> 
+                    <div className="d-flex flex-wrap justify-content-between">
+                        <Paginate active={Active} iLength={iLength} iPerPage={iPerPage} setActive={setActive} /> 
+                        <p>Showing results {(Active - 1) * 10 + 1} - {(Active - 1) * 10 + tableData.length} out of {iLength} documents</p>
+
+                    </div>
                     : <></>
                 }
-                <div className="w-100 mb-3 b-1px">
-                    <Table striped  hover responsive className=" b-1px">
-                        <thead>
-                            <tr>
+	            
+                    {
+                        (tableData.length > 0 ) ?
+                        <div className="w-100 b-1px">
+        	             	<Table striped  hover responsive className=" b-1px m-0">
+        	             		<thead>
+        	             			<tr>
 
-                                <th className="col col-lg-2 pt-serif-bold">Author</th>
-                                <th className="col col-lg-2 pt-serif-bold">Title</th>
-                                <th className="col col-lg-7 pt-serif-bold">Abstract</th>
-                                <th className="col col-lg-1 pt-serif-bold">Views</th>
+        		             			<th className="col col-lg-3 pt-serif-bold b-1px">Author</th>
+        		             			<th className="col col-lg-3 pt-serif-bold b-1px">Title</th>
+        		             			<th className="col col-lg-5 pt-serif-bold b-1px">Abstract</th>
+        		             			<th className="col col-lg-1 pt-serif-bold b-1px">Views</th>
 
-                            </tr>
-                        </thead>
-                                <tbody>
-                                    {tableData}
-                                </tbody>
-                     </Table>
-                </div>
+        	             			</tr>
+        	             		</thead>
+        				             	<tbody>
+        				             		{tableData}
+        				             	</tbody>
+        	            	</Table>
+                        </div>
+                        : <></>
+                    }
+	            
                 {
                     (iLength > 0) ? 
-                    <Paginate active={Active} iLength={iLength} iPerPage={iPerPage} setActive={setActive} /> 
+                    <div className="mt-3 d-flex flex-wrap justify-content-between">
+                        <Paginate active={Active} iLength={iLength} iPerPage={iPerPage} setActive={setActive} /> 
+                        <p>Showing results {(Active - 1) * 10 + 1} - {(Active - 1) * 10 + tableData.length} out of {iLength} documents</p>
+
+                    </div>
+                    
                     : <></>
                 }
             </div>

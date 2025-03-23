@@ -73,6 +73,11 @@ h1 {
   border-radius: 5px;
 }
 
+.bg-individual{
+  background-color: white !important;
+  
+}
+
 .h-1{
   height: 600px;
 }
@@ -135,6 +140,10 @@ h1 {
 }
 .b-1px {
   border: 1px solid black;
+}
+
+.b-r-1px {
+  border-right: 1px solid black !important;
 }
 .aboutUsPic {
   object-fit: cover !important;
@@ -640,6 +649,9 @@ hr {
 .div {
   text-align: justify;
   text-justify: inter-word;
+}
+.text-justify{
+  text-align: justify;
 }
 .pt-serif-regular {
   font-family: "PT Serif", serif;
