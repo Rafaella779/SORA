@@ -33,7 +33,7 @@ export default function DashboardTeacher() {
 
 
 	return(
-		<div className="d-flex p-body mnh-700 navbar-border">
+		<div className="d-flex p-body mnh-700">
 			<div className="d-flex flex-column flex-md-row w-100">
 				<div className="b-1px flex-column p-3 col-md-4 col-lg-3 d-flex">
 					<div className="d-flex justify-content-center">

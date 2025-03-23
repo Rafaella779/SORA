@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Lekton:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Suranna&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Elsie+Swash+Caps:wght@400;900&family=Lekton:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Suranna&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Elsie+Swash+Caps:wght@400;900&family=Jacques+Francois&family=Lekton:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Oswald:wght@200..700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Suranna&display=swap');
 * {
   padding: 0px;
   margin: 0px;
@@ -223,11 +224,13 @@ p.light {
 .mw-500{
   max-width: 500px !important;
 }
+.mw-545{
+  max-width: 545px !important;
+}
 
 .mw-600{
   max-width: 600px !important;
 }
-
 .mw-700{
   max-width: 700px !important;
 }
@@ -569,6 +572,9 @@ hr {
 .bg-15{
   background-color: #B6D0E2 !important;
 }
+.bg-23{
+  background-color: white !important;
+}
 .bg-16{
   background-color: #018FC7 !important;
 }
@@ -644,4 +650,12 @@ hr {
   font-family: "Elsie Swash Caps", serif;
   font-weight: 400;
   font-style: normal;
+}
+.jacques-francois-regular {
+  font-family: "Jacques Francois", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.body {
+  color: maroon;
 }
