@@ -132,7 +132,7 @@ function RegisterStudent() {
 				<Form.Label>Last Name </Form.Label>
 				<Form.Control  onChange={e => setlname(e.target.value)} value={lname}/>
 				<Form.Label>BirthDate</Form.Label>
-				<Form.Control  onChange={e => setbirthdate(e.target.value)} value={birthdate}/>
+				<Form.Control placeholder="mm/dd/yyyy"  onChange={e => setbirthdate(e.target.value)} value={birthdate}/>
 		</Form.Group>)
 	} 
 
@@ -191,13 +191,8 @@ function RegisterTeacher() {
 	const [birthdate, setbirthdate] = useState("")
 	const [SchoolName, setSchoolName] = useState("")
 	const [SchoolID, setSchoolID] = useState("")
-	const [isresearchTeacher, setisresearchTeacher] = useState("")
-	const [isChecker, setisChecker] = useState("")
-	const [numberofResearch, setnumberofResearch] = useState("")
-	const [category, setcategory] = useState("")
+	const [employeeID, setEmployeeID] = useState("")
 	const [educationalDegree, seteducationalDegree] = useState("")
-	const [listofResearch, setlistofResearch] = useState("")
-	const [listofResearchArray, setlistofResearchArray] = useState([])
 	const [Count, setCount]= useState("")
 	let n = useNavigate()
 
@@ -216,12 +211,8 @@ function RegisterTeacher() {
 				birthdate: new Date(birthdate),
 				schoolName: SchoolName,
 				schoolID: SchoolID,
-				isresearchTeacher: isresearchTeacher,
-				isChecker: isChecker,
-				numberofResearch: numberofResearch,
-				category: category,
 				educationalDegree: educationalDegree,
-				listapprovedResearch: listofResearch.split("; ")
+				employeeID: employeeID
 
 			})
 		}).then(res => res.json()).then(res => {
@@ -282,7 +273,7 @@ function RegisterTeacher() {
 				<Form.Label>Last Name </Form.Label>
 				<Form.Control  onChange={e => setlname(e.target.value)} value={lname}/>
 				<Form.Label>BirthDate</Form.Label>
-				<Form.Control  onChange={e => setbirthdate(e.target.value)} value={birthdate}/>
+				<Form.Control placeholder="mm/dd/yyyy" onChange={e => setbirthdate(e.target.value)} value={birthdate}/>
 		</Form.Group>)
 	} 
 
@@ -294,14 +285,15 @@ function RegisterTeacher() {
 			<Form.Group className="justify-content-center">
 			<Form.Label>School Name</Form.Label>
 				<Form.Control onChange={e => setSchoolName(e.target.value)} value={SchoolName}/>
+				
+				<Form.Label>Employee ID</Form.Label>
+				<Form.Control  onChange={e => setEmployeeID(e.target.value)} value={employeeID}/>
+
 				<Form.Label>School ID</Form.Label>
 				<Form.Control  onChange={e => setSchoolID(e.target.value)} value={SchoolID}/>
+				
 				<Form.Label>Educational Degree</Form.Label>
 				<Form.Control  onChange={e => seteducationalDegree(e.target.value)} value={educationalDegree}/>
-				<Form.Label>Are you a research teacher?</Form.Label>
-				<Form.Check type="radio" checked={isresearchTeacher} name="isResearchTeacher" onChange={() => setisresearchTeacher(true)} label="Yes" />
-				<Form.Check type="radio" checked={!isresearchTeacher} name="isResearchTeacher" onChange={() => setisresearchTeacher(false)} label="No" />
-				<br />
 			</Form.Group>
 		)
 	}
