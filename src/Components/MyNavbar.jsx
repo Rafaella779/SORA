@@ -39,7 +39,7 @@ export default function MyNavbar(){
 				    </Navbar.Collapse>
 				</Container>
 			</Navbar>
-			<div className="mh-90">
+			<div className="">
 				<Outlet />
 			</div>
 

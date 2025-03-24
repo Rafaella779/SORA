@@ -671,3 +671,7 @@ hr {
 .body {
   color: maroon;
 }
+
+.bg-white{
+  background-color: white;
+}

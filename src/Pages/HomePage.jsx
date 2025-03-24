@@ -57,13 +57,13 @@ export default function HomePage() {
                                 	return <li>{`${y.name}`}</li>
                                 })}</ol></td>
                                 <td className="b-1px">{x.title}</td>
-                                <td className="b-1px">{(x.abstract.length >= 200) ? `${x.abstract.substring(0, 200)}...` : x.abstract}</td>
+                                <td className="b-1px">{x.abstract}</td>
                                 <td className="b-1px">{x.view}</td>
                           </tr>
                     )
                   }))
 
-                  setCardData(res.items.map(x => {
+                  setCardData(res.items.map((x,z) => {
                     let options = 0;
                     for (let i = 0; i < x.authors.length; i++) {
                         console.log("array authors", x.authors[i].i)
@@ -73,7 +73,7 @@ export default function HomePage() {
                         }
                     }
                     return(
-                     <SearchCard title={x.title} author={x.authors.map((y, j) => {return <>({j + 1}) {y.name}; </>})} abstract={(x.abstract.length >= 200) ? `${x.abstract.substring(0, 200)}...` : x.abstract} id={x._id}/>
+                     <SearchCard i={z + 1 + ((Active - 1) * 10)} title={x.title} author={x.authors.map((y, j) => {return <p className="m-0 p-0">({j + 1}) {y.name} </p>})} abstract={x.abstract} id={x._id}/>
                     )
                   })
 
@@ -120,7 +120,7 @@ export default function HomePage() {
                   })
 
                 )
-                setCardData(res.items.map(x => {
+                setCardData(res.map((x, z) => {
                         let options = 0;
                         for (let i = 0; i < x.authors.length; i++) {
                             console.log("array authors", x.authors[i].i)
@@ -130,7 +130,7 @@ export default function HomePage() {
                             }
                         }
                         return(
-                         <SearchCard title={x.title} author={x.authors.map((y, j) => {return <>({j + 1}) {y.name}; </>})} abstract={(x.abstract.length >= 200) ? `${x.abstract.substring(0, 200)}...` : x.abstract} id={x._id}/>
+                         <SearchCard i={z + 1 + ((Active - 1) * 10)} title={x.title} author={x.authors.map((y, j) => {return <p className="m-0 p-0">({j + 1}) {y.name} </p>})} abstract={x.abstract} id={x._id}/>
                         )
                 })  
             )
@@ -173,23 +173,27 @@ export default function HomePage() {
 	            
                     {
                         (tableData.length > 0 ) ?
-                        <div className="w-100 b-1px">
-        	             	<Table striped  hover responsive className=" b-1px m-0">
-        	             		<thead>
-        	             			<tr>
-
-        		             			<th className="col col-lg-3 pt-serif-bold b-1px">Author</th>
-        		             			<th className="col col-lg-3 pt-serif-bold b-1px">Title</th>
-        		             			<th className="col col-lg-5 pt-serif-bold b-1px">Abstract</th>
-        		             			<th className="col col-lg-1 pt-serif-bold b-1px">Views</th>
-
-        	             			</tr>
-        	             		</thead>
-        				             	<tbody>
-        				             		{tableData}
-        				             	</tbody>
-        	            	</Table>
-                        </div>
+                        <>
+                            <div className="w-100 b-1px d-none d-lg-block">
+            	             	<Table striped  hover responsive className=" b-1px m-0 ">
+            	             		<thead>
+            	             			<tr>
+            		             			<th className="col col-lg-3 pt-serif-bold b-1px">Author</th>
+            		             			<th className="col col-lg-3 pt-serif-bold b-1px">Title</th>
+            		             			<th className="col col-lg-5 pt-serif-bold b-1px">Abstract</th>
+            		             			<th className="col col-lg-1 pt-serif-bold b-1px">Views</th>
+            	             			</tr>
+            	             		</thead>
+    				             	<tbody className="">
+    				             		{tableData}
+    				             	</tbody>
+            	            	</Table>
+                                
+                            </div>
+                            <div className="d-flex flex-column gap-4 d-lg-none">
+                                {cardData}
+                            </div>
+                        </>
                         : <></>
                     }
 	            
@@ -207,16 +211,21 @@ export default function HomePage() {
         </div>
         )
 }
-function SearchCard({author, abstract, title, id}){
+function SearchCard({author, abstract, title, id, i}){
 
      let n = useNavigate()
     return(
-        <div className="p-1 col-12 col-md-4 col-lg-3">
-            <div className="b-1px bg-m-6 h-100 " onClick={() => n(`/IndividualSearchResult/${id}/1`)}>
+        <div className="col-12 col-md-4 col-lg-3 b-1px bg-white">
+            <div className="ps-2 py-1 bg-19">
+                <strong className="f-14">Entry: {i}</strong>
+            </div> 
+            <div className="  h-100 p-1 pt-2 pb-3" onClick={() => n(`/IndividualSearchResult/${id}/1`)}>
                 <div className="m-1 p-1 d-flex flex-column">
-                    <p className="m-0 p-0"><strong>Title:</strong> {title}</p>
-                    <p className="m-0 p-0"><strong>Author:</strong> {author}</p>
-                    <p className="m-0 p-0"><strong>Abstract:</strong> {abstract}</p>
+                    <h5 className="text-break m-0 f-18"><strong>{title}</strong></h5>
+                    <hr className="my-2"/>
+                    <p className="m-0 p-0 text-justify f-12"><strong>Abstract:</strong> {abstract}</p>
+                    <hr className="my-2"/>
+                    <p className="m-0 p-0 f-12"><strong>Author(s):</strong> {author}</p>
                 </div>
             </div>
         </div>
