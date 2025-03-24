@@ -33,7 +33,7 @@ import  Footer from './Components/Footer.jsx'
 function App() {
   return (
     <>
-    <Routes className="mh-90 ">
+    <Routes className="">
       <Route path="/" element={<Navbar />}>
         <Route index element={<HomePage />} />
         <Route path="IndividualSearchResult/:id/:options" element={<IndividualSearchResult/>} />

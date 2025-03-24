@@ -75,29 +75,35 @@ export default function IndividualSearchResult() {
             <div className="justify-content-center  d-flex  mt-md-4">
                   <div className="b-1px col p-4 w-100 mw-1000 bg-individual">
                         <h3 className="light p-0 d m-0"><strong></strong> {title}</h3>
-                        <h5 className="light p-0  m-0"><strong>Author: </strong>{Authors.map(x => {return <>{x.name};</>})}</h5>
-                        <p className="light p-0  m-0"><strong>Id:</strong> {id}</p>
-                        <p className="light p-0  m-0"><strong>Created At:</strong> {createdAt}</p>
-                        <p className="light p-0  m-0"><strong>Date Modified:</strong> {dateModified}</p>        
+                        <hr />
+                        <h6 className="light p-0  m-0"><strong>Author(s): </strong></h6>
+                        <ol>{
+                              Authors.map((x, i) => {
+                                    return <li className="m-0 f-14 p-0">{x.name};</li>
+                              })
+                        }</ol>
+        
                         <hr />
                         <div className="d-flex justify-content-center my-3    ">
-                              <h6 className="light p-0  m-0 text-justify"><strong>Abstract</strong> </h6>
+                              <h6 className="light p-0  m-0 text-justify"><strong> - Abstract - </strong> </h6>
                         </div>
-                        <p>{abstract }</p>
+                        <p className="text-justify f-14">{abstract}</p>
                         <hr />
                         {
                               //<p className="light p-0  m-0"><strong>Approval Request Date:</strong> {approvalrequestDate}</p>
                         }
-                        <p className="light p-0  m-0"><strong>Approvals Count:</strong> {approvalsCount}</p>
-                        <p className="light p-0  m-0"><strong>Is Approved By School:</strong> {isApprovedBySchool}</p>
-                        <p className="light p-0  m-0"><strong>Is Published:</strong> {(isPublished) ? isPublished : <>False</>}</p>
-                        <p className="light p-0  m-0 text-break"><strong>Link:</strong> <a href={link}>{link}</a></p>
-                        <p className="light p-0  m-0"><strong>Rejection Count:</strong> {rejectionCount}</p>
-                        <p className="light p-0  m-0"><strong>Research Status:</strong> {researchStatus}</p>
-                        <p className="light p-0  m-0"><strong>Updated At:</strong> {updatedAt}</p>
-                        <p className="light p-0  m-0"><strong>Ratings:</strong> {ratings}</p>                        
-                        <p className="light p-0  m-0"><strong>Views:</strong> {view}</p>
-                        <p className="light p-0  m-0"><strong>Cite:</strong> {cite}</p>
+                        <p className="light p-0  m-0 f-14"><strong>Id:</strong> {id}</p>
+                        <p className="light p-0  m-0 f-14"><strong>Created At:</strong> {createdAt}</p>
+                        <p className="light p-0  m-0 f-14"><strong>Date Modified:</strong> {dateModified}</p>
+                        <p className="light p-0  m-0 f-14"><strong>Approvals Count:</strong> {approvalsCount}</p>
+                        <p className="light p-0  m-0 f-14"><strong>Is Approved By School:</strong> {isApprovedBySchool}</p>
+                        <p className="light p-0  m-0 f-14"><strong>Is Published:</strong> {(isPublished) ? isPublished : <>False</>}</p>
+                        <p className="light p-0  m-0 f-14 text-break"><strong>Link:</strong> <a href={link}>{link}</a></p>
+                        <p className="light p-0  m-0 f-14"><strong>Rejection Count:</strong> {rejectionCount}</p>
+                        <p className="light p-0  m-0 f-14"><strong>Research Status:</strong> {researchStatus}</p>
+                        <p className="light p-0  m-0 f-14"><strong>Ratings:</strong> {ratings}</p>                        
+                        <p className="light p-0  m-0 f-14"><strong>Views:</strong> {view}</p>
+                        <p className="light p-0  m-0 f-14"><strong>Cite:</strong> {cite}</p>
 
                   </div>
             </div>

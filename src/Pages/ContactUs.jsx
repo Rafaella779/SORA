@@ -75,7 +75,7 @@ export default function ContactUs() {
 								</div>
 							</div>
 						</div>
-						<div className="b-1px col-12 col-lg-7 p-3 flex-column mw-545">
+						<div className="b-1px col-12 col-lg-5 p-3 flex-column ">
 							<h4 className="pt-serif-bold">Leave A Message</h4>
 							<Form className="d-flex flex-column gap-1">							
 								<Form.Group className="d-flex flex-column" controller="">
